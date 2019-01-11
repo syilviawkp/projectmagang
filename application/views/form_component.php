@@ -10,18 +10,18 @@
   <title>Dashio - Bootstrap Admin Template</title>
 
   <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="<?php echo base_url()?>/assets/img/favicon.png" rel="icon">
+  <link href="<?php echo base_url()?>/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Bootstrap core CSS -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?php echo base_url()?>/assets/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!--external css-->
-  <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="lib/bootstrap-datepicker/css/datepicker.css" />
-  <link rel="stylesheet" type="text/css" href="lib/bootstrap-daterangepicker/daterangepicker.css" />
+  <link href="<?php echo base_url()?>/assets/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/assets/lib/bootstrap-datepicker/css/datepicker.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/assets/lib/bootstrap-daterangepicker/daterangepicker.css" />
   <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet">
-  <link href="css/style-responsive.css" rel="stylesheet">
+  <link href="<?php echo base_url()?>/assets/css/style.css" rel="stylesheet">
+  <link href="<?php echo base_url()?>/assets/css/style-responsive.css" rel="stylesheet">
 
   <!-- =======================================================
     Template Name: Dashio
@@ -129,7 +129,7 @@
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-zac.jpg"></span>
+                  <span class="photo"><img alt="avatar" src="<?php echo base_url()?>/assets/img/ui-zac.jpg"></span>
                   <span class="subject">
                   <span class="from">Zac Snider</span>
                   <span class="time">Just now</span>
@@ -141,7 +141,7 @@
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-divya.jpg"></span>
+                  <span class="photo"><img alt="avatar" src="<?php echo base_url()?>/assets/img/ui-divya.jpg"></span>
                   <span class="subject">
                   <span class="from">Divya Manian</span>
                   <span class="time">40 mins.</span>
@@ -153,7 +153,7 @@
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-danro.jpg"></span>
+                  <span class="photo"><img alt="avatar" src="<?php echo base_url()?>/assets/img/ui-danro.jpg"></span>
                   <span class="subject">
                   <span class="from">Dan Rogers</span>
                   <span class="time">2 hrs.</span>
@@ -165,7 +165,7 @@
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-sherman.jpg"></span>
+                  <span class="photo"><img alt="avatar" src="<?php echo base_url()?>/assets/img/ui-sherman.jpg"></span>
                   <span class="subject">
                   <span class="from">Dj Sherman</span>
                   <span class="time">4 hrs.</span>
@@ -244,7 +244,7 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
+          <p class="centered"><a href="profile.html"><img src="<?php echo base_url()?>/assets/img/ui-sam.jpg" class="img-circle" width="80"></a></p>
           <h5 class="centered">Sam Soffes</h5>
           <li class="mt">
             <a href="index.html">
@@ -371,57 +371,83 @@
         <div class="row mt">
           <div class="col-lg-12">
             <div class="form-panel">
-              <h4 class="mb"><i class="fa fa-angle-right"></i> Form Elements</h4>
+              <h4 class="mb"><i class="fa fa-angle-right"></i> Laporan Kesga</h4>
               <form class="form-horizontal style-form" method="get">
                 <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Default</label>
+                  <label class="col-sm-2 col-sm-2 control-label">Kode Puskesmas</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control">
+                    <select class="form-control">
+                    <option>--Pilih Puskesmas--</option>
+                  <option>Batu</option>
+                  <option>Sisir</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Help text</label>
+                  <label class="col-sm-2 col-sm-2 control-label">Bulan</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control">
-                    <span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+                     <select class="form-control">
+                  <option>--Pilih Bulan--</option>
+                  <option>Januari</option>
+                  <option>Februari</option>
+                  <option>Maret</option>
+                  <option>April</option>
+                  <option>Mei</option>
+                  <option>Juni</option>
+                  <option>Juli</option>
+                  <option>Agustus</option>
+                  <option>September</option>
+                  <option>Oktober</option>
+                  <option>November</option><option>Desember</option>
+                </select>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Rounder</label>
+                  <label class="col-sm-2 col-sm-2 control-label">Tahun</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control round-form">
+                   <select class="form-control">
+                  <option>--Pilih Tahun--</option>
+                  <option>2015</option>
+                  <option>2016</option>
+                  <option>2017</option>
+                  <option>2018</option>
+                  <option>2019</option>
+                  <option>2020</option>
+                  <option>2021</option>
+                  <option>2022</option>
+                  <option>2023</option>
+                  <option>2024</option>
+                  <option>2025</option><option>2026</option>
+                </select>
                   </div>
                 </div>
-                <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Input focus</label>
-                  <div class="col-sm-10">
-                    <input class="form-control" id="focusedInput" type="text" value="This is focused...">
+
+                <div class="table table-striped table-advance table-hover">
+                    <table class="table table-hover">
+                      <?php foreach ($kategori as $key) {?>
+                      <tr>
+                        <th><b><?php echo $key->namaKategori?></b></th>
+                        <th></th>
+                        <?php foreach ($field as $kolom) { 
+                          if($kolom->idKategori == $key->idKategori){?>
+                          <tr>
+                            <td><?php echo $kolom->namaField?></td>
+                            <td> 
+              <div class="col-sm-6 text-center">
+                  <div class="switch switch-square" data-on-label="<i class=' fa fa-check'></i>" data-off-label="<i class='fa fa-times'></i>">
+                    <input type="checkbox" />
                   </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Disabled</label>
-                  <div class="col-sm-10">
-                    <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Placeholder</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" placeholder="placeholder">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Password</label>
-                  <div class="col-sm-10">
-                    <input type="password" class="form-control" placeholder="">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-lg-2 col-sm-2 control-label">Static control</label>
-                  <div class="col-lg-10">
-                    <p class="form-control-static">email@example.com</p>
-                  </div>
-                </div>
+                </td>
+                          </tr>
+                          <?php }} ?>
+                      </tr>
+                      <?php } ?>
+                    </table>
+                                </div>
+                
               </form>
             </div>
           </div>
@@ -598,25 +624,25 @@
     <!--footer end-->
   </section>
   <!-- js placed at the end of the document so the pages load faster -->
-  <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-  <script class="include" type="text/javascript" src="lib/jquery.dcjqaccordion.2.7.js"></script>
-  <script src="lib/jquery.scrollTo.min.js"></script>
-  <script src="lib/jquery.nicescroll.js" type="text/javascript"></script>
+  <script src="<?php echo base_url()?>/assets/lib/jquery/jquery.min.js"></script>
+  <script src="<?php echo base_url()?>/assets/lib/bootstrap/js/bootstrap.min.js"></script>
+  <script class="include" type="text/javascript" src="<?php echo base_url()?>/assets/lib/jquery.dcjqaccordion.2.7.js"></script>
+  <script src="<?php echo base_url()?>/assets/lib/jquery.scrollTo.min.js"></script>
+  <script src="<?php echo base_url()?>/assets/lib/jquery.nicescroll.js" type="text/javascript"></script>
   <!--common script for all pages-->
-  <script src="lib/common-scripts.js"></script>
+  <script src="<?php echo base_url()?>/assets/lib/common-scripts.js"></script>
   <!--script for this page-->
-  <script src="lib/jquery-ui-1.9.2.custom.min.js"></script>
+  <script src="<?php echo base_url()?>/assets/lib/jquery-ui-1.9.2.custom.min.js"></script>
   <!--custom switch-->
-  <script src="lib/bootstrap-switch.js"></script>
+  <script src="<?php echo base_url()?>/assets/lib/bootstrap-switch.js"></script>
   <!--custom tagsinput-->
-  <script src="lib/jquery.tagsinput.js"></script>
+  <script src="<?php echo base_url()?>/assets/lib/jquery.tagsinput.js"></script>
   <!--custom checkbox & radio-->
-  <script type="text/javascript" src="lib/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-daterangepicker/date.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-daterangepicker/daterangepicker.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
-  <script src="lib/form-component.js"></script>
+  <script type="text/javascript" src="<?php echo base_url()?>/assets/lib/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+  <script type="text/javascript" src="<?php echo base_url()?>/assets/lib/bootstrap-daterangepicker/date.js"></script>
+  <script type="text/javascript" src="<?php echo base_url()?>/assets/lib/bootstrap-daterangepicker/daterangepicker.js"></script>
+  <script type="text/javascript" src="<?php echo base_url()?>/assets/lib/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
+  <script src="<?php echo base_url()?>/assets/lib/form-component.js"></script>
 
 </body>
 
