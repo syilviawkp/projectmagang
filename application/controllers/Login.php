@@ -97,5 +97,27 @@ class Login extends CI_Controller {
 		/*$this->load->view('hapus_user_sukses');*/
 	}
 
+	public function Update()
+	{
+			
+			// $this->form_validation->set_rules('nama', 'nama', 'trim|required');
+			// $this->form_validation->set_rules('tanggal', 'tanggal', 'trim|required');
+			// $this->form_validation->set_rules('email','email','trim|required');
+			// $this->form_validation->set_rules('username','Username','trim|required');
+			// $this->form_validation->set_rules('password','Password','trim|required');
+			
+
+			// $data['user']=$this->user_model->getCurrentUser();
+
+			// if($this->form_validation->run()==FALSE){
+			// 	$this->load->view('edituser', $data);
+
+			// }else{
+
+			// 	$this->user_model->UpdateById();
+			// 	$this->load->view('edit_user_sukses');}
+
+	}
+
 
 }
