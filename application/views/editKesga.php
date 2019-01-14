@@ -11,7 +11,7 @@
           <div class="col-lg-12">
             <div class="form-panel">
               <h4 class="mb"><i class="fa fa-angle-right"></i> Laporan Kesga</h4>
-             <?php echo form_open('LaporanKesga/filter'); ?>
+             
                 <div class="form-group">
                   <label class="col-sm-2 col-sm-2 control-label">Bulan</label>
                   <div class="col-sm-10">
@@ -45,21 +45,27 @@
                 <div class="form-group">
                 <div class="col-sm-12" align="right">
               
-                <?php echo form_close();?>  <a href="" data-toggle="modal" data-target="#myModal">
-                <button id="btn-edit" class="btn btn-success" >Save Laporan</button></a>
+    
+                <button id="btn-edit" class="btn btn-success" >Save Laporan</button>
                            <br><br>
                   </div>
                 </div>
 
               
- 
+ <?php echo form_open('LaporanKesga/saveEditLaporan');?>
+    <input type="text" name="puskesmas" value="<?php echo $puskesmas?>" hidden="">
+    <input type="text" name="bulan" value="<?php echo $bulan?>" hidden="">
+    <input type="text" name="tahun" value="<?php echo $tahun ?>" hidden="">
+    
+    
                 <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
             <tr>
               <th colspan="6" ><center>Absen Laporan Kesga Bulan <?php echo $bulan." "; echo $tahun?> </center> </th>
+
             </tr>
                 <tr>
-                    <th></th>
+                    <th><input type="checkbox" name="check" value="SUDAH" ></th>
                     <th><?php echo $puskesmas?></th>
                    
                 </tr>
@@ -75,21 +81,23 @@
                 <td><?php echo $data->namaField?></td>
                 <?php if($data->$puskesmas == "SUDAH") {?>
 
-                <td><input type="checkbox" name="feeling" value="good" checked=""></td>
+                <td>
+
+                <input type="checkbox" name="<?php echo "$data->namaField" ?>" id="<?php echo $data->namaField?>" value="SUDAH" checked=""><?php echo $data->namaField?></td>
               <?php }else{?>
-                <td><input type="checkbox" name="feeling" value="good" checked=""></td>
+                <td><input type="checkbox" name="<?php echo "$data->namaField" ?>" id="<?php echo $data->namaField?>" value="SUDAH" ><?php echo $data->namaField?></td>
+
               <?php } ?>
 
 
               </tr>
               <?php }}} ?>
-
-
-
             </tbody>
 
            
         </table>
+        <Button type="submit" class="btn btn-success"> Submit</Button>
+        <?php echo form_close();?>
             </div>
           </div>
           <!-- col-lg-12-->
@@ -128,63 +136,7 @@
     </footer>
     <!--footer end-->
   </section>
-  <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade-in">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Edit Absen Laporan</h4>
-                </div>
-     <?php echo form_open('LaporanKesga/editKesga'); ?>
-    <div class="modal-body">
-        <div class="form-group">
-                    <label for="">Bulan</label>
-                   
-                  <select class="form-control" name="bulan" id="bulan">
-                  <option value="" >--Pilih Bulan--</option>
-                  <?php 
-                  $daftarBulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
-                  foreach ($daftarBulan as $key) {
-                  if($key== $bulan){?>
-                    <option value="<?php echo $key?>" selected=""><?php echo $key?></option>
-                 <?php }
-                  else{?>
-                     <option value="<?php echo $key?>" ><?php echo $key?></option>
-
-                  <?php }}?>
-                  </select>
-                </div>
-                <div class="form-group">
-                    <label for="">Tahun</label>
-                     <select class="form-control" name="tahun" id="tahun">
-                  <option value="">--Pilih Tahun--</option>
-                  <?php for($i=2015 ; $i<=2023;$i++){
-                    if($i==$tahun){?>
-                  
-                  <option value="<?php echo $i?>" selected=""><?php echo $i?></option>
-            <?php   } else{?>
-            <option value="<?php echo $i?>" ><?php echo $i?></option>
-                  <?php   }} ?>
-                
-                </select>
-                
-                </div>
-                <div class="form-group">
-                    <label for="">Puskesmas</label>
-                    <select class="form-control" name="puskesmas" id="puskesmas">
-                  <option value="Batu" >Batu</option>
-                  <option value="Beji" >Beji</option>
-                  <option value="Bumiaji" >Bumiaji</option>
-                  <option value="Junrejo" >Junrejo</option>
-                  <option value="Sisir" >Sisir</option>
-                  </select>
-                   
-                </div>
-                <center><button type="submit" class="btn btn-primary">Submit</button></center>
-                <?php echo form_close();?>
-        </div>
-        </div>
-        </div>
-        </div>
+  <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class=
   <!-- js placed at the end of the document so the pages load faster -->
   <script src="<?php echo base_url()?>assets/lib/jquery/jquery.min.js"></script>
 

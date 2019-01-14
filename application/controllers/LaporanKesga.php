@@ -35,7 +35,7 @@ class LaporanKesga extends CI_Controller {
         $data['bulan']= $key->bulan;
         $data['tahun']= $key->tahun;
       }
-		$data['kategori']= $this->KesgaModel->getLastLaporan();
+		$data['kategori']= $this->KesgaModel->getLastKategori();
 		$data['laporan']= $this->KesgaModel->getLastLaporan();
 		$this->load->view('header');
 		$this->load->view('laporanKesga',$data);
@@ -45,7 +45,7 @@ class LaporanKesga extends CI_Controller {
 		$data['daftarBulan'] = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
 		$data['bulan']=$this->input->post('bulan');
 		$data['tahun']=$this->input->post('tahun');
-		$data['kategori']= $this->KesgaModel->getFilterLaporan();
+		$data['kategori']= $this->KesgaModel->getFilterKategori();
 		$data['laporan']= $this->KesgaModel->getFilterLaporan();
 		$this->load->view('header');
 		$this->load->view('laporanKesga',$data);
@@ -64,10 +64,16 @@ class LaporanKesga extends CI_Controller {
 		$data['bulan']=$this->input->post('bulan');
 		$data['tahun']=$this->input->post('tahun');
 		$data['puskesmas']=$this->input->post('puskesmas');
-		$data['kategori']= $this->KesgaModel->getFilterLaporan();
+		$data['kategori']= $this->KesgaModel->getFilterKategori();
 		$data['laporan']= $this->KesgaModel->getFilterLaporan();
 		$this->load->view('header');
 		$this->load->view('editKesga',$data);
+	}
+
+	public function saveEditLaporan(){
+		$this->KesgaModel->edit();
+		die();
+		redirect('LaporanKesga','refresh');
 	}
 
 	
