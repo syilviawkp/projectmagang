@@ -26,15 +26,15 @@ class Login extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->$this->load->helper('url');
-		$this->$this->load->helper('form');
+		$this->load->helper('url');
+		$this->load->helper('form');
 		
 
 		$this->load->model('UserModel');
-		$data["user_object"]= $this->UserModel->getUserQueryObject();
+		$data['user_object']= $this->UserModel->getUserQueryObject();
 
 		$this->load->view('header');
-		$this->load->view('login', $data);
+		$this->load->view('user_list', $data);
 	}
 
 	
@@ -86,6 +86,37 @@ class Login extends CI_Controller {
 		redirect('login','refresh');
 	}
 
+	public function Create()
+		{
+			$this->load->helper('url', 'form');
+			$this->load->library('form_validation');
+			// $this->load->model('UserModel');
+			$this->form_validation->set_rules('username', 'username', 'trim|required');
+			$this->form_validation->set_rules('password', 'password', 'trim|required');
+			$this->form_validation->set_rules('nama', 'nama', 'trim|required');
+			$this->form_validation->set_rules('noHp', 'noHp', 'trim|required');
+			$this->form_validation->set_rules('idPuskesmas', 'idPuskesmas', 'trim|required');
+			$this->form_validation->set_rules('level', 'level', 'trim|required');
+			$this->form_validation->set_rules('jabatan', 'jabatan', 'trim|required');
+			
+
+		if ($this->form_validation->run()==FALSE) 
+			{
+				echo '<script>alert("Gagal menambahkan")</script>';
+				$this->load->view('tambahUser');
+		}else
+			{
+				$this->load->model('UserModel');
+				$this->UserModel->insertUser();
+				echo '<script>alert("Sukses mendaftar")</script>';
+				redirect('Login/data', 'refresh');
+			}
+	}
+
+	public function tambahUser(){
+		$this->load->view('tambahUser');
+	}
+
 	public function data()
 	{ 
 		$data['user_object']=$this->UserModel->getUserQueryObject();
@@ -117,14 +148,14 @@ class Login extends CI_Controller {
 			// $this->form_validation->set_rules('password','Password','trim|required');
 			
 
-			// $data['user']=$this->user_model->getCurrentUser();
+			// $data['user']=$this->UserModel->getCurrentUser();
 
 			// if($this->form_validation->run()==FALSE){
 			// 	$this->load->view('edituser', $data);
 
 			// }else{
 
-			// 	$this->user_model->UpdateById();
+			// 	$this->UserModel->UpdateById();
 			// 	$this->load->view('edit_user_sukses');}
 
 	}

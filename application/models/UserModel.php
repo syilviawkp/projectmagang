@@ -7,7 +7,7 @@ class UserModel extends CI_Model {
     public function __construct()
     {
         parent::__construct();
-        // $this->load->database();
+        $this->load->database();
     }
 
     public function login($username, $password)
@@ -27,6 +27,19 @@ class UserModel extends CI_Model {
         {
             return false;
         }
+    }
+
+    public function insertUser(){ 
+    $object = array(
+        'username'=>$this->input->post('username'),
+        'password'=>$this->input->post('password'),
+        'nama'=>$this->input->post('nama'), 
+        'noHp'=>$this->input->post('noHp'),
+        'idPuskesmas'=>$this->input->post('idPuskesmas'),
+        'level'=>$this->input->post('level'),
+        'jabatan'=>$this->input->post('jabatan')
+     ); 
+        $this->db->insert('user',$object); 
     }
 
     public function readUser(){
@@ -50,10 +63,10 @@ class UserModel extends CI_Model {
             //return $query->row();
     }
 
-    public function delete($id){
-        $this->db->where('id', $id);
+    public function delete($idUser){
+        $this->db->where('idUser', $idUser);
         $this->db->delete('user');
     }
-    
+
   }
 ?>
