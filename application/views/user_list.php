@@ -1,4 +1,4 @@
-<?php $this->load->view('header');?>
+
     <!--sidebar end-->
     <!-- **********************************************************************************************************************************************************
         MAIN CONTENT
@@ -12,8 +12,6 @@
           <div class="col-lg-12">
             <div class="form-panel">
               <h4 class="mb"><i class="fa fa-angle-right"></i> User</h4>
-             <?php echo form_open('Login/'); ?>
-     
                 <div class="form-group">
                 <div class="col-sm-12" align="right">
                 <a href="" data-toggle="modal" data-target="#myModal">
@@ -51,9 +49,13 @@
                       <td><?php echo $key->idPuskesmas ?></td>
                       <td><?php echo $key->level ?></td>
 
-                         <td><a href="<?=site_url()?>/login/Update/<?php echo $key->idUser ?>"<p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-warning" data-title="Edit" data-toggle="modal" data-target="#edit"><span class="glyphicon glyphicon-pencil"></span></button></p></td></a>
-                         <td><a href="<?=site_url()?>/login/delete/<?php echo $key->idUser ?>"<p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td></a>
+                         <td><a href="<?=site_url()?>/Login/Update/<?php echo $key->idUser ?>"<p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-warning" data-title="Edit" data-toggle="modal" data-target="#edit"><span class="glyphicon glyphicon-pencil"></span></button></p></td></a>
+                         <td><a href="<?php echo site_url()?>/Login/Delete/<?php echo $key->idUser ?>"<p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td></a>
                         </tr>
+
+
+                        </tr>
+
 
                   <?php } ?>  
                 </tbody>

@@ -26,15 +26,15 @@ class Login extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->$this->load->helper('url');
-		$this->$this->load->helper('form');
+		$this->load->helper('url');
+		$this->load->helper('form');
 		
 
 		$this->load->model('UserModel');
 		$data["user_object"]= $this->UserModel->getUserQueryObject();
 
 		$this->load->view('header');
-		$this->load->view('login', $data);
+		$this->load->view('user_list', $data);
 	}
 
 	
@@ -89,7 +89,8 @@ class Login extends CI_Controller {
 	public function data()
 	{ 
 		$data['user_object']=$this->UserModel->getUserQueryObject();
-		$this->load->view('user_list', $data);
+		$this->load->view('header');
+		 $this->load->view('user_list', $data);
 	}
 
 	public function read(){

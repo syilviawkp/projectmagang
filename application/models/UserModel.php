@@ -50,8 +50,8 @@ class UserModel extends CI_Model {
             //return $query->row();
     }
 
-    public function delete($id){
-        $this->db->where('id', $id);
+    public function delete($idUser){
+        $this->db->where('idUser', $idUser);
         $this->db->delete('user');
     }
     
