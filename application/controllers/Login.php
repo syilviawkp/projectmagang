@@ -3,6 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
 
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('UserModel');
+	}
+
 	/**
 	 * Index Page for this controller.
 	 *
@@ -20,15 +26,18 @@ class Login extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('login');
+		$this->$this->load->helper('url');
+		$this->$this->load->helper('form');
+		
+
+		$this->load->model('UserModel');
+		$data["user_object"]= $this->UserModel->getUserQueryObject();
+
+		$this->load->view('header');
+		$this->load->view('login', $data);
 	}
 
-	public function __construct(){
-		parent::__construct();
-		$this->$this->load->helper('url','form');
-		$this->$this->load->library('form_validation');
-		$this->$this->load->model('UserModel');
-	}
+	
 
 	public function cekLogin(){
 		// $this->load->library('form_validation');

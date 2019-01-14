@@ -1,9 +1,10 @@
-
+<?php $this->load->view('header');?>
     <!--sidebar end-->
     <!-- **********************************************************************************************************************************************************
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
     <!--main content start-->
+    
     <section id="main-content">
       <section class="wrapper">
         <div class="row">
@@ -11,29 +12,29 @@
           <div class="col-lg-12">
             <div class="form-panel">
               <h4 class="mb"><i class="fa fa-angle-right"></i> User</h4>
-             <?php echo form_open('Login/data'); ?>
+             <?php echo form_open('Login/'); ?>
      
                 <div class="form-group">
                 <div class="col-sm-12" align="right">
-                <?php echo form_close();?>  <a href="" data-toggle="modal" data-target="#myModal">
-                <button id="btn-edit" class="btn btn-success" >Edit</button></a>
+                <a href="" data-toggle="modal" data-target="#myModal">
+                <button id="btn-edit" class="btn btn-success" >Tambah user</button></a>
                            <br><br>
                   </div>
                 </div>
                 <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
-            <tr>
-              <th colspan="6" ><center><h1>Kelola User</h1> </center> </th>
-            </tr>
+           <center><h1>Kelola User</h1> </center> 
                 <tr>
                     <th>ID user</th>
                     <th>Username</th>
                     <th>Password</th>
                     <th>Nama Lengkap</th>
-                    <th>Jabatan</th>
                     <th>Nomer HP</th>
-                    <th>Kode Puseksmas/th>
+                    <th>Jabatan</th>
+                    <th>Kode Pusekesmas</th>
                     <th>Level user</th>
+                    <th>Edit</th>
+                    <th>Hapus</th>
                     
                 </tr>
             </thead>
@@ -47,7 +48,6 @@
                       <td><?php echo $key->nama ?></td>
                       <td><?php echo $key->noHp ?></td>
                       <td><?php echo $key->jabatan ?></td>
-                      <td><?php echo $key->noHp ?></td>
                       <td><?php echo $key->idPuskesmas ?></td>
                       <td><?php echo $key->level ?></td>
 
@@ -98,63 +98,7 @@
     </footer>
     <!--footer end-->
   </section>
-  <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade-in">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Edit Absen Laporan</h4>
-                </div>
-     <?php echo form_open('LaporanKesga/editLaporan'); ?>
-    <div class="modal-body">
-        <div class="form-group">
-                    <label for="">Bulan</label>
-                   
-                  <select class="form-control" name="bulan" id="bulan">
-                  <option value="" >--Pilih Bulan--</option>
-                  <?php 
-                  $daftarBulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
-                  foreach ($daftarBulan as $key) {
-                  if($key== $bulan){?>
-                    <option value="<?php echo $key?>" selected=""><?php echo $key?></option>
-                 <?php }
-                  else{?>
-                     <option value="<?php echo $key?>" ><?php echo $key?></option>
-
-                  <?php }}?>
-                  </select>
-                </div>
-                <div class="form-group">
-                    <label for="">Tahun</label>
-                     <select class="form-control" name="tahun" id="tahun">
-                  <option value="">--Pilih Tahun--</option>
-                  <?php for($i=2015 ; $i<=2023;$i++){
-                    if($i==$tahun){?>
-                  
-                  <option value="<?php echo $i?>" selected=""><?php echo $i?></option>
-            <?php   } else{?>
-            <option value="<?php echo $i?>" ><?php echo $i?></option>
-                  <?php   }} ?>
-                
-                </select>
-                
-                </div>
-                <div class="form-group">
-                    <label for="">Puskesmas</label>
-                    <select class="form-control" name="puskesmas" id="puskesmas">
-                  <option value="Batu" >Batu</option>
-                  <option value="Beji" >Beji</option>
-                  <option value="Bumiaji" >Bumiaji</option>
-                  <option value="Junrejo" >Junrejo</option>
-                  <option value="Sisir" >Sisir</option>
-                  </select>
-                   
-                </div>
-                <center><button type="submit" class="btn btn-primary">Submit</button></center>
-                <?php echo form_close();?>
-        </div>
-        </div>
-        </div>
-        </div>
+  
   <!-- js placed at the end of the document so the pages load faster -->
   <script src="<?php echo base_url()?>assets/lib/jquery/jquery.min.js"></script>
 
