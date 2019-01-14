@@ -296,6 +296,17 @@
               
             </ul>
           </li>
+
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-tasks"></i>
+              <span>Pengaturan</span>
+              </a>
+            <ul class="sub">
+              <li><a href="<?php echo site_url()?>/Login/data">Kelola User</a></li>
+              
+            </ul>
+          </li>
          
         </ul>
         <!-- sidebar menu end-->
