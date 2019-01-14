@@ -42,6 +42,7 @@ class LaporanKesga extends CI_Controller {
 	}
 
 	public function filter(){
+		$data['daftarBulan'] = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
 		$data['bulan']=$this->input->post('bulan');
 		$data['tahun']=$this->input->post('tahun');
 		$data['kategori']= $this->KesgaModel->getFilterLaporan();
@@ -57,6 +58,16 @@ class LaporanKesga extends CI_Controller {
 		$data['field']=$this->KesgaModel->getFieldKesga();
 		$this->load->view('header');
 		$this->load->view('form_component',$data);
+	}
+
+	public function editLaporan(){
+		$data['bulan']=$this->input->post('bulan');
+		$data['tahun']=$this->input->post('tahun');
+		$data['puskesmas']=$this->input->post('puskesmas');
+		$data['kategori']= $this->KesgaModel->getFilterLaporan();
+		$data['laporan']= $this->KesgaModel->getFilterLaporan();
+		$this->load->view('header');
+		$this->load->view('editKesga',$data);
 	}
 
 	

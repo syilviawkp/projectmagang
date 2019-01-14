@@ -16,17 +16,13 @@
                   <label class="col-sm-2 col-sm-2 control-label">Bulan</label>
                   <div class="col-sm-10">
                      <select class="form-control" name="bulan" id="bulan">
-                  <option value="" >--Pilih Bulan--</option>
+                
                   <?php 
                   $daftarBulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
                   foreach ($daftarBulan as $key) {
                   if($key== $bulan){?>
                     <option value="<?php echo $key?>" selected=""><?php echo $key?></option>
-                 <?php }
-                  else{?>
-                     <option value="<?php echo $key?>" ><?php echo $key?></option>
-
-                  <?php }}?>
+                 <?php }}?>
                   
                  
                 </select>
@@ -41,18 +37,16 @@
                     if($i==$tahun){?>
                   
                   <option value="<?php echo $i?>" selected=""><?php echo $i?></option>
-            <?php   } else{?>
-            <option value="<?php echo $i?>" ><?php echo $i?></option>
-                  <?php   }} ?>
+            <?php   } } ?>
                 
                 </select><br>
                   </div>
                 </div>
                 <div class="form-group">
                 <div class="col-sm-12" align="right">
-               <button type="submit" id="btn-filter" class="btn btn-primary" >Filter</button>
+              
                 <?php echo form_close();?>  <a href="" data-toggle="modal" data-target="#myModal">
-                <button id="btn-edit" class="btn btn-success" >Edit Laporan</button></a>
+                <button id="btn-edit" class="btn btn-success" >Save Laporan</button></a>
                            <br><br>
                   </div>
                 </div>
@@ -66,11 +60,8 @@
             </tr>
                 <tr>
                     <th></th>
-                    <th>Batu</th>
-                    <th>Beji</th>
-                    <th>Bumiaji</th>
-                    <th>Junrejo</th>
-                    <th>Sisir</th>
+                    <th><?php echo $puskesmas?></th>
+                   
                 </tr>
             </thead>
             <tbody>
@@ -82,37 +73,12 @@
                 if($key->namaKategori==$data->namaKategori){?>
               <tr>
                 <td><?php echo $data->namaField?></td>
-                <?php if($data->Batu == "SUDAH") {?>
+                <?php if($data->$puskesmas == "SUDAH") {?>
 
-                <td><input type="checkbox" name="feeling" value="good" checked="" disabled readonly=""></td>
+                <td><input type="checkbox" name="feeling" value="good" checked=""></td>
               <?php }else{?>
-              <td style="background: yellow"></td>
+                <td><input type="checkbox" name="feeling" value="good" checked=""></td>
               <?php } ?>
-
-              <?php if($data->Beji == "SUDAH") {?>
-                <td><input type="checkbox" name="feeling" value="good" checked="" disabled readonly=""></td>
-              <?php }else{?>
-              <td style="background: yellow"></td>
-              <?php } ?>
-
-              <?php if($data->Bumiaji == "SUDAH") {?>
-                <td><input type="checkbox" name="feeling" value="good" checked="" disabled  readonly=""></td>
-              <?php }else{?>
-              <td style="background: yellow"></td>
-              <?php } ?>
-
-              <?php if($data->Junrejo == "SUDAH") {?>
-                <td><input type="checkbox" name="feeling" value="good" checked="" disabled readonly=""></td>
-              <?php }else{?>
-              <td style="background: yellow"></td>
-              <?php } ?>
-
-              <?php if($data->Sisir == "SUDAH") {?>
-                <td><input type="checkbox" name="feeling" value="good" checked="" disabled readonly=""></td>
-              <?php }else{?>
-              <td style="background: yellow"></td>
-              <?php } ?>
-              
 
 
               </tr>
@@ -168,7 +134,7 @@
                 <div class="modal-header">
                     <h4 class="modal-title">Edit Absen Laporan</h4>
                 </div>
-     <?php echo form_open('LaporanKesga/editLaporan'); ?>
+     <?php echo form_open('LaporanKesga/editKesga'); ?>
     <div class="modal-body">
         <div class="form-group">
                     <label for="">Bulan</label>

@@ -84,31 +84,31 @@
                 <td><?php echo $data->namaField?></td>
                 <?php if($data->Batu == "SUDAH") {?>
 
-                <td><input type="checkbox" name="feeling" value="good" checked=""></td>
+                <td><input type="checkbox" name="feeling" value="good" checked="" disabled readonly=""></td>
               <?php }else{?>
               <td style="background: yellow"></td>
               <?php } ?>
 
               <?php if($data->Beji == "SUDAH") {?>
-                <td><input type="checkbox" name="feeling" value="good" checked=""></td>
+                <td><input type="checkbox" name="feeling" value="good" checked="" disabled  readonly=""></td>
               <?php }else{?>
               <td style="background: yellow"></td>
               <?php } ?>
 
               <?php if($data->Bumiaji == "SUDAH") {?>
-                <td><input type="checkbox" name="feeling" value="good" checked=""></td>
+                <td><input type="checkbox" name="feeling" value="good" checked="" disabled readonly=""></td>
               <?php }else{?>
               <td style="background: yellow"></td>
               <?php } ?>
 
               <?php if($data->Junrejo == "SUDAH") {?>
-                <td><input type="checkbox" name="feeling" value="good" checked=""></td>
+                <td><input type="checkbox" name="feeling" value="good" checked="" disabled readonly=""></td>
               <?php }else{?>
               <td style="background: yellow"></td>
               <?php } ?>
 
               <?php if($data->Sisir == "SUDAH") {?>
-                <td><input type="checkbox" name="feeling" value="good" checked=""></td>
+                <td><input type="checkbox" name="feeling" value="good" checked="" disabled readonly=""></td>
               <?php }else{?>
               <td style="background: yellow"></td>
               <?php } ?>
