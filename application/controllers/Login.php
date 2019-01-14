@@ -90,7 +90,7 @@ class Login extends CI_Controller {
 		$this->load->view('user_list', $data);
 	}
 
-	public function Delete($id){
+	public function Delete($idUser){
 		$this->UserModel->delete($idUser);
 		echo '<script>alert("Sukses menghapus user")</script>';
 		redirect('Login/data', 'refresh');
