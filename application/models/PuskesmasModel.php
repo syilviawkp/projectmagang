@@ -18,6 +18,12 @@ class PuskesmasModel extends CI_Model {
         }
     }
 
+    public function getDataPuskesmas()
+    {
+        $query=$this->db->query('Select * from puskesmas');
+        return $query->result();
+    }
+
     
 
   }

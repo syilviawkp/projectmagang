@@ -292,10 +292,8 @@
               <span>Data Puskesmas</span>
               </a>
             <ul class="sub">
-              <li><a href="form_component.html">Form Components</a></li>
-              <li><a href="advanced_form_components.html">Advanced Components</a></li>
-              <li><a href="form_validation.html">Form Validation</a></li>
-              <li><a href="contactform.html">Contact Form</a></li>
+              <li><a href="<?php echo site_url()?>/Puskesmas">List Puskesmas</a></li>
+              
             </ul>
           </li>
          
