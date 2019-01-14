@@ -12,11 +12,7 @@
           <div class="col-lg-12">
             <div class="form-panel">
               <h4 class="mb"><i class="fa fa-angle-right"></i> User</h4>
-<<<<<<< HEAD
-=======
-             
-     
->>>>>>> d1fdb7fcff96142bd6f819e1e7b36b612c075c9f
+
                 <div class="form-group">
                 <div class="col-sm-12" align="right">
                 <a href="" data-toggle="modal" data-target="#myModal">
