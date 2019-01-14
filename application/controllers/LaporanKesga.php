@@ -71,8 +71,7 @@ class LaporanKesga extends CI_Controller {
 	}
 
 	public function saveEditLaporan(){
-		$this->KesgaModel->edit();
-		die();
+		$this->KesgaModel->editLap();
 		redirect('LaporanKesga','refresh');
 	}
 

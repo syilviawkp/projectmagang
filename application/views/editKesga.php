@@ -65,7 +65,7 @@
 
             </tr>
                 <tr>
-                    <th><input type="checkbox" name="check" value="SUDAH" ></th>
+                    <th><input type="checkbox" name="check" value="DAH" ></th>
                     <th><?php echo $puskesmas?></th>
                    
                 </tr>
@@ -76,16 +76,21 @@
                   <td colspan="6"><?php echo $key->namaKategori?></td>
               </tr>
               <?php foreach ($laporan as $data) {
+                 $field=$data->namaField;
+                  $field2= str_replace(' ', '', $field);
+                    $field2=str_replace('.', '',$field2);
                 if($key->namaKategori==$data->namaKategori){?>
               <tr>
                 <td><?php echo $data->namaField?></td>
-                <?php if($data->$puskesmas == "SUDAH") {?>
+                <?php if($data->$puskesmas == "SUDAH") {
+                 ?>
+                <input type="text" name="idLaporan" value="<?php echo $data->idLaporan?>" hidden="">
 
                 <td>
 
-                <input type="checkbox" name="<?php echo "$data->namaField" ?>" id="<?php echo $data->namaField?>" value="SUDAH" checked=""><?php echo $data->namaField?></td>
+                <input type="checkbox" name="<?php echo "$field2" ?>" value="SUDAH" checked=""><?php echo $field?></td>
               <?php }else{?>
-                <td><input type="checkbox" name="<?php echo "$data->namaField" ?>" id="<?php echo $data->namaField?>" value="SUDAH" ><?php echo $data->namaField?></td>
+                <td><input type="checkbox" name="<?php echo "$field2" ?>" value="SUDAH" ><?php echo $field?></td>
 
               <?php } ?>
 
