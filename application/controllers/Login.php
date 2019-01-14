@@ -22,4 +22,80 @@ class Login extends CI_Controller {
 	{
 		$this->load->view('login');
 	}
+
+	public function __construct(){
+		parent::__construct();
+		$this->$this->load->helper('url','form');
+		$this->$this->load->library('form_validation');
+		$this->$this->load->model('UserModel');
+	}
+
+	public function cekLogin(){
+		// $this->load->library('form_validation');
+		// $this->form_validation->set_rules('username',"username", 'trim|required|callback_cekDb');
+		// $this->form_validation->set_rules('password',"password", 'trim|required|callback_cekDb');
+
+		// if($this->form_validation->run()==FALSE){
+		// 	$this->load->view('login');
+		// }
+		// else{
+		// 	if($this->input->post('level')=='superadmin')
+		// }
+	}
+
+	public function cekDb($password)
+	{
+		$this->load->model('UserModel');
+		$username = $this->input->post('username');
+		$result = $this->UserModel->login($username, $password);
+
+		if($result)
+		{
+			$sess_array = array();
+			foreach ($result as $row)
+			{
+				$sess_array = array(
+				'idUser'=>$row->idUser,
+				'username'=>$row->username
+				);
+				$this->session->set_userdata('logged_in',$sess_array);
+			}
+			return true;
+		}
+
+		else
+		{
+			$this->form_validation->set_message('cekDb',"Login Gagal Username dan Password tidak valid");
+			return false;
+		}
+	}
+
+	public function logout()
+	{
+		$this->session->unset_userdata('logged_in');
+		$this->session->sess_destroy();
+		redirect('login','refresh');
+	}
+
+	public function data()
+	{ 
+		$data['user_object']=$this->UserModel->getUserQueryObject();
+		$this->load->view('user_list', $data);
+	}
+
+	public function read(){
+		$this->load->helper('url');
+		$this->load->model('UserModel');
+		$data['user_object']=$this->UserModel->readUser();
+		$this->load->view('user_list', $data);
+	}
+
+	public function Delete($idUser){
+		$this->UserModel->delete($idUser);
+		echo '<script>alert("Sukses menghapus user")</script>';
+		redirect('Login/data', 'refresh');
+		/*$this->load->view('hapus_user_sukses');*/
+	}
+
+
 }
