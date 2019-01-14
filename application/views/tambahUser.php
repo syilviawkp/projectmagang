@@ -1,4 +1,4 @@
-
+<?php $this->load->view('header');?>
     <!--sidebar end-->
     <!-- **********************************************************************************************************************************************************
         MAIN CONTENT
@@ -12,68 +12,69 @@
           <div class="col-lg-12">
             <div class="form-panel">
               <h4 class="mb"><i class="fa fa-angle-right"></i> User</h4>
-<<<<<<< HEAD
-=======
-             
-     
->>>>>>> d1fdb7fcff96142bd6f819e1e7b36b612c075c9f
+           <?php echo form_open('Login/Create'); ?>
                 <div class="form-group">
                 <div class="col-sm-12" align="right">
-                <a href="" data-toggle="modal" data-target="#myModal">
-                <a href="<?=site_url()?>/login/tambahUser"><button type="submit" class="btn btn-success">Tambah User</a></button>
-                <!-- <button id="btn-edit" class="btn btn-success" ><<?php echo site_url()?>/login/create">Tambah user</button></a> -->
+              
+                <!-- <button id="btn-edit" class="btn btn-success" >Tambah user</button></a> -->
                            <br><br>
                   </div>
                 </div>
                 <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
-           <center><h1>Kelola User</h1> </center> 
-                <tr>
-                    <th>ID user</th>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th>Nama Lengkap</th>
-                    <th>Nomer HP</th>
-                    <th>Jabatan</th>
-                    <th>Kode Pusekesmas</th>
-                    <th>Level user</th>
-                    <th>Edit</th>
-                    <th>Hapus</th>
-                    
-                </tr>
-            </thead>
-            <tbody>   
-                  <?php foreach ($user_object as $key){ ?>
-                  <tr>
+
+               <div class="row">
+                    <!-- column -->
+                    <div class="col-lg-12">
+            
+          
+           <center><h1>Tambah User</h1> </center> 
+
+                                <div class="form_group">
+
+                                    <label for="">Username</label>
+                                    <input type="text" name="username" class="form-control" id="username" placeholder="isi username">
+                                    <br><br>
+
+
+                                    <label for="">Password</label>
+                                    <input type="text" name="password" class="form-control" id="password" placeholder="isi password">
+                                    <br><br>
+
+
+                                    <label for="">Nama Lengkap</label>
+                                    <input type="text" name="nama" class="form-control" id="nama" placeholder="isi nama lengkap">
+                                    <br><br>
+
+                                    <label for="">Nomer HP</label>
+                                    <input type="text" name="noHp" class="form-control" id="noHp" placeholder="isi no hp">
+                                    <br><br>
+
+                                    <label for="">Jabatan</label>
+                                    <input type="text" name="jabatan" class="form-control" id="jabatan" placeholder="isi jabatan">
+                                    <br><br>
+
+                                    <label for="">Kode Puskesmas</label>
+                                    <input type="text" name="idPuskesmas" class="form-control" id="idPuskesmas" placeholder="isi kode puskesmas">
+                                    <br><br>
+
+                                    <label for="">Level</label>
+                                    <input type="text" name="level" class="form-control" id="level" placeholder="isi level">
+                                    <br><br>
+
+
+                                </div>
+
+                     
+                                <button type="submit" class="btn btn-primary">Submit</button>
                                
-                      <td><?php echo $key->idUser ?></td>
-                      <td><?php echo $key->username ?></td>
-                      <td><?php echo $key->password ?></td>
-                      <td><?php echo $key->nama ?></td>
-                      <td><?php echo $key->noHp ?></td>
-                      <td><?php echo $key->jabatan ?></td>
-                      <td><?php echo $key->idPuskesmas ?></td>
-                      <td><?php echo $key->level ?></td>
-
-                         <td><a href="<?=site_url()?>/Login/Update/<?php echo $key->idUser ?>"<p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-warning" data-title="Edit" data-toggle="modal" data-target="#edit"><span class="glyphicon glyphicon-pencil"></span></button></p></td></a>
-                         <td><a href="<?php echo site_url()?>/Login/Delete/<?php echo $key->idUser ?>"<p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td></a>
-                        </tr>
-
-
-                        </tr>
-
-
-                  <?php } ?>  
-                </tbody>
-
-           
-        </table>
-            </div>
-          </div>
-          <!-- col-lg-12-->
+                                </table>
+                              
+         
         </div>
       
     </div>
+    <?php echo form_close(); ?>
 <script src="<?php echo base_url('assets/jquery/jquery-2.2.3.min.js')?>"></script>
 <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js')?>"></script>
 <script src="<?php echo base_url('assets/datatables/js/jquery.dataTables.min.js')?>"></script>
@@ -85,25 +86,25 @@
     </section>
     <!--main content end-->
     <!--footer start-->
-    <footer class="site-footer">
+   <!--  <footer class="site-footer">
       <div class="text-center">
         <p>
           &copy; Copyrights <strong>Dashio</strong>. All Rights Reserved
         </p>
         <div class="credits">
-          <!--
+          
             You are NOT allowed to delete the credit link to TemplateMag with free version.
             You can delete the credit link only if you bought the pro version.
             Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/dashio-bootstrap-admin-template/
             Licensing information: https://templatemag.com/license/
-          -->
+          
           Created with Dashio template by <a href="https://templatemag.com/">TemplateMag</a>
         </div>
         <a href="index.html#" class="go-top">
           <i class="fa fa-angle-up"></i>
           </a>
       </div>
-    </footer>
+    </footer> -->
     <!--footer end-->
   </section>
   
