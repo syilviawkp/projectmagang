@@ -277,7 +277,7 @@
               <li><a href="gallery.html">Format Kesga</a></li>
             </ul>
           </li>
-          <li class="sub-menu">
+         <!--  <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-book"></i>
               <span>Extra Pages</span>
@@ -293,8 +293,8 @@
               <li><a href="404.html">404 Error</a></li>
               <li><a href="500.html">500 Error</a></li>
             </ul>
-          </li>
-          <li class="sub-menu">
+          </li> -->
+          <!-- <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-tasks"></i>
               <span>Forms</span>
@@ -305,8 +305,8 @@
               <li><a href="form_validation.html">Form Validation</a></li>
               <li><a href="contactform.html">Contact Form</a></li>
             </ul>
-          </li>
-          <li class="sub-menu">
+          </li> -->
+          <!-- <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-th"></i>
               <span>Data Tables</span>
@@ -316,7 +316,7 @@
               <li><a href="responsive_table.html">Responsive Table</a></li>
               <li><a href="advanced_table.html">Advanced Table</a></li>
             </ul>
-          </li>
+          </li> -->
           <li>
             <a href="inbox.html">
               <i class="fa fa-envelope"></i>
