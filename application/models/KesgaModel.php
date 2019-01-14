@@ -22,8 +22,9 @@ class KesgaModel extends CI_Model {
     }
 
     public function getLastLaporan(){
-       
+         $this->db->distinct();
         $this->db->select('*');
+        $this->db->distinct();
         $this->db->from('detaillaporan');
         $this->db->join('laporan', 'laporan.kodeLaporan = detaillaporan.idLaporan');
         $this->db->where('laporan.jenisLaporan', "KESGA");
@@ -34,25 +35,29 @@ class KesgaModel extends CI_Model {
 public function getLastKategori(){
     $this->db->distinct();
     $this->db->select('namaKategori');
+    $this->db->distinct();
     $this->db->from('detaillaporan');
      $query = $this->db->get();
-            return $query->result();
+    return $query->result();
 }
 public function getFilterKategori(){
     $this->db->distinct();
    $bulan= $this->input->post('bulan');
         $tahun = $this->input->post('tahun');
      $this->db->select('namaKategori');
-        $this->db->from('detaillaporan');
-        $this->db->join('laporan', 'laporan.kodeLaporan = detaillaporan.idLaporan');
-        $this->db->where('laporan.jenisLaporan', "KESGA");
+     $this->db->distinct();
+        $this->db->from('laporan');
+        $this->db->join('detaillaporan', 'detaillaporan.idDetailLaporan = laporan.kodeLaporan');
         $this->db->where('laporan.bulan', $bulan);
+          $this->db->where('laporan.jenisLaporan', "KESGA");
          $this->db->where('laporan.tahun', $tahun);
      $query = $this->db->get();
             return $query->result();
 }
     public function getFieldKesga(){
+          $this->db->distinct();
         $this->db->select('*');
+        $this->db->distinct();
         $this->db->from('formatfield');
         $this->db->join('formatkategori', 'formatfield.idKategori = formatkategori.idKategori', 'left');
         $this->db->where('formatkategori.jenisLaporan', "KESGA");
@@ -63,9 +68,11 @@ public function getFilterKategori(){
     }
 
     public function getFilterLaporan(){
+          $this->db->distinct();
         $bulan= $this->input->post('bulan');
         $tahun = $this->input->post('tahun');
      $this->db->select('*');
+     $this->db->distinct();
         $this->db->from('detaillaporan');
         $this->db->join('laporan', 'laporan.kodeLaporan = detaillaporan.idLaporan');
         $this->db->where('laporan.jenisLaporan', "KESGA");
@@ -75,7 +82,20 @@ public function getFilterKategori(){
             return $query->result();
  
     }
+    public function edit(){
+        $bulan = $this->input->post('bulan');
+        $tahun = $this->input->post('tahun');
 
-    
+        $puskesmas = $this->input->post('puskesmas');
+        $query = $this->db->query("select distinct namaField from detaillaporan join laporan on laporan.kodeLaporan = detaillaporan.idLaporan where laporan.bulan = '$bulan' AND laporan.tahun= $tahun ");
+  foreach ($query->result() as $key) {
+  
+        $object = array("$puskesmas" => $this->input->post($key->namaField) );
+        $this->db->where('namaField', $key->namaField);
+        $this->db->update('detaillaporan', $object);
+      }
+    }
+
+
 
   }
