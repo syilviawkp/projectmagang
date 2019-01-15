@@ -83,32 +83,22 @@ public function getFilterKategori(){
  
     }
     public function editLap(){
-
-
-        $bulan = $this->input->post('bulan');
-        $tahun = $this->input->post('tahun');
-        $idLaporan = $this->input->post('idLaporan');
-        $puskesmas = $this->input->post('puskesmas');
-        $query = $this->db->query("select distinct namaField from detaillaporan join laporan on laporan.kodeLaporan = detaillaporan.idLaporan where laporan.bulan = '$bulan' AND laporan.tahun= $tahun ");
-  foreach ($query->result() as $key) {
-     $field = $key->namaField;
-    $field2= str_replace(' ', '', $field);
-    $field2=str_replace('.', '',$field2);
-   $isi= $this->input->post($field2);
-     $this->db->set($puskesmas, $isi);
-     
-    $this->db->where('namaField', $field );
-    $this->db->where('idLaporan', $idLaporan);
-       $this->db->update('detaillaporan');
-
-}
+      $bulan = $this->input->post('bulan');
+      $tahun = $this->input->post('tahun');
+      $idLaporan = $this->input->post('idLaporan');
+      $puskesmas = $this->input->post('puskesmas');
+      $query = $this->db->query("select distinct namaField from detaillaporan join laporan on laporan.kodeLaporan = detaillaporan.idLaporan where laporan.bulan = '$bulan' AND laporan.tahun= $tahun ");
       
 
-  
-    }
-  
-
-
-
-
+      foreach ($query->result() as $key) {
+        $field = $key->namaField;
+        $field2= str_replace(' ', '', $field);
+        $field2=str_replace('.', '',$field2);
+        $isi= $this->input->post($field2);
+        $this->db->set($puskesmas, $isi);
+        $this->db->where('namaField', $field );
+        $this->db->where('idLaporan', $idLaporan);
+        $this->db->update('detaillaporan');
+      }
   }
+}
