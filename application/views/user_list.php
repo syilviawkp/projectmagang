@@ -137,10 +137,20 @@
                     <label for="">Jabatan</label>
                     <input type="text" id="jabatan" class="form-control" name="jabatan" value="">
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="">ID Puskesmas</label>
                     <input type="text" id="idPuskesmas" class="form-control" name="idPuskesmas" value="">
+                </div> -->
+                <div class="form-group">
+                  <label for="">ID Puskesmas</label>
+                     <select class="form-control" name="idPuskesmas" id="idPuskesmas">
+                  <option value="1" >Batu</option>
+                  <option value="2" >Bumiaji</option>
+                  <option value="3" >Beji</option>
+                  <option value="4" >Junrejo</option>
+                  <option value="5" >Sisir</option>
                 </div>
+              
                  <div class="form-group">
                     <label for="">Level</label>
                     <input type="text" id="level" class="form-control" name="level" value="">
