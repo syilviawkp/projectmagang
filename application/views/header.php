@@ -251,7 +251,7 @@
           <li class="mt">
             <a class="active" href=<?php echo site_url('Welcome/');?>>
               <i class="fa fa-dashboard"></i>
-              <span>Dashboard</span>
+              <span>Beranda</span>
               </a>
           </li>
           <li class="sub-menu">
