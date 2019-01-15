@@ -3,12 +3,17 @@
     <!-- **********************************************************************************************************************************************************
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
-    <!--main content start-->
+    
+       <!--main content start-->
+  
     <section id="main-content">
+          <div class="col-lg-12"> 
       <section class="wrapper">
+
         <div class="row">
           <div class="row mt">
-          <div class="col-lg-12">
+     
+
             <div class="form-panel">
               <h4 class="mb"><i class="fa fa-angle-right"></i> Laporan Kesga</h4>
              <?php echo form_open('LaporanKesga/filter'); ?>
@@ -130,6 +135,7 @@
         </div>
       
     </div>
+
 <script src="<?php echo base_url('assets/jquery/jquery-2.2.3.min.js')?>"></script>
 <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js')?>"></script>
 <script src="<?php echo base_url('assets/datatables/js/jquery.dataTables.min.js')?>"></script>
@@ -138,29 +144,10 @@
         </div>
         <!-- /row -->
       </section>
-    </section>
-    <!--main content end-->
-    <!--footer start-->
-    <footer class="site-footer">
-      <div class="text-center">
-        <p><center>
-          &copy; Copyrights<br> <strong>Dinas Kesehatan, Pemerintah Kota Batu</strong>.<br> All Rights Reserved
-        </p></center>
-        <div class="credits">
-          <!--
-            You are NOT allowed to delete the credit link to TemplateMag with free version.
-            You can delete the credit link only if you bought the pro version.
-            Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/dashio-bootstrap-admin-template/
-            Licensing information: https://templatemag.com/license/
-          -->
-          <!-- Created with Dashio template by <a href="https://templatemag.com/">TemplateMag</a> -->
-        </div>
-        <a href="index.html#" class="go-top">
-          <i class="fa fa-angle-up"></i>
-          </a>
       </div>
-    </footer>
-    <!--footer end-->
+    </section>
+ 
+
   </section>
   <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade-in">
         <div class="modal-dialog">

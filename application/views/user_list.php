@@ -113,6 +113,7 @@
                 </div>
                 <?php echo form_open_multipart('Login/update'); ?>
                 <?php echo validation_errors(); ?>
+                <br>
                  <div class="form-group">
                     <label for="">Id User</label>
                     <input type="text" class="form-control" name="idUser" id="idUser" value="" readonly="">
@@ -150,6 +151,7 @@
                   <option value="3" >Beji</option>
                   <option value="4" >Junrejo</option>
                   <option value="5" >Sisir</option>
+                  </select>
                 </div>
                
                 <div class="form-group">

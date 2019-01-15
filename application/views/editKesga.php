@@ -45,7 +45,7 @@
                 <div class="col-sm-12" align="right">
               
     
-                <button id="btn-edit" class="btn btn-success" >Save Laporan</button>
+               
                            <br><br>
                   </div>
                 </div>
@@ -84,9 +84,9 @@
                 <td><?php echo $data->namaField?></td>
                       <?php if($data->$puskesmas == "SUDAH") {?>   
                 <td>
-                <input type="checkbox" name="<?php echo "$field2" ?>" value="SUDAH" checked=""><?php echo $field?></td>
+                <input type="checkbox" name="<?php echo "$field2" ?>" value="SUDAH" checked=""></td>
               <?php }else{?>
-                <td><input type="checkbox" name="<?php echo "$field2" ?>" value="SUDAH" ><?php echo $field?></td>
+                <td><input type="checkbox" name="<?php echo "$field2" ?>" value="SUDAH" ></td>
 
               <?php } ?>
 
