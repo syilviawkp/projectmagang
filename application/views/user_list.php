@@ -107,7 +107,7 @@
 
   <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModalEdit" class="modal fade-in" >
         <div class="modal-dialog">
-            <div class="modal-content" style="width: 800px; height:800px; margin-left: -100px;padding: 50px" >
+            <div class="modal-content" style="width: 800px; height:800px; margin-left: -100px;padding: 20px" >
                 <div class="modal-header">
                     <h4 class="modal-title">Edit User</h4>
                 </div>
@@ -170,7 +170,7 @@
                 </div>
               
                  
-               <div align="right" style="margin-bottom: 30px; margin-right: 30px">
+               <div align="right" style="margin-bottom: 20px; margin-right: 30px">
           <button class="btn-info" type="submit">Update</button>
             <a href=""><button class="btn-warning" data-dismiss="modal">Batal</button></a>
         </div>
