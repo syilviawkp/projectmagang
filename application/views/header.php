@@ -7,11 +7,11 @@
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>WEBSITE LAPORAN PUSKESMAS - Bootstrap Admin Template</title>
+  <title>WEB LAPORAN PUSKESMAS</title>
 
   <!-- Favicons -->
-  <link href="<?php echo base_url()?>/assets/img/favicon.png" rel="icon">
-  <link href="<?php echo base_url()?>/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="<?php echo base_url()?>/assets/img/logopemkot.png" rel="icon">
+  <link href="<?php echo base_url()?>/assets/img/logopemkot.png" rel="apple-touch-icon">
 
   <!-- Bootstrap core CSS -->
   <link href="<?php echo base_url()?>/assets/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -44,7 +44,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Min/Max Navigation"></div>
       </div>
       <!--logo start-->
-      <a href=<?php echo site_url('Welcome/');?> class="logo"><b>DIN<span>KES</span></b></a>
+      <a href=<?php echo site_url('Welcome/');?> class="logo"><b>PEMKOT<span>BATU</span></b></a>
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
@@ -246,12 +246,12 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="<?php echo base_url()?>/assets/img/ui-sam.jpg" class="img-circle" width="80"></a></p>
-          <h5 class="centered">Sam Soffes</h5>
+          <p class="centered"><a href="profile.html"><img src="<?php echo base_url()?>/assets/img/logopemkot.png" class="img-circle" width="80"></a></p>
+          <h5 class="centered">DINAS KESEHATAN</h5>
           <li class="mt">
             <a class="active" href=<?php echo site_url('Welcome/');?>>
               <i class="fa fa-dashboard"></i>
-              <span>Dashboard</span>
+              <span>Beranda</span>
               </a>
           </li>
           <li class="sub-menu">
