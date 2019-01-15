@@ -31,7 +31,7 @@
                     <th>Nama Lengkap</th>
                     <th>Nomer HP</th>
                     <th>Jabatan</th>
-                    <th>Kode Pusekesmas</th>
+                    <th>Kode Puskesmas</th>
                     <th>Level user</th>
                     <th>Edit</th>
                     <th>Hapus</th>
@@ -51,7 +51,8 @@
                       <td><?php echo $key->idPuskesmas ?></td>
                       <td><?php echo $key->level ?></td>
 
-                         <td><a href="<?=site_url()?>/Login/Update/<?php echo $key->idUser ?>"<p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-warning" data-title="Edit" data-toggle="modal" data-target="#edit"><span class="glyphicon glyphicon-pencil"></span></button></p></td></a>
+                       
+                        <td><a href="javascript:void(0);" onclick="showmodal('<?php echo $key->idUser ?>','<?php echo $key->username ?>','<?php echo $key->password ?>','<?php echo $key->nama ?>','<?php echo $key->noHp ?>','<?php echo $key->jabatan?>','<?php echo $key->idPuskesmas ?>','<?php echo $key->level ?>')" data-toggle="modal" data-target="#myModalEdit"><button class="btn btn-outline-primary"><span class="glyphicon glyphicon-pencil"></span></button></a></p></td>
                          <td><a href="<?php echo site_url()?>/Login/Delete/<?php echo $key->idUser ?>"<p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td></a>
                         </tr>
 
@@ -102,6 +103,57 @@
     </footer>
     <!--footer end-->
   </section>
+
+
+  <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModalEdit" class="modal fade-in" >
+        <div class="modal-dialog">
+            <div class="modal-content" style="width: 800px; margin-left: -100px;padding: 20px" >
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit User</h4>
+                </div>
+                <?php echo form_open_multipart('Login/update'); ?>
+                <?php echo validation_errors(); ?>
+                 <div class="form-group">
+                    <label for="">Id User</label>
+                    <input type="text" class="form-control" name="idUser" id="idUser" value="" readonly="">
+                </div>
+                <div class="form-group">
+                    <label for="">Username</label>
+                    <input type="text" class="form-control" name="username" id="username" value="" >
+                </div>
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="text" class="form-control" name="password" id="password" value="" >
+                </div>
+                <div class="form-group">
+                    <label for="">Nama</label>
+                    <input type="text" id="nama" class="form-control" name="nama" value="" >
+                </div>
+                <div class="form-group">
+                    <label for="">No HP</label>
+                    <input type="text" id="noHp" class="form-control" name="noHp" value="" >
+                </div>
+                <div class="form-group">
+                    <label for="">Jabatan</label>
+                    <input type="text" id="jabatan" class="form-control" name="jabatan" value="">
+                </div>
+                <div class="form-group">
+                    <label for="">ID Puskesmas</label>
+                    <input type="text" id="idPuskesmas" class="form-control" name="idPuskesmas" value="">
+                </div>
+                 <div class="form-group">
+                    <label for="">Level</label>
+                    <input type="text" id="level" class="form-control" name="level" value="">
+                </div>
+               <div align="right" style="margin-bottom: 20px; margin-right: 30px">
+          <button class="btn-info" type="submit">Update</button>
+            <a href=""><button class="btn-warning" data-dismiss="modal">Batal</button></a>
+        </div>
+    
+        <?php echo form_close(); ?>
+    </div>
+            
+            </div>
   
   <!-- js placed at the end of the document so the pages load faster -->
   <script src="<?php echo base_url()?>assets/lib/jquery/jquery.min.js"></script>
@@ -118,6 +170,19 @@
   <!--script for this page-->
   <script src="<?php echo base_url()?>assets/lib/sparkline-chart.js"></script>
   <script src="<?php echo base_url()?>assets/lib/zabuto_calendar.js"></script>
+
+    <script type="text/javascript">
+    function showmodal(idUser,username,password,nama,noHp,jabatan,idPuskesmas,level){
+        document.getElementById('idUser').value = idUser;
+        document.getElementById('username').value = username;
+        document.getElementById('password').value = password;
+        document.getElementById('nama').value = nama;
+        document.getElementById('noHp').value = noHp;
+        document.getElementById('jabatan').value = jabatan;
+        document.getElementById('idPuskesmas').value = idPuskesmas;
+        document.getElementById('level').value = level;
+    }
+  </script>
   <script type="text/javascript">
     $(document).ready(function() {
       var unique_id = $.gritter.add({
