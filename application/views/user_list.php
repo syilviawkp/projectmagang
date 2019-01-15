@@ -107,7 +107,7 @@
 
   <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModalEdit" class="modal fade-in" >
         <div class="modal-dialog">
-            <div class="modal-content" style="width: 800px; margin-left: -100px;padding: 20px" >
+            <div class="modal-content" style="width: 800px; height:800px; margin-left: -100px;padding: 50px" >
                 <div class="modal-header">
                     <h4 class="modal-title">Edit User</h4>
                 </div>
@@ -141,6 +141,7 @@
                     <label for="">ID Puskesmas</label>
                     <input type="text" id="idPuskesmas" class="form-control" name="idPuskesmas" value="">
                 </div> -->
+
                 <div class="form-group">
                   <label for="">ID Puskesmas</label>
                      <select class="form-control" name="idPuskesmas" id="idPuskesmas">
@@ -150,12 +151,14 @@
                   <option value="4" >Junrejo</option>
                   <option value="5" >Sisir</option>
                 </div>
-              
-                 <div class="form-group">
+
+                <div class="form-group">
                     <label for="">Level</label>
                     <input type="text" id="level" class="form-control" name="level" value="">
                 </div>
-               <div align="right" style="margin-bottom: 20px; margin-right: 30px">
+              
+                 
+               <div align="right" style="margin-bottom: 30px; margin-right: 30px">
           <button class="btn-info" type="submit">Update</button>
             <a href=""><button class="btn-warning" data-dismiss="modal">Batal</button></a>
         </div>
