@@ -10,8 +10,8 @@
   <title>WEB LAPORAN PUSKESMAS</title>
 
   <!-- Favicons -->
-  <link href="<?php echo base_url()?>/assets/img/favicon.png" rel="icon">
-  <link href="<?php echo base_url()?>/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="<?php echo base_url()?>/assets/img/logopemkot.png" rel="icon">
+  <link href="<?php echo base_url()?>/assets/img/logopemkot.png" rel="apple-touch-icon">
 
   <!-- Bootstrap core CSS -->
   <link href="<?php echo base_url()?>/assets/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
