@@ -6,6 +6,7 @@ class Login extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->library('form_validation');
 		$this->load->model('UserModel');
 	}
 
@@ -139,27 +140,29 @@ class Login extends CI_Controller {
 		/*$this->load->view('hapus_user_sukses');*/
 	}
 
-	public function Update()
+	public function Update($idUser)
 	{
+			$this->form_validation->set_rules('username', 'username', 'trim|required');
+			$this->form_validation->set_rules('password', 'password', 'trim|required');
+			$this->form_validation->set_rules('nama', 'nama', 'trim|required');
+			$this->form_validation->set_rules('noHp', 'noHp', 'trim|required');
+			$this->form_validation->set_rules('idPuskesmas', 'idPuskesmas', 'trim|required');
+			$this->form_validation->set_rules('level', 'level', 'trim|required');
+			$this->form_validation->set_rules('jabatan', 'jabatan', 'trim|required');
 			
-			// $this->form_validation->set_rules('nama', 'nama', 'trim|required');
-			// $this->form_validation->set_rules('tanggal', 'tanggal', 'trim|required');
-			// $this->form_validation->set_rules('email','email','trim|required');
-			// $this->form_validation->set_rules('username','Username','trim|required');
-			// $this->form_validation->set_rules('password','Password','trim|required');
-			
+			$data['user']=$this->UserModel->getUser($idUser);
 
-			// $data['user']=$this->UserModel->getCurrentUser();
-
-			// if($this->form_validation->run()==FALSE){
-			// 	$this->load->view('edituser', $data);
-
-			// }else{
-
-			// 	$this->UserModel->UpdateById();
-			// 	$this->load->view('edit_user_sukses');}
+			if($this->form_validation->run()==FALSE){
+				$this->load->view('editUser', $data);
+			}else{
+				$data['idUser']=$idUser;
+				$this->UserModel->UpdateById($idUser);
+				echo '<script>alert("Sukses mengedit")</script>';
+				redirect('Login/data', 'refresh');		
+			}
+	}
 
 	}
 
 
-}
+

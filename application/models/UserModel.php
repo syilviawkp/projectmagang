@@ -52,15 +52,27 @@ class UserModel extends CI_Model {
         return $query->result();
     }
 
-    public function getUser(){
+    public function getUser($idUser){
         //fungsi ini untuk menampilkan data sesuai data yang kita pilih dengan
         //code di atas sama seperti SELECT*FROM user WHERE No='$id'
-
-            $a=$this->session->userdata('logged_in');
-            $this->db->where('idUser', $a['idUser']);
+            $this->db->where('idUser', $idUser);
             $query = $this->db->get('user');
             return $query->result();
-            //return $query->row();
+    }
+
+    public function UpdateById($idUser){
+        $data = array(
+            'username' => $this->input->post('username'),
+            'password' => $this->input->post('password'),
+            'nama' => $this->input->post('nama'),
+            'noHp' => $this->input->post('noHp'),
+            'idPuskesmas' => $this->input->post('idPuskesmas'), 
+            'level' => $this->input->post('level'),
+            'jabatan' => $this->input->post('jabatan')
+        );
+
+        $this->db->where('idUser', $idUser);
+        $this->db->update('user', $data);
     }
 
     public function delete($idUser){

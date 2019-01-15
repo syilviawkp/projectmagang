@@ -1,4 +1,4 @@
-
+<?php $this->load->view('header');?>
     <!--sidebar end-->
     <!-- **********************************************************************************************************************************************************
         MAIN CONTENT
@@ -12,64 +12,85 @@
           <div class="col-lg-12">
             <div class="form-panel">
               <h4 class="mb"><i class="fa fa-angle-right"></i> User</h4>
-
+          
                 <div class="form-group">
                 <div class="col-sm-12" align="right">
-           
-                <a href="<?php echo site_url()?>/login/tambahUser"><button type="submit" class="btn btn-success">Tambah User</button></a>
-                <!-- <button id="btn-edit" class="btn btn-success" ><<?php ?>/login/create">Tambah user</button></a> -->
+              
+                <!-- <button id="btn-edit" class="btn btn-success" >Tambah user</button></a> -->
                            <br><br>
                   </div>
                 </div>
                 <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
-           <center><h1>Kelola User</h1> </center> 
-                <tr>
-                    <th>ID user</th>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th>Nama Lengkap</th>
-                    <th>Nomer HP</th>
-                    <th>Jabatan</th>
-                    <th>Kode Pusekesmas</th>
-                    <th>Level user</th>
-                    <th>Edit</th>
-                    <th>Hapus</th>
-                    
-                </tr>
-            </thead>
-            <tbody>   
-                  <?php foreach ($user_object as $key){ ?>
-                  <tr>
-                               
-                      <td><?php echo $key->idUser ?></td>
-                      <td><?php echo $key->username ?></td>
-                      <td><?php echo $key->password ?></td>
-                      <td><?php echo $key->nama ?></td>
-                      <td><?php echo $key->noHp ?></td>
-                      <td><?php echo $key->jabatan ?></td>
-                      <td><?php echo $key->idPuskesmas ?></td>
-                      <td><?php echo $key->level ?></td>
 
-                         <td><a href="<?=site_url()?>/Login/Update/<?php echo $key->idUser ?>"<p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-warning" data-title="Edit" data-toggle="modal" data-target="#edit"><span class="glyphicon glyphicon-pencil"></span></button></p></td></a>
-                         <td><a href="<?php echo site_url()?>/Login/Delete/<?php echo $key->idUser ?>"<p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td></a>
-                        </tr>
+               <div class="row">
+                    <!-- column -->
+                    <div class="col-lg-12">
+            
+          
+           <center><h1>Edit User</h1> </center> 
 
+                                <?php echo form_open_multipart('login/update/'.$this->uri->segment(3)); ?>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-5" for="username">Username : </label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="username" class="form-control" id="username" value="<?php echo $user[0]->username ?>" placeholder="Username"><br>
+                                    </div>
+                                </div>
 
-                        </tr>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-5" for="password">Password : </label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="password" class="form-control" id="password" value="<?php echo $user[0]->password ?>" placeholder="Password"><br>
+                                    </div>
+                                </div>
 
+                                <div class="form-group">
+                                    <label class="control-label col-sm-5" for="nama">Nama Lengkap : </label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="nama" class="form-control" id="nama" value="<?php echo $user[0]->nama ?>" placeholder="Nama Lengkap"><br>
+                                    </div>
+                                </div>
 
-                  <?php } ?>  
-                </tbody>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-5" for="noHp">No HP : </label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="noHp" class="form-control" id="noHp" value="<?php echo $user[0]->noHp ?>" placeholder="No HP"><br>
+                                    </div>
+                                </div>
 
-           
-        </table>
-            </div>
-          </div>
-          <!-- col-lg-12-->
+                                <div class="form-group">
+                                    <label class="control-label col-sm-5" for="idPuskesmas">ID Puskesmas : </label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="idPuskesmas" class="form-control" id="idPuskesmas" value="<?php echo $user[0]->idPuskesmas ?>" placeholder="ID Puskesmas"><br>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-sm-5" for="username">Level : </label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="level" class="form-control" id="level" value="<?php echo $user[0]->level ?>" placeholder="Level"><br>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-sm-5" for="username">Jabatan : </label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="jabatan" class="form-control" id="jabatan" value="<?php echo $user[0]->jabatan ?>" placeholder="Jabatan"><br>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                    <br>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <?php echo form_close(); ?>
+                                    </div>
+                                </div>
         </div>
       
     </div>
+    <?php echo form_close(); ?>
 <script src="<?php echo base_url('assets/jquery/jquery-2.2.3.min.js')?>"></script>
 <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js')?>"></script>
 <script src="<?php echo base_url('assets/datatables/js/jquery.dataTables.min.js')?>"></script>
@@ -81,25 +102,25 @@
     </section>
     <!--main content end-->
     <!--footer start-->
-    <footer class="site-footer">
+   <!--  <footer class="site-footer">
       <div class="text-center">
         <p>
           &copy; Copyrights <strong>Dashio</strong>. All Rights Reserved
         </p>
         <div class="credits">
-          <!--
+          
             You are NOT allowed to delete the credit link to TemplateMag with free version.
             You can delete the credit link only if you bought the pro version.
             Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/dashio-bootstrap-admin-template/
             Licensing information: https://templatemag.com/license/
-          -->
+          
           Created with Dashio template by <a href="https://templatemag.com/">TemplateMag</a>
         </div>
         <a href="index.html#" class="go-top">
           <i class="fa fa-angle-up"></i>
           </a>
       </div>
-    </footer>
+    </footer> -->
     <!--footer end-->
   </section>
   
