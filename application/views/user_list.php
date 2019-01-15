@@ -15,9 +15,9 @@
 
                 <div class="form-group">
                 <div class="col-sm-12" align="right">
-                <a href="" data-toggle="modal" data-target="#myModal">
-                <a href="<?=site_url()?>/login/tambahUser"><button type="submit" class="btn btn-success">Tambah User</a></button>
-                <!-- <button id="btn-edit" class="btn btn-success" ><<?php echo site_url()?>/login/create">Tambah user</button></a> -->
+           
+                <a href="<?=site_url()?>/login/tambahUser"><button type="submit" class="btn btn-success">Tambah User</button></a>
+                <!-- <button id="btn-edit" class="btn btn-success" ><<?php ?>/login/create">Tambah user</button></a> -->
                            <br><br>
                   </div>
                 </div>

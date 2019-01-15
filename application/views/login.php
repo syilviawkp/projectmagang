@@ -36,7 +36,7 @@
   <div id="login-page">
     <div class="container">
       <form class="form-login" action="index.html">
-        <h2 class="form-login-heading">sign in now</h2>
+        <h2 class="form-login-heading">Laman Login</h2>
         <div class="login-wrap">
           <input type="text" class="form-control" placeholder="User ID" autofocus>
           <br>
@@ -47,19 +47,19 @@
             <a data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>
             </span>
             </label>
-          <button class="btn btn-theme btn-block" href="index.html" type="submit"><i class="fa fa-lock"></i> SIGN IN</button>
+          <button class="btn btn-theme btn-block" href="index.html" type="submit"><i class="fa fa-lock"></i> LOGIN</button>
           <hr>
-          <div class="login-social-link centered">
+         <!--  <div class="login-social-link centered">
             <p>or you can sign in via your social network</p>
             <button class="btn btn-facebook" type="submit"><i class="fa fa-facebook"></i> Facebook</button>
             <button class="btn btn-twitter" type="submit"><i class="fa fa-twitter"></i> Twitter</button>
-          </div>
-          <div class="registration">
+          </div> -->
+          <!-- <div class="registration">
             Don't have an account yet?<br/>
             <a class="" href="#">
               Create an account
               </a>
-          </div>
+          </div> -->
         </div>
         <!-- Modal -->
         <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">

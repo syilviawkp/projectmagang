@@ -81,9 +81,9 @@ class Login extends CI_Controller {
 
 	public function logout()
 	{
-		$this->session->unset_userdata('logged_in');
-		$this->session->sess_destroy();
-		redirect('login','refresh');
+		// $this->session->unset_userdata('logged_in');
+		// $this->session->sess_destroy();
+		$this->load->view('login');
 	}
 
 	public function Create()

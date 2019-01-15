@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>KOMUNIKASI LAPORAN BULANAN PUSKESMAS - Bootstrap Admin Template</title>
+  <title>WEBSITE LAPORAN PUSKESMAS - Bootstrap Admin Template</title>
 
   <!-- Favicons -->
   <link href="<?php echo base_url()?>/assets/img/favicon.png" rel="icon">
@@ -233,7 +233,7 @@
       </div>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" href="login.html">Logout</a></li>
+          <li><a class="logout" href=<?php echo site_url('login/logout');?>>Logout</a></li>
         </ul>
       </div>
     </header>
