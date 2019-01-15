@@ -81,9 +81,11 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <div class="col-sm-offset-2 col-sm-10">
+                                    <div class="col-sm-offset-5 col-sm-10">
+                                    <div class="col-sm-10">
                                     <br>
                                     <button type="submit" class="btn btn-primary">Submit</button>
+                                  </div>
                                     <?php echo form_close(); ?>
                                     </div>
                                 </div>
