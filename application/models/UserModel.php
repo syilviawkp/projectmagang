@@ -60,7 +60,7 @@ class UserModel extends CI_Model {
             return $query->result();
     }
 
-    public function UpdateById($idUser){
+    public function UpdateById(){
         $data = array(
             'username' => $this->input->post('username'),
             'password' => $this->input->post('password'),
@@ -71,6 +71,7 @@ class UserModel extends CI_Model {
             'jabatan' => $this->input->post('jabatan')
         );
 
+        $idUser = $this->input->post('idUser');
         $this->db->where('idUser', $idUser);
         $this->db->update('user', $data);
     }
