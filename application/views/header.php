@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>WEBSITE LAPORAN PUSKESMAS - Bootstrap Admin Template</title>
+  <title>WEB LAPORAN PUSKESMAS</title>
 
   <!-- Favicons -->
   <link href="<?php echo base_url()?>/assets/img/favicon.png" rel="icon">
