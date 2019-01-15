@@ -41,10 +41,10 @@
     <!--header start-->
     <header class="header black-bg">
       <div class="sidebar-toggle-box">
-        <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+        <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Min/Max Navigation"></div>
       </div>
       <!--logo start-->
-      <a href="index.html" class="logo"><b>DASH<span>IO</span></b></a>
+      <a href=<?php echo site_url('Welcome/');?> class="logo"><b>DIN<span>KES</span></b></a>
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
@@ -249,7 +249,7 @@
           <p class="centered"><a href="profile.html"><img src="<?php echo base_url()?>/assets/img/ui-sam.jpg" class="img-circle" width="80"></a></p>
           <h5 class="centered">Sam Soffes</h5>
           <li class="mt">
-            <a class="active" href="index.html">
+            <a class="active" href=<?php echo site_url('Welcome/');?>>
               <i class="fa fa-dashboard"></i>
               <span>Dashboard</span>
               </a>
