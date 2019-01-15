@@ -44,7 +44,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Min/Max Navigation"></div>
       </div>
       <!--logo start-->
-      <a href=<?php echo site_url('Welcome/');?> class="logo"><b>DIN<span>KES</span></b></a>
+      <a href=<?php echo site_url('Welcome/');?> class="logo"><b>PEMKOT<span>BATU</span></b></a>
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
@@ -246,8 +246,8 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="<?php echo base_url()?>/assets/img/ui-sam.jpg" class="img-circle" width="80"></a></p>
-          <h5 class="centered">Sam Soffes</h5>
+          <p class="centered"><a href="profile.html"><img src="<?php echo base_url()?>/assets/img/logopemkot.png" class="img-circle" width="80"></a></p>
+          <h5 class="centered">DINAS KESEHATAN</h5>
           <li class="mt">
             <a class="active" href=<?php echo site_url('Welcome/');?>>
               <i class="fa fa-dashboard"></i>
