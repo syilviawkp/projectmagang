@@ -9,7 +9,7 @@
           <div class="row mt">
           <div class="col-lg-12">
             <div class="form-panel">
-              <h4 class="mb"><i class="fa fa-angle-right"></i> Laporan Kesga</h4>
+              <h4 class="mb"><i class="fa fa-angle-right"></i> Laporan P2PL</h4>
              
                 <div class="form-group">
                   <label class="col-sm-2 col-sm-2 control-label">Bulan</label>
@@ -51,7 +51,7 @@
                 </div>
 
               
- <?php echo form_open('LaporanKesga/saveEditLaporan');?>
+ <?php echo form_open('LaporanP2pl/saveEditLaporan');?>
     <input type="text" name="puskesmas" value="<?php echo $puskesmas?>" hidden="">
     <input type="text" name="bulan" value="<?php echo $bulan?>" hidden="">
     <input type="text" name="tahun" value="<?php echo $tahun ?>" hidden="">
@@ -60,7 +60,7 @@
                 <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
             <tr>
-              <th colspan="6" ><center>Absen Laporan Kesga Bulan <?php echo $bulan." "; echo $tahun?> </center> </th>
+              <th colspan="6" ><center>Absen Laporan P2PL Bulan <?php echo $bulan." "; echo $tahun?> </center> </th>
 
             </tr>
                 <tr>

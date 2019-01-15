@@ -16,7 +16,7 @@
                 <div class="form-group">
                 <div class="col-sm-12" align="right">
            
-                <a href="<?php echo site_url()?>/login/tambahUser"><button type="submit" class="btn btn-success">Tambah User</button></a>
+                <a href="<?php echo site_url()?>/login/tambahUser"><button type="submit" class="btn btn-outline-primary">Tambah User  <span class="glyphicon glyphicon-plus"></button></a>
                 <!-- <button id="btn-edit" class="btn btn-success" ><<?php ?>/login/create">Tambah user</button></a> -->
                            <br><br>
                   </div>
@@ -53,7 +53,7 @@
 
                        
                         <td><a href="javascript:void(0);" onclick="showmodal('<?php echo $key->idUser ?>','<?php echo $key->username ?>','<?php echo $key->password ?>','<?php echo $key->nama ?>','<?php echo $key->noHp ?>','<?php echo $key->jabatan?>','<?php echo $key->idPuskesmas ?>','<?php echo $key->level ?>')" data-toggle="modal" data-target="#myModalEdit"><button class="btn btn-outline-primary"><span class="glyphicon glyphicon-pencil"></span></button></a></p></td>
-                         <td><a href="<?php echo site_url()?>/Login/Delete/<?php echo $key->idUser ?>"<p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td></a>
+                         <td><a href="<?php echo site_url()?>/Login/Delete/<?php echo $key->idUser ?>"<p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-outline-primary" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td></a>
                         </tr>
 
 

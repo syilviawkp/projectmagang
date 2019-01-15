@@ -60,6 +60,20 @@ class LaporanP2PL extends CI_Controller {
 		$this->load->view('header');
 		$this->load->view('form_component',$data);
 	}
+	public function editLaporan(){
+		$data['bulan']=$this->input->post('bulan');
+		$data['tahun']=$this->input->post('tahun');
+		$data['puskesmas']=$this->input->post('puskesmas');
+		$data['kategori']= $this->KesgaModel->getFilterKategori();
+		$data['laporan']= $this->KesgaModel->getFilterLaporan();
+		$this->load->view('header');
+		$this->load->view('editP2pl',$data);
+	}
+
+	public function saveEditLaporan(){
+		$this->KesgaModel->editLap();
+		redirect('LaporanP2pl','refresh');
+	}
 
 	
 }
