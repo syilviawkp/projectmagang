@@ -3,33 +3,37 @@
     <!-- **********************************************************************************************************************************************************
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
-    <!--main content start-->
-
+    
+       <!--main content start-->
+  
     <section id="main-content">
-     <div class="col-lg-12">
+          <div class="col-lg-12"> 
       <section class="wrapper">
+
         <div class="row">
           <div class="row mt">
-        
+     
+
             <div class="form-panel">
-              <h4 class="mb"><i class="fa fa-angle-right"></i> Laporan P2PL</h4>
+              <h4 class="mb"><i class="fa fa-angle-right"></i> Laporan P2pl</h4>
              <?php echo form_open('LaporanP2pl/filter'); ?>
                 <div class="form-group">
                   <label class="col-sm-2 col-sm-2 control-label">Bulan</label>
                   <div class="col-sm-10">
                      <select class="form-control" name="bulan" id="bulan">
                   <option value="" >--Pilih Bulan--</option>
-                  <option value="Januari">Januari</option>
-                  <option value="Februari">Februari</option>
-                  <option value="Maret">Maret</option>
-                  <option value="April">April</option>
-                  <option value="Mei">Mei</option>
-                  <option value="Juni">Juni</option>
-                  <option value="Juli">Juli</option>
-                  <option value="Agustus">Agustus</option>
-                  <option value="September">September</option>
-                  <option value="Oktober">Oktober</option>
-                  <option value="November">November</option><option value="Desember">Desember</option>
+                  <?php 
+                  $daftarBulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
+                  foreach ($daftarBulan as $key) {
+                  if($key== $bulan){?>
+                    <option value="<?php echo $key?>" selected=""><?php echo $key?></option>
+                 <?php }
+                  else{?>
+                     <option value="<?php echo $key?>" ><?php echo $key?></option>
+
+                  <?php }}?>
+                  
+                 
                 </select>
                   </div>
                 </div>
@@ -38,33 +42,32 @@
                   <div class="col-sm-10">
                    <select class="form-control" name="tahun" id="tahun">
                   <option value="">--Pilih Tahun--</option>
-                  <option value="2015">2015</option>
-                  <option value="2016">2016</option>
-                  <option value="2017">2017</option>
-                  <option value="2018">2018</option>
-                  <option value="2019">2019</option>
-                  <option value="2020">2020</option>
-                  <option value="2021">2021</option>
-                  <option value="2022">2022</option>
-                  <option value="2023">2023</option>
-                  <option value="2024">2024</option>
-                  <option value="2025">2025</option><option value="2026">2026</option>
+                  <?php for($i=2015 ; $i<=2023;$i++){
+                    if($i==$tahun){?>
+                  
+                  <option value="<?php echo $i?>" selected=""><?php echo $i?></option>
+            <?php   } else{?>
+            <option value="<?php echo $i?>" ><?php echo $i?></option>
+                  <?php   }} ?>
+                
                 </select><br>
                   </div>
                 </div>
                 <div class="form-group">
                 <div class="col-sm-12" align="right">
                <button type="submit" id="btn-filter" class="btn btn-primary" >Filter</button>
+                <?php echo form_close();?>  <a href="" data-toggle="modal" data-target="#myModal">
+                <button id="btn-edit" class="btn btn-success" >Edit Laporan</button></a>
                            <br><br>
                   </div>
                 </div>
 
-               <?php echo form_close();?>
+              
  
                 <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
             <tr>
-              <th colspan="6" ><center>Absen Laporan P2PL Bulan <?php echo $bulan." "; echo $tahun?> </center> </th>
+              <th colspan="6" ><center>Absen Laporan P2pl Bulan <?php echo $bulan." "; echo $tahun?> </center> </th>
             </tr>
                 <tr>
                     <th></th>
@@ -86,7 +89,7 @@
                 <td><?php echo $data->namaField?></td>
                 <?php if($data->Batu == "SUDAH") {?>
 
-                <td><input type="checkbox" name="feeling" value="good" checked="" disabled  readonly=""></td>
+                <td><input type="checkbox" name="feeling" value="good" checked="" disabled readonly=""></td>
               <?php }else{?>
               <td style="background: yellow"></td>
               <?php } ?>
@@ -98,7 +101,7 @@
               <?php } ?>
 
               <?php if($data->Bumiaji == "SUDAH") {?>
-                <td><input type="checkbox" name="feeling" value="good" checked="" disabled readonly=""></td>
+                <td><input type="checkbox" name="feeling" value="good" checked="" disabled  readonly=""></td>
               <?php }else{?>
               <td style="background: yellow"></td>
               <?php } ?>
@@ -132,6 +135,7 @@
         </div>
       
     </div>
+
 <script src="<?php echo base_url('assets/jquery/jquery-2.2.3.min.js')?>"></script>
 <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js')?>"></script>
 <script src="<?php echo base_url('assets/datatables/js/jquery.dataTables.min.js')?>"></script>
@@ -140,13 +144,68 @@
         </div>
         <!-- /row -->
       </section>
-      </div>
+     
     </section>
-    <!--main content end-->
-    <!--footer start-->
-   
-    <!--footer end-->
+ 
+ </div>
   </section>
+  <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade-in">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit Absen Laporan</h4>
+                </div>
+     <?php echo form_open('LaporanP2pl/editLaporan'); ?>
+    <div class="modal-body">
+        <div class="form-group">
+                    <label for="">Bulan</label>
+                   
+                  <select class="form-control" name="bulan" id="bulan">
+                  <option value="" >--Pilih Bulan--</option>
+                  <?php 
+                  $daftarBulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
+                  foreach ($daftarBulan as $key) {
+                  if($key== $bulan){?>
+                    <option value="<?php echo $key?>" selected=""><?php echo $key?></option>
+                 <?php }
+                  else{?>
+                     <option value="<?php echo $key?>" ><?php echo $key?></option>
+
+                  <?php }}?>
+                  </select>
+                </div>
+                <div class="form-group">
+                    <label for="">Tahun</label>
+                     <select class="form-control" name="tahun" id="tahun">
+                  <option value="">--Pilih Tahun--</option>
+                  <?php for($i=2015 ; $i<=2023;$i++){
+                    if($i==$tahun){?>
+                  
+                  <option value="<?php echo $i?>" selected=""><?php echo $i?></option>
+            <?php   } else{?>
+            <option value="<?php echo $i?>" ><?php echo $i?></option>
+                  <?php   }} ?>
+                
+                </select>
+                
+                </div>
+                <div class="form-group">
+                    <label for="">Puskesmas</label>
+                    <select class="form-control" name="puskesmas" id="puskesmas">
+                  <option value="Batu" >Batu</option>
+                  <option value="Beji" >Beji</option>
+                  <option value="Bumiaji" >Bumiaji</option>
+                  <option value="Junrejo" >Junrejo</option>
+                  <option value="Sisir" >Sisir</option>
+                  </select>
+                   
+                </div>
+                <center><button type="submit" class="btn btn-primary">Submit</button></center>
+                <?php echo form_close();?>
+        </div>
+        </div>
+        </div>
+        </div>
   <!-- js placed at the end of the document so the pages load faster -->
   <script src="<?php echo base_url()?>assets/lib/jquery/jquery.min.js"></script>
 

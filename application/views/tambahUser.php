@@ -51,15 +51,37 @@
                                     <br><br>
 
                                     <label for="">Jabatan</label>
-                                    <input type="text" name="jabatan" class="form-control" id="jabatan" placeholder="isi jabatan">
+                                    <select class="form-control" name="jabatan" id="jabatan">
+                                    <option value="" >Pilih jabatan:</option>
+                                    <option value="Staff" >Staff</option>
+                                    <option value="Kepala puskesmas" >Kepala puskesmas</option>
+                                    </select>
                                     <br><br>
 
+<!-- 
                                     <label for="">Kode Puskesmas</label>
                                     <input type="text" name="idPuskesmas" class="form-control" id="idPuskesmas" placeholder="isi kode puskesmas">
+                                    
+
+                                    <div class="form-group"> -->
+                                    <label for="">Puskesmas</label>
+                                    <select class="form-control" name="idPuskesmas" id="idPuskesmas">
+                                    <!--   <option value="">Pilih puskesmas</option> -->
+                                    <option value="" >Pilih puskesmas:</option>
+                                    <option value="1" >Batu</option>
+                                    <option value="2" >Bumiaji</option>
+                                    <option value="3" >Beji</option>
+                                    <option value="4" >Junrejo</option>
+                                    <option value="5" >Sisir</option>
+                                    </select>
                                     <br><br>
 
                                     <label for="">Level</label>
-                                    <input type="text" name="level" class="form-control" id="level" placeholder="isi level">
+                                    <select class="form-control" name="level" id="level">
+                                    <option value="" >Pilih level:</option>
+                                    <option value="Admin" >Admin</option>
+                                    <option value="User" >User</option>
+                                    </select>
                                     <br><br>
 
 

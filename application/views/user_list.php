@@ -134,9 +134,18 @@
                     <label for="">No HP</label>
                     <input type="text" id="noHp" class="form-control" name="noHp" value="" >
                 </div>
-                <div class="form-group">
+               <!--  <div class="form-group">
                     <label for="">Jabatan</label>
                     <input type="text" id="jabatan" class="form-control" name="jabatan" value="">
+                </div> -->
+
+                <div class="form-group">
+                  <label for="">Jabatan</label>
+                     <select class="form-control" name="jabatan" id="jabatan">
+                  <!-- <option value="">Pilih jabatan</option> -->
+                  <option value="Staff" >Staff Dinkes</option>
+                  <option value="Kepala Puskesmas" >Kepala Puskesmas</option>
+                  </select>
                 </div>
                 <!-- <div class="form-group">
                     <label for="">ID Puskesmas</label>
@@ -144,8 +153,9 @@
                 </div> -->
 
                 <div class="form-group">
-                  <label for="">ID Puskesmas</label>
+                  <label for="">Puskesmas</label>
                      <select class="form-control" name="idPuskesmas" id="idPuskesmas">
+                <!--   <option value="">Pilih puskesmas</option> -->
                   <option value="1" >Batu</option>
                   <option value="2" >Bumiaji</option>
                   <option value="3" >Beji</option>
@@ -156,7 +166,10 @@
                
                 <div class="form-group">
                     <label for="">Level</label>
-                    <input type="text" id="level" class="form-control" name="level" value="">
+                    <select class="form-control" name="level" id="level">
+                    <option value="Admin">Admin</option>
+                    <option value="User">User</option>
+                    </select>
                 </div>
               
                  
