@@ -55,8 +55,8 @@ class LaporanYankes extends CI_Controller {
 	public function addLaporan()
 	{
 		$this->load->model('YankesModel');
-		$data['kategori']=$this->YankesModel->getKategoriKesga();
-		$data['field']=$this->YankesModel->getFieldKesga();
+		$data['kategori']=$this->YankesModel->getKategoriYankes();
+		$data['field']=$this->YankesModel->getFieldYankes();
 		$this->load->view('header');
 		$this->load->view('form_component',$data);
 	}
@@ -64,14 +64,14 @@ class LaporanYankes extends CI_Controller {
 		$data['bulan']=$this->input->post('bulan');
 		$data['tahun']=$this->input->post('tahun');
 		$data['puskesmas']=$this->input->post('puskesmas');
-		$data['kategori']= $this->KesgaModel->getFilterKategori();
-		$data['laporan']= $this->KesgaModel->getFilterLaporan();
+		$data['kategori']= $this->YankesModel->getFilterKategori();
+		$data['laporan']= $this->YankesModel->getFilterLaporan();
 		$this->load->view('header');
 		$this->load->view('editYankes',$data);
 	}
 
 	public function saveEditLaporan(){
-		$this->KesgaModel->editLap();
+		$this->YankesModel->editLap();
 		redirect('LaporanYankes','refresh');
 	}
 
