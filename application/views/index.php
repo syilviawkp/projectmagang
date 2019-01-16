@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Beranda</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
-<div class="col-lg-9 main-chart">
-<div class="container"><br><br>
-  <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width:1165px; margin-left: 180px;margin-top:0px;">
+  
+   <section id="main-content">
+     <div class="col-lg-12"> 
+      <section class="wrapper">
+ <?php echo form_open('Welcome/'); ?>
+
+  <div class="row">
+          <div class="row mt">
+
+  <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width:1100px; margin-left:20px">
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -64,9 +60,83 @@
     </a>
   </div>
 
-  <center><h1>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; Selamat Datang</h1></center>
+  <center><h1> Selamat Datang</h1></center>
+    <!--footer end-->
+  </div></div></section></div></section>
+  <!-- js placed at the end of the document so the pages load faster -->
+  <script src="<?php echo base_url()?>/assets/lib/jquery/jquery.min.js"></script>
 
-</div>
-</div>
+  <script src="<?php echo base_url()?>/assets/lib/bootstrap/js/bootstrap.min.js"></script>
+  <script class="include" type="text/javascript" src="<?php echo base_url()?>/assets/lib/jquery.dcjqaccordion.2.7.js"></script>
+  <script src="<?php echo base_url()?>/assets/lib/jquery.scrollTo.min.js"></script>
+  <script src="<?php echo base_url()?>/assets/lib/jquery.nicescroll.js" type="text/javascript"></script>
+  <script src="<?php echo base_url()?>/assets/lib/jquery.sparkline.js"></script>
+  <!--common script for all pages-->
+  <script src="<?php echo base_url()?>/assets/lib/common-scripts.js"></script>
+  <script type="text/javascript" src="<?php echo base_url()?>/assets/lib/gritter/js/jquery.gritter.js"></script>
+  <script type="text/javascript" src="<?php echo base_url()?>/assets/lib/gritter-conf.js"></script>
+  <!--script for this page-->
+  <script src="<?php echo base_url()?>/assets/lib/sparkline-chart.js"></script>
+  <script src="<?php echo base_url()?>/assets/lib/zabuto_calendar.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var unique_id = $.gritter.add({
+        // (string | mandatory) the heading of the notification
+        title: 'Welcome to Dashio!',
+        // (string | mandatory) the text inside the notification
+        text: 'Hover me to enable the Close Button. You can hide the left sidebar clicking on the button next to the logo.',
+        // (string | optional) the image to display on the left
+        image: "<?php echo base_url()?>/assets/img/ui-sam.jpg",
+        // (bool | optional) if you want it to fade out on its own or just sit there
+        sticky: false,
+        // (int | optional) the time you want it to be alive for before fading out
+        time: 8000,
+        // (string | optional) the class name you want to apply to that specific message
+        class_name: 'my-sticky-class'
+      });
+
+      return false;
+    });
+  </script>
+  <script type="application/javascript">
+    $(document).ready(function() {
+      $("#date-popover").popover({
+        html: true,
+        trigger: "manual"
+      });
+      $("#date-popover").hide();
+      $("#date-popover").click(function(e) {
+        $(this).hide();
+      });
+
+      $("#my-calendar").zabuto_calendar({
+        action: function() {
+          return myDateFunction(this.id, false);
+        },
+        action_nav: function() {
+          return myNavFunction(this.id);
+        },
+               legend: [{
+            type: "text",
+            label: "Special event",
+            badge: "00"
+          },
+          {
+            type: "block",
+            label: "Regular event",
+          }
+        ]
+      });
+    });
+
+    function myNavFunction(id) {
+      $("#date-popover").hide();
+      var nav = $("#" + id).data("navigation");
+      var to = $("#" + id).data("to");
+      console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
+    }
+  </script>
 </body>
+
 </html>
+
