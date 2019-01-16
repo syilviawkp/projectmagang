@@ -144,10 +144,10 @@
         </div>
         <!-- /row -->
       </section>
-      </div>
+     
     </section>
  
-
+ </div>
   </section>
   <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade-in">
         <div class="modal-dialog">
