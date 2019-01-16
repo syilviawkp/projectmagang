@@ -32,6 +32,22 @@ class KesgaModel extends CI_Model {
          $query = $this->db->get();
             return $query->result();
     }
+
+    public function getGridLaporan(){
+        $bulan = $this->input->post('bulan');
+        $tahun = $this->input->post('tahun');
+        $puskes = $this->input->post('puskesmas');
+
+        $this->db->select('*');
+        $this->db->from('detaillaporan');
+        $this->db->join('laporan', 'laporan.kodeLaporan = detaillaporan.idLaporan');
+       // $this->db->where('idLaporan', "(select kodeLaporan from laporan where bulan = $bulan and tahun = $tahun)",false);
+        $query= $this->db->get();
+          if($query->num_rows()>0){
+            return $query->result();
+        }
+
+    }
 public function getLastKategori(){
     $this->db->distinct();
     $this->db->select('namaKategori');
@@ -68,7 +84,7 @@ public function getFilterKategori(){
     }
 
     public function getFilterLaporan(){
-          $this->db->distinct();
+      
         $bulan= $this->input->post('bulan');
         $tahun = $this->input->post('tahun');
      $this->db->select('*');

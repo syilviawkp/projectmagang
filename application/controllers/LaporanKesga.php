@@ -75,5 +75,36 @@ class LaporanKesga extends CI_Controller {
 		redirect('LaporanKesga','refresh');
 	}
 
+		// public function editLaporan()
+  //   {
+    	
+  //      $this->load->view('header');
+  //       $this->load->view('editKesgaGrid');
+  //   }
+    public function updateLaporan(){
+
+        $id = $this->input->post('idStudio'); 
+        $this->KesgaModel->update($id);
+    }
+
+    public function getGridLaporan()
+    {
+        $result = $this->KesgaModel->getGridLaporan(); 
+        header("Content-Type: application/json");
+        echo json_encode($result);
+    }
+
+    public function addBioskop(){
+        $this->load->model('BioskopModel');
+        $this->BioskopModel->save();
+    }
+
+    public function deleteBioskop()
+    {
+        $this->load->model('BioskopModel');
+        $id = $this->input->post('idBioskop'); 
+        $this->BioskopModel->delete($id);
+    }
+
 	
 }

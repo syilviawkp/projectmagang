@@ -1,72 +1,49 @@
-
-    <!--sidebar end-->
-    <!-- **********************************************************************************************************************************************************
+<!--sidebar end-->
+    <!-- ****************************************************
         MAIN CONTENT
-        *********************************************************************************************************************************************************** -->
-    <!--main content start-->
+        ***************************************************** -->
+    <!--main content start-->      <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/jsgrid/jsgrid.min.css" />
+            <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/jsgrid/jsgrid-theme.min.css" />
     <section id="main-content">
-        <div class="col-lg-12">
+       <div class="col-lg-12">
       <section class="wrapper">
         <div class="row">
           <div class="row mt">
-        
+       
             <div class="form-panel">
-              <h4 class="mb"><i class="fa fa-angle-right"></i>List Puskesmas</h4>
-             <?php echo form_open('Puskesmas/'); ?>
-                
- 
-                <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
-            <thead>
-            <tr>
-              <th colspan="6" ><center><h1> Daftar Puskesmas Kota Batu </h1></center> </th>
-            </tr>
-                <tr>
-                  
-                    <th>ID</th>
-                    <th>Nama Puskesmas</th>
-                    <th>Alamat Puskesmas</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
- 
-                <?php foreach ($object as $key => $data): ?>
-               <tr>
+              <h4 class="mb"><i class="fa fa-angle-right"></i> Laporan Kesga</h4>
+             
+               
 
-              <td><?php echo $data->idPuskesmas ?></td>
-                    <td><?php echo $data->namaPuskes ?></td>
-                    <td><?php echo $data->alamatPuskes ?></td>
-                    <td><?php echo $data->status ?></td>
-                  
-              </tr>
-             <?php endforeach ?> 
-
-            </tbody>
-
-           
-        </table>
+    
+    
+             <div class="table-responsive">
+                                    <div id="jsGrid"></div>
+                                </div>
+  
             </div>
           </div>
           <!-- col-lg-12-->
         </div>
       
     </div>
-    <script src="<?php echo base_url('assets/jquery/jquery-2.2.3.min.js')?>"></script>
-    <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js')?>"></script>
-    <script src="<?php echo base_url('assets/datatables/js/jquery.dataTables.min.js')?>"></script>
-    <script src="<?php echo base_url('assets/datatables/js/dataTables.bootstrap.min.js')?>"></script>
+     <script src="<?php echo base_url()?>assets/lib/jquery/jquery.min.js"></script>
+     <script type="text/javascript" src="<?php echo base_url()?>assets/jsgrid/jsgrid.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url()?>assets/custom/grid.js"></script>
+
 
         </div>
         <!-- /row -->
       </section>
+      </div>
     </section>
     <!--main content end-->
     <!--footer start-->
-    
+  
     <!--footer end-->
   </section>
-  <!-- js placed at the end of the document so the pages load faster -->
-  <script src="<?php echo base_url()?>assets/lib/jquery/jquery.min.js"></script>
+
+ 
 
   <script src="<?php echo base_url()?>assets/lib/bootstrap/js/bootstrap.min.js"></script>
   <script class="include" type="text/javascript" src="<?php echo base_url()?>assets/lib/jquery.dcjqaccordion.2.7.js"></script>

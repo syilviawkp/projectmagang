@@ -3,6 +3,7 @@
         MAIN CONTENT
         ***************************************************** -->
     <!--main content start-->
+
     <section id="main-content">
        <div class="col-lg-12">
       <section class="wrapper">
@@ -93,7 +94,7 @@
 
 
               </tr>
-              <?php }}} ?>
+        <?php }} } ?>
             </tbody>
 
            
