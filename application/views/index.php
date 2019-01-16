@@ -22,19 +22,19 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-        <img src="<?php echo base_url()?>/assets/img/balkot.jpg" alt="Balaikota Batu" style="width: 2000px; height:550px;">
+        <img src="<?php echo base_url()?>/assets/img/balkot.jpg" alt="Balaikota Batu" style="width: 2000px; height:530px;">
       </div>
 
       <div class="item">
-        <img src="<?php echo base_url()?>/assets/img/Puskesbatu.jpg" alt="Puskesmas Batu" style="width: 2000px; height:550px;">
+        <img src="<?php echo base_url()?>/assets/img/Puskesbatu.jpg" alt="Puskesmas Batu" style="width: 2000px; height:530px;">
       </div>
     
       <div class="item">
-        <img src="<?php echo base_url()?>/assets/img/Puskesjunrejo.jpg" alt="Puskesmas Junrejo" style="width: 2000px; height:550px;">
+        <img src="<?php echo base_url()?>/assets/img/Puskesjunrejo.jpg" alt="Puskesmas Junrejo" style="width: 2000px; height:530px;">
       </div>
 
       <div class="item">
-        <img src="<?php echo base_url()?>/assets/img/Puskesbeji.jpg" alt="Puskesmas Beji" style="width: 2000px; height:550px;">
+        <img src="<?php echo base_url()?>/assets/img/Puskesbeji.jpg" alt="Puskesmas Beji" style="width: 2000px; height:530px;">
       </div>
 
       <div class="item">
@@ -42,7 +42,7 @@
       </div>
 
       <div class="item">
-        <img src="<?php echo base_url()?>/assets/img/Puskesbumiaji.jpg" alt="Puskesmas Bumiaji" style="width: 2000px; height:550px;">
+        <img src="<?php echo base_url()?>/assets/img/Puskesbumiaji.jpg" alt="Puskesmas Bumiaji" style="width: 2000px; height:530px;">
       </div>
 
     </div>
