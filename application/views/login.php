@@ -37,7 +37,7 @@
     <div class="container">
       <form class="form-login" action="index.html">
         <h2 class="form-login-heading">Laman Login</h2>
-        <div class="login-wrap">
+        <div class="login-wrap" ">
           <input type="text" class="form-control" placeholder="User ID" autofocus>
           <br>
           <input type="password" class="form-control" placeholder="Password">
