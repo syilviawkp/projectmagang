@@ -38,7 +38,7 @@
       </div>
 
       <div class="item">
-        <img src="<?php echo base_url()?>/assets/img/Puskesisir.jpg" alt="Puskesmas Sisir" style="width: 2000px; height:550px;">
+        <img src="<?php echo base_url()?>/assets/img/Puskesisir.jpg" alt="Puskesmas Sisir" style="width: 2000px; height:530px;">
       </div>
 
       <div class="item">
