@@ -104,7 +104,7 @@ class Login extends CI_Controller {
 		if ($this->form_validation->run()==FALSE) 
 			{
 				echo '<script>alert("Gagal menambahkan")</script>';
-				$this->load->view('tambahUser');
+				redirect('Login/data', 'refresh');
 		}else
 			{
 				$this->load->model('UserModel');
