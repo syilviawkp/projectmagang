@@ -14,7 +14,15 @@
               <h4 class="mb"><i class="fa fa-angle-right"></i>List Puskesmas</h4>
              <?php echo form_open('Puskesmas/'); ?>
                 
+                <div class="form-group">
+                <div class="col-sm-12" align="right">
+
                  <a href="<?php echo site_url()?>/puskesmas/tambahPuskesmas"><button type="submit" class="btn btn-outline-primary">Tambah Puskesmas  <span class="glyphicon glyphicon-plus"></button></a>
+
+                  <br><br>
+                  </div>
+                </div>
+
                 <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
             <tr>
@@ -47,21 +55,11 @@
                     </td>
 
                       <td>
-<<<<<<< HEAD
-                      <a href="<?php echo site_url()?>/Puskesmas/Delete/<?php echo $data->idPuskesmas?>">
-                      <p data-placement="top" data-toggle="tooltip" title="Delete">
-                         <button class="btn btn-outline-primary" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button>
-                      </p></td>
-=======
-                      <a href="<?php echo site_url();?>/Puskesmas/Delete/<?php echo $data->idPuskesmas?>"<p data-placement="top" data-toggle="tooltip" title="Delete">
-                         <button class="btn btn-outline-primary"><span class="glyphicon glyphicon-trash"></span></button>
-                    
->>>>>>> 7f432e0047683725ad5c503f142afc97c9c053de
-                      </a>
-                      </td>
-                   
-                  
-                  </tr>
+                      <a href="<?php echo site_url()?>/Puskesmas/Delete/<?php echo $data->idPuskesmas ?>"
+                      <button class="btn btn-outline-primary"><span class="glyphicon glyphicon-trash"></span>
+                      </button>
+                      </a></td>
+           
                   
               </tr>
              <?php }?> 
