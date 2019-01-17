@@ -37,6 +37,12 @@ class Puskesmas extends CI_Controller {
 		$this->load->view('Listpuskesmas',$data);
 	}
 
+	public function Delete($idPuskesmas){
+		$this->PuskesmasModel->delete($idPuskesmas);
+		echo '<script>alert("Sukses menghapus puskesmas")</script>';
+		redirect('Puskesmas/', 'refresh');
+		/*$this->load->view('hapus_user_sukses');*/
+	}
 
 	
 }

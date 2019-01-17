@@ -25,6 +25,8 @@
                     <th>Nama Puskesmas</th>
                     <th>Alamat Puskesmas</th>
                     <th>Status</th>
+                    <th>Edit</th>
+                    <th>Hapus</th>
                 </tr>
             </thead>
             <tbody>
@@ -36,6 +38,21 @@
                     <td><?php echo $data->namaPuskes ?></td>
                     <td><?php echo $data->alamatPuskes ?></td>
                     <td><?php echo $data->status ?></td>
+
+                     <td>
+                      <a href="javascript:void(0);" onclick="showmodal('<?php echo $key->idUser ?>','<?php echo $key->username ?>','<?php echo $key->password ?>','<?php echo $key->nama ?>','<?php echo $key->noHp ?>','<?php echo $key->jabatan?>','<?php echo $key->idPuskesmas ?>','<?php echo $key->level ?>')" data-toggle="modal" data-target="#myModalEdit">
+                         <button class="btn btn-outline-primary"><span class="glyphicon glyphicon-pencil"></span></button>
+                      </a></p>
+                    </td>
+
+                      <td>
+                      <a href="<?php echo site_url()?>/Puskesmas/Delete/<?php echo $key->idPuskesmas ?>"
+                      <p data-placement="top" data-toggle="tooltip" title="Delete">
+                         <button class="btn btn-outline-primary" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button>
+                      </p></td>
+                      </a>
+                  </td>
+                  </tr>
                   
               </tr>
              <?php endforeach ?> 
