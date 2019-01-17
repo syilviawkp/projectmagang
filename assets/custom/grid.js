@@ -2,9 +2,10 @@ $(function() {
   var base_url=window.location.origin;
   $.ajax({
     type: "GET",
-    url: "getAllBioskop/"
+    url: "getGridLaporan/"
   }).done(function(countries) {
     countries.unshift({ id: "0", name: "" });
+
 
     $("#jsGrid").jsGrid({
       height: "auto",
@@ -22,51 +23,56 @@ $(function() {
         loadData: function(filter) {
           return $.ajax({
             type: "GET",
-            url: "getAllBioskop/",
+            url: "getGridLaporan/",
             data: filter
           });
         },
         insertItem: function(item) {
           return $.ajax({
             type: "POST",
-            url: "addBioskop/",
+            url: "addLaporan/",
             data: item
           });
         },
         updateItem: function(item) {
           return $.ajax({
             type: "POST",
-            url: "updateBioskop/",
+            url: "updateLaporan/",
             data: item
           });
         },
         deleteItem: function(item) {
           return $.ajax({
             type: "POST",
-            url: "deleteBioskop/",
+            url: "deleteLaporan/",
             data: item
           });
         }
       },
       fields: [
       {
-          name: "idStudio",
-          title: "id Studio",
+          name: "namaField",
+          title: "Nama Field",
           type: "text",
           width: 150
         },
         {
-          name: "namaStudio",
-          title: "Nama studio",
-          type: "text",
+          name: "namaKategori",
+          title: "Nama Kategori",
+          type: "select", items: [{ Item: "UKGM PROMKES" },{Item:"KESGA"}, {Item:"KESEHATAN LINGKUNGAN"}], valueField: "Item", textField: "Item",
           width: 150
         },
         {
-          name: "jumlahKursi",
-          title: "Jumlah kursi",
-          type: "text",
-          width: 50
-        },
+          name: "Batu",
+          title: "Batu",
+          dataType: "integer", dataIndx: "id", type:'checkbox', cbId: 'Batu' },
+                //hidden column to store checkbox states.
+                { 
+                    dataIndx: 'Batu', 
+                    cb: {header: true, select: true, all: true}, 
+                    dataType: 'bool',
+                    hidden: true
+                },
         
         { type: "control" }
       ]
