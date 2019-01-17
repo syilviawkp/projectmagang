@@ -32,7 +32,7 @@
             </thead>
             <tbody>
  
-                <?php foreach ($object as $key => $data): ?>
+                <?php foreach ($object as $data){ ?>
                <tr>
 
                     <td><?php echo $data->idPuskesmas ?></td>
@@ -41,22 +41,30 @@
                     <td><?php echo $data->status ?></td>
 
                      <td>
-                      <a href="javascript:void(0);" onclick="showmodal('<?php echo $data->idPuskesmas?>','<?php echo $data->namaPuskes?>','<?php echo $data->alamatPuskes ?>','<?php echo $data->status ?>')" data-toggle="modal" data-target="#myModalEdit>
+                      <a href="javascript:void(0);" onclick="showmodal('<?php echo $data->idPuskesmas?>','<?php echo $data->namaPuskes?>','<?php echo $data->alamatPuskes ?>','<?php echo $data->status ?>')" data-toggle="modal" data-target="#myModalEdit">
                          <button class="btn btn-outline-primary"><span class="glyphicon glyphicon-pencil"></span></button>
-                      </a></p>
+                      </a>
                     </td>
 
                       <td>
+<<<<<<< HEAD
                       <a href="<?php echo site_url()?>/Puskesmas/Delete/<?php echo $data->idPuskesmas?>">
                       <p data-placement="top" data-toggle="tooltip" title="Delete">
                          <button class="btn btn-outline-primary" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button>
                       </p></td>
+=======
+                      <a href="<?php echo site_url();?>/Puskesmas/Delete/<?php echo $data->idPuskesmas?>"<p data-placement="top" data-toggle="tooltip" title="Delete">
+                         <button class="btn btn-outline-primary"><span class="glyphicon glyphicon-trash"></span></button>
+                    
+>>>>>>> 7f432e0047683725ad5c503f142afc97c9c053de
                       </a>
-                  </td>
+                      </td>
+                   
+                  
                   </tr>
                   
               </tr>
-             <?php endforeach ?> 
+             <?php }?> 
 
             </tbody>
 
