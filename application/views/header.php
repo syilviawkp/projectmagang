@@ -286,7 +286,7 @@
               <li><a href="blank.html">Cetak Laporan</a></li>
             </ul>
           </li>
-          <li class="sub-menu">
+        <!--   <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-tasks"></i>
               <span>Data Puskesmas</span>
@@ -295,7 +295,7 @@
               <li><a href="<?php echo site_url()?>/Puskesmas">List Puskesmas</a></li>
               
             </ul>
-          </li>
+          </li> -->
 
           <li class="sub-menu">
             <a href="javascript:;">
@@ -304,6 +304,7 @@
               </a>
             <ul class="sub">
               <li><a href="<?php echo site_url()?>/Login/data">Kelola User</a></li>
+                <li><a href="<?php echo site_url()?>/Puskesmas">Kelola Puskesmas</a></li>
               
             </ul>
           </li>

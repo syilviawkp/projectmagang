@@ -24,16 +24,6 @@ class PuskesmasModel extends CI_Model {
         return $query->result();
     }
 
-    public function insertPuskesmas(){ 
-    $object = array(
-        'idPuskesmas'=>$this->input->post('idPuskesmas'),
-        'namaPuskes'=>$this->input->post('namaPuskes'),
-        'alamatPuskes'=>$this->input->post('alamatPuskes'), 
-        'status'=>$this->input->post('status')
-     ); 
-        $this->db->insert('user',$object); 
-    }
-
     
 
   }
