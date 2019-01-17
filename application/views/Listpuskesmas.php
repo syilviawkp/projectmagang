@@ -14,7 +14,7 @@
               <h4 class="mb"><i class="fa fa-angle-right"></i>List Puskesmas</h4>
              <?php echo form_open('Puskesmas/'); ?>
                 
- 
+                 <a href="<?php echo site_url()?>/puskesmas/tambahPuskesmas"><button type="submit" class="btn btn-outline-primary">Tambah Puskesmas  <span class="glyphicon glyphicon-plus"></button></a>
                 <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
             <tr>
@@ -33,7 +33,7 @@
                 <?php foreach ($object as $key => $data): ?>
                <tr>
 
-              <td><?php echo $data->idPuskesmas ?></td>
+                    <td><?php echo $data->idPuskesmas ?></td>
                     <td><?php echo $data->namaPuskes ?></td>
                     <td><?php echo $data->alamatPuskes ?></td>
                     <td><?php echo $data->status ?></td>
