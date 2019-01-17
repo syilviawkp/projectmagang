@@ -41,13 +41,13 @@
                     <td><?php echo $data->status ?></td>
 
                      <td>
-                      <a href="javascript:void(0);" onclick="showmodal('<?php echo $key->idUser ?>','<?php echo $key->username ?>','<?php echo $key->password ?>','<?php echo $key->nama ?>','<?php echo $key->noHp ?>','<?php echo $key->jabatan?>','<?php echo $key->idPuskesmas ?>','<?php echo $key->level ?>')" data-toggle="modal" data-target="#myModalEdit">
+                      <a href="javascript:void(0);" onclick="showmodal('<?php echo $data->idPuskesmas?>','<?php echo $data->namaPuskes?>','<?php echo $data->alamatPuskes ?>','<?php echo $data->status ?>')" data-toggle="modal" data-target="#myModalEdit>
                          <button class="btn btn-outline-primary"><span class="glyphicon glyphicon-pencil"></span></button>
                       </a></p>
                     </td>
 
                       <td>
-                      <a href="<?php echo site_url()?>/Puskesmas/Delete/<?php echo $key->idPuskesmas ?>"
+                      <a href="<?php echo site_url()?>/Puskesmas/Delete/<?php echo $data->idPuskesmas ?>"
                       <p data-placement="top" data-toggle="tooltip" title="Delete">
                          <button class="btn btn-outline-primary" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button>
                       </p></td>
@@ -82,6 +82,16 @@
     
     <!--footer end-->
   </section>
+
+  <script type="text/javascript">
+    function showmodal(idPuskesmas,namaPuskes,alamatPuskes,status){
+        document.getElementById('idPuskesmas').value = idPuskesmas;
+        document.getElementById('namaPuskes').value = namaPuskes;
+        document.getElementById('alamatPuskes').value = alamatPuskes;
+        document.getElementById('status').value = status;
+    }
+  </script>
+
   <!-- js placed at the end of the document so the pages load faster -->
   <script src="<?php echo base_url()?>assets/lib/jquery/jquery.min.js"></script>
 
