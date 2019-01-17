@@ -24,6 +24,11 @@ class PuskesmasModel extends CI_Model {
         return $query->result();
     }
 
+
+    public function delete($idPuskesmas){
+        $this->db->where('idPuskesmas', $idPuskesmas);
+        $this->db->delete('puskesmas');
+    }
     
 
   }
