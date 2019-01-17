@@ -34,17 +34,23 @@ class KesgaModel extends CI_Model {
     }
 
     public function getGridLaporan(){
-        $bulan = $this->input->post('bulan');
-        $tahun = $this->input->post('tahun');
-        $puskes = $this->input->post('puskesmas');
-
+        $bulan = $this->session->userdata('editFormat')['bulan'];
+        $tahun = $this->session->userdata('editFormat')['tahun'];
         $this->db->select('*');
         $this->db->from('detaillaporan');
         $this->db->join('laporan', 'laporan.kodeLaporan = detaillaporan.idLaporan');
-       // $this->db->where('idLaporan', "(select kodeLaporan from laporan where bulan = $bulan and tahun = $tahun)",false);
+        $this->db->where('idLaporan', '(select kodeLaporan from laporan where bulan = "'. $bulan.'" and tahun = '.$tahun.')',false);
         $query= $this->db->get();
           if($query->num_rows()>0){
             return $query->result();
+        }else{
+         
+          $this->db->select('*');
+        $this->db->from('formatfield');
+        $this->db->join('formatkategori', 'formatkategori.idKategori = formatfield.idKategori');
+        $this->db->where('formatkategori.jenisLaporan', 'KESGA');
+        $query2= $this->db->get();
+          return $query2->result();
         }
 
     }

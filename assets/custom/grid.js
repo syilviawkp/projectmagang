@@ -62,18 +62,7 @@ $(function() {
           type: "select", items: [{ Item: "UKGM PROMKES" },{Item:"KESGA"}, {Item:"KESEHATAN LINGKUNGAN"}], valueField: "Item", textField: "Item",
           width: 150
         },
-        {
-          name: "Batu",
-          title: "Batu",
-          dataType: "integer", dataIndx: "id", type:'checkbox', cbId: 'Batu' },
-                //hidden column to store checkbox states.
-                { 
-                    dataIndx: 'Batu', 
-                    cb: {header: true, select: true, all: true}, 
-                    dataType: 'bool',
-                    hidden: true
-                },
-        
+       
         { type: "control" }
       ]
     });
