@@ -75,12 +75,16 @@ class LaporanKesga extends CI_Controller {
 		redirect('LaporanKesga','refresh');
 	}
 
-		// public function editLaporan()
-  //   {
-    	
-  //      $this->load->view('header');
-  //       $this->load->view('editKesgaGrid');
-  //   }
+	 public function editFieldLaporan()
+    {
+    $sess_array = array(
+					'bulan'=>$this->input->post('bulan'),
+					'tahun'=>$this->input->post('tahun')
+					);
+				$this->session->set_userdata('editFormat', $sess_array);	
+   $this->load->view('header');
+       $this->load->view('editKesgaGrid');
+  }
     public function updateLaporan(){
 
         $id = $this->input->post('idStudio'); 
