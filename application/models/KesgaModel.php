@@ -94,16 +94,24 @@ public function getLastKategori(){
     return $query->result();
 }
 public function getFilterKategori(){
-    $this->db->distinct();
+   
    $bulan= $this->input->post('bulan');
         $tahun = $this->input->post('tahun');
-     $this->db->select('namaKategori');
-     $this->db->distinct();
-        $this->db->from('laporan');
-        $this->db->join('detaillaporan', 'detaillaporan.idDetailLaporan = laporan.kodeLaporan');
-        $this->db->where('laporan.bulan', $bulan);
-          $this->db->where('laporan.jenisLaporan', "KESGA");
-         $this->db->where('laporan.tahun', $tahun);
+     // $this->db->select('namaKategori');
+     // 
+     //    $this->db->from('laporan');
+     //    $this->db->join('detaillaporan', 'detaillaporan.idDetailLaporan = laporan.kodeLaporan');
+     //    $this->db->where('laporan.bulan', $bulan);
+     //      $this->db->where('laporan.jenisLaporan', "KESGA");
+     //     $this->db->where('laporan.tahun', $tahun);
+      $this->db->distinct();
+      $this->db->select('*');
+     
+        $this->db->from('detaillaporan');
+
+        $this->db->where('idLaporan', '(select kodeLaporan from laporan where bulan = "'. $bulan.'" and tahun = '.$tahun.' AND jenisLaporan = "KESGA")',false);
+       
+         //$query = $this->db->get();
      $query = $this->db->get();
             return $query->result();
 }
