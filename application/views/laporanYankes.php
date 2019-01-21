@@ -55,9 +55,9 @@
                 </div>
                 <div class="form-group">
                 <div class="col-sm-12" align="right">
-               <button type="submit" id="btn-filter" class="btn btn-primary" >Filter</button>
+               <button type="submit" id="btn-filter" class="btn btn-success" ><span class="glyphicon glyphicon-filter"></span> Filter</button>
                 <?php echo form_close();?>  <a href="" data-toggle="modal" data-target="#myModal">
-                <button id="btn-edit" class="btn btn-success" >Edit Laporan</button></a>
+                <button id="btn-edit" class="btn btn-primary" ><span class="glyphicon glyphicon-pencil"></span> Edit Laporan</button></a>
                            <br><br>
                   </div>
                 </div>

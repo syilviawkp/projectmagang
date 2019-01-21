@@ -17,7 +17,7 @@
                 <div class="form-group">
                 <div class="col-sm-12" align="right">
 
-                 <a href="<?php echo site_url()?>/Puskesmas/tambahPuskesmas"><button type="submit" class="btn btn-outline-primary">Tambah Puskesmas  <span class="glyphicon glyphicon-plus"></button></a>
+                 <a href="<?php echo site_url()?>/Puskesmas/tambahPuskesmas"><button type="submit" class="btn btn-success">Tambah Puskesmas  <span class="glyphicon glyphicon-plus"></button></a>
 
                   <br><br>
                   </div>
@@ -50,13 +50,13 @@
 
                      <td>
                       <a href="javascript:void(0);" onclick="showmodal('<?php echo $data->idPuskesmas?>','<?php echo $data->namaPuskes?>','<?php echo $data->alamatPuskes ?>','<?php echo $data->status ?>')" data-toggle="modal" data-target="#myModalEdit">
-                         <button class="btn btn-outline-primary"><span class="glyphicon glyphicon-pencil"></span></button>
+                         <button class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></button>
                       </a>
                     </td>
 
                       <td>
                       <a href="<?php echo site_url()?>/Puskesmas/Delete/<?php echo $data->idPuskesmas ?>"
-                      <button class="btn btn-outline-primary"><span class="glyphicon glyphicon-trash"></span></button>
+                      <button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
                       </a>
            
                   
