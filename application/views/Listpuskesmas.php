@@ -55,18 +55,9 @@
                     </td>
 
                       <td>
-                      <a href="<?php echo site_url()?>/Puskesmas/Delete/<?php echo $data->idPuskesmas ?>">
+                      <a href="<?php echo site_url()?>/Puskesmas/Delete/<?php echo $data->idPuskesmas ?>"
                       <button class="btn btn-outline-primary"><span class="glyphicon glyphicon-trash"></span></button>
                       </a>
-
-                    </td>
-
-                      <a href="<?php echo site_url()?>/Puskesmas/Delete/<?php echo $data->idPuskesmas?>" 
-                      <button class="btn btn-outline-primary"><span class="glyphicon glyphicon-trash"></span>
-                      </button>
-                      </a>
-                      </td>
-
            
                   
               </tr>
