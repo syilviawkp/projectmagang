@@ -98,13 +98,14 @@ class Login extends CI_Controller {
 			$this->form_validation->set_rules('password', 'password', 'trim|required');
 			$this->form_validation->set_rules('nama', 'nama', 'trim|required');
 			$this->form_validation->set_rules('noHp', 'noHp', 'trim|required');
-			$this->form_validation->set_rules('idPuskesmas', 'idPuskesmas', 'trim|required');
+			// $this->form_validation->set_rules('idPuskesmas', 'idPuskesmas', 'trim|required');
 			$this->form_validation->set_rules('level', 'level', 'trim|required');
 			$this->form_validation->set_rules('jabatan', 'jabatan', 'trim|required');
 			
 
 		if ($this->form_validation->run()==FALSE) 
 			{
+			
 				echo '<script>alert("Gagal menambahkan")</script>';
 				redirect('Login/data', 'refresh');
 		}else

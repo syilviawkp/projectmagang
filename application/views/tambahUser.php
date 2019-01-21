@@ -27,7 +27,7 @@
                     <!-- column -->
                     <div class="col-lg-12">
             
-          
+          <body onload="makeDisabled()">
            <center><h1>Tambah User</h1> </center> 
 
                                 <div class="form_group">
@@ -53,8 +53,8 @@
                                     <label for="">Jabatan</label>
                                     <select class="form-control" name="jabatan" id="jabatan">
                                     <option value="" >Pilih jabatan:</option>
-                                    <option value="Staff" >Staff</option>
-                                    <option value="Kepala puskesmas" >Kepala puskesmas</option>
+                                    <option value="Staff" onclick="makeDisabled()" >Staff</option>
+                                    <option value="Kepala puskesmas" onclick="makeEnabled()" >Kepala puskesmas</option>
                                     </select>
                                     <br><br>
 
@@ -95,6 +95,7 @@
         </div>
       
     </div>
+    </body>
     <?php echo form_close(); ?>
 <script src="<?php echo base_url('assets/jquery/jquery-2.2.3.min.js')?>"></script>
 <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js')?>"></script>
@@ -202,6 +203,19 @@
       console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
     }
   </script>
-</body>
+
+<script type="text/javascript">
+    function makeDisabled(){
+      var x = document.getElementById('idPuskesmas')
+      x.disabled=true
+    }
+
+    function makeEnabled(){
+      var x = document.getElementById('idPuskesmas')
+      x.disabled=false
+    }
+
+  </script>
+
 
 </html>
