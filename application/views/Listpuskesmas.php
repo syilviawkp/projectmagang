@@ -88,6 +88,47 @@
     <!--footer end-->
   </section>
 
+
+  <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModalEdit" class="modal fade-in" >
+        <div class="modal-dialog">
+            <div class="modal-content" style="width: 800px; height:500px; margin-left: -100px;padding: 20px" >
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit Puskesmas</h4>
+                </div>
+                <?php echo form_open_multipart('Puskesmas/update'); ?>
+                <?php echo validation_errors(); ?>
+                <br>
+                 <div class="form-group">
+                    <label for="">Id Puskesmas</label>
+                    <input type="text" class="form-control" name="idPuskesmas" id="idPuskesmas" value="" readonly="">
+                </div>
+                <div class="form-group">
+                    <label for="">Nama Puskesmas</label>
+                    <input type="text" class="form-control" name="namaPuskes" id="namaPuskes" value="" >
+                </div>
+                <div class="form-group">
+                    <label for="">Alamat Puskesmas</label>
+                    <input type="text" class="form-control" name="alamatPuskes" id="alamatPuskes" value="" >
+                </div>
+                <div class="form-group">
+                  <label for="">Status</label>
+                     <select class="form-control" name="status" id="status">
+                  <option value="AKTIF" >AKTIF</option>
+                  <option value="NONAKTIF" >NONAKTIF</option>
+                  </select>
+                </div>
+                 
+               <div align="right" style="margin-bottom: 20px; margin-right: 30px">
+          <button class="btn-info" type="submit">Update</button>
+            <a href=""><button class="btn-warning" data-dismiss="modal">Batal</button></a>
+        </div>
+    
+        <?php echo form_close(); ?>
+    </div>
+            
+            </div>
+
+
   <script type="text/javascript">
     function showmodal(idPuskesmas,namaPuskes,alamatPuskes,status){
         document.getElementById('idPuskesmas').value = idPuskesmas;
