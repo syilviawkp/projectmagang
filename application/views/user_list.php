@@ -38,6 +38,7 @@
                     
                 </tr>
             </thead>
+
             <tbody>   
                   <?php foreach ($user_object as $key){ ?>
                   <tr>
@@ -104,7 +105,7 @@
     <!--footer end-->
   </section>
 
-
+<body onload="makeDisabled()">
   <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModalEdit" class="modal fade-in" >
         <div class="modal-dialog">
             <div class="modal-content" style="width: 800px; height:800px; margin-left: -100px;padding: 20px" >
@@ -143,8 +144,8 @@
                   <label for="">Jabatan</label>
                      <select class="form-control" name="jabatan" id="jabatan">
                   <!-- <option value="">Pilih jabatan</option> -->
-                  <option value="Staff" >Staff Dinkes</option>
-                  <option value="Kepala Puskesmas" >Kepala Puskesmas</option>
+                  <option value="Staff" onclick="makeDisabled()" >Staff Dinkes </option>
+                  <option value="Kepala Puskesmas" onclick="makeEnabled()" >Kepala Puskesmas</option>
                   </select>
                 </div>
                 <!-- <div class="form-group">
@@ -183,6 +184,7 @@
             
             </div>
   
+</body>
   <!-- js placed at the end of the document so the pages load faster -->
   <script src="<?php echo base_url()?>assets/lib/jquery/jquery.min.js"></script>
 
@@ -269,6 +271,21 @@
       console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
     }
   </script>
+
+  <script type="text/javascript">
+    function makeDisabled(){
+      var x = document.getElementById('idPuskesmas')
+      x.disabled=true
+    }
+
+    function makeEnabled(){
+      var x = document.getElementById('idPuskesmas')
+      x.disabled=false
+    }
+
+  </script>
+
+
 </body>
 
 </html>
