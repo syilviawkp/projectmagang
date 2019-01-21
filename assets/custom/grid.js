@@ -18,7 +18,7 @@ $(function() {
       autoload: true,
       pageSize: 10,
       pageButtonCount: 5,
-      deleteConfirm: "Do you really want to delete client?",
+      deleteConfirm: "Do you really want to delete?",
       controller: {
         loadData: function(filter) {
           return $.ajax({
@@ -50,6 +50,7 @@ $(function() {
         }
       },
       fields: [
+       
       {
           name: "namaField",
           title: "Nama Field",

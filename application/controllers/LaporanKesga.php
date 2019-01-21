@@ -54,10 +54,7 @@ class LaporanKesga extends CI_Controller {
 	public function addLaporan()
 	{
 		$this->load->model('KesgaModel');
-		$data['kategori']=$this->KesgaModel->getKategoriKesga();
-		$data['field']=$this->KesgaModel->getFieldKesga();
-		$this->load->view('header');
-		$this->load->view('form_component',$data);
+		$this->KesgaModel->addLaporan();
 	}
 
 	public function editLaporan(){
@@ -77,18 +74,58 @@ class LaporanKesga extends CI_Controller {
 
 	 public function editFieldLaporan()
     {
+
     $sess_array = array(
 					'bulan'=>$this->input->post('bulan'),
 					'tahun'=>$this->input->post('tahun')
 					);
-				$this->session->set_userdata('editFormat', $sess_array);	
+	$this->session->set_userdata('editFormat', $sess_array);
+
+
+	    $bulan = $this->session->userdata('editFormat')['bulan'];
+        $tahun = $this->session->userdata('editFormat')['tahun'];
+        $this->db->select('*');
+        $this->db->from('detaillaporan');
+        $this->db->join('laporan', 'laporan.kodeLaporan = detaillaporan.idLaporan');
+        $this->db->where('idLaporan', '(select kodeLaporan from laporan where bulan = "'. $bulan.'" and tahun = '.$tahun.')',false);
+        $query= $this->db->get();
+          if($query->num_rows()>0){
+                foreach ($query->result() as $key) {
+                    $field = $key->idLaporan;
+                  }
+           
+                $sess_array = array('idLaporan'=>$field,'bulan'=>$this->input->post('bulan'),
+					'tahun'=>$this->input->post('tahun'));
+                $this->session->set_userdata('editFormat', $sess_array);  
+           
+        }else{
+        $object = array('jenisLaporan'=>"KESGA", 'bulan'=>$bulan, 'tahun'=>$tahun);
+        $this->db->insert('laporan', $object);
+
+ 
+       $kode =  $this->db->query('SELECT  kodeLaporan FROM laporan where bulan= "'. $bulan .'" and tahun='. $tahun);
+        foreach ($kode->result() as $key) {
+           $kodeLaporan= $key->kodeLaporan;
+         }
+
+        $query2= $this->db->query("SELECT * from formatfield join formatkategori on formatkategori.idKategori = formatfield.idKategori where formatkategori.jenisLaporan = 'KESGA'");
+          foreach ($query2->result() as $key ) {
+           $object =  array('idLaporan' => $kodeLaporan, 'namaField'=> $key->namaField, 'namaKategori'=> $key->namaKategori );
+            $this->db->insert('detaillaporan', $object);
+         }
+        }	
    $this->load->view('header');
        $this->load->view('editKesgaGrid');
   }
     public function updateLaporan(){
 
-        $id = $this->input->post('idStudio'); 
+        $id = $this->input->post('idDetailLaporan'); 
         $this->KesgaModel->update($id);
+    }
+    public function deleteLaporan(){
+
+        $id = $this->input->post('idDetailLaporan'); 
+        $this->KesgaModel->delete($id);
     }
 
     public function getGridLaporan()
@@ -96,18 +133,6 @@ class LaporanKesga extends CI_Controller {
         $result = $this->KesgaModel->getGridLaporan(); 
         header("Content-Type: application/json");
         echo json_encode($result);
-    }
-
-    public function addBioskop(){
-        $this->load->model('BioskopModel');
-        $this->BioskopModel->save();
-    }
-
-    public function deleteBioskop()
-    {
-        $this->load->model('BioskopModel');
-        $id = $this->input->post('idBioskop'); 
-        $this->BioskopModel->delete($id);
     }
 
 	
