@@ -39,7 +39,7 @@ class Puskesmas extends CI_Controller {
 
 		public function data()
 	{ 
-		$data['puskesmas_object']= $this->PuskesmasModel->getDataPuskesmas();
+		$data['object']= $this->PuskesmasModel->getDataPuskesmas();
 		$this->load->view('header');
 		 $this->load->view('Listpuskesmas', $data);
 	}
@@ -51,6 +51,33 @@ class Puskesmas extends CI_Controller {
 	
 		redirect('Puskesmas', 'refresh');
 		/*$this->load->view('hapus_user_sukses');*/
+	}
+
+	public function tambahPuskesmas(){
+		$this->load->view('tambahPuskesmas');
+	}
+
+	public function Create()
+		{
+			$this->load->helper('url', 'form');
+			$this->load->library('form_validation');
+			// $this->load->model('UserModel');
+			$this->form_validation->set_rules('namaPuskes', 'namaPuskes', 'trim|required');
+			$this->form_validation->set_rules('alamatPuskes', 'alamatPuskes', 'trim|required');
+			$this->form_validation->set_rules('status', 'status', 'trim|required');
+
+
+		if ($this->form_validation->run()==FALSE) 
+			{
+				echo '<script>alert("Gagal menambahkan")</script>';
+				redirect('Puskesmas/data', 'refresh');
+		}else
+			{
+				$this->load->model('PuskesmasModel');
+				$this->PuskesmasModel->insertPuskesmas();
+				echo '<script>alert("Sukses mendaftar")</script>';
+				redirect('Puskesmas/data', 'refresh');
+			}
 	}
 	
 }

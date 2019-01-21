@@ -1,82 +1,80 @@
-
+<?php $this->load->view('header');?>
     <!--sidebar end-->
     <!-- **********************************************************************************************************************************************************
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
     <!--main content start-->
+    
     <section id="main-content">
-        <div class="col-lg-12">
       <section class="wrapper">
         <div class="row">
           <div class="row mt">
-        
+          <div class="col-lg-12">
             <div class="form-panel">
-              <h4 class="mb"><i class="fa fa-angle-right"></i>List Puskesmas</h4>
-             
-                
+              <h4 class="mb"><i class="fa fa-angle-right"></i> User</h4>
+           <?php echo form_open('Puskesmas/Create'); ?>
                 <div class="form-group">
                 <div class="col-sm-12" align="right">
-
-                 <a href="<?php echo site_url()?>/Puskesmas/tambahPuskesmas"><button type="submit" class="btn btn-outline-primary">Tambah Puskesmas  <span class="glyphicon glyphicon-plus"></button></a>
-
-                  <br><br>
+              
+                <!-- <button id="btn-edit" class="btn btn-success" >Tambah user</button></a> -->
+                           <br><br>
                   </div>
                 </div>
-
                 <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
-            <tr>
-              <th colspan="6" ><center><h1> Daftar Puskesmas Kota Batu </h1></center> </th>
-            </tr>
-                <tr>
-                  
-                    <th>ID</th>
-                    <th>Nama Puskesmas</th>
-                    <th>Alamat Puskesmas</th>
-                    <th>Status</th>
-                    <th>Edit</th>
-                    <th>Hapus</th>
-                </tr>
-            </thead>
-            <tbody>
- 
-                <?php foreach ($object as $data){ ?>
-               <tr>
 
-                    <td><?php echo $data->idPuskesmas ?></td>
-                    <td><?php echo $data->namaPuskes ?></td>
-                    <td><?php echo $data->alamatPuskes ?></td>
-                    <td><?php echo $data->status ?></td>
+               <div class="row">
+                    <!-- column -->
+                    <div class="col-lg-12">
+            
+          
+           <center><h1>Tambah Puskesmas</h1> </center> 
 
-                     <td>
-                      <a href="javascript:void(0);" onclick="showmodal('<?php echo $data->idPuskesmas?>','<?php echo $data->namaPuskes?>','<?php echo $data->alamatPuskes ?>','<?php echo $data->status ?>')" data-toggle="modal" data-target="#myModalEdit">
-                         <button class="btn btn-outline-primary"><span class="glyphicon glyphicon-pencil"></span></button>
-                      </a>
-                    </td>
+                                <div class="form_group">
 
-                      <td>
-                      <a href="<?php echo site_url()?>/Puskesmas/Delete/<?php echo $data->idPuskesmas ?>"
-                      <button class="btn btn-outline-primary"><span class="glyphicon glyphicon-trash"></span></button>
-                      </a>
-           
-                  
-              </tr>
-             <?php }?> 
+                                    <label for="">Nama Puskesmas</label>
+                                    <input type="text" name="namaPuskes" class="form-control" id="namaPuskes" placeholder="isi nama puskesmas">
+                                    <br><br>
 
-            </tbody>
 
-           
-        </table>
-            </div>
-          </div>
-          <!-- col-lg-12-->
+                                    <label for="">Alamat Puskesmas</label>
+                                    <input type="text" name="alamatPuskes" class="form-control" id="alamatPuskes" placeholder="isi alamat puskesmas">
+                                    <br><br>
+
+
+                                    <label for="">Status</label>
+                                    <select class="form-control" name="status" id="status">
+                                    <option value="" >Pilih status puskesmas:</option>
+                                    <option value="AKTIF" >Aktif</option>
+                                    <option value="NONAKTIF" >Non-Aktif</option>
+                                    </select>
+                                    <br><br>
+
+<!-- 
+                                    <label for="">Kode Puskesmas</label>
+                                    <input type="text" name="idPuskesmas" class="form-control" id="idPuskesmas" placeholder="isi kode puskesmas">
+                                    
+
+                                    <div class="form-group"> -->
+            
+
+
+                                </div>
+
+                     
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                               
+                                </table>
+                              
+         
         </div>
       
     </div>
-    <script src="<?php echo base_url('assets/jquery/jquery-2.2.3.min.js')?>"></script>
-    <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js')?>"></script>
-    <script src="<?php echo base_url('assets/datatables/js/jquery.dataTables.min.js')?>"></script>
-    <script src="<?php echo base_url('assets/datatables/js/dataTables.bootstrap.min.js')?>"></script>
+    <?php echo form_close(); ?>
+<script src="<?php echo base_url('assets/jquery/jquery-2.2.3.min.js')?>"></script>
+<script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js')?>"></script>
+<script src="<?php echo base_url('assets/datatables/js/jquery.dataTables.min.js')?>"></script>
+<script src="<?php echo base_url('assets/datatables/js/dataTables.bootstrap.min.js')?>"></script>
 
         </div>
         <!-- /row -->
@@ -84,19 +82,28 @@
     </section>
     <!--main content end-->
     <!--footer start-->
-    
+   <!--  <footer class="site-footer">
+      <div class="text-center">
+        <p>
+          &copy; Copyrights <strong>Dashio</strong>. All Rights Reserved
+        </p>
+        <div class="credits">
+          
+            You are NOT allowed to delete the credit link to TemplateMag with free version.
+            You can delete the credit link only if you bought the pro version.
+            Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/dashio-bootstrap-admin-template/
+            Licensing information: https://templatemag.com/license/
+          
+          Created with Dashio template by <a href="https://templatemag.com/">TemplateMag</a>
+        </div>
+        <a href="index.html#" class="go-top">
+          <i class="fa fa-angle-up"></i>
+          </a>
+      </div>
+    </footer> -->
     <!--footer end-->
   </section>
-
-  <script type="text/javascript">
-    function showmodal(idPuskesmas,namaPuskes,alamatPuskes,status){
-        document.getElementById('idPuskesmas').value = idPuskesmas;
-        document.getElementById('namaPuskes').value = namaPuskes;
-        document.getElementById('alamatPuskes').value = alamatPuskes;
-        document.getElementById('status').value = status;
-    }
-  </script>
-
+  
   <!-- js placed at the end of the document so the pages load faster -->
   <script src="<?php echo base_url()?>assets/lib/jquery/jquery.min.js"></script>
 
