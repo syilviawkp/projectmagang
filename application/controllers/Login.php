@@ -8,6 +8,7 @@ class Login extends CI_Controller {
 		parent::__construct();
 		$this->load->library('form_validation');
 		$this->load->model('UserModel');
+		$this->load->model('PuskesmasModel');
 	}
 
 	/**
@@ -33,6 +34,7 @@ class Login extends CI_Controller {
 
 		$this->load->model('UserModel');
 		$data['user_object']= $this->UserModel->getUserQueryObject();
+		$data['puskesmas_object']=$this->PuskesmasModel->getDataPuskesmas();
 
 		$this->load->view('header');
 		$this->load->view('user_list', $data);
@@ -115,12 +117,14 @@ class Login extends CI_Controller {
 	}
 
 	public function tambahUser(){
-		$this->load->view('tambahUser');
+		$data['puskesmas_object']=$this->PuskesmasModel->getDataPuskesmas();
+		$this->load->view('tambahUser',$data);
 	}
 
 	public function data()
 	{ 
 		$data['user_object']=$this->UserModel->getUserQueryObject();
+		$data['puskesmas_object']=$this->PuskesmasModel->getDataPuskesmas();
 		$this->load->view('header');
 		 $this->load->view('user_list', $data);
 	}

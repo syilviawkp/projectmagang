@@ -155,12 +155,12 @@
                 <div class="form-group">
                   <label for="">Puskesmas</label>
                      <select class="form-control" name="idPuskesmas" id="idPuskesmas">
-                <!--   <option value="">Pilih puskesmas</option> -->
-                  <option value="1" >Batu</option>
-                  <option value="2" >Bumiaji</option>
-                  <option value="3" >Beji</option>
-                  <option value="4" >Junrejo</option>
-                  <option value="5" >Sisir</option>
+                                   
+                     <option value="" >Pilih puskesmas:</option>
+                      <?php foreach ($puskesmas_object as $key){ ?>
+                                    
+                      <option value="<?php echo $key->idPuskesmas?>" ><?php echo $key->namaPuskes?></option>
+                      <?php }?>
                   </select>
                 </div>
                
