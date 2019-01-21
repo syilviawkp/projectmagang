@@ -29,6 +29,28 @@ class PuskesmasModel extends CI_Model {
         $this->db->where('idPuskesmas', $idPuskesmas);
         $this->db->delete('puskesmas');
     }
+
+    public function insertPuskesmas(){ 
+    $object = array(
+        'namaPuskes'=>$this->input->post('namaPuskes'),
+        'alamatPuskes'=>$this->input->post('alamatPuskes'),
+        'status'=>$this->input->post('status')
+     ); 
+        $this->db->insert('puskesmas',$object); 
+    }
+
+    public function UpdateById(){
+        $data = array(
+            'idPuskesmas' => $this->input->post('idPuskesmas'),
+            'namaPuskes' => $this->input->post('namaPuskes'),
+            'alamatPuskes' => $this->input->post('alamatPuskes'),
+            'status' => $this->input->post('status')
+        );
+
+        $idPuskesmas = $this->input->post('idPuskesmas');
+        $this->db->where('idPuskesmas', $idPuskesmas);
+        $this->db->update('puskesmas', $data);
+    }
     
 
   }

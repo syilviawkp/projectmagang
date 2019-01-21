@@ -12,7 +12,7 @@
           <div class="col-lg-12">
             <div class="form-panel">
               <h4 class="mb"><i class="fa fa-angle-right"></i> User</h4>
-           <?php echo form_open('Login/Create'); ?>
+           <?php echo form_open('Puskesmas/Create'); ?>
                 <div class="form-group">
                 <div class="col-sm-12" align="right">
               
@@ -27,34 +27,26 @@
                     <!-- column -->
                     <div class="col-lg-12">
             
-          <body onload="makeDisabled()">
-           <center><h1>Tambah User</h1> </center> 
+          
+           <center><h1>Tambah Puskesmas</h1> </center> 
 
                                 <div class="form_group">
 
-                                    <label for="">Username</label>
-                                    <input type="text" name="username" class="form-control" id="username" placeholder="isi username">
+                                    <label for="">Nama Puskesmas</label>
+                                    <input type="text" name="namaPuskes" class="form-control" id="namaPuskes" placeholder="isi nama puskesmas">
                                     <br><br>
 
 
-                                    <label for="">Password</label>
-                                    <input type="text" name="password" class="form-control" id="password" placeholder="isi password">
+                                    <label for="">Alamat Puskesmas</label>
+                                    <input type="text" name="alamatPuskes" class="form-control" id="alamatPuskes" placeholder="isi alamat puskesmas">
                                     <br><br>
 
 
-                                    <label for="">Nama Lengkap</label>
-                                    <input type="text" name="nama" class="form-control" id="nama" placeholder="isi nama lengkap">
-                                    <br><br>
-
-                                    <label for="">Nomer HP</label>
-                                    <input type="text" name="noHp" class="form-control" id="noHp" placeholder="isi no hp">
-                                    <br><br>
-
-                                    <label for="">Jabatan</label>
-                                    <select class="form-control" name="jabatan" id="jabatan">
-                                    <option value="" >Pilih jabatan:</option>
-                                    <option value="Staff" onclick="makeDisabled()" >Staff</option>
-                                    <option value="Kepala puskesmas" onclick="makeEnabled()" >Kepala puskesmas</option>
+                                    <label for="">Status</label>
+                                    <select class="form-control" name="status" id="status">
+                                    <option value="" >Pilih status puskesmas:</option>
+                                    <option value="AKTIF" >Aktif</option>
+                                    <option value="NONAKTIF" >Non-Aktif</option>
                                     </select>
                                     <br><br>
 
@@ -64,24 +56,7 @@
                                     
 
                                     <div class="form-group"> -->
-                                    <label for="">Puskesmas</label>
-                                    <select class="form-control" name="idPuskesmas" id="idPuskesmas">
-                                    <!--   <option value="">Pilih puskesmas</option> -->
-                                    <option value="" >Pilih puskesmas:</option>
-                                     <?php foreach ($puskesmas_object as $key){ ?>
-                                    
-                                    <option value="<?php echo $key->idPuskesmas?>" ><?php echo $key->namaPuskes?></option>
-                             <?php }?>
-                                    </select>
-                                    <br><br>
-
-                                    <label for="">Level</label>
-                                    <select class="form-control" name="level" id="level">
-                                    <option value="" >Pilih level:</option>
-                                    <option value="Admin" >Admin</option>
-                                    <option value="User" >User</option>
-                                    </select>
-                                    <br><br>
+            
 
 
                                 </div>
@@ -95,7 +70,6 @@
         </div>
       
     </div>
-    </body>
     <?php echo form_close(); ?>
 <script src="<?php echo base_url('assets/jquery/jquery-2.2.3.min.js')?>"></script>
 <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js')?>"></script>
@@ -203,19 +177,6 @@
       console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
     }
   </script>
-
-<script type="text/javascript">
-    function makeDisabled(){
-      var x = document.getElementById('idPuskesmas')
-      x.disabled=true
-    }
-
-    function makeEnabled(){
-      var x = document.getElementById('idPuskesmas')
-      x.disabled=false
-    }
-
-  </script>
-
+</body>
 
 </html>

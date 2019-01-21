@@ -283,7 +283,7 @@
               <span>Cetak</span>
               </a>
             <ul class="sub">
-              <li><a href="blank.html">Cetak Laporan</a></li>
+              <li><a href="<?=site_url()?>/cetaklaporan">Cetak Laporan</a></li>
             </ul>
           </li>
         <!--   <li class="sub-menu">

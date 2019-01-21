@@ -12,12 +12,12 @@
         
             <div class="form-panel">
               <h4 class="mb"><i class="fa fa-angle-right"></i>List Puskesmas</h4>
-             <?php echo form_open('Puskesmas/'); ?>
+             
                 
                 <div class="form-group">
                 <div class="col-sm-12" align="right">
 
-                 <a href="<?php echo site_url()?>/puskesmas/tambahPuskesmas"><button type="submit" class="btn btn-outline-primary">Tambah Puskesmas  <span class="glyphicon glyphicon-plus"></button></a>
+                 <a href="<?php echo site_url()?>/Puskesmas/tambahPuskesmas"><button type="submit" class="btn btn-success">Tambah Puskesmas  <span class="glyphicon glyphicon-plus"></button></a>
 
                   <br><br>
                   </div>
@@ -50,13 +50,13 @@
 
                      <td>
                       <a href="javascript:void(0);" onclick="showmodal('<?php echo $data->idPuskesmas?>','<?php echo $data->namaPuskes?>','<?php echo $data->alamatPuskes ?>','<?php echo $data->status ?>')" data-toggle="modal" data-target="#myModalEdit">
-                         <button class="btn btn-outline-primary"><span class="glyphicon glyphicon-pencil"></span></button>
+                         <button class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></button>
                       </a>
                     </td>
 
                       <td>
                       <a href="<?php echo site_url()?>/Puskesmas/Delete/<?php echo $data->idPuskesmas ?>"
-                      <button class="btn btn-outline-primary"><span class="glyphicon glyphicon-trash"></span></button>
+                      <button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
                       </a>
            
                   
@@ -87,6 +87,47 @@
     
     <!--footer end-->
   </section>
+
+
+  <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModalEdit" class="modal fade-in" >
+        <div class="modal-dialog">
+            <div class="modal-content" style="width: 800px; height:500px; margin-left: -100px;padding: 20px" >
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit Puskesmas</h4>
+                </div>
+                <?php echo form_open_multipart('Puskesmas/update'); ?>
+                <?php echo validation_errors(); ?>
+                <br>
+                 <div class="form-group">
+                    <label for="">Id Puskesmas</label>
+                    <input type="text" class="form-control" name="idPuskesmas" id="idPuskesmas" value="" readonly="">
+                </div>
+                <div class="form-group">
+                    <label for="">Nama Puskesmas</label>
+                    <input type="text" class="form-control" name="namaPuskes" id="namaPuskes" value="" >
+                </div>
+                <div class="form-group">
+                    <label for="">Alamat Puskesmas</label>
+                    <input type="text" class="form-control" name="alamatPuskes" id="alamatPuskes" value="" >
+                </div>
+                <div class="form-group">
+                  <label for="">Status</label>
+                     <select class="form-control" name="status" id="status">
+                  <option value="AKTIF" >AKTIF</option>
+                  <option value="NONAKTIF" >NONAKTIF</option>
+                  </select>
+                </div>
+                 
+               <div align="right" style="margin-bottom: 20px; margin-right: 30px">
+          <button class="btn-info" type="submit">Update</button>
+            <a href=""><button class="btn-warning" data-dismiss="modal">Batal</button></a>
+        </div>
+    
+        <?php echo form_close(); ?>
+    </div>
+            
+            </div>
+
 
   <script type="text/javascript">
     function showmodal(idPuskesmas,namaPuskes,alamatPuskes,status){

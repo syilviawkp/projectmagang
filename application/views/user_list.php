@@ -16,7 +16,7 @@
                 <div class="form-group">
                 <div class="col-sm-12" align="right">
            
-                <a href="<?php echo site_url()?>/login/tambahUser"><button type="submit" class="btn btn-outline-primary">Tambah User  <span class="glyphicon glyphicon-plus"></button></a>
+                <a href="<?php echo site_url()?>/login/tambahUser"><button type="submit" class="btn btn-success">Tambah User  <span class="glyphicon glyphicon-plus"></button></a>
                 <!-- <button id="btn-edit" class="btn btn-success" ><<?php ?>/login/create">Tambah user</button></a> -->
                            <br><br>
                   </div>
@@ -38,6 +38,7 @@
                     
                 </tr>
             </thead>
+
             <tbody>   
                   <?php foreach ($user_object as $key){ ?>
                   <tr>
@@ -52,8 +53,8 @@
                       <td><?php echo $key->level ?></td>
 
                        
-                        <td><a href="javascript:void(0);" onclick="showmodal('<?php echo $key->idUser ?>','<?php echo $key->username ?>','<?php echo $key->password ?>','<?php echo $key->nama ?>','<?php echo $key->noHp ?>','<?php echo $key->jabatan?>','<?php echo $key->idPuskesmas ?>','<?php echo $key->level ?>')" data-toggle="modal" data-target="#myModalEdit"><button class="btn btn-outline-primary"><span class="glyphicon glyphicon-pencil"></span></button></a></p></td>
-                         <td><a href="<?php echo site_url()?>/Login/Delete/<?php echo $key->idUser ?>"><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-outline-primary" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td></a>
+                        <td><a href="javascript:void(0);" onclick="showmodal('<?php echo $key->idUser ?>','<?php echo $key->username ?>','<?php echo $key->password ?>','<?php echo $key->nama ?>','<?php echo $key->noHp ?>','<?php echo $key->jabatan?>','<?php echo $key->idPuskesmas ?>','<?php echo $key->level ?>')" data-toggle="modal" data-target="#myModalEdit"><button class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></button></a></p></td>
+                         <td><a href="<?php echo site_url()?>/Login/Delete/<?php echo $key->idUser ?>"><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td></a>
                         </tr>
 
 
@@ -82,29 +83,24 @@
     </section>
     <!--main content end-->
     <!--footer start-->
-    <footer class="site-footer">
+    <!-- <footer class="site-footer">
       <div class="text-center">
         <p><center>
           &copy; Copyrights<br> <strong>Dinas Kesehatan, Pemerintah Kota Batu</strong>.<br> All Rights Reserved
         </p></center>
         <div class="credits">
-          <!--
-            You are NOT allowed to delete the credit link to TemplateMag with free version.
-            You can delete the credit link only if you bought the pro version.
-            Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/dashio-bootstrap-admin-template/
-            Licensing information: https://templatemag.com/license/
-          -->
-          <!-- Created with Dashio template by <a href="https://templatemag.com/">TemplateMag</a> -->
+          
+          
         </div>
         <a href="index.html#" class="go-top">
           <i class="fa fa-angle-up"></i>
           </a>
       </div>
-    </footer>
+    </footer> -->
     <!--footer end-->
   </section>
 
-
+<body onload="makeDisabled()">
   <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModalEdit" class="modal fade-in" >
         <div class="modal-dialog">
             <div class="modal-content" style="width: 800px; height:800px; margin-left: -100px;padding: 20px" >
@@ -143,8 +139,8 @@
                   <label for="">Jabatan</label>
                      <select class="form-control" name="jabatan" id="jabatan">
                   <!-- <option value="">Pilih jabatan</option> -->
-                  <option value="Staff" >Staff Dinkes</option>
-                  <option value="Kepala Puskesmas" >Kepala Puskesmas</option>
+                  <option value="Staff" onclick="makeDisabled()" >Staff Dinkes </option>
+                  <option value="Kepala Puskesmas" onclick="makeEnabled()" >Kepala Puskesmas</option>
                   </select>
                 </div>
                 <!-- <div class="form-group">
@@ -155,12 +151,12 @@
                 <div class="form-group">
                   <label for="">Puskesmas</label>
                      <select class="form-control" name="idPuskesmas" id="idPuskesmas">
-                <!--   <option value="">Pilih puskesmas</option> -->
-                  <option value="1" >Batu</option>
-                  <option value="2" >Bumiaji</option>
-                  <option value="3" >Beji</option>
-                  <option value="4" >Junrejo</option>
-                  <option value="5" >Sisir</option>
+                                   
+                     <option value="" >Pilih puskesmas:</option>
+                      <?php foreach ($puskesmas_object as $key){ ?>
+                                    
+                      <option value="<?php echo $key->idPuskesmas?>" ><?php echo $key->namaPuskes?></option>
+                      <?php }?>
                   </select>
                 </div>
                
@@ -183,6 +179,7 @@
             
             </div>
   
+</body>
   <!-- js placed at the end of the document so the pages load faster -->
   <script src="<?php echo base_url()?>assets/lib/jquery/jquery.min.js"></script>
 
@@ -269,6 +266,19 @@
       console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
     }
   </script>
-</body>
+
+  <script type="text/javascript">
+    function makeDisabled(){
+      var x = document.getElementById('idPuskesmas')
+      x.disabled=true
+    }
+
+    function makeEnabled(){
+      var x = document.getElementById('idPuskesmas')
+      x.disabled=false
+    }
+
+  </script>
+
 
 </html>
