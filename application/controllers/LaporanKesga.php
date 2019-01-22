@@ -120,12 +120,14 @@ class LaporanKesga extends CI_Controller {
     public function updateLaporan(){
 
         $id = $this->input->post('idDetailLaporan'); 
-        $this->KesgaModel->update($id);
+        $idfield = $this->input->post('idField');
+        $this->KesgaModel->update($id,$idfield);
     }
     public function deleteLaporan(){
 
         $id = $this->input->post('idDetailLaporan'); 
-        $this->KesgaModel->delete($id);
+        $idfield = $this->input->post('idField');
+        $this->KesgaModel->delete($id,$idfield);
     }
 
     public function getGridLaporan()
