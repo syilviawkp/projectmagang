@@ -18,7 +18,7 @@ class User extends CI_Controller {
 		$this->load->view('indexUser');
 	}
 
-	public function laporanKesgaUser()
+	public function laporanKesgaBatuUser()
 	
 	{
 		$this->load->helper('url');
@@ -37,7 +37,7 @@ class User extends CI_Controller {
 		$this->load->view('laporanKesgaBatuUser',$data);
 	}
 
-	public function laporanP2plUser()
+	public function laporanP2plBatuUser()
 	
 	{
 		$this->load->helper('url');
@@ -55,7 +55,7 @@ class User extends CI_Controller {
 		$this->load->view('laporanP2plBatuUser',$data);
 	}
 
-	public function laporanYankesUser()
+	public function laporanYankesBatuUser()
 	
 	{
 		$this->load->helper('url');
@@ -76,7 +76,7 @@ class User extends CI_Controller {
 
 
 
-	public function filterKesgaBatu(){
+	public function filterKesgaBatuUser(){
 		$data['daftarBulan'] = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
 		$data['bulan']=$this->input->post('bulan');
 		$data['tahun']=$this->input->post('tahun');
@@ -88,7 +88,7 @@ class User extends CI_Controller {
 
 	}
 
-	public function filterP2plBatu(){
+	public function filterP2plBatuUser(){
 		$data['daftarBulan'] = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
 		$data['bulan']=$this->input->post('bulan');
 		$data['tahun']=$this->input->post('tahun');
@@ -100,7 +100,7 @@ class User extends CI_Controller {
 
 	}
 
-	public function filterYankesBatu(){
+	public function filterYankesBatuUser(){
 		$data['daftarBulan'] = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
 		$data['bulan']=$this->input->post('bulan');
 		$data['tahun']=$this->input->post('tahun');
