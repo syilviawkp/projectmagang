@@ -40,20 +40,38 @@ public function getLastKategori(){
      $query = $this->db->get();
     return $query->result();
 }
+// public function getFilterKategori(){
+//     $this->db->distinct();
+//    $bulan= $this->input->post('bulan');
+//         $tahun = $this->input->post('tahun');
+//      $this->db->select('namaKategori');
+//      $this->db->distinct();
+//         $this->db->from('laporan');
+//         $this->db->join('detaillaporan', 'detaillaporan.idDetailLaporan = laporan.kodeLaporan');
+//         $this->db->where('laporan.bulan', $bulan);
+//           $this->db->where('laporan.jenisLaporan', "P2pl");
+//          $this->db->where('laporan.tahun', $tahun);
+//      $query = $this->db->get();
+//             return $query->result();
+// }
+
 public function getFilterKategori(){
-    $this->db->distinct();
+   
    $bulan= $this->input->post('bulan');
         $tahun = $this->input->post('tahun');
-     $this->db->select('namaKategori');
-     $this->db->distinct();
-        $this->db->from('laporan');
-        $this->db->join('detaillaporan', 'detaillaporan.idDetailLaporan = laporan.kodeLaporan');
-        $this->db->where('laporan.bulan', $bulan);
-          $this->db->where('laporan.jenisLaporan', "P2pl");
-         $this->db->where('laporan.tahun', $tahun);
+    
+   
+      $this->db->select('namaKategori');
+        $this->db->distinct();
+        $this->db->from('detaillaporan');
+
+        $this->db->where('idLaporan', '(select kodeLaporan from laporan where bulan = "'. $bulan.'" and tahun = '.$tahun.' AND jenisLaporan = "P2pl")',false);
+       
+       
      $query = $this->db->get();
             return $query->result();
 }
+
     public function getFieldP2pl(){
           $this->db->distinct();
         $this->db->select('*');
@@ -67,12 +85,28 @@ public function getFilterKategori(){
         }
     }
 
-    public function getFilterLaporan(){
-          $this->db->distinct();
+    // public function getFilterLaporan(){
+    //       $this->db->distinct();
+    //     $bulan= $this->input->post('bulan');
+    //     $tahun = $this->input->post('tahun');
+    //  $this->db->select('*');
+    //  $this->db->distinct();
+    //     $this->db->from('detaillaporan');
+    //     $this->db->join('laporan', 'laporan.kodeLaporan = detaillaporan.idLaporan');
+    //     $this->db->where('laporan.jenisLaporan', "P2pl");
+    //     $this->db->where('laporan.bulan', $bulan);
+    //      $this->db->where('laporan.tahun', $tahun);
+    //      $query = $this->db->get();
+    //         return $query->result();
+ 
+    //}
+
+       public function getFilterLaporan(){
+      
         $bulan= $this->input->post('bulan');
         $tahun = $this->input->post('tahun');
-     $this->db->select('*');
-     $this->db->distinct();
+        $this->db->select('*');
+        $this->db->distinct();
         $this->db->from('detaillaporan');
         $this->db->join('laporan', 'laporan.kodeLaporan = detaillaporan.idLaporan');
         $this->db->where('laporan.jenisLaporan', "P2pl");
@@ -82,6 +116,7 @@ public function getFilterKategori(){
             return $query->result();
  
     }
+
     public function editLap(){
         $bulan = $this->input->post('bulan');
         $tahun = $this->input->post('tahun');
