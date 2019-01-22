@@ -10,6 +10,7 @@
 		}
 		table th{
 			border:2px solid #000;
+      background-color:#ff0000
 			padding: 3px;
 			font-weight: bold;
 			text-align: center;
