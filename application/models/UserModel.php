@@ -90,6 +90,24 @@ class UserModel extends CI_Model {
         return $query->result();
     }
 
+    
+    public function getFilterPuskesmas(){
+   
+        $bulan= $this->input->post('bulan');
+        $tahun = $this->input->post('tahun');
+    
+   
+      $this->db->select('Batu');
+        $this->db->distinct();
+        $this->db->from('detaillaporan');
+
+        $this->db->where('idLaporan', '(select kodeLaporan from laporan where bulan = "'. $bulan.'" and tahun = '.$tahun.' AND jenisLaporan = "KESGA")',false);
+       
+       
+     $query = $this->db->get();
+            return $query->result();
+}
+
 
   }
 ?>

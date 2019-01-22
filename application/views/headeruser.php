@@ -249,7 +249,7 @@
           <p class="centered"><a href="profile.html"><img src="<?php echo base_url()?>/assets/img/logopemkot.png" class="img-circle" width="80"></a></p>
           <h5 class="centered">DINAS KESEHATAN</h5>
           <li class="mt">
-            <a class="active" href=<?php echo site_url('Welcome/');?>>
+            <a class="active" href=<?php echo site_url('User/');?>>
               <i class="fa fa-dashboard"></i>
               <span>Beranda</span>
               </a>
@@ -260,9 +260,9 @@
               <span>Absen Laporan</span>
               </a>
             <ul class="sub">
-              <li><a href="<?php echo site_url()?>/LaporanYankes">Laporan Yankes</a></li>
-              <li><a href="<?php echo site_url()?>/LaporanP2pl">Laporan P2PL</a></li>
-              <li><a href="<?php echo site_url()?>/LaporanKesga">Laporan Kesga</a></li>
+              <li><a href="<?php echo site_url()?>/LaporanYankesUser">Laporan Yankes</a></li>
+              <li><a href="<?php echo site_url()?>/LaporanP2plUser">Laporan P2PL</a></li>
+              <li><a href="<?php echo site_url()?>/User/LaporanKesgaUser">Laporan Kesga</a></li>
               
             </ul>
           </li>
