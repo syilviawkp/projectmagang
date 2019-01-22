@@ -76,7 +76,7 @@ class User extends CI_Controller {
 
 
 
-	public function filterKesgaBatuUser(){
+	public function filterKesgaBatu(){
 		$data['daftarBulan'] = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
 		$data['bulan']=$this->input->post('bulan');
 		$data['tahun']=$this->input->post('tahun');
@@ -88,7 +88,7 @@ class User extends CI_Controller {
 
 	}
 
-	public function filterP2plBatuUser(){
+	public function filterP2plBatu(){
 		$data['daftarBulan'] = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
 		$data['bulan']=$this->input->post('bulan');
 		$data['tahun']=$this->input->post('tahun');
@@ -100,7 +100,7 @@ class User extends CI_Controller {
 
 	}
 
-	public function filterYankesBatuUser(){
+	public function filterYankesBatu(){
 		$data['daftarBulan'] = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
 		$data['bulan']=$this->input->post('bulan');
 		$data['tahun']=$this->input->post('tahun');
