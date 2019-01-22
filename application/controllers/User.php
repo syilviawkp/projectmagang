@@ -34,7 +34,7 @@ class User extends CI_Controller {
 		
 
 		$this->load->view('headeruser');
-		$this->load->view('laporanKesgaUser',$data);
+		$this->load->view('laporanKesgaBatuUser',$data);
 	}
 
 	public function laporanP2plUser()
@@ -52,7 +52,7 @@ class User extends CI_Controller {
 		// $data['puskesmas']= $this->UserModel->getFilterPuskesmas();
 		
 		$this->load->view('headeruser');
-		$this->load->view('laporanP2plUser',$data);
+		$this->load->view('laporanP2plBatuUser',$data);
 	}
 
 	public function laporanYankesUser()
@@ -71,7 +71,7 @@ class User extends CI_Controller {
 		
 
 		$this->load->view('headeruser');
-		$this->load->view('laporanYankesUser',$data);
+		$this->load->view('laporanYankesBatuUser',$data);
 	}
 
 
@@ -84,7 +84,7 @@ class User extends CI_Controller {
 		$data['laporan']= $this->KesgaModel->getFilterLaporan();
 		// $data['puskesmas']= $this->UserModel->getFilterPuskesmas();
 		$this->load->view('headeruser');
-		$this->load->view('laporanKesgaUser',$data);
+		$this->load->view('laporanKesgaBatuUser',$data);
 
 	}
 
@@ -96,7 +96,7 @@ class User extends CI_Controller {
 		$data['laporan']= $this->P2plModel->getFilterLaporan();
 		// $data['puskesmas']= $this->UserModel->getFilterPuskesmas();
 		$this->load->view('headeruser');
-		$this->load->view('laporanP2plUser',$data);
+		$this->load->view('laporanP2plBatuUser',$data);
 
 	}
 
@@ -108,7 +108,7 @@ class User extends CI_Controller {
 		$data['laporan']= $this->YankesModel->getFilterLaporan();
 		// $data['puskesmas']= $this->UserModel->getFilterPuskesmas();
 		$this->load->view('headeruser');
-		$this->load->view('laporanYankesUser',$data);
+		$this->load->view('laporanYankesBatuUser',$data);
 	}
 
 }
