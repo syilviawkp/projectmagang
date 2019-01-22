@@ -163,9 +163,6 @@ class Login extends CI_Controller {
 				echo '<script>alert("Sukses mengedit")</script>';
 			redirect('Login/data', 'refresh');		
 			// }
-
-
-
 	}
 
 	public function editprofil()

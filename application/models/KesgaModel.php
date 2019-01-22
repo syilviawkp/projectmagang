@@ -10,8 +10,6 @@ class KesgaModel extends CI_Model {
         $this->load->database();
     }
 
-   
-  
     public function getKategoriKesga()
     {
         $this->db->where('jenisLaporan', "KESGA");
@@ -48,7 +46,6 @@ class KesgaModel extends CI_Model {
               
             return $query->result();
         }
-
     }
    
 
@@ -154,7 +151,6 @@ public function getFilterKategori(){
          $this->db->where('laporan.tahun', $tahun);
          $query = $this->db->get();
             return $query->result();
- 
     }
     public function editLap(){
       $bulan = $this->input->post('bulan');
