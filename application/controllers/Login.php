@@ -43,16 +43,20 @@ class Login extends CI_Controller {
 	
 
 	public function cekLogin(){
-		// $this->load->library('form_validation');
-		// $this->form_validation->set_rules('username',"username", 'trim|required|callback_cekDb');
-		// $this->form_validation->set_rules('password',"password", 'trim|required|callback_cekDb');
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('username',"username", 'trim|required|callback_cekDb');
+		$this->form_validation->set_rules('password',"password", 'trim|required|callback_cekDb');
 
-		// if($this->form_validation->run()==FALSE){
-		// 	$this->load->view('login');
-		// }
-		// else{
-		// 	if($this->input->post('level')=='superadmin')
-		// }
+		if($this->form_validation->run()==FALSE){
+			$this->load->view('login');
+		}
+		else{
+			// if($this->input->post('level')=='admin'){
+			// 	$this->load->view('index');
+			// }else{
+			// 	$this->load->view('indexuser');
+			// }
+		}
 	}
 
 	public function cekDb($password)
