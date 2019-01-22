@@ -27,6 +27,7 @@ class KesgaModel extends CI_Model {
         $this->db->distinct();
         $this->db->from('detaillaporan');
         $this->db->join('laporan', 'laporan.kodeLaporan = detaillaporan.idLaporan');
+
         $this->db->where('laporan.jenisLaporan', "KESGA");
         $this->db->where('detaillaporan.idLaporan', '(SELECT kodeLaporan from laporan ORDER by kodeLaporan DESC LIMIT 1)',false);
          $query = $this->db->get();
@@ -36,9 +37,11 @@ class KesgaModel extends CI_Model {
     public function getGridLaporan(){
         $bulan = $this->session->userdata('editFormat')['bulan'];
         $tahun = $this->session->userdata('editFormat')['tahun'];
-        $this->db->select('*');
+        $this->db->select('idDetailLaporan,idLaporan, detaillaporan.namaField, detaillaporan.namaKategori, jenisLaporan, idField');
         $this->db->from('detaillaporan');
         $this->db->join('laporan', 'laporan.kodeLaporan = detaillaporan.idLaporan');
+
+        $this->db->join('formatfield', 'formatfield.namaField = detaillaporan.namaField');
         $this->db->where('idLaporan', '(select kodeLaporan from laporan where bulan = "'. $bulan.'" and tahun = '.$tahun.')',false);
         $query= $this->db->get();
           if($query->num_rows()>0){
@@ -76,14 +79,30 @@ class KesgaModel extends CI_Model {
         $this->db->insert('formatfield', $data2);
     }
 
-    public function update($id){
+    public function update($id, $idField){
         $this->db->where('idDetailLaporan', $id);
           $object = array('namaField' => $this->input->post('namaField'),'namaKategori'=>$this->input->post('namaKategori') );
         $this->db->update('detaillaporan', $object);
+
+
+           $query = $this->db->query('SELECT * FROM formatkategori WHERE jenisLaporan= "KESGA" ');
+            foreach ($query->result() as $key) {
+              if($key->namaKategori == $this->input->post('namaKategori')){
+                $idkat = $key->idKategori;
+              }
+            }
+
+           $this->db->where('idField', $idField);
+          $object2 = array('namaField' => $this->input->post('namaField'),'idKategori'=>$idkat );
+        $this->db->update('formatfield', $object2);
+
     }
-    public function delete($id){
+    public function delete($id, $idfield){
       $this->db->where('idDetailLaporan', $id);
       $this->db->delete('detaillaporan');
+
+    $this->db->where('idField', $idfield);
+    $this->db->delete('formatfield');
     }
 public function getLastKategori(){
     $this->db->distinct();
@@ -97,21 +116,15 @@ public function getFilterKategori(){
    
    $bulan= $this->input->post('bulan');
         $tahun = $this->input->post('tahun');
-     // $this->db->select('namaKategori');
-     // 
-     //    $this->db->from('laporan');
-     //    $this->db->join('detaillaporan', 'detaillaporan.idDetailLaporan = laporan.kodeLaporan');
-     //    $this->db->where('laporan.bulan', $bulan);
-     //      $this->db->where('laporan.jenisLaporan', "KESGA");
-     //     $this->db->where('laporan.tahun', $tahun);
-      $this->db->distinct();
-      $this->db->select('*');
-     
+    
+   
+      $this->db->select('namaKategori');
+        $this->db->distinct();
         $this->db->from('detaillaporan');
 
         $this->db->where('idLaporan', '(select kodeLaporan from laporan where bulan = "'. $bulan.'" and tahun = '.$tahun.' AND jenisLaporan = "KESGA")',false);
        
-         //$query = $this->db->get();
+       
      $query = $this->db->get();
             return $query->result();
 }
