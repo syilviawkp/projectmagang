@@ -67,7 +67,7 @@
                 <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
             <tr>
-              <th colspan="6" ><center>Absen Laporan Kesga Bulan <?php echo $bulan." "; echo $tahun?> </center> </th>
+              <th colspan="8" ><center>Absen Laporan Kesga Bulan <?php echo $bulan." "; echo $tahun?> </center> </th>
             </tr>
                 <tr>
                     <th></th>

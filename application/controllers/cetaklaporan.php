@@ -39,6 +39,9 @@ class Cetaklaporan extends CI_Controller {
 		$data['laporan']=$this->KesgaModel->getFilterLaporan();
 		$data['detailLaporan']=$this->CetakModel->view_row();
  
+		$data['bulan'] = $this->input->post('bulan');
+		$data['tahun']=$this->input->post('tahun');
+
        $this->load->view('print', $data);
 
 
@@ -55,17 +58,25 @@ class Cetaklaporan extends CI_Controller {
 		unset($dompdf);
 	}
 
+	public function getwaktulaporan(){
+
+		$this->load->model('KesgaModel');
+		$data['kategori']=$this->KesgaModel->getFilterKategori();
+		$data['laporan']=$this->KesgaModel->getFilterLaporan();
+		// $data['detailLaporan']=$this->CetakModel->view_row();
+ }
+
 
 
 	public function editFieldCetakKesga()
     {
 
-$this->load->model('KesgaModel');
-$data['kategori']=$this->KesgaModel->getFilterKategori();
-$data['laporan']=$this->KesgaModel->getFilterLaporan();
-$data['bulan'] = $this->input->post('bulan');
-$data['tahun']=$this->input->post('tahun');
-        
+		$this->load->model('KesgaModel');
+		$data['kategori']=$this->KesgaModel->getFilterKategori();
+		$data['laporan']=$this->KesgaModel->getFilterLaporan();
+		$data['bulan'] = $this->input->post('bulan');
+		$data['tahun']=$this->input->post('tahun');
+		        
  
        $this->load->view('previewcetak', $data);
   }

@@ -28,7 +28,11 @@
 </head>
 
 <body>
-<p style="text-align: center">Tabel blablabla</p>
+
+
+<p style="text-align: center"><h2><center>Laporan Kesga Bulan <?php echo $bulan ?> Tahun <?php echo $tahun?> </center></h2></p>
+
+
 <table>
 	<tr>
 		<th>Nama Laporan</th>
@@ -84,5 +88,7 @@
               </tr>
               <?php }}} ?>
 </table>
+
+
 </body>
 </html>

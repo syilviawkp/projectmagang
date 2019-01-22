@@ -51,11 +51,14 @@ class Login extends CI_Controller {
 			$this->load->view('login');
 		}
 		else{
-			// if($this->input->post('level')=='admin'){
-			// 	$this->load->view('index');
-			// }else{
-			// 	$this->load->view('indexuser');
-			// }
+			$data['username']=$session_data['username'];
+			$data['password']=$session_data['password'];
+			$data['level']=$session_data['level'];
+			if($data['level']=='user'){
+				redirect('indexUser','refresh');
+			}else{
+				redirect('index','refresh');
+			}
 		}
 	}
 
@@ -72,7 +75,13 @@ class Login extends CI_Controller {
 			{
 				$sess_array = array(
 				'idUser'=>$row->idUser,
-				'username'=>$row->username
+				'username'=>$row->username,
+				'password'=>$row->password,
+				'nama'=>$row->nama,
+				'noHp'=>$row->noHp,
+				'idPuskesmas'=>$row->idPuskesmas,
+				'level'=>$row->level,
+				'jabatan'=>$row->jabatan
 				);
 				$this->session->set_userdata('logged_in',$sess_array);
 			}

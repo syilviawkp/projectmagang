@@ -32,7 +32,7 @@
 
 
 <h1>
-<p style="text-align: center">Laporan Bulan <?php echo $bulan ?>  Kesga</h1></p>
+<p style="text-align: center">Laporan Kesga Bulan <?php echo $bulan ?> Tahun <?php echo $tahun?> </h1></p>
 <table>
 	<tr>
 		<th>Nama Laporan</th>
