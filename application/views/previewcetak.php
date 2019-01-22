@@ -9,13 +9,13 @@
 			margin: 0 auto;
 		}
 		table th{
-			border:1px solid #000;
+			border:2px solid #000;
 			padding: 3px;
 			font-weight: bold;
 			text-align: center;
 		}
 		table td{
-			border: 1px solid #000;
+			border: 2px solid #000;
 			padding: 3px;
 			vertical-align: top;
 		}
@@ -32,7 +32,7 @@
 <table>
 	<tr>
 		<th></th>
-	
+	   
 		<th>Batu</th>
 		<th>Junrejo</th>
 		<th>Beji</th>

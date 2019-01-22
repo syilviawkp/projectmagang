@@ -33,7 +33,7 @@
 
                   <?php }}?>
                   
-                 
+        
                 </select>
                   </div>
                 </div>
@@ -88,7 +88,7 @@
               <tr>
                 <td><?php echo $data->namaField?></td>
 
-                <?php if($data->Batu == "SUDAH") {?>
+              <?php if($data->Batu == "SUDAH") {?>
                 <td><input type="checkbox" name="feeling" value="good" checked="" disabled readonly=""></td>
               <?php }else{?>
               <td style="background: yellow"></td>
