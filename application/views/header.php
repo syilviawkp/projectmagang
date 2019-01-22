@@ -283,7 +283,10 @@
               <span>Cetak</span>
               </a>
             <ul class="sub">
-              <li><a href="<?=site_url()?>/cetaklaporan">Cetak Laporan</a></li>
+              <li><a href="#">Cetak Laporan Yankes</a></li>
+              <li><a href="#">Cetak Laporan P2PL</a></li>
+              <li><a href="" data-toggle="modal" data-target="#modalcetakKesga">Cetak Laporan Kesga</a></li>
+              <li><a href="#">Cetak Semua</a></li>
             </ul>
           </li>
         <!--   <li class="sub-menu">
@@ -358,4 +361,57 @@
                 <?php echo form_close();?>
         </div>
         </div>
-        </div></div>
+        </div>
+        </div>
+
+     <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="modalcetakKesga" class="modal fade-in">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Cetak Laporan Kesga</h4>
+                </div>
+     <?php echo form_open('cetaklaporan/editFieldCetakKesga'); ?>
+    <div class="modal-body">
+        <div class="form-group">
+                    <label for="">Bulan</label>
+                   
+                  <select class="form-control" name="bulan" id="bulan">
+                  <option value="" >--Pilih Bulan--</option>
+                  <?php 
+                  $daftarBulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
+                  foreach ($daftarBulan as $key) {
+                  if($key== $bulan){?>
+                    <option value="<?php echo $key?>" selected=""><?php echo $key?></option>
+                 <?php }
+                  else{?>
+                     <option value="<?php echo $key?>" ><?php echo $key?></option>
+
+                  <?php }}?>
+                  </select>
+                </div>
+                <div class="form-group">
+                    <label for="">Tahun</label>
+                     <select class="form-control" name="tahun" id="tahun">
+                  <option value="">--Pilih Tahun--</option>
+                  <?php for($i=2015 ; $i<=2023;$i++){
+                    if($i==$tahun){?>
+                  
+                  <option value="<?php echo $i?>" selected=""><?php echo $i?></option>
+            <?php   } else{?>
+            <option value="<?php echo $i?>" ><?php echo $i?></option>
+                  <?php   }} ?>
+                
+                </select>
+                
+                </div>
+                <center><button type="submit" class="btn btn-primary">Preview Cetak</button></center>
+                <?php echo form_close();?>
+        </div>
+        </div>
+        </div>
+        </div>
+
+
+
+        </body>
+        </html>

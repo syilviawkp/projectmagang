@@ -31,8 +31,8 @@
 <p style="text-align: center">Laporan blablabla</p>
 <table>
 	<tr>
-		<th>Nama Field</th>
-		<th>Nama Kategori</th>
+		<th></th>
+	
 		<th>Batu</th>
 		<th>Junrejo</th>
 		<th>Beji</th>
@@ -41,19 +41,47 @@
 		<th>Terima</th>
 		<th>Susulan</th>
 	</tr>
-	<?php $id=0; foreach ($detailLaporan as $key) {
-	$id++;
-	?>
-		<tr>
-			<td><?php echo $key->namaField?></td>
-			<td><?php echo $key->namaKategori?></td>
-			<td><?php echo $key->Batu?></td>
-			<td><?php echo $key->Junrejo?></td>
-			<td><?php echo $key->Beji?></td>
-			<td><?php echo $key->Sisir?></td>
-			<td><?php echo $key->Bumiaji?></td>
-		</tr>
-	<?php }?>
+	<?php foreach($kategori as $key){?>
+              <tr>
+                  <td colspan="6"><?php echo $key->namaKategori?></td>
+              </tr>
+              <?php foreach ($laporan as $data) {
+                if($key->namaKategori==$data->namaKategori){?>
+              <tr>
+                <td><?php echo $data->namaField?></td>
+                <?php if($data->Batu == "SUDAH") {?>
+
+                <td><input type="checkbox" name="feeling" value="good" checked="" disabled readonly=""></td>
+              <?php }else{?>
+              <td style="background: yellow"></td>
+              <?php } ?>
+
+              <?php if($data->Beji == "SUDAH") {?>
+                <td><input type="checkbox" name="feeling" value="good" checked="" disabled readonly=""></td>
+              <?php }else{?>
+              <td style="background: yellow"></td>
+              <?php } ?>
+
+              <?php if($data->Bumiaji == "SUDAH") {?>
+                <td><input type="checkbox" name="feeling" value="good" checked="" disabled  readonly=""></td>
+              <?php }else{?>
+              <td style="background: yellow"></td>
+              <?php } ?>
+
+              <?php if($data->Junrejo == "SUDAH") {?>
+                <td><input type="checkbox" name="feeling" value="good" checked="" disabled readonly=""></td>
+              <?php }else{?>
+              <td style="background: yellow"></td>
+              <?php } ?>
+
+              <?php if($data->Sisir == "SUDAH") {?>
+                <td><input type="checkbox" name="feeling" value="good" checked="" disabled readonly=""></td>
+              <?php }else{?>
+              <td style="background: yellow"></td>
+              <?php } ?>
+            
+              </tr>
+              <?php }}} ?>
 </table>
 <p style="text-align: center"><button type="submit" class="btn btn-outline-success"><span class="glyphicon glyphicon-print"><a href="<?php echo base_url()?>index.php/cetaklaporan/cetakpdf">Cetak PDF</a></p>
 </body>
