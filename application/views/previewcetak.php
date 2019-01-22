@@ -28,10 +28,12 @@
 
 <body>
 
-<p style="text-align: center">Laporan blablabla</p>
+
+<h1>
+<p style="text-align: center">Laporan Bulanan Kesga</h1></p>
 <table>
 	<tr>
-		<th></th>
+		<th>Nama Laporan</th>
 	
 		<th>Batu</th>
 		<th>Junrejo</th>
