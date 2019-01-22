@@ -33,8 +33,15 @@ class Cetaklaporan extends CI_Controller {
 	}
 
 	public function cetakPdf(){
+
+		$this->load->model('KesgaModel');
+		$data['kategori']=$this->KesgaModel->getFilterKategori();
+		$data['laporan']=$this->KesgaModel->getFilterLaporan();
 		$data['detailLaporan']=$this->CetakModel->view_row();
-		$this->load->view('print', $data);
+ 
+       $this->load->view('print', $data);
+
+
 		$paper_size='A4'; //paper size
 		$orientation = 'landscape'; //tipe format kertas
 		$html = $this->output->get_output();
@@ -47,12 +54,17 @@ class Cetaklaporan extends CI_Controller {
 		unset($html);
 		unset($dompdf);
 	}
+
+
+
 	public function editFieldCetakKesga()
     {
 
 $this->load->model('KesgaModel');
 $data['kategori']=$this->KesgaModel->getFilterKategori();
 $data['laporan']=$this->KesgaModel->getFilterLaporan();
+$data['bulan'] = $this->input->post('bulan');
+$data['tahun']=$this->input->post('tahun');
         
  
        $this->load->view('previewcetak', $data);

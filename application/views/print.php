@@ -9,13 +9,14 @@
 			margin: 0 auto;
 		}
 		table th{
-			border:1px solid #000;
+			border:2px solid #000;
+			 background-color:#00CCFF;
 			padding: 3px;
 			font-weight: bold;
 			text-align: center;
 		}
 		table td{
-			border: 1px solid #000;
+			border: 2px solid #000;
 			padding: 3px;
 			vertical-align: top;
 		}
@@ -30,29 +31,58 @@
 <p style="text-align: center">Tabel blablabla</p>
 <table>
 	<tr>
-		<th>Nama Field</th>
-		<th>Nama Kategori</th>
+		<th>Nama Laporan</th>
 		<th>Batu</th>
+	    <th>Beji</th>
+	    <th>Bumiaji</th>
 		<th>Junrejo</th>
-		<th>Beji</th>
 		<th>Sisir</th>
-		<th>Bumiaji</th>
-		<th>Terima</th>
+		<th>Sudah Masuk</th>
 		<th>Susulan</th>
 	</tr>
-	<?php $id=0; foreach ($detailLaporan as $key) {
-	$id++;
-	?>
-		<tr>
-			<td><?php echo $key->namaField?></td>
-			<td><?php echo $key->namaKategori?></td>
-			<td><?php echo $key->Batu?></td>
-			<td><?php echo $key->Junrejo?></td>
-			<td><?php echo $key->Beji?></td>
-			<td><?php echo $key->Sisir?></td>
-			<td><?php echo $key->Bumiaji?></td>
-		</tr>
-	<?php }?>
+	<?php foreach($kategori as $key){?>
+              <tr>
+                  <td colspan="8"><?php echo $key->namaKategori?></td>
+              </tr>
+              <?php foreach ($laporan as $data) {
+                if($key->namaKategori==$data->namaKategori){?>
+              <tr>
+                <td><?php echo $data->namaField?></td>
+                <?php if($data->Batu == "SUDAH") {?>
+
+                <td align="center">V</td>
+              <?php }else{?>
+              <td style="background: yellow"></td>
+              <?php } ?>
+
+              <?php if($data->Beji == "SUDAH") {?>
+                <td align="center">V</td>
+              <?php }else{?>
+              <td style="background: yellow"></td>
+              <?php } ?>
+
+              <?php if($data->Bumiaji == "SUDAH") {?>
+                <td align="center">V</td>
+              <?php }else{?>
+              <td style="background: yellow"></td>
+              <?php } ?>
+
+              <?php if($data->Junrejo == "SUDAH") {?>
+                <td align="center">V</td>
+              <?php }else{?>
+              <td style="background: yellow"></td>
+              <?php } ?>
+
+              <?php if($data->Sisir == "SUDAH") {?>
+                <td align="center">V</td>
+              <?php }else{?>
+              <td style="background: yellow"></td>
+              <?php } ?>
+              <td><?php echo $data->terima; ?></td>
+              <td><?php echo $data->susulan; ?></td>
+            
+              </tr>
+              <?php }}} ?>
 </table>
 </body>
 </html>

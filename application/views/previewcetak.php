@@ -5,12 +5,13 @@
 	<style>
 		table{
 			border-collapse: collapse;
+
 			width: 70%;
 			margin: 0 auto;
 		}
 		table th{
 			border:2px solid #000;
-      background-color:#ff0000
+      background-color:#00CCFF;
 			padding: 3px;
 			font-weight: bold;
 			text-align: center;
@@ -31,21 +32,23 @@
 
 
 <h1>
-<p style="text-align: center">Laporan Bulanan Kesga</h1></p>
+<p style="text-align: center">Laporan Bulan <?php echo $bulan ?>  Kesga</h1></p>
 <table>
 	<tr>
 		<th>Nama Laporan</th>
 		<th>Batu</th>
+    <th>Beji</th>
+    <th>Bumiaji</th>
 		<th>Junrejo</th>
-		<th>Beji</th>
 		<th>Sisir</th>
-		<th>Bumiaji</th>
-		<th>Terima</th>
+		<th>Sudah Masuk</th>
 		<th>Susulan</th>
 	</tr>
 	<?php foreach($kategori as $key){?>
               <tr>
-                  <td colspan="6"><?php echo $key->namaKategori?></td>
+  
+                  <td colspan="8">
+                    <?php echo $key->namaKategori?></td>
               </tr>
               <?php foreach ($laporan as $data) {
                 if($key->namaKategori==$data->namaKategori){?>
@@ -81,11 +84,18 @@
               <?php }else{?>
               <td style="background: yellow"></td>
               <?php } ?>
+              <td><?php echo $data->terima; ?></td>
+              <td><?php echo $data->susulan; ?></td>
             
               </tr>
               <?php }}} ?>
 </table>
-<p style="text-align: center"><button type="submit" class="btn btn-outline-success"><span class="glyphicon glyphicon-print"><a href="<?php echo base_url()?>index.php/cetaklaporan/cetakpdf">Cetak PDF</a></p>
+<p style="text-align: center">
+<?php echo form_open('cetaklaporan/cetakPdf')?>
+<input type="text" name="bulan" value="<?php echo $bulan?>" hidden="">
+<input type="text" name="tahun" value="<?php echo $tahun?>" hidden="">
+  <center><button type="submit" class="btn btn-outline-success"><span class="glyphicon glyphicon-print"></span>Cetak PDF</button></center>
+  <?php echo form_close();?>
 </body>
 </html>
 
