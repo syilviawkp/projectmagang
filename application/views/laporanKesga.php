@@ -76,6 +76,8 @@
                     <th>Bumiaji</th>
                     <th>Junrejo</th>
                     <th>Sisir</th>
+                    <th>SDH MSK</th>
+                    <th>SUSULAN</th>
                 </tr>
             </thead>
             <tbody>
@@ -117,9 +119,8 @@
               <?php }else{?>
               <td style="background: yellow"></td>
               <?php } ?>
-              
-
-
+              <td><?php echo $data->terima;?></td>
+              <td><?php echo $data->susulan;?></td>
               </tr>
               <?php }}} ?>
 

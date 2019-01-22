@@ -61,6 +61,15 @@ class LaporanKesga extends CI_Controller {
 		$data['bulan']=$this->input->post('bulan');
 		$data['tahun']=$this->input->post('tahun');
 		$data['puskesmas']=$this->input->post('puskesmas');
+
+		$this->db->select('*');
+        $this->db->from('detaillaporan');
+        $this->db->join('laporan', 'laporan.kodeLaporan = detaillaporan.idLaporan');
+        $this->db->where('idLaporan', '(select kodeLaporan from laporan where bulan = "'. $this->input->post('bulan').'" and tahun = '.$this->input->post('tahun').')',false);
+        $query= $this->db->get();
+          if($query->num_rows()==0){
+          }
+
 		$data['kategori']= $this->KesgaModel->getFilterKategori();
 		$data['laporan']= $this->KesgaModel->getFilterLaporan();
 		$this->load->view('header');

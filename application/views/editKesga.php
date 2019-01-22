@@ -62,16 +62,18 @@
                 <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
             <tr>
-              <th colspan="6" ><center>Absen Laporan Kesga Bulan <?php echo $bulan." "; echo $tahun?> </center> </th>
+              <th colspan="4" ><center>Absen Laporan Kesga Bulan <?php echo "$bulan "; echo $tahun?> </center> </th>
 
             </tr>
                 <tr>
                     <th></th>
                     <th><?php echo $puskesmas?></th>
+                    <th>SDH MSK</th>
+                    <th>SUSULAN</th>
                    
                 </tr>
             </thead>
-            <tbody>
+            <tbody align="center">
             <?php foreach($kategori as $key){?>
               <tr>
                   <td colspan="6"><?php echo $key->namaKategori?></td>
@@ -92,9 +94,11 @@
 
               <?php } ?>
 
-
+                <td ><input type="text" name="<?php echo 'msk'."$field2" ?>" style="width: 200px"></td>
+                <td ><input type="text" name="<?php echo 'ssl'."$field2" ?>" style="width: 200px;"></td>
               </tr>
         <?php }} } ?>
+
             </tbody>
 
            

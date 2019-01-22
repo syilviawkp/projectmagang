@@ -161,18 +161,39 @@ public function getFilterKategori(){
       $tahun = $this->input->post('tahun');
       $idLaporan = $this->input->post('idLaporan');
       $puskesmas = $this->input->post('puskesmas');
-      $query = $this->db->query("select distinct namaField from detaillaporan join laporan on laporan.kodeLaporan = detaillaporan.idLaporan where laporan.bulan = '$bulan' AND laporan.tahun= $tahun ");
+      $query = $this->db->query("select distinct namaField, terima, susulan from detaillaporan join laporan on laporan.kodeLaporan = detaillaporan.idLaporan where laporan.bulan = '$bulan' AND laporan.tahun= $tahun ");
       
-
       foreach ($query->result() as $key) {
         $field = $key->namaField;
+      
         $field2= str_replace(' ', '', $field);
         $field2=str_replace('.', '',$field2);
+
+        $terima = $key->terima;
+        $susulan = $key->susulan;
+        $msk = "msk".$field2;
+        $ssln = "ssl".$field2;
+    
+    
+        if($this->input->post($msk) != ""){
+        $terima = $terima." $puskesmas: ".$this->input->post($msk);
+        //echo "$terima";
+        
+      }
+        if($this->input->post($ssln) != ""){
+        $susulan = $susulan. " $puskesmas: ".$this->input->post($ssln);
+        
+      }
+
+
         $isi= $this->input->post($field2);
         $this->db->set($puskesmas, $isi);
+        $this->db->set('terima', $terima);
+        $this->db->set('susulan', $susulan);
         $this->db->where('namaField', $field );
         $this->db->where('idLaporan', $idLaporan);
         $this->db->update('detaillaporan');
       }
+     //die();
   }
 }
