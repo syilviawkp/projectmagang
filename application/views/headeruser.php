@@ -260,7 +260,7 @@
               <span>Absen Laporan</span>
               </a>
             <ul class="sub">
-              <li><a href="<?php echo site_url()?>/LaporanYankesUser">Laporan Yankes</a></li>
+              <li><a href="<?php echo site_url()?>/User/LaporanYankesUser">Laporan Yankes</a></li>
               <li><a href="<?php echo site_url()?>/User/LaporanP2plUser">Laporan P2PL</a></li>
               <li><a href="<?php echo site_url()?>/User/LaporanKesgaUser">Laporan Kesga</a></li>
               
