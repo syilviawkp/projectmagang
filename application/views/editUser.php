@@ -28,9 +28,9 @@
                     <div class="col-lg-12">
             
           
-           <center><h1>Edit User</h1> </center> 
+           <center><h1>Edit Profil</h1> </center> 
 
-                                <?php echo form_open_multipart('login/update/'.$this->uri->segment(3)); ?>
+                                <?php echo form_open_multipart('login/updateprofil/'.$this->uri->segment(3)); ?>
                                 <div class="form-group">
                                     <label class="control-label col-sm-5" for="username">Username : </label>
                                     <div class="col-sm-10">
@@ -59,7 +59,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label class="control-label col-sm-5" for="idPuskesmas">ID Puskesmas : </label>
                                     <div class="col-sm-10">
                                         <input type="text" name="idPuskesmas" class="form-control" id="idPuskesmas" value="<?php echo $user[0]->idPuskesmas ?>" placeholder="ID Puskesmas"><br>
@@ -78,7 +78,7 @@
                                     <div class="col-sm-10">
                                         <input type="text" name="jabatan" class="form-control" id="jabatan" value="<?php echo $user[0]->jabatan ?>" placeholder="Jabatan"><br>
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <div class="form-group">
                                     <div class="col-sm-offset-5 col-sm-10">

@@ -31,7 +31,6 @@ class Login extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->helper('form');
 		
-
 		$this->load->model('UserModel');
 		$data['user_object']= $this->UserModel->getUserQueryObject();
 		$data['puskesmas_object']=$this->PuskesmasModel->getDataPuskesmas();
@@ -160,20 +159,6 @@ class Login extends CI_Controller {
 
 	public function Update()
 	{
-			// $this->form_validation->set_rules('username', 'username', 'trim|required');
-			// $this->form_validation->set_rules('password', 'password', 'trim|required');
-			// $this->form_validation->set_rules('nama', 'nama', 'trim|required');
-			// $this->form_validation->set_rules('noHp', 'noHp', 'trim|required');
-			// $this->form_validation->set_rules('idPuskesmas', 'idPuskesmas', 'trim|required');
-			// $this->form_validation->set_rules('level', 'level', 'trim|required');
-			// $this->form_validation->set_rules('jabatan', 'jabatan', 'trim|required');
-			
-			
-
-			// if($this->form_validation->run()==FALSE){
-			// 	$this->load->view('editUser', $data);
-			// }else{
-			// 	$data['idUser']=$idUser;
 				$this->UserModel->UpdateById();
 				echo '<script>alert("Sukses mengedit")</script>';
 			redirect('Login/data', 'refresh');		
@@ -181,6 +166,30 @@ class Login extends CI_Controller {
 
 
 
+	}
+
+	public function editprofil()
+	{
+		$data['user']=$this->UserModel->getCurrentUser();
+		$this->load->view('edituser', $data);
+	}
+
+	public function updateprofil()
+	{		$this->form_validation->set_rules('username', 'username', 'trim|required');
+			$this->form_validation->set_rules('password', 'password', 'trim|required');
+			$this->form_validation->set_rules('nama','nama','trim|required');
+			$this->form_validation->set_rules('noHp','noHp','trim|required');
+
+			$data['user']=$this->UserModel->getCurrentUser();
+
+			if($this->form_validation->run()==FALSE){
+				$this->load->view('edituser', $data);
+
+			}else{
+				$this->UserModel->UpdateById();
+				echo '<script>alert("Sukses mengedit")</script>';
+				redirect('User', 'refresh');}
+				
 	}
 
 	}

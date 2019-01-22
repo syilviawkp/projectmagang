@@ -81,5 +81,15 @@ class UserModel extends CI_Model {
         $this->db->delete('user');
     }
 
+    public function getCurrentUser(){
+        $a=$this->session->userdata('logged_in');
+        $this->db->select('*');
+        $this->db->from('user');
+        $this->db->where('id', $a['id']);
+        $query=$this->db->get();
+        return $query->result();
+    }
+
+
   }
 ?>

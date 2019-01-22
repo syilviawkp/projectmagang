@@ -297,24 +297,74 @@
             </ul>
           </li> -->
 
-          <!-- <li class="sub-menu">
+          <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-tasks"></i>
               <span>Pengaturan</span>
               </a>
             <ul class="sub">
               
-              <li><a href="<?php echo site_url()?>/Login/data">Kelola User</a></li>
-              <li><a href="<?php echo site_url()?>/Puskesmas">Kelola Puskesmas</a></li>
+              <li><a href="<?php echo site_url()?>/login/editprofil">Edit Profil</a></li>
+              
+              <!-- <li><a href="javascript:void(0);" onclick="showmodal('<?php echo $key->idUser ?>','<?php echo $key->username ?>','<?php echo $key->password ?>','<?php echo $key->nama ?>','<?php echo $key->noHp ?>')" data-toggle="modal" data-target="#myModalEdit">Edit Profil</a></p> -->
+
                 
             </ul>
-          </li> -->
+          </li>
          
         </ul>
         <!-- sidebar menu end-->
       </div>
     </aside>
     </section>
+
+<!--modal edit-->
+<!-- 
+    <div aria-hidden="true" aria-labelledby="myModalEdit" role="dialog" tabindex="-1" id="myModalEdit" class="modal fade-in" >
+        <div class="modal-dialog">
+            <div class="modal-content" style="width: 800px; height:800px; margin-left: -100px;padding: 20px" >
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit Profil</h4>
+                </div>
+                <?php echo form_open_multipart('Login/update'); ?>
+                <?php echo validation_errors(); ?>
+                <br>
+                 <div class="form-group">
+                    <label for="">Id User</label>
+                    <input type="text" class="form-control" name="idUser" id="idUser" value=""<?php echo $user[0]->nama ?>"" readonly="">
+                </div>
+                <div class="form-group">
+                    <label for="">Username</label>
+                    <input type="text" class="form-control" name="username" id="username" value="<?php echo $user[0]->username ?>" >
+                </div>
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="text" class="form-control" name="password" id="password" value="<?php echo $user[0]->password ?>">
+                </div>
+                <div class="form-group">
+                    <label for="">Nama</label>
+                    <input type="text" id="nama" class="form-control" name="nama" value="<?php echo $user[0]->nama ?>" >
+                </div>
+                <div class="form-group">
+                    <label for="">No HP</label>
+                    <input type="text" id="noHp" class="form-control" name="noHp" value="<?php echo $user[0]->noHp ?>" >
+                </div>
+                 
+               <div align="right" style="margin-bottom: 20px; margin-right: 30px">
+          <button class="btn-info" type="submit">Update</button>
+            <a href=""><button class="btn-warning" data-dismiss="modal">Batal</button></a>
+        </div>
+    
+        <?php echo form_close(); ?>
+    </div>
+            
+            </div> -->
+  
+</body>
+
+
+<!--modal filter-->
+
      <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="modalKesga" class="modal fade-in">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -360,3 +410,13 @@
         </div>
         </div>
         </div></div>
+
+ <script type="text/javascript">
+    function showmodal(idUser,username,password,nama,noHp){
+        document.getElementById('idUser').value = idUser;
+        document.getElementById('username').value = username;
+        document.getElementById('password').value = password;
+        document.getElementById('nama').value = nama;
+        document.getElementById('noHp').value = noHp;
+    }
+  </script>

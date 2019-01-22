@@ -184,7 +184,7 @@
           </li> -->
           <!-- inbox dropdown end -->
           <!-- notification dropdown start-->
-          <li id="header_notification_bar" class="dropdown">
+          <!-- <li id="header_notification_bar" class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
               <i class="fa fa-bell-o"></i>
               <span class="badge bg-warning">7</span>
@@ -226,7 +226,7 @@
                 <a href="index.html#">See all notifications</a>
               </li>
             </ul>
-          </li>
+          </li> -->
           <!-- notification dropdown end -->
         </ul>
         <!--  notification end -->
