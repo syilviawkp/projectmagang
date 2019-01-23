@@ -55,10 +55,11 @@ public function dashboard()
 			$data['username']=$session_data['username'];
 			$data['password']=$session_data['password'];
 			$data['level']=$session_data['level'];
-			if($data['level']=='user'){
-				redirect('indexUser','refresh');
+			$data['idPuskesmas']=$session_data['idPuskesmas'];
+			if($data['level']=='admin'){
+					redirect('login/dashboard','refresh');
 			}else{
-				redirect('login/dashboard','refresh');
+				redirect('User','refresh');
 			}
 		}
 	}
