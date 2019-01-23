@@ -19,7 +19,7 @@ class User extends CI_Controller {
 	}
 
 
-	public function laporanKesgaBatuUser()
+	public function laporanKesgaUser()
 	
 	{
 		$this->load->helper('url');
@@ -29,16 +29,16 @@ class User extends CI_Controller {
         $data['bulan']= $key->bulan;
         $data['tahun']= $key->tahun;
       }
-		$data['kategori']= $this->KesgaModel->getLastKategori();
+		$data['kategori']= $this->KesgaModel->getKategoriKesga();
 		$data['laporan']= $this->KesgaModel->getLastLaporan();
 		// $data['puskesmas']= $this->UserModel->getFilterPuskesmas();
 		
 
 		$this->load->view('headeruser');
-		$this->load->view('laporanKesgaBatuUser',$data);
+		$this->load->view('laporanKesgaUser',$data);
 	}
 
-	public function laporanP2plBatuUser()
+	public function laporanP2plUser()
 	
 	{
 		$this->load->helper('url');
@@ -48,15 +48,15 @@ class User extends CI_Controller {
         $data['bulan']= $key->bulan;
         $data['tahun']= $key->tahun;
       }
-		$data['kategori']= $this->P2plModel->getLastKategori();
+		$data['kategori']= $this->P2plModel->getKategoriP2pl();
 		$data['laporan']= $this->P2plModel->getLastLaporan();
 		// $data['puskesmas']= $this->UserModel->getFilterPuskesmas();
 		
 		$this->load->view('headeruser');
-		$this->load->view('laporanP2plBatuUser',$data);
+		$this->load->view('laporanP2plUser',$data);
 	}
 
-	public function laporanYankesBatuUser()
+	public function laporanYankesUser()
 	
 	{
 		$this->load->helper('url');
@@ -66,18 +66,18 @@ class User extends CI_Controller {
         $data['bulan']= $key->bulan;
         $data['tahun']= $key->tahun;
       }
-		$data['kategori']= $this->YankesModel->getLastKategori();
+		$data['kategori']= $this->YankesModel->getKategoriYankes();
 		$data['laporan']= $this->YankesModel->getLastLaporan();
 		// $data['puskesmas']= $this->UserModel->getFilterPuskesmas();
 		
 
 		$this->load->view('headeruser');
-		$this->load->view('laporanYankesBatuUser',$data);
+		$this->load->view('laporanYankesUser',$data);
 	}
 
 
 
-	public function filterKesgaBatu(){
+	public function filterKesga(){
 		$data['daftarBulan'] = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
 		$data['bulan']=$this->input->post('bulan');
 		$data['tahun']=$this->input->post('tahun');
@@ -85,11 +85,11 @@ class User extends CI_Controller {
 		$data['laporan']= $this->KesgaModel->getFilterLaporan();
 		// $data['puskesmas']= $this->UserModel->getFilterPuskesmas();
 		$this->load->view('headeruser');
-		$this->load->view('laporanKesgaBatuUser',$data);
+		$this->load->view('laporanKesgaUser',$data);
 
 	}
 
-	public function filterP2plBatu(){
+	public function filterP2pl(){
 		$data['daftarBulan'] = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
 		$data['bulan']=$this->input->post('bulan');
 		$data['tahun']=$this->input->post('tahun');
@@ -97,11 +97,11 @@ class User extends CI_Controller {
 		$data['laporan']= $this->P2plModel->getFilterLaporan();
 		// $data['puskesmas']= $this->UserModel->getFilterPuskesmas();
 		$this->load->view('headeruser');
-		$this->load->view('laporanP2plBatuUser',$data);
+		$this->load->view('laporanP2plUser',$data);
 
 	}
 
-	public function filterYankesBatu(){
+	public function filterYankes(){
 		$data['daftarBulan'] = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
 		$data['bulan']=$this->input->post('bulan');
 		$data['tahun']=$this->input->post('tahun');
@@ -109,7 +109,7 @@ class User extends CI_Controller {
 		$data['laporan']= $this->YankesModel->getFilterLaporan();
 		// $data['puskesmas']= $this->UserModel->getFilterPuskesmas();
 		$this->load->view('headeruser');
-		$this->load->view('laporanYankesBatuUser',$data);
+		$this->load->view('laporanYankesUser',$data);
 	}
 
 }

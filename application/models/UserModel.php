@@ -13,8 +13,9 @@ class UserModel extends CI_Model {
     public function login($username, $password)
     {
 
-        $this->db->select('*');
+        $this->db->select('idUser,username, password, nama, noHp, user.idPuskesmas, level, jabatan,namaPuskes,alamatPuskes');
         $this->db->from('user');
+        $this->db->join('puskesmas', 'user.idPuskesmas = puskesmas.idPuskesmas');
         $this->db->where('username', $username);
         $this->db->where('password', $password);
         $query = $this->db->get();

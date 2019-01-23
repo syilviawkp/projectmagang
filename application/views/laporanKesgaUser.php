@@ -15,8 +15,8 @@
      
 
             <div class="form-panel">
-              <h4 class="mb"><i class="fa fa-angle-right"></i> Laporan Kesga</h4>
-             <?php echo form_open('User/filterKesgaBatu'); ?>
+              <h4 class="mb"><i class="fa fa-angle-right"></i> Laporan Kesga <?php echo  $this->session->userdata('logged_in')['namaPuskes'];?></h4>
+             <?php echo form_open('User/filterKesga'); ?>
                 <div class="form-group">
                   <label class="col-sm-2 col-sm-2 control-label">Bulan</label>
                   <div class="col-sm-10">
@@ -69,17 +69,13 @@
             </tr>
                 <tr>
                     <th></th>
-                    <th>Batu</th>
-<!--                     <th>Beji</th>
-                    <th>Bumiaji</th>
-                    <th>Junrejo</th>
-                    <th>Sisir</th>
-                    <th>SDH MSK</th>
-                    <th>SUSULAN</th> -->
+                    <th><?php echo $this->session->userdata('logged_in')['namaPuskes'];?></th>
                 </tr>
             </thead>
             <tbody>
-            <?php foreach($kategori as $key){?>
+            <?php
+            $nama = $this->session->userdata('logged_in')['namaPuskes'];
+             foreach($kategori as $key){?>
               <tr>
                   <td colspan="6"><?php echo $key->namaKategori?></td>
               </tr>
@@ -88,7 +84,7 @@
               <tr>
                 <td><?php echo $data->namaField?></td>
 
-              <?php if($data->Batu == "SUDAH") {?>
+              <?php if($data-> $nama== "SUDAH") {?>
                 <td><input type="checkbox" name="feeling" value="good" checked="" disabled readonly=""></td>
               <?php }else{?>
               <td style="background: yellow"></td>
@@ -123,64 +119,7 @@
  
  </div>
   </section>
-  <!-- <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade-in">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Edit Absen Laporan</h4>
-                </div>
-     <?php echo form_open('LaporanKesga/editLaporan'); ?>
-    <div class="modal-body">
-        <div class="form-group">
-                    <label for="">Bulan</label>
-                   
-                  <select class="form-control" name="bulan" id="bulan">
-                  <option value="" >--Pilih Bulan--</option>
-                  <?php 
-                  $daftarBulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
-                  foreach ($daftarBulan as $key) {
-                  if($key== $bulan){?>
-                    <option value="<?php echo $key?>" selected=""><?php echo $key?></option>
-                 <?php }
-                  else{?>
-                     <option value="<?php echo $key?>" ><?php echo $key?></option>
-
-                  <?php }}?>
-                  </select>
-                </div>
-                <div class="form-group">
-                    <label for="">Tahun</label>
-                     <select class="form-control" name="tahun" id="tahun">
-                  <option value="">--Pilih Tahun--</option>
-                  <?php for($i=2015 ; $i<=2023;$i++){
-                    if($i==$tahun){?>
-                  
-                  <option value="<?php echo $i?>" selected=""><?php echo $i?></option>
-            <?php   } else{?>
-            <option value="<?php echo $i?>" ><?php echo $i?></option>
-                  <?php   }} ?>
-                
-                </select>
-                
-                </div>
-                <div class="form-group">
-                    <label for="">Puskesmas</label>
-                    <select class="form-control" name="puskesmas" id="puskesmas">
-                  <option value="Batu" >Batu</option>
-                  <option value="Beji" >Beji</option>
-                  <option value="Bumiaji" >Bumiaji</option>
-                  <option value="Junrejo" >Junrejo</option>
-                  <option value="Sisir" >Sisir</option>
-                  </select>
-                   
-                </div>
-                <center><button type="submit" class="btn btn-primary">Submit</button></center>
-                <?php echo form_close();?>
-        </div>
-        </div>
-        </div>
-        </div> -->
-  <!-- js placed at the end of the document so the pages load faster -->
+ 
   <script src="<?php echo base_url()?>assets/lib/jquery/jquery.min.js"></script>
 
   <script src="<?php echo base_url()?>assets/lib/bootstrap/js/bootstrap.min.js"></script>

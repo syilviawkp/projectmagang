@@ -83,7 +83,9 @@ public function dashboard()
 				'noHp'=>$row->noHp,
 				'idPuskesmas'=>$row->idPuskesmas,
 				'level'=>$row->level,
-				'jabatan'=>$row->jabatan
+				'jabatan'=>$row->jabatan,
+				'namaPuskes' => $row->namaPuskes,
+				'alamatPuskes' => $row->alamatPuskes
 				);
 				$this->session->set_userdata('logged_in',$sess_array);
 			}
