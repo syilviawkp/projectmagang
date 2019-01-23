@@ -38,16 +38,19 @@
       <div class="form-login">
         <h2 class="form-login-heading">Laman Login</h2>
         <div class="login-wrap">
+        <?php echo form_open('login/cekLogin');?>
+        <?php echo validation_errors(); ?>
           <input type="text" name="username" class="form-control" placeholder="Username" autofocus>
           <br>
-          <input type="password" name="password "class="form-control" placeholder="Password">
+          <input type="password" name="password"class="form-control" placeholder="Password">
           <!-- <label class="checkbox">
             <input type="checkbox" value="remember-me"> Remember me
             <span class="pull-right">
             <a data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>
             </span>
             </label> -->
-          <a href="<?php echo site_url()?>/Login/cekLogin"></a><button class="btn btn-theme btn-block"  style="margin-top: 10px"><i class="fa fa-lock"></i> LOGIN</button></a>
+        <button class="btn btn-theme btn-block"  style="margin-top: 10px" type="submit"><i class="fa fa-lock"></i> LOGIN</button>
+        <?php echo form_close();?>
           <hr>
          <!--  <div class="login-social-link centered">
             <p>or you can sign in via your social network</p>

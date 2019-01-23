@@ -272,8 +272,8 @@
               <span>Kelola Laporan</span>
               </a>
             <ul class="sub">
-              <li><a href="grids.html">Tambah Laporan Yankes</a></li>
-              <li><a href="calendar.html">Tambah Laporan P2PL</a></li>
+              <li><a href="" data-toggle="modal" data-target="#modalYankes">Tambah Laporan Yankes</a></li>
+              <li><a href="" data-toggle="modal" data-target="#modalP2pl">Tambah Laporan P2PL</a></li>
               <li><a href="" data-toggle="modal" data-target="#modalKesga">Tambah Laporan Kesga</a></li>
             </ul>
           </li>
@@ -336,27 +336,19 @@
                   <option value="" >--Pilih Bulan--</option>
                   <?php 
                   $daftarBulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
-                  foreach ($daftarBulan as $key) {
-                  if($key== $bulan){?>
-                    <option value="<?php echo $key?>" selected=""><?php echo $key?></option>
-                 <?php }
-                  else{?>
+                  foreach ($daftarBulan as $key) {?>
                      <option value="<?php echo $key?>" ><?php echo $key?></option>
 
-                  <?php }}?>
+                  <?php }?>
                   </select>
                 </div>
                 <div class="form-group">
                     <label for="">Tahun</label>
                      <select class="form-control" name="tahun" id="tahun">
                   <option value="">--Pilih Tahun--</option>
-                  <?php for($i=2015 ; $i<=2023;$i++){
-                    if($i==$tahun){?>
-                  
-                  <option value="<?php echo $i?>" selected=""><?php echo $i?></option>
-            <?php   } else{?>
+                  <?php for($i=2015 ; $i<=2023;$i++){?>
             <option value="<?php echo $i?>" ><?php echo $i?></option>
-                  <?php   }} ?>
+                  <?php   }?>
                 
                 </select>
                 
@@ -368,6 +360,83 @@
         </div>
         </div>
 
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="modalP2pl" class="modal fade-in">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit Format Laporan</h4>
+                </div>
+     <?php echo form_open('LaporanP2pl/editFieldLaporan'); ?>
+    <div class="modal-body">
+        <div class="form-group">
+                    <label for="">Bulan</label>
+                   
+                  <select class="form-control" name="bulan" id="bulan">
+                  <option value="" >--Pilih Bulan--</option>
+                  <?php 
+                  $daftarBulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
+                  foreach ($daftarBulan as $key) {?>
+                     <option value="<?php echo $key?>" ><?php echo $key?></option>
+
+                  <?php }?>
+                  </select>
+                </div>
+                <div class="form-group">
+                    <label for="">Tahun</label>
+                     <select class="form-control" name="tahun" id="tahun">
+                  <option value="">--Pilih Tahun--</option>
+                  <?php for($i=2015 ; $i<=2023;$i++){?>
+            <option value="<?php echo $i?>" ><?php echo $i?></option>
+                  <?php   }?>
+                
+                </select>
+                
+                </div>
+                <center><button type="submit" class="btn btn-primary">Edit</button></center>
+                <?php echo form_close();?>
+        </div>
+        </div>
+        </div>
+        </div>
+ <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="modalYankes" class="modal fade-in">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit Format Laporan</h4>
+                </div>
+     <?php echo form_open('LaporanYankes/editFieldLaporan'); ?>
+    <div class="modal-body">
+        <div class="form-group">
+                    <label for="">Bulan</label>
+                   
+                  <select class="form-control" name="bulan" id="bulan">
+                  <option value="" >--Pilih Bulan--</option>
+                  <?php 
+                  $daftarBulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
+                  foreach ($daftarBulan as $key) {?>
+                     <option value="<?php echo $key?>" ><?php echo $key?></option>
+
+                  <?php }?>
+                  </select>
+                </div>
+                <div class="form-group">
+                    <label for="">Tahun</label>
+                     <select class="form-control" name="tahun" id="tahun">
+                  <option value="">--Pilih Tahun--</option>
+                  <?php for($i=2015 ; $i<=2023;$i++){?>
+            <option value="<?php echo $i?>" ><?php echo $i?></option>
+                  <?php   }?>
+                
+                </select>
+                
+                </div>
+                <center><button type="submit" class="btn btn-primary">Edit</button></center>
+                <?php echo form_close();?>
+        </div>
+        </div>
+        </div>
+        </div>
         <!-- ============================MODAL CETAK KESGA====================================== -->
 
      <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="modalcetakKesga" class="modal fade-in">
@@ -381,31 +450,23 @@
         <div class="form-group">
                     <label for="">Bulan</label>
                    
-                  <select class="form-control" name="bulan" id="bulan">
+                 <select class="form-control" name="bulan" id="bulan">
                   <option value="" >--Pilih Bulan--</option>
                   <?php 
                   $daftarBulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
-                  foreach ($daftarBulan as $key) {
-                  if($key== $bulan){?>
-                    <option value="<?php echo $key?>" selected=""><?php echo $key?></option>
-                 <?php }
-                  else{?>
+                  foreach ($daftarBulan as $key) {?>
                      <option value="<?php echo $key?>" ><?php echo $key?></option>
 
-                  <?php }}?>
+                  <?php }?>
                   </select>
                 </div>
                 <div class="form-group">
                     <label for="">Tahun</label>
                      <select class="form-control" name="tahun" id="tahun">
                   <option value="">--Pilih Tahun--</option>
-                  <?php for($i=2015 ; $i<=2023;$i++){
-                    if($i==$tahun){?>
-                  
-                  <option value="<?php echo $i?>" selected=""><?php echo $i?></option>
-            <?php   } else{?>
+                  <?php for($i=2015 ; $i<=2023;$i++){?>
             <option value="<?php echo $i?>" ><?php echo $i?></option>
-                  <?php   }} ?>
+                  <?php   }?>
                 
                 </select>
                 
@@ -431,31 +492,23 @@
         <div class="form-group">
                     <label for="">Bulan</label>
                    
-                  <select class="form-control" name="bulan" id="bulan">
+                   <select class="form-control" name="bulan" id="bulan">
                   <option value="" >--Pilih Bulan--</option>
                   <?php 
                   $daftarBulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
-                  foreach ($daftarBulan as $key) {
-                  if($key== $bulan){?>
-                    <option value="<?php echo $key?>" selected=""><?php echo $key?></option>
-                 <?php }
-                  else{?>
+                  foreach ($daftarBulan as $key) {?>
                      <option value="<?php echo $key?>" ><?php echo $key?></option>
 
-                  <?php }}?>
+                  <?php }?>
                   </select>
                 </div>
                 <div class="form-group">
                     <label for="">Tahun</label>
                      <select class="form-control" name="tahun" id="tahun">
                   <option value="">--Pilih Tahun--</option>
-                  <?php for($i=2015 ; $i<=2023;$i++){
-                    if($i==$tahun){?>
-                  
-                  <option value="<?php echo $i?>" selected=""><?php echo $i?></option>
-            <?php   } else{?>
+                  <?php for($i=2015 ; $i<=2023;$i++){?>
             <option value="<?php echo $i?>" ><?php echo $i?></option>
-                  <?php   }} ?>
+                  <?php   }?>
                 
                 </select>
                 
@@ -477,7 +530,7 @@
                     <h4 class="modal-title">Cetak Laporan P2PL</h4>
                 </div>
      <?php echo form_open('cetaklaporan/editFieldCetakyankes'); ?>
-    <div class="modal-body">
+  <div class="modal-body">
         <div class="form-group">
                     <label for="">Bulan</label>
                    
@@ -485,14 +538,10 @@
                   <option value="" >--Pilih Bulan--</option>
                   <?php 
                   $daftarBulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
-                  foreach ($daftarBulan as $key) {
-                  if($key== $bulan){?>
-                    <option value="<?php echo $key?>" selected=""><?php echo $key?></option>
-                 <?php }
-                  else{?>
+                  foreach ($daftarBulan as $key) {?>
                      <option value="<?php echo $key?>" ><?php echo $key?></option>
 
-                  <?php }}?>
+                  <?php }?>
                   </select>
                 </div>
                 <div class="form-group">
@@ -500,12 +549,9 @@
                      <select class="form-control" name="tahun" id="tahun">
                   <option value="">--Pilih Tahun--</option>
                   <?php for($i=2015 ; $i<=2023;$i++){
-                    if($i==$tahun){?>
-                  
-                  <option value="<?php echo $i?>" selected=""><?php echo $i?></option>
-            <?php   } else{?>
+                    ?>
             <option value="<?php echo $i?>" ><?php echo $i?></option>
-                  <?php   }} ?>
+                  <?php } ?>
                 
                 </select>
                 

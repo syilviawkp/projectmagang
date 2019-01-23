@@ -12,13 +12,14 @@ class UserModel extends CI_Model {
 
     public function login($username, $password)
     {
-        $this->db->select('idUser, username, password');
+
+        $this->db->select('*');
         $this->db->from('user');
         $this->db->where('username', $username);
         $this->db->where('password', $password);
         $query = $this->db->get();
 
-        if($query->num_rows() == 1)
+        if($query->num_rows() > 0)
         {
             return $query->result();
         }

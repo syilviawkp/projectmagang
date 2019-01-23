@@ -37,9 +37,22 @@ class PuskesmasModel extends CI_Model {
         'status'=>$this->input->post('status')
      ); 
         $this->db->insert('puskesmas',$object); 
+         $this->db->query("ALTER TABLE detailLaporan ADD COLUMN $name varchar(100)");
     }
 
     public function UpdateById(){
+        $idPuskesmas = $this->input->post('idPuskesmas');
+        $nama2 = $this->input->post('namaPuskes');
+        $this->db->select('namaPuskes');
+        $this->db->where('idPuskesmas', $idPuskesmas);
+        $this->db->from('puskesmas');
+        $query= $this->db->get();
+        if($query->num_rows()>0){
+            foreach ($query->result() as $key) {
+             $nama = $key->namaPuskes;
+           }
+       }
+        $this->db->query("ALTER TABLE detailLaporan CHANGE $nama $nama2 varchar(100)");
         $data = array(
             'idPuskesmas' => $this->input->post('idPuskesmas'),
             'namaPuskes' => $this->input->post('namaPuskes'),
@@ -47,10 +60,11 @@ class PuskesmasModel extends CI_Model {
             'status' => $this->input->post('status')
         );
 
-        $idPuskesmas = $this->input->post('idPuskesmas');
+        
         $this->db->where('idPuskesmas', $idPuskesmas);
         $this->db->update('puskesmas', $data);
     }
+    
     
 
   }

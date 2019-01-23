@@ -20,7 +20,7 @@ class KesgaModel extends CI_Model {
     }
 
     public function getLastLaporan(){
-         $this->db->distinct();
+        
         $this->db->select('*');
         $this->db->distinct();
         $this->db->from('detaillaporan');
@@ -40,7 +40,7 @@ class KesgaModel extends CI_Model {
         $this->db->join('laporan', 'laporan.kodeLaporan = detaillaporan.idLaporan');
 
         $this->db->join('formatfield', 'formatfield.namaField = detaillaporan.namaField');
-        $this->db->where('idLaporan', '(select kodeLaporan from laporan where bulan = "'. $bulan.'" and tahun = '.$tahun.')',false);
+        $this->db->where('idLaporan', '(select kodeLaporan from laporan where bulan = "'. $bulan.'" and tahun = '.$tahun.' and jenisLaporan="KESGA")',false);
         $query= $this->db->get();
           if($query->num_rows()>0){
               
@@ -137,6 +137,92 @@ public function getFilterKategori(){
             return $query->result();
         }
     }
+    public function getListPuskesmas(){
+    $query2 = $this->db->query("SELECT * from laporan ORDER by kodeLaporan DESC LIMIT 1
+");
+       foreach ($query2->result() as $key) {
+        $bulan = $key->bulan;
+        $tahun = $key->tahun;
+      }
+
+      if($bulan=="Januari"){
+        $bln= "01";
+      }else if($bulan=="Februari"){
+        $bln= "02";
+      }else if($bulan=="Maret"){
+        $bln= "03";
+      }else if($bulan=="April"){
+        $bln= "04";
+      }else if($bulan=="Mei"){
+        $bln= "05";
+      }else if($bulan=="Juni"){
+        $bln= "06";
+      }else if($bulan=="Juli"){
+        $bln= "07";
+      }else if($bulan=="Agustus"){
+        $bln= "08";
+      }else if($bulan=="September"){
+        $bln= "09";
+      }else if($bulan=="Oktober"){
+        $bln= 10;
+      }else if($bulan=="November"){
+        $bln= 11;
+      }else{
+        $bln= 12;
+      }
+
+      $date = $tahun."-".$bln."-01";
+      $query= $this->db->query('SELECT * FROM puskesmas WHERE (tgl_aktif <= "'.$date.'" and tgl_nonaktif = "0000-00-00") or (tgl_aktif <= "'.$date.'" and tgl_nonaktif >= "'.$date.'")');
+        if($query->num_rows()>0){
+            return $query->result();
+        }
+    }
+
+    public function getFilterPuskesmas(){
+      $bulan= $this->input->post('bulan');
+        $tahun = $this->input->post('tahun');
+if($bulan=="Januari"){
+        $bln= "01";
+      }else if($bulan=="Februari"){
+        $bln= "02";
+      }else if($bulan=="Maret"){
+        $bln= "03";
+      }else if($bulan=="April"){
+        $bln= "04";
+      }else if($bulan=="Mei"){
+        $bln= "05";
+      }else if($bulan=="Juni"){
+        $bln= "06";
+      }else if($bulan=="Juli"){
+        $bln= "07";
+      }else if($bulan=="Agustus"){
+        $bln= "08";
+      }else if($bulan=="September"){
+        $bln= "09";
+      }else if($bulan=="Oktober"){
+        $bln= 10;
+      }else if($bulan=="November"){
+        $bln= 11;
+      }else{
+        $bln= 12;
+      }
+      
+       $date = $tahun."-".$bln."-01";
+      $query= $this->db->query('SELECT * FROM puskesmas WHERE (tgl_aktif <= "'.$date.'" and tgl_nonaktif = "0000-00-00") or (tgl_aktif <= "'.$date.'" and tgl_nonaktif >= "'.$date.'")');
+        if($query->num_rows()>0){
+            return $query->result();
+        }
+    }
+
+    public function getPuskesmasAktif(){
+      $this->db->select('*');
+      $this->db->from('puskesmas');
+      $this->db->where('status', "AKTIF");
+      $query = $this->db->get();
+      if($query->num_rows()>0){
+            return $query->result();
+        }
+    }
 
     public function getFilterLaporan(){
       
@@ -192,4 +278,32 @@ public function getFilterKategori(){
       }
      //die();
   }
+ public function cekLaporanKosong(){
+    $bulan=$this->input->post('bulan');
+    $tahun=$this->input->post('tahun');
+    $this->db->select('*');
+        $this->db->from('detaillaporan');
+        $this->db->join('laporan', 'laporan.kodeLaporan = detaillaporan.idLaporan');
+        $this->db->where('idLaporan', '(select kodeLaporan from laporan where bulan = "'. $bulan.'" and tahun = '.$tahun.' and jenisLaporan= "KESGA")',false);
+        $query= $this->db->get();
+          if($query->num_rows()==0){
+             $object = array('jenisLaporan'=>"KESGA", 'bulan'=>$bulan, 'tahun'=>$tahun);
+        $this->db->insert('laporan', $object);
+
+ 
+       $kode =  $this->db->query('SELECT  kodeLaporan FROM laporan where bulan= "'. $bulan .'" and tahun='. $tahun);
+        foreach ($kode->result() as $key) {
+           $kodeLaporan= $key->kodeLaporan;
+         }
+
+        $query2= $this->db->query("SELECT * from formatfield join formatkategori on formatkategori.idKategori = formatfield.idKategori where formatkategori.jenisLaporan = 'KESGA'");
+          foreach ($query2->result() as $key ) {
+           $object =  array('idLaporan' => $kodeLaporan, 'namaField'=> $key->namaField, 'namaKategori'=> $key->namaKategori );
+            $this->db->insert('detaillaporan', $object);
+         }
+
+          }
+
+  }
+  
 }

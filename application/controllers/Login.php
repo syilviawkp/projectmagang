@@ -28,50 +28,45 @@ class Login extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->helper('url');
-		$this->load->helper('form');
 		
-		$this->load->model('UserModel');
-		$data['user_object']= $this->UserModel->getUserQueryObject();
-		$data['puskesmas_object']=$this->PuskesmasModel->getDataPuskesmas();
 
-		$this->load->view('header');
-		$this->load->view('user_list', $data);
+		$this->load->view('login');
+		
 	}
 
 	
 
 	public function cekLogin(){
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('username',"username", 'trim|required|callback_cekDb');
+		$this->form_validation->set_rules('username',"username", 'trim|required');
 		$this->form_validation->set_rules('password',"password", 'trim|required|callback_cekDb');
 
-		if($this->form_validation->run()==FALSE){
+		if($this->form_validation->run()== false){
 			$this->load->view('login');
 		}
 		else{
+			$session_data=$this->session->userdata('logged_in');
 			$data['username']=$session_data['username'];
 			$data['password']=$session_data['password'];
 			$data['level']=$session_data['level'];
 			if($data['level']=='user'){
 				redirect('indexUser','refresh');
 			}else{
-				redirect('index','refresh');
+				redirect('login/data','refresh');
 			}
 		}
 	}
-
 	public function cekDb($password)
 	{
+		$this->load->helper('url','form');
+		$this->load->library('form_validation');
 		$this->load->model('UserModel');
 		$username = $this->input->post('username');
 		$result = $this->UserModel->login($username, $password);
 
-		if($result)
-		{
+		if($result){
 			$sess_array = array();
-			foreach ($result as $row)
-			{
+			foreach ($result as $row){
 				$sess_array = array(
 				'idUser'=>$row->idUser,
 				'username'=>$row->username,
@@ -93,12 +88,11 @@ class Login extends CI_Controller {
 			return false;
 		}
 	}
-
 	public function logout()
 	{
-		// $this->session->unset_userdata('logged_in');
-		// $this->session->sess_destroy();
-		$this->load->view('login');
+		$this->session->unset_userdata('logged_in');
+		 $this->session->sess_destroy();
+		redirect('login','refresh');
 	}
 
 	public function Create()

@@ -3,14 +3,15 @@
         MAIN CONTENT
         ***************************************************** -->
     <!--main content start-->
+
     <section id="main-content">
-    <div class="col-lg-12">
+       <div class="col-lg-12">
       <section class="wrapper">
         <div class="row">
           <div class="row mt">
-          
+       
             <div class="form-panel">
-              <h4 class="mb"><i class="fa fa-angle-right"></i> Laporan Yankes</h4>
+              <h4 class="mb"><i class="fa fa-angle-right"></i> Laporan YANKES</h4>
              
                 <div class="form-group">
                   <label class="col-sm-2 col-sm-2 control-label">Bulan</label>
@@ -45,7 +46,8 @@
                 <div class="form-group">
                 <div class="col-sm-12" align="right">
               
- 
+    
+               
                            <br><br>
                   </div>
                 </div>
@@ -60,16 +62,18 @@
                 <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
             <tr>
-              <th colspan="6" ><center>Absen Laporan Yankes Bulan <?php echo $bulan." "; echo $tahun?> </center> </th>
+              <th colspan="4" ><center>Absen Laporan YANKES Bulan <?php echo "$bulan "; echo $tahun?> </center> </th>
 
             </tr>
                 <tr>
                     <th></th>
                     <th><?php echo $puskesmas?></th>
+                    <th>SDH MSK</th>
+                    <th>SUSULAN</th>
                    
                 </tr>
             </thead>
-            <tbody>
+            <tbody align="center">
             <?php foreach($kategori as $key){?>
               <tr>
                   <td colspan="6"><?php echo $key->namaKategori?></td>
@@ -90,9 +94,11 @@
 
               <?php } ?>
 
-
+                <td ><input type="text" name="<?php echo 'msk'."$field2" ?>" style="width: 200px"></td>
+                <td ><input type="text" name="<?php echo 'ssl'."$field2" ?>" style="width: 200px;"></td>
               </tr>
-              <?php }}} ?>
+        <?php }} } ?>
+
             </tbody>
 
            
@@ -113,10 +119,11 @@
         </div>
         <!-- /row -->
       </section>
+      </div>
     </section>
     <!--main content end-->
     <!--footer start-->
-   
+  
     <!--footer end-->
   </section>
   <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class=

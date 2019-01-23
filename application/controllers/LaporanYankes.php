@@ -30,40 +30,45 @@ class LaporanYankes extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->helper('form');
-		$data['bulan']="-";
-		$data['tahun']="-";
+		$data['bulan']= "Januari";
+        $data['tahun']= "2019";
 		$query = $this->db->query("select tahun,bulan from laporan where jenisLaporan= 'YANKES' order by kodeLaporan DESC LIMIT 1");
   foreach ($query->result() as $key) {
         $data['bulan']= $key->bulan;
         $data['tahun']= $key->tahun;
       }
-		$data['kategori']= $this->YankesModel->getLastLaporan();
+      	$data['puskesaktif']=$this->YankesModel->getPuskesmasAktif();
+      	$data['puskesmas']= $this->YankesModel->getListPuskesmas();
+		$data['kategori']= $this->YankesModel->getKategoriYankes();
 		$data['laporan']= $this->YankesModel->getLastLaporan();
 		$this->load->view('header');
 		$this->load->view('laporanYankes',$data);
 	}
 
 	public function filter(){
+		$data['daftarBulan'] = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
 		$data['bulan']=$this->input->post('bulan');
 		$data['tahun']=$this->input->post('tahun');
-		$data['kategori']= $this->YankesModel->getFilterLaporan();
+		$data['puskesaktif']=$this->YankesModel->getPuskesmasAktif();
+		$data['puskesmas']= $this->YankesModel->getFilterPuskesmas();
+		$data['kategori']= $this->YankesModel->getFilterKategori();
 		$data['laporan']= $this->YankesModel->getFilterLaporan();
 		$this->load->view('header');
 		$this->load->view('laporanYankes',$data);
 
 	}
-	public function addLaporan()
+	public function addYankes()
 	{
-		$this->load->model('YankesModel');
-		$data['kategori']=$this->YankesModel->getKategoriYankes();
-		$data['field']=$this->YankesModel->getFieldYankes();
-		$this->load->view('header');
-		$this->load->view('form_component',$data);
+		//$this->load->model('YankesModel');
+		$this->YankesModel->addLaporan();
 	}
+
 	public function editLaporan(){
 		$data['bulan']=$this->input->post('bulan');
 		$data['tahun']=$this->input->post('tahun');
 		$data['puskesmas']=$this->input->post('puskesmas');
+		$this->YankesModel->cekLaporanKosong();
+
 		$data['kategori']= $this->YankesModel->getFilterKategori();
 		$data['laporan']= $this->YankesModel->getFilterLaporan();
 		$this->load->view('header');
@@ -74,6 +79,72 @@ class LaporanYankes extends CI_Controller {
 		$this->YankesModel->editLap();
 		redirect('LaporanYankes','refresh');
 	}
+
+	 public function editFieldLaporan()
+    {
+
+    $sess_array = array(
+					'bulan'=>$this->input->post('bulan'),
+					'tahun'=>$this->input->post('tahun')
+					);
+	$this->session->set_userdata('editFormat', $sess_array);
+
+$this->YankesModel->cekLaporanKosong();
+
+	    // $bulan = $this->session->userdata('editFormat')['bulan'];
+     //    $tahun = $this->session->userdata('editFormat')['tahun'];
+     //    $this->db->select('*');
+     //    $this->db->from('detaillaporan');
+     //    $this->db->join('laporan', 'laporan.kodeLaporan = detaillaporan.idLaporan');
+     //    $this->db->where('idLaporan', '(select kodeLaporan from laporan where bulan = "'. $bulan.'" and tahun = '.$tahun.')',false);
+     //    $query= $this->db->get();
+     //      if($query->num_rows()>0){
+     //            foreach ($query->result() as $key) {
+     //                $field = $key->idLaporan;
+     //              }
+           
+     //            $sess_array = array('idLaporan'=>$field,'bulan'=>$this->input->post('bulan'),
+					// 'tahun'=>$this->input->post('tahun'));
+     //            $this->session->set_userdata('editFormat', $sess_array);  
+           
+     //    }else{
+     //    $object = array('jenisLaporan'=>"Yankes", 'bulan'=>$bulan, 'tahun'=>$tahun);
+     //    $this->db->insert('laporan', $object);
+
+ 
+     //   $kode =  $this->db->query('SELECT  kodeLaporan FROM laporan where bulan= "'. $bulan .'" and tahun='. $tahun);
+     //    foreach ($kode->result() as $key) {
+     //       $kodeLaporan= $key->kodeLaporan;
+     //     }
+
+     //    $query2= $this->db->query("SELECT * from formatfield join formatkategori on formatkategori.idKategori = formatfield.idKategori where formatkategori.jenisLaporan = 'Yankes'");
+     //      foreach ($query2->result() as $key ) {
+     //       $object =  array('idLaporan' => $kodeLaporan, 'namaField'=> $key->namaField, 'namaKategori'=> $key->namaKategori );
+     //        $this->db->insert('detaillaporan', $object);
+     //     }
+     //    }	
+   $this->load->view('header');
+       $this->load->view('editYankesGrid');
+  }
+    public function updateYankes(){
+
+        $id = $this->input->post('idDetailLaporan'); 
+        $idfield = $this->input->post('idField');
+        $this->YankesModel->update($id,$idfield);
+    }
+    public function deleteYankes(){
+
+        $id = $this->input->post('idDetailLaporan'); 
+        $idfield = $this->input->post('idField');
+        $this->YankesModel->delete($id,$idfield);
+    }
+
+    public function getGridYankes()
+    {
+        $result = $this->YankesModel->getGridLaporan(); 
+        header("Content-Type: application/json");
+        echo json_encode($result);
+    }
 
 	
 }

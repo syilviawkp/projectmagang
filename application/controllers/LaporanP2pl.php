@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class LaporanP2PL extends CI_Controller {
+class LaporanP2pl extends CI_Controller {
 
 	public function __construct()
 	{
@@ -30,40 +30,45 @@ class LaporanP2PL extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->helper('form');
-		$data['bulan']="-";
-		$data['tahun']="-";
+		$data['bulan']= "Januari";
+        $data['tahun']= "2019";
 		$query = $this->db->query("select tahun,bulan from laporan where jenisLaporan= 'P2PL' order by kodeLaporan DESC LIMIT 1");
   foreach ($query->result() as $key) {
         $data['bulan']= $key->bulan;
         $data['tahun']= $key->tahun;
       }
-		$data['kategori']= $this->P2plModel->getLastLaporan();
+      	$data['puskesaktif']=$this->P2plModel->getPuskesmasAktif();
+      	$data['puskesmas']= $this->P2plModel->getListPuskesmas();
+		$data['kategori']= $this->P2plModel->getKategoriP2pl();
 		$data['laporan']= $this->P2plModel->getLastLaporan();
 		$this->load->view('header');
 		$this->load->view('laporanP2pl',$data);
 	}
 
 	public function filter(){
+		$data['daftarBulan'] = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
 		$data['bulan']=$this->input->post('bulan');
 		$data['tahun']=$this->input->post('tahun');
-		$data['kategori']= $this->P2plModel->getFilterLaporan();
+		$data['puskesaktif']=$this->P2plModel->getPuskesmasAktif();
+		$data['puskesmas']= $this->P2plModel->getFilterPuskesmas();
+		$data['kategori']= $this->P2plModel->getFilterKategori();
 		$data['laporan']= $this->P2plModel->getFilterLaporan();
 		$this->load->view('header');
 		$this->load->view('laporanP2pl',$data);
 
 	}
-	public function addLaporan()
+	public function addP2pl()
 	{
-		$this->load->model('P2plModel');
-		$data['kategori']=$this->P2plModel->getKategoriP2pl();
-		$data['field']=$this->P2plModel->getFieldP2pl();
-		$this->load->view('header');
-		$this->load->view('form_component',$data);
+		//$this->load->model('P2plModel');
+		$this->P2plModel->addLaporan();
 	}
+
 	public function editLaporan(){
 		$data['bulan']=$this->input->post('bulan');
 		$data['tahun']=$this->input->post('tahun');
 		$data['puskesmas']=$this->input->post('puskesmas');
+		$this->P2plModel->cekLaporanKosong();
+
 		$data['kategori']= $this->P2plModel->getFilterKategori();
 		$data['laporan']= $this->P2plModel->getFilterLaporan();
 		$this->load->view('header');
@@ -74,6 +79,72 @@ class LaporanP2PL extends CI_Controller {
 		$this->P2plModel->editLap();
 		redirect('LaporanP2pl','refresh');
 	}
+
+	 public function editFieldLaporan()
+    {
+
+    $sess_array = array(
+					'bulan'=>$this->input->post('bulan'),
+					'tahun'=>$this->input->post('tahun')
+					);
+	$this->session->set_userdata('editFormat', $sess_array);
+
+$this->P2plModel->cekLaporanKosong();
+
+	    // $bulan = $this->session->userdata('editFormat')['bulan'];
+     //    $tahun = $this->session->userdata('editFormat')['tahun'];
+     //    $this->db->select('*');
+     //    $this->db->from('detaillaporan');
+     //    $this->db->join('laporan', 'laporan.kodeLaporan = detaillaporan.idLaporan');
+     //    $this->db->where('idLaporan', '(select kodeLaporan from laporan where bulan = "'. $bulan.'" and tahun = '.$tahun.')',false);
+     //    $query= $this->db->get();
+     //      if($query->num_rows()>0){
+     //            foreach ($query->result() as $key) {
+     //                $field = $key->idLaporan;
+     //              }
+           
+     //            $sess_array = array('idLaporan'=>$field,'bulan'=>$this->input->post('bulan'),
+					// 'tahun'=>$this->input->post('tahun'));
+     //            $this->session->set_userdata('editFormat', $sess_array);  
+           
+     //    }else{
+     //    $object = array('jenisLaporan'=>"P2pl", 'bulan'=>$bulan, 'tahun'=>$tahun);
+     //    $this->db->insert('laporan', $object);
+
+ 
+     //   $kode =  $this->db->query('SELECT  kodeLaporan FROM laporan where bulan= "'. $bulan .'" and tahun='. $tahun);
+     //    foreach ($kode->result() as $key) {
+     //       $kodeLaporan= $key->kodeLaporan;
+     //     }
+
+     //    $query2= $this->db->query("SELECT * from formatfield join formatkategori on formatkategori.idKategori = formatfield.idKategori where formatkategori.jenisLaporan = 'P2pl'");
+     //      foreach ($query2->result() as $key ) {
+     //       $object =  array('idLaporan' => $kodeLaporan, 'namaField'=> $key->namaField, 'namaKategori'=> $key->namaKategori );
+     //        $this->db->insert('detaillaporan', $object);
+     //     }
+     //    }	
+   $this->load->view('header');
+       $this->load->view('editP2plGrid');
+  }
+    public function updateP2pl(){
+
+        $id = $this->input->post('idDetailLaporan'); 
+        $idfield = $this->input->post('idField');
+        $this->P2plModel->update($id,$idfield);
+    }
+    public function deleteP2pl(){
+
+        $id = $this->input->post('idDetailLaporan'); 
+        $idfield = $this->input->post('idField');
+        $this->P2plModel->delete($id,$idfield);
+    }
+
+    public function getGridP2pl()
+    {
+        $result = $this->P2plModel->getGridLaporan(); 
+        header("Content-Type: application/json");
+        echo json_encode($result);
+    }
 
 	
 }

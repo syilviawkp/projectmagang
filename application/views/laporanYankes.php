@@ -15,8 +15,8 @@
      
 
             <div class="form-panel">
-              <h4 class="mb"><i class="fa fa-angle-right"></i> Laporan Yakes</h4>
-             <?php echo form_open('LaporanYakes/filter'); ?>
+              <h4 class="mb"><i class="fa fa-angle-right"></i> Laporan Yankes</h4>
+             <?php echo form_open('LaporanYankes/filter'); ?>
                 <div class="form-group">
                   <label class="col-sm-2 col-sm-2 control-label">Bulan</label>
                   <div class="col-sm-10">
@@ -33,7 +33,7 @@
 
                   <?php }}?>
                   
-                 
+        
                 </select>
                   </div>
                 </div>
@@ -55,9 +55,9 @@
                 </div>
                 <div class="form-group">
                 <div class="col-sm-12" align="right">
-               <button type="submit" id="btn-filter" class="btn btn-success" ><span class="glyphicon glyphicon-filter"></span> Filter</button>
+               <button type="submit" id="btn-filter" class="btn btn-success" ><span class="glyphicon glyphicon-filter"></span>  Filter</button>
                 <?php echo form_close();?>  <a href="" data-toggle="modal" data-target="#myModal">
-                <button id="btn-edit" class="btn btn-primary" ><span class="glyphicon glyphicon-pencil"></span> Edit Laporan</button></a>
+                <button id="btn-edit" class="btn btn-primary" ><span class="glyphicon glyphicon-pencil"></span>  Edit Laporan</button></a>
                            <br><br>
                   </div>
                 </div>
@@ -67,15 +67,15 @@
                 <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
             <tr>
-              <th colspan="6" ><center>Absen Laporan Yakes Bulan <?php echo $bulan." "; echo $tahun?> </center> </th>
+              <th colspan="8" ><center>Absen Laporan Yankes Bulan <?php echo $bulan." "; echo $tahun?> </center> </th>
             </tr>
                 <tr>
                     <th></th>
-                    <th>Batu</th>
-                    <th>Beji</th>
-                    <th>Bumiaji</th>
-                    <th>Junrejo</th>
-                    <th>Sisir</th>
+                   <?php foreach ($puskesmas as $key) {?>
+                   <th><?php echo $key->namaPuskes?></th>
+                   <?php } ?>
+                    <th>SDH MSK</th>
+                    <th>SUSULAN</th>
                 </tr>
             </thead>
             <tbody>
@@ -87,39 +87,18 @@
                 if($key->namaKategori==$data->namaKategori){?>
               <tr>
                 <td><?php echo $data->namaField?></td>
-                <?php if($data->Batu == "SUDAH") {?>
 
-                <td><input type="checkbox" name="feeling" value="good" checked="" disabled readonly=""></td>
+                <?php foreach ($puskesmas as $row) { 
+                     $puskes = $row->namaPuskes;
+                     if($data->$puskes =="SUDAH"){
+                  ?>
+                    <td><input type="checkbox" name="feeling" value="good" checked="" disabled readonly=""></td>
               <?php }else{?>
               <td style="background: yellow"></td>
-              <?php } ?>
+              <?php } } ?>
 
-              <?php if($data->Beji == "SUDAH") {?>
-                <td><input type="checkbox" name="feeling" value="good" checked="" disabled readonly=""></td>
-              <?php }else{?>
-              <td style="background: yellow"></td>
-              <?php } ?>
-
-              <?php if($data->Bumiaji == "SUDAH") {?>
-                <td><input type="checkbox" name="feeling" value="good" checked="" disabled  readonly=""></td>
-              <?php }else{?>
-              <td style="background: yellow"></td>
-              <?php } ?>
-
-              <?php if($data->Junrejo == "SUDAH") {?>
-                <td><input type="checkbox" name="feeling" value="good" checked="" disabled readonly=""></td>
-              <?php }else{?>
-              <td style="background: yellow"></td>
-              <?php } ?>
-
-              <?php if($data->Sisir == "SUDAH") {?>
-                <td><input type="checkbox" name="feeling" value="good" checked="" disabled readonly=""></td>
-              <?php }else{?>
-              <td style="background: yellow"></td>
-              <?php } ?>
-              
-
-
+              <td><?php echo $data->terima;?></td>
+              <td><?php echo $data->susulan;?></td>
               </tr>
               <?php }}} ?>
 
@@ -155,12 +134,12 @@
                 <div class="modal-header">
                     <h4 class="modal-title">Edit Absen Laporan</h4>
                 </div>
-     <?php echo form_open('LaporanYakes/editLaporan'); ?>
+     <?php echo form_open('LaporanYankes/editLaporan'); ?>
     <div class="modal-body">
         <div class="form-group">
                     <label for="">Bulan</label>
                    
-                  <select class="form-control" name="bulan" id="bulan">
+                  <select class="form-control" name="bulan" id="bulan2">
                   <option value="" >--Pilih Bulan--</option>
                   <?php 
                   $daftarBulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
@@ -176,7 +155,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Tahun</label>
-                     <select class="form-control" name="tahun" id="tahun">
+                     <select class="form-control" name="tahun" id="tahun2">
                   <option value="">--Pilih Tahun--</option>
                   <?php for($i=2015 ; $i<=2023;$i++){
                     if($i==$tahun){?>
@@ -192,11 +171,11 @@
                 <div class="form-group">
                     <label for="">Puskesmas</label>
                     <select class="form-control" name="puskesmas" id="puskesmas">
-                  <option value="Batu" >Batu</option>
-                  <option value="Beji" >Beji</option>
-                  <option value="Bumiaji" >Bumiaji</option>
-                  <option value="Junrejo" >Junrejo</option>
-                  <option value="Sisir" >Sisir</option>
+                <?php foreach ($puskesaktif as $key) {?>
+                <option value="<?php echo $key->namaPuskes
+                ?>"><?php echo $key->namaPuskes
+                ?></option><?php  }?>
+                  
                   </select>
                    
                 </div>
@@ -279,6 +258,7 @@
       console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
     }
   </script>
+  
 </body>
 
 </html>
