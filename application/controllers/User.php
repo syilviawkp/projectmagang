@@ -18,6 +18,7 @@ class User extends CI_Controller {
 		$this->load->view('indexUser');
 	}
 
+
 	public function laporanKesgaBatuUser()
 	
 	{

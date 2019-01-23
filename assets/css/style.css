@@ -1949,8 +1949,8 @@ ul li {
 
 /*LOGIN CONFIGURATION PAGE*/
 .form-login {
-    max-width: 530px;
-    min-height: 400px;
+    max-width: 430px;
+    min-height: 300px;
     margin: 100px auto 0;
     background: #fff;
     border-radius: 5px;
