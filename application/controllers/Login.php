@@ -68,6 +68,7 @@ public function dashboard()
 			}
 		}
 	}
+}
 	public function cekDb($password)
 	{
 		$this->load->helper('url','form');
