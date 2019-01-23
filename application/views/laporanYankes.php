@@ -15,8 +15,8 @@
      
 
             <div class="form-panel">
-              <h4 class="mb"><i class="fa fa-angle-right"></i> Laporan Yakes</h4>
-             <?php echo form_open('LaporanYakes/filter'); ?>
+              <h4 class="mb"><i class="fa fa-angle-right"></i> Laporan Yankes</h4>
+             <?php echo form_open('LaporanYankes/filter'); ?>
                 <div class="form-group">
                   <label class="col-sm-2 col-sm-2 control-label">Bulan</label>
                   <div class="col-sm-10">
@@ -67,7 +67,7 @@
                 <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
             <tr>
-              <th colspan="6" ><center>Absen Laporan Yakes Bulan <?php echo $bulan." "; echo $tahun?> </center> </th>
+              <th colspan="6" ><center>Absen Laporan Yankes Bulan <?php echo $bulan." "; echo $tahun?> </center> </th>
             </tr>
                 <tr>
                     <th></th>
@@ -155,7 +155,7 @@
                 <div class="modal-header">
                     <h4 class="modal-title">Edit Absen Laporan</h4>
                 </div>
-     <?php echo form_open('LaporanYakes/editLaporan'); ?>
+     <?php echo form_open('LaporanYankes/editLaporan'); ?>
     <div class="modal-body">
         <div class="form-group">
                     <label for="">Bulan</label>
