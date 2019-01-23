@@ -56,7 +56,7 @@ public function dashboard()
 			$data['password']=$session_data['password'];
 			$data['level']=$session_data['level'];
 			if($data['level']=='user'){
-				redirect('indexUser','refresh');
+				redirect('User','refresh');
 			}else{
 				redirect('login/dashboard','refresh');
 			}
