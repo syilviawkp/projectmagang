@@ -11,6 +11,12 @@ class Login extends CI_Controller {
 		$this->load->model('PuskesmasModel');
 	}
 
+public function dashboard()
+	{
+		$this->load->view('header');
+		// $this->load->view('headeruser');
+		$this->load->view('index');
+	}
 	/**
 	 * Index Page for this controller.
 	 *
@@ -52,7 +58,7 @@ class Login extends CI_Controller {
 			if($data['level']=='user'){
 				redirect('indexUser','refresh');
 			}else{
-				redirect('login/data','refresh');
+				redirect('login/dashboard','refresh');
 			}
 		}
 	}

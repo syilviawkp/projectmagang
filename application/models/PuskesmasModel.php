@@ -26,15 +26,28 @@ class PuskesmasModel extends CI_Model {
 
 
     public function delete($idPuskesmas){
-        $this->db->where('idPuskesmas', $idPuskesmas);
-        $this->db->delete('puskesmas');
+       // $this->db->where('idPuskesmas', $idPuskesmas);
+        //$this->db->delete('puskesmas');
+        $today = date('Y-m-01');
+      
+    $object = array(
+       
+        'status'=> "NONAKTIF",
+        'tgl_nonaktif' =>$today
+     ); 
+    $this->db->where('idPuskesmas', $idPuskesmas);
+    $this->db->update('puskesmas',$object); 
     }
 
-    public function insertPuskesmas(){ 
+    public function insertPuskesmas(){
+    $name =  $this->input->post('namaPuskes');
+        $today = date('Y-m-01');
+      
     $object = array(
         'namaPuskes'=>$this->input->post('namaPuskes'),
         'alamatPuskes'=>$this->input->post('alamatPuskes'),
-        'status'=>$this->input->post('status')
+        'status'=>$this->input->post('status'),
+        'tgl_aktif' =>$today
      ); 
         $this->db->insert('puskesmas',$object); 
          $this->db->query("ALTER TABLE detailLaporan ADD COLUMN $name varchar(100)");

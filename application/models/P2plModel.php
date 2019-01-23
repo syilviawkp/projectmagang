@@ -26,8 +26,7 @@ class P2plModel extends CI_Model {
         $this->db->from('detaillaporan');
         $this->db->join('laporan', 'laporan.kodeLaporan = detaillaporan.idLaporan');
 
-        $this->db->where('laporan.jenisLaporan', "P2PL");
-        $this->db->where('detaillaporan.idLaporan', '(SELECT kodeLaporan from laporan ORDER by kodeLaporan DESC LIMIT 1)',false);
+        $this->db->where('detaillaporan.idLaporan', '(SELECT kodeLaporan from laporan WHERE jenisLaporan = "P2PL" ORDER by kodeLaporan DESC LIMIT 1)',false);
          $query = $this->db->get();
             return $query->result();
     }
@@ -55,7 +54,7 @@ class P2plModel extends CI_Model {
         $this->db->select('*');
         $this->db->from('detaillaporan');
         $this->db->join('laporan', 'laporan.kodeLaporan = detaillaporan.idLaporan');
-        $this->db->where('idLaporan', '(select kodeLaporan from laporan where bulan = "'. $bulan.'" and tahun = '.$tahun.')',false);
+        $this->db->where('idLaporan', '(select kodeLaporan from laporan where bulan = "'. $bulan.'" and tahun = '.$tahun.' and jenisLaporan="P2PL")',false);
         $query= $this->db->get();
           if($query->num_rows()>0){
             foreach ($query->result() as $key) {
@@ -139,8 +138,9 @@ public function getFilterKategori(){
         }
     }
     public function getListPuskesmas(){
-    $query2 = $this->db->query("SELECT * from laporan ORDER by kodeLaporan DESC LIMIT 1
-");
+    $query2 = $this->db->query("SELECT * from laporan WHERE jenisLaporan ='P2PL' ORDER by kodeLaporan  DESC LIMIT 1
+"); $bulan = "Januari";
+   $tahun = "2019";
        foreach ($query2->result() as $key) {
         $bulan = $key->bulan;
         $tahun = $key->tahun;

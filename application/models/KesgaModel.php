@@ -26,8 +26,8 @@ class KesgaModel extends CI_Model {
         $this->db->from('detaillaporan');
         $this->db->join('laporan', 'laporan.kodeLaporan = detaillaporan.idLaporan');
 
-        $this->db->where('laporan.jenisLaporan', "KESGA");
-        $this->db->where('detaillaporan.idLaporan', '(SELECT kodeLaporan from laporan ORDER by kodeLaporan DESC LIMIT 1)',false);
+  
+        $this->db->where('detaillaporan.idLaporan', '(SELECT kodeLaporan from laporan WHERE jenisLaporan = "KESGA" ORDER by kodeLaporan DESC LIMIT 1)',false);
          $query = $this->db->get();
             return $query->result();
     }
@@ -55,16 +55,18 @@ class KesgaModel extends CI_Model {
         $this->db->select('*');
         $this->db->from('detaillaporan');
         $this->db->join('laporan', 'laporan.kodeLaporan = detaillaporan.idLaporan');
-        $this->db->where('idLaporan', '(select kodeLaporan from laporan where bulan = "'. $bulan.'" and tahun = '.$tahun.')',false);
+        $this->db->where('idLaporan', '(select kodeLaporan from laporan where bulan = "'. $bulan.'" and tahun = '.$tahun.' and jenisLaporan="KESGA")',false);
         $query= $this->db->get();
           if($query->num_rows()>0){
             foreach ($query->result() as $key) {
              $field = $key->idLaporan;
            }
+         }
+        //$field = $this->input->post('idLaporan');
        $data = array('idLaporan' => $field, 'namaField'=> $this->input->post('namaField'),'namaKategori' => $this->input->post('namaKategori') );
         $this->db->insert('detaillaporan', $data);
 
-        }
+        
         $this->db->where('namaKategori', $this->input->post('namaKategori'));
         $this->db->where('jenisLaporan', "KESGA");
         $kategori = $this->db->get('formatkategori');
@@ -138,12 +140,14 @@ public function getFilterKategori(){
         }
     }
     public function getListPuskesmas(){
-    $query2 = $this->db->query("SELECT * from laporan ORDER by kodeLaporan DESC LIMIT 1
-");
+    $query2 = $this->db->query("SELECT * from laporan WHERE jenisLaporan ='KESGA' ORDER by kodeLaporan  DESC LIMIT 1
+"); $bulan = "Januari";
+   $tahun = "2019";
        foreach ($query2->result() as $key) {
         $bulan = $key->bulan;
         $tahun = $key->tahun;
       }
+ 
 
       if($bulan=="Januari"){
         $bln= "01";

@@ -47,7 +47,7 @@
                     <td><?php echo $data->namaPuskes ?></td>
                     <td><?php echo $data->alamatPuskes ?></td>
                     <td><?php echo $data->status ?></td>
-
+                <?php if ($data->status == 'AKTIF'){?>
                      <td>
                       <a href="javascript:void(0);" onclick="showmodal('<?php echo $data->idPuskesmas?>','<?php echo $data->namaPuskes?>','<?php echo $data->alamatPuskes ?>','<?php echo $data->status ?>')" data-toggle="modal" data-target="#myModalEdit">
                          <button class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></button>
@@ -58,6 +58,17 @@
                       <a href="<?php echo site_url()?>/Puskesmas/Delete/<?php echo $data->idPuskesmas ?>"
                       <button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
                       </a>
+                      <?php }else{?>
+                      <td>
+                    
+                         <button class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span></button>
+                    </td>
+
+                      <td>
+                    
+                      <button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+                      </td>
+                      <?php }?>
            
                   
               </tr>
