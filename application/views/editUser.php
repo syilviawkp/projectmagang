@@ -1,4 +1,4 @@
-<?php $this->load->view('header');?>
+<?php $this->load->view('headeruser');?>
     <!--sidebar end-->
     <!-- **********************************************************************************************************************************************************
         MAIN CONTENT
@@ -11,8 +11,6 @@
           <div class="row mt">
           <div class="col-lg-12">
             <div class="form-panel">
-              <h4 class="mb"><i class="fa fa-angle-right"></i> User</h4>
-          
                 <div class="form-group">
                 <div class="col-sm-12" align="right">
               
@@ -26,35 +24,35 @@
                <div class="row">
                     <!-- column -->
                     <div class="col-lg-12">
-            
-          
-           <center><h1>Edit Profil</h1> </center> 
+                                <center><h2>Edit Profil</h2> </center> 
+
+                                <?php echo validation_errors(); ?>
 
                                 <?php echo form_open_multipart('login/updateprofil/'.$this->uri->segment(3)); ?>
                                 <div class="form-group">
                                     <label class="control-label col-sm-5" for="username">Username : </label>
-                                    <div class="col-sm-10">
+                                    <div class="col-sm-12">
                                         <input type="text" name="username" class="form-control" id="username" value="<?php echo $user[0]->username ?>" placeholder="Username"><br>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="control-label col-sm-5" for="password">Password : </label>
-                                    <div class="col-sm-10">
+                                    <div class="col-sm-12">
                                         <input type="text" name="password" class="form-control" id="password" value="<?php echo $user[0]->password ?>" placeholder="Password"><br>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="control-label col-sm-5" for="nama">Nama Lengkap : </label>
-                                    <div class="col-sm-10">
+                                    <div class="col-sm-12">
                                         <input type="text" name="nama" class="form-control" id="nama" value="<?php echo $user[0]->nama ?>" placeholder="Nama Lengkap"><br>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="control-label col-sm-5" for="noHp">No HP : </label>
-                                    <div class="col-sm-10">
+                                    <div class="col-sm-12">
                                         <input type="text" name="noHp" class="form-control" id="noHp" value="<?php echo $user[0]->noHp ?>" placeholder="No HP"><br>
                                     </div>
                                 </div>

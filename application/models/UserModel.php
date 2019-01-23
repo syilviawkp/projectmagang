@@ -77,6 +77,19 @@ class UserModel extends CI_Model {
         $this->db->update('user', $data);
     }
 
+    public function EditById(){
+        $data = array(
+            'username' => $this->input->post('username'),
+            'password' =>$this->input->post('password'),
+            'nama' =>$this->input->post('nama'),
+            'noHp' =>$this->input->post('noHp')
+        );
+
+        $a=$this->session->userdata('logged_in');
+        $this->db->where('idUser', $a['idUser']);
+        $this->db->update('user', $data);
+    }
+
     public function delete($idUser){
         $this->db->where('idUser', $idUser);
         $this->db->delete('user');
@@ -86,7 +99,7 @@ class UserModel extends CI_Model {
         $a=$this->session->userdata('logged_in');
         $this->db->select('*');
         $this->db->from('user');
-        $this->db->where('id', $a['id']);
+        $this->db->where('idUser', $a['idUser']);
         $query=$this->db->get();
         return $query->result();
     }

@@ -183,7 +183,7 @@ public function dashboard()
 				$this->load->view('edituser', $data);
 
 			}else{
-				$this->UserModel->UpdateById();
+				$this->UserModel->EditById();
 				echo '<script>alert("Sukses mengedit")</script>';
 				redirect('User', 'refresh');}
 				
