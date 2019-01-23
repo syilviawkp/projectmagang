@@ -63,7 +63,7 @@ public function dashboard()
 			}
 		}
 	}
-}
+
 	public function cekDb($password)
 	{
 		$this->load->helper('url','form');
@@ -88,9 +88,7 @@ public function dashboard()
 				$this->session->set_userdata('logged_in',$sess_array);
 			}
 			return true;
-		}
-
-		else
+		}else
 		{
 			$this->form_validation->set_message('cekDb',"Login Gagal Username dan Password tidak valid");
 			return false;
