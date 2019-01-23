@@ -67,7 +67,9 @@
                 <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
             <tr>
+
               <th colspan="8" ><center>Absen Laporan Yankes Bulan <?php echo $bulan." "; echo $tahun?> </center> </th>
+
             </tr>
                 <tr>
                     <th></th>
