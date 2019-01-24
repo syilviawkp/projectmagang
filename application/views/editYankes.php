@@ -11,7 +11,7 @@
           <div class="row mt">
        
             <div class="form-panel">
-              <h4 class="mb"><i class="fa fa-angle-right"></i> Laporan YANKES</h4>
+              <h4 class="mb"><i class="fa fa-angle-right"></i> Laporan PSDK</h4>
              
                 <div class="form-group">
                   <label class="col-sm-2 col-sm-2 control-label">Bulan</label>
@@ -62,13 +62,13 @@
                 <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
             <tr>
-              <th colspan="4" ><center>Absen Laporan YANKES Bulan <?php echo "$bulan "; echo $tahun?> </center> </th>
+              <th colspan="4" ><center>Absen Laporan PSDK Bulan <?php echo "$bulan "; echo $tahun?> </center> </th>
 
             </tr>
                 <tr>
                     <th></th>
                     <th><?php echo $puskesmas?></th>
-                    <th>SDH MSK</th>
+                    <th>TEPAT WAKTU</th>
                     <th>SUSULAN</th>
                    
                 </tr>

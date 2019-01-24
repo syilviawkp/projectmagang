@@ -15,7 +15,7 @@
      
 
             <div class="form-panel">
-              <h4 class="mb"><i class="fa fa-angle-right"></i> Laporan Yankes</h4>
+              <h4 class="mb"><i class="fa fa-angle-right"></i> Laporan PSDK</h4>
              <?php echo form_open('LaporanYankes/filter'); ?>
                 <div class="form-group">
                   <label class="col-sm-2 col-sm-2 control-label">Bulan</label>
@@ -68,7 +68,7 @@
             <thead>
             <tr>
 
-              <th colspan="8" ><center>Absen Laporan Yankes Bulan <?php echo $bulan." "; echo $tahun?> </center> </th>
+              <th colspan="8" ><center>Absen Laporan PSDK Bulan <?php echo $bulan." "; echo $tahun?> </center> </th>
 
             </tr>
                 <tr>
@@ -76,7 +76,7 @@
                    <?php foreach ($puskesmas as $key) {?>
                    <th><?php echo $key->namaPuskes?></th>
                    <?php } ?>
-                    <th>SDH MSK</th>
+                    <th>TEPAT WAKTU</th>
                     <th>SUSULAN</th>
                 </tr>
             </thead>

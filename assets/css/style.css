@@ -96,8 +96,8 @@ a, a:hover, a:focus {
 /*Theme Buttons*/
 
 .btn-theme {
-  color: #fff;
-  background-color: #4ECDC4;
+  color: #4ecdc4;
+  background-color: #000;
   border-color: #48bcb4;
 }
 .btn-theme:hover,
@@ -1949,10 +1949,10 @@ ul li {
 
 /*LOGIN CONFIGURATION PAGE*/
 .form-login {
-    max-width: 530px;
-    min-height: 400px;
+    max-width: 430px;
+    min-height: 300px;
     margin: 100px auto 0;
-    background: #fff;
+    background: #4ecdc4;
     border-radius: 5px;
     -webkit-border-radius: 5px;
 }
@@ -1961,7 +1961,7 @@ ul li {
 	margin: 0;
 	padding: 25px 20px;
 	text-align: center;
-	background: #4ecdc4;
+	background: #000;
 	border-radius: 5px 5px 0 0;
 	-webkit-border-radius: 5px 5px 0 0;
 	color: #fff;

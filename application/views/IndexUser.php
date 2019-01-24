@@ -60,7 +60,7 @@
     </a>
   </div>
 
-  <center><h1> Selamat Datang</h1></center>
+  <center><h1> Selamat Datang Puskesmas <?php echo $this->session->userdata('logged_in')['namaPuskes'];?></h1></center>
     <!--footer end-->
   </div></div></section></div></section>
   <!-- js placed at the end of the document so the pages load faster -->

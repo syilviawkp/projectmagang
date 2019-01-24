@@ -7,11 +7,11 @@
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>WEB LAPORAN PUSKESMAS</title>
+  <title>SILAPUS</title>
 
   <!-- Favicons -->
-  <link href="<?php echo base_url()?>/assets/img/logopemkot.png" rel="icon">
-  <link href="<?php echo base_url()?>/assets/img/logopemkot.png" rel="apple-touch-icon">
+  <link href="<?php echo base_url()?>/assets/img/logosilapus.png" rel="icon">
+  <link href="<?php echo base_url()?>/assets/img/logosilapus.png" rel="apple-touch-icon">
 
   <!-- Bootstrap core CSS -->
   <link href="<?php echo base_url()?>/assets/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -44,7 +44,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Min/Max Navigation"></div>
       </div>
       <!--logo start-->
-      <a href=<?php echo site_url('Welcome/');?> class="logo"><b>PEMKOT<span>BATU</span></b></a>
+      <a href=<?php echo site_url('Welcome/');?> class="logo"><b>DINAS KESEHATAN<span> BATU</span></b></a>
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
@@ -233,7 +233,7 @@
       </div>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" href=<?php echo site_url('login/logout');?>>Logout<span class="glyphicon glyphicon-off"></span></a></li>
+          <li><a class="logout" href=<?php echo site_url('login/logout');?>>Logout  <span class="glyphicon glyphicon-off"></span></a></li>
         </ul>
       </div>
     </header>
@@ -246,47 +246,51 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="<?php echo base_url()?>/assets/img/logopemkot.png" class="img-circle" width="80"></a></p>
-          <h5 class="centered">DINAS KESEHATAN</h5>
+          <p class="centered"><img src="<?php echo base_url()?>/assets/img/logosilapus.png" class="img-rectangle" width="100"></a></p>
+           <p class="centered"><img src="<?php echo base_url()?>/assets/img/tulisansilapus.png" class="img-rectangle" width="90"></a></p>
+ <!-- 
+          <h5 class="centered">Sistem Laporan Puskesmas</h5> -->
           <li class="mt">
-            <a href=<?php echo site_url('Welcome/');?>>
-              <i class="fa fa-dashboard"></i>
+
+            <a class="active" href=<?php echo site_url('Welcome/');?>>
+              <i class="fa fa-home"></i>
+
               <span>Beranda</span>
               </a>
           </li>
           <li class="sub-menu">
             <a href="javascript:;">
-              <i class="fa fa-desktop"></i>
+              <i class="fa fa-list-ol"></i>
               <span>Absen Laporan</span>
               </a>
             <ul class="sub">
-              <li><a href="<?php echo site_url()?>/LaporanYankes">Laporan Yankes</a></li>
-              <li><a href="<?php echo site_url()?>/LaporanP2pl">Laporan P2PL</a></li>
-              <li><a href="<?php echo site_url()?>/LaporanKesga">Laporan Kesga</a></li>
+              <li><a href="<?php echo site_url()?>/LaporanYankes"><i class="fa fa-check-square-o"></i>Laporan PSDK</a></li>
+              <li><a href="<?php echo site_url()?>/LaporanP2pl"><i class="fa fa-check-square-o"></i>Laporan P2P</a></li>
+              <li><a href="<?php echo site_url()?>/LaporanKesga"><i class="fa fa-check-square-o"></i>Laporan Kesmas</a></li>
               
             </ul>
           </li>
          <li class="sub-menu">
             <a href="javascript:;">
-              <i class="fa fa-cogs"></i>
-              <span>Kelola Laporan</span>
+              <i class="fa fa-edit"></i>
+              <span>Kelola Format Laporan</span>
               </a>
             <ul class="sub">
-              <li><a href="" data-toggle="modal" data-target="#modalYankes">Tambah Laporan Yankes</a></li>
-              <li><a href="" data-toggle="modal" data-target="#modalP2pl">Tambah Laporan P2PL</a></li>
-              <li><a href="" data-toggle="modal" data-target="#modalKesga">Tambah Laporan Kesga</a></li>
+              <li><a href="" data-toggle="modal" data-target="#modalYankes"><i class="fa fa-pencil"></i>Kelola Laporan PSDK</a></li>
+              <li><a href="" data-toggle="modal" data-target="#modalP2pl"><i class="fa fa-pencil"></i>Kelola Laporan P2P</a></li>
+              <li><a href="" data-toggle="modal" data-target="#modalKesga"><i class="fa fa-pencil"></i>Kelola Laporan Kesmas</a></li>
             </ul>
           </li>
           <li class="sub-menu">
             <a href="javascript:;">
-              <i class="fa fa-book"></i>
+              <i class="fa fa-print"></i>
               <span>Cetak</span>
               </a>
             <ul class="sub">
-              <li><a href="" data-toggle="modal" data-target="#modalcetakyankes">Cetak Laporan Yankes</a></li>
-              <li><a href="" data-toggle="modal" data-target="#modalcetakp2pl">Cetak Laporan P2PL</a></li>
-              <li><a href="" data-toggle="modal" data-target="#modalcetakKesga">Cetak Laporan Kesga</a></li>
-              <li><a href="#">Cetak Semua</a></li>
+              <li><a href="" data-toggle="modal" data-target="#modalcetakyankes"><i class="fa fa-file-text-o"></i> Cetak Laporan PSDK</a></li>
+              <li><a href="" data-toggle="modal" data-target="#modalcetakp2pl"><i class="fa fa-file-text-o"></i>Cetak Laporan P2P</a></li>
+              <li><a href="" data-toggle="modal" data-target="#modalcetakKesga"><i class="fa fa-file-text-o"></i>Cetak Laporan Kesmas</a></li>
+              <li><a href="" data-toggle="modal" data-target="#modalcetaksemua"><i class="fa fa-clone"></i>Cetak Semua</a></li>
             </ul>
           </li>
         <!--   <li class="sub-menu">
@@ -302,13 +306,13 @@
 
           <li class="sub-menu">
             <a href="javascript:;">
-              <i class="fa fa-tasks"></i>
+              <i class="fa fa-cogs"></i>
               <span>Pengaturan</span>
               </a>
             <ul class="sub">
               
-              <li><a href="<?php echo site_url()?>/Login/data">Kelola User</a></li>
-              <li><a href="<?php echo site_url()?>/Puskesmas">Kelola Puskesmas</a></li>
+              <li><a href="<?php echo site_url()?>/Login/data"><i class="fa fa-address-card"></i>Kelola User</a></li>
+              <li><a href="<?php echo site_url()?>/Puskesmas"><i class="fa fa-medkit"></i>Kelola Puskesmas</a></li>
                 
             </ul>
           </li>
@@ -360,6 +364,9 @@
         </div>
         </div>
 
+        <!-- ============================EDIT FORMAT LAPORAN P2PL====================================== -->
+
+
 
 <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="modalP2pl" class="modal fade-in">
         <div class="modal-dialog">
@@ -399,6 +406,9 @@
         </div>
         </div>
         </div>
+ <!-- ============================EDIT FORMAT LAPORAN YANKES====================================== -->
+
+
  <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="modalYankes" class="modal fade-in">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -443,7 +453,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Cetak Laporan Kesga</h4>
+                    <h4 class="modal-title">Cetak Laporan Kesmas</h4>
                 </div>
      <?php echo form_open('cetaklaporan/editFieldCetakKesga'); ?>
     <div class="modal-body">
@@ -485,7 +495,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Cetak Laporan P2PL</h4>
+                    <h4 class="modal-title">Cetak Laporan P2P</h4>
                 </div>
      <?php echo form_open('cetaklaporan/editFieldCetakp2pl'); ?>
     <div class="modal-body">
@@ -527,7 +537,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Cetak Laporan P2PL</h4>
+                    <h4 class="modal-title">Cetak Laporan PSDK</h4>
                 </div>
      <?php echo form_open('cetaklaporan/editFieldCetakyankes'); ?>
   <div class="modal-body">
@@ -552,6 +562,47 @@
                     ?>
             <option value="<?php echo $i?>" ><?php echo $i?></option>
                   <?php } ?>
+                
+                </select>
+                
+                </div>
+                <center><button type="submit" class="btn btn-primary">Preview Cetak</button></center>
+                <?php echo form_close();?>
+        </div>
+        </div>
+        </div>
+        </div>
+
+         <!-- ============================MODAL CETAK Semua======================================== -->
+
+        <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="modalcetaksemua" class="modal fade-in">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Cetak Laporan Semua Kategori</h4>
+                </div>
+     <?php echo form_open('cetaklaporan/editFieldCetakSemua'); ?>
+    <div class="modal-body">
+        <div class="form-group">
+                    <label for="">Bulan</label>
+                   
+                   <select class="form-control" name="bulan" id="bulan">
+                  <option value="" >--Pilih Bulan--</option>
+                  <?php 
+                  $daftarBulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
+                  foreach ($daftarBulan as $key) {?>
+                     <option value="<?php echo $key?>" ><?php echo $key?></option>
+
+                  <?php }?>
+                  </select>
+                </div>
+                <div class="form-group">
+                    <label for="">Tahun</label>
+                     <select class="form-control" name="tahun" id="tahun">
+                  <option value="">--Pilih Tahun--</option>
+                  <?php for($i=2015 ; $i<=2023;$i++){?>
+            <option value="<?php echo $i?>" ><?php echo $i?></option>
+                  <?php   }?>
                 
                 </select>
                 

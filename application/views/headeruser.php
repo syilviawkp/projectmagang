@@ -7,11 +7,11 @@
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>WEB LAPORAN PUSKESMAS</title>
+  <title>SILAPUS</title>
 
   <!-- Favicons -->
-  <link href="<?php echo base_url()?>/assets/img/logopemkot.png" rel="icon">
-  <link href="<?php echo base_url()?>/assets/img/logopemkot.png" rel="apple-touch-icon">
+  <link href="<?php echo base_url()?>/assets/img/logosilapus.png" rel="icon">
+  <link href="<?php echo base_url()?>/assets/img/logosilapus.png" rel="apple-touch-icon">
 
   <!-- Bootstrap core CSS -->
   <link href="<?php echo base_url()?>/assets/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -44,7 +44,9 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Min/Max Navigation"></div>
       </div>
       <!--logo start-->
-      <a href=<?php echo site_url('Welcome/');?> class="logo"><b>PEMKOT<span>BATU</span></b></a>
+
+      <a href=<?php echo site_url('User/');?> class="logo"><b>DINAS KESEHATAN<span> BATU</span></b></a>
+
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
@@ -184,7 +186,7 @@
           </li> -->
           <!-- inbox dropdown end -->
           <!-- notification dropdown start-->
-          <li id="header_notification_bar" class="dropdown">
+         <!--  <li id="header_notification_bar" class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
               <i class="fa fa-bell-o"></i>
               <span class="badge bg-warning">7</span>
@@ -226,14 +228,14 @@
                 <a href="index.html#">See all notifications</a>
               </li>
             </ul>
-          </li>
+          </li> -->
           <!-- notification dropdown end -->
         </ul>
         <!--  notification end -->
       </div>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" href=<?php echo site_url('login/logout');?>>Logout<span class="glyphicon glyphicon-off"></span></a></li>
+          <li><a class="logout" href=<?php echo site_url('login/logout');?>>Logout  <span class="glyphicon glyphicon-off"></span></a></li>
         </ul>
       </div>
     </header>
@@ -246,26 +248,29 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="<?php echo base_url()?>/assets/img/logopemkot.png" class="img-circle" width="80"></a></p>
-          <h5 class="centered">DINAS KESEHATAN</h5>
+          <p class="centered"><img src="<?php echo base_url()?>/assets/img/logosilapus.png" class="img-rectangle" width="100"></a></p>
+          <p class="centered"><img src="<?php echo base_url()?>/assets/img/tulisansilapus.png" class="img-rectangle" width="90"></a></p>
+          <!-- <h5 class="centered">DINAS KESEHATAN </h5>
+           <h5 class="centered">KOTA BATU</h5> -->
           <li class="mt">
             <a class="active" href=<?php echo site_url('User/');?>>
-              <i class="fa fa-dashboard"></i>
+              <i class="fa fa-home"></i>
               <span>Beranda</span>
               </a>
           </li>
           <li class="sub-menu">
             <a href="javascript:;">
-              <i class="fa fa-desktop"></i>
+              <i class="fa fa-list-ol"></i>
               <span>Absen Laporan</span>
               </a>
             <ul class="sub">
-              <li><a href="<?php echo site_url()?>/User/LaporanYankesBatuUser">Laporan Yankes</a></li>
-              <li><a href="<?php echo site_url()?>/User/LaporanP2plBatuUser">Laporan P2PL</a></li>
-              <li><a href="<?php echo site_url()?>/User/LaporanKesgaBatuUser">Laporan Kesga</a></li>
+              <li><a href="<?php echo site_url()?>/User/LaporanYankesUser"><i class="fa fa-check-square-o"></i>Laporan PSDK</a></li>
+              <li><a href="<?php echo site_url()?>/User/LaporanP2plUser"><i class="fa fa-check-square-o"></i>Laporan P2P</a></li>
+              <li><a href="<?php echo site_url()?>/User/LaporanKesgaUser"><i class="fa fa-check-square-o"></i>Laporan KESMAS</a></li>
               
             </ul>
           </li>
+
          <!-- <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-cogs"></i>
@@ -299,18 +304,20 @@
 
           <li class="sub-menu">
             <a href="javascript:;">
-              <i class="fa fa-tasks"></i>
-              <span>Pengaturan</span>
+              <i class="fa fa-cogs"></i>
+              <span>Pengaturan </span>
               </a>
             <ul class="sub">
               
-              <li><a href="<?php echo site_url()?>/login/editprofil">Edit Profil</a></li>
+              <li><a href="<?php echo site_url()?>/login/editprofil"><i class="fa fa-user"></i>Kelola Profil</a></li>
               
               <!-- <li><a href="javascript:void(0);" onclick="showmodal('<?php echo $key->idUser ?>','<?php echo $key->username ?>','<?php echo $key->password ?>','<?php echo $key->nama ?>','<?php echo $key->noHp ?>')" data-toggle="modal" data-target="#myModalEdit">Edit Profil</a></p> -->
 
                 
             </ul>
           </li>
+
+
          
         </ul>
         <!-- sidebar menu end-->

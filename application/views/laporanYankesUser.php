@@ -15,8 +15,8 @@
      
 
             <div class="form-panel">
-              <h4 class="mb"><i class="fa fa-angle-right"></i> Laporan KESMAS</h4>
-             <?php echo form_open('LaporanKesga/filter'); ?>
+              <h4 class="mb"><i class="fa fa-angle-right"></i> Laporan Yankes <?php echo  $this->session->userdata('logged_in')['namaPuskes'];?></h4>
+             <?php echo form_open('User/filterYankes'); ?>
                 <div class="form-group">
                   <label class="col-sm-2 col-sm-2 control-label">Bulan</label>
                   <div class="col-sm-10">
@@ -55,31 +55,27 @@
                 </div>
                 <div class="form-group">
                 <div class="col-sm-12" align="right">
-               <button type="submit" id="btn-filter" class="btn btn-success" ><span class="glyphicon glyphicon-filter"></span>  Filter</button>
-                <?php echo form_close();?>  <a href="" data-toggle="modal" data-target="#myModal">
-                <button id="btn-edit" class="btn btn-primary" ><span class="glyphicon glyphicon-pencil"></span>  Edit Laporan</button></a>
+               <button type="submit" id="btn-filter" class="btn btn-success" ><span class="glyphicon glyphicon-filter" ></span>  Filter</button>
+                <?php echo form_close();?>  <!-- <a href="" data-toggle="modal" data-target="#myModal">
+                <button id="btn-edit" class="btn btn-primary" ><span class="glyphicon glyphicon-pencil"></span>  Edit Laporan</button></a> -->
                            <br><br>
                   </div>
                 </div>
 
-              
- 
                 <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
             <tr>
-              <th colspan="8" ><center>Absen Laporan Kesmas Bulan <?php echo $bulan." "; echo $tahun?> </center> </th>
+              <th colspan="8" ><center>Absen Laporan YANKES Bulan <?php echo $bulan." "; echo $tahun?> </center> </th>
             </tr>
                 <tr>
                     <th></th>
-                   <?php foreach ($puskesmas as $key) {?>
-                   <th><?php echo $key->namaPuskes?></th>
-                   <?php } ?>
-                    <th>TEPAT WAKTU</th>
-                    <th>SUSULAN</th>
+                    <th><?php echo $this->session->userdata('logged_in')['namaPuskes'];?></th>
                 </tr>
             </thead>
             <tbody>
-            <?php foreach($kategori as $key){?>
+            <?php
+            $nama = $this->session->userdata('logged_in')['namaPuskes'];
+             foreach($kategori as $key){?>
               <tr>
                   <td colspan="6"><?php echo $key->namaKategori?></td>
               </tr>
@@ -88,17 +84,12 @@
               <tr>
                 <td><?php echo $data->namaField?></td>
 
-                <?php foreach ($puskesmas as $row) { 
-                     $puskes = $row->namaPuskes;
-                     if($data->$puskes =="SUDAH"){
-                  ?>
-                    <td><input type="checkbox" name="feeling" value="good" checked="" disabled readonly=""></td>
+              <?php if($data-> $nama== "SUDAH") {?>
+                <td><input type="checkbox" name="feeling" value="good" checked="" disabled readonly=""></td>
               <?php }else{?>
               <td style="background: yellow"></td>
-              <?php } } ?>
+              <?php } ?>
 
-              <td><?php echo $data->terima;?></td>
-              <td><?php echo $data->susulan;?></td>
               </tr>
               <?php }}} ?>
 
@@ -128,64 +119,7 @@
  
  </div>
   </section>
-  <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade-in">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Edit Absen Laporan</h4>
-                </div>
-     <?php echo form_open('LaporanKesga/editLaporan'); ?>
-    <div class="modal-body">
-        <div class="form-group">
-                    <label for="">Bulan</label>
-                   
-                  <select class="form-control" name="bulan" id="bulan2">
-                  <option value="" >--Pilih Bulan--</option>
-                  <?php 
-                  $daftarBulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
-                  foreach ($daftarBulan as $key) {
-                  if($key== $bulan){?>
-                    <option value="<?php echo $key?>" selected=""><?php echo $key?></option>
-                 <?php }
-                  else{?>
-                     <option value="<?php echo $key?>" ><?php echo $key?></option>
-
-                  <?php }}?>
-                  </select>
-                </div>
-                <div class="form-group">
-                    <label for="">Tahun</label>
-                     <select class="form-control" name="tahun" id="tahun2">
-                  <option value="">--Pilih Tahun--</option>
-                  <?php for($i=2015 ; $i<=2023;$i++){
-                    if($i==$tahun){?>
-                  
-                  <option value="<?php echo $i?>" selected=""><?php echo $i?></option>
-            <?php   } else{?>
-            <option value="<?php echo $i?>" ><?php echo $i?></option>
-                  <?php   }} ?>
-                
-                </select>
-                
-                </div>
-                <div class="form-group">
-                    <label for="">Puskesmas</label>
-                    <select class="form-control" name="puskesmas" id="puskesmas">
-                <?php foreach ($puskesaktif as $key) {?>
-                <option value="<?php echo $key->namaPuskes
-                ?>"><?php echo $key->namaPuskes
-                ?></option><?php  }?>
-                  
-                  </select>
-                   
-                </div>
-                <center><button type="submit" class="btn btn-primary">Submit</button></center>
-                <?php echo form_close();?>
-        </div>
-        </div>
-        </div>
-        </div>
-  <!-- js placed at the end of the document so the pages load faster -->
+ 
   <script src="<?php echo base_url()?>assets/lib/jquery/jquery.min.js"></script>
 
   <script src="<?php echo base_url()?>assets/lib/bootstrap/js/bootstrap.min.js"></script>
@@ -258,7 +192,6 @@
       console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
     }
   </script>
-  
 </body>
 
 </html>

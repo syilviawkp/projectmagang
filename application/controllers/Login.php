@@ -55,13 +55,15 @@ public function dashboard()
 			$data['username']=$session_data['username'];
 			$data['password']=$session_data['password'];
 			$data['level']=$session_data['level'];
-			if($data['level']=='user'){
-				redirect('indexUser','refresh');
+			$data['idPuskesmas']=$session_data['idPuskesmas'];
+			if($data['level']=='admin'){
+					redirect('login/dashboard','refresh');
 			}else{
-				redirect('login/dashboard','refresh');
+				redirect('User','refresh');
 			}
 		}
 	}
+
 	public function cekDb($password)
 	{
 		$this->load->helper('url','form');
@@ -81,14 +83,14 @@ public function dashboard()
 				'noHp'=>$row->noHp,
 				'idPuskesmas'=>$row->idPuskesmas,
 				'level'=>$row->level,
-				'jabatan'=>$row->jabatan
+				'jabatan'=>$row->jabatan,
+				'namaPuskes' => $row->namaPuskes,
+				'alamatPuskes' => $row->alamatPuskes
 				);
 				$this->session->set_userdata('logged_in',$sess_array);
 			}
 			return true;
-		}
-
-		else
+		}else
 		{
 			$this->form_validation->set_message('cekDb',"Login Gagal Username dan Password tidak valid");
 			return false;
@@ -183,7 +185,7 @@ public function dashboard()
 				$this->load->view('edituser', $data);
 
 			}else{
-				$this->UserModel->UpdateById();
+				$this->UserModel->EditById();
 				echo '<script>alert("Sukses mengedit")</script>';
 				redirect('User', 'refresh');}
 				

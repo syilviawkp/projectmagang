@@ -13,8 +13,9 @@ class UserModel extends CI_Model {
     public function login($username, $password)
     {
 
-        $this->db->select('*');
+        $this->db->select('idUser,username, password, nama, noHp, user.idPuskesmas, level, jabatan,namaPuskes,alamatPuskes');
         $this->db->from('user');
+        $this->db->join('puskesmas', 'user.idPuskesmas = puskesmas.idPuskesmas');
         $this->db->where('username', $username);
         $this->db->where('password', $password);
         $query = $this->db->get();
@@ -77,6 +78,19 @@ class UserModel extends CI_Model {
         $this->db->update('user', $data);
     }
 
+    public function EditById(){
+        $data = array(
+            'username' => $this->input->post('username'),
+            'password' =>$this->input->post('password'),
+            'nama' =>$this->input->post('nama'),
+            'noHp' =>$this->input->post('noHp')
+        );
+
+        $a=$this->session->userdata('logged_in');
+        $this->db->where('idUser', $a['idUser']);
+        $this->db->update('user', $data);
+    }
+
     public function delete($idUser){
         $this->db->where('idUser', $idUser);
         $this->db->delete('user');
@@ -86,7 +100,7 @@ class UserModel extends CI_Model {
         $a=$this->session->userdata('logged_in');
         $this->db->select('*');
         $this->db->from('user');
-        $this->db->where('id', $a['id']);
+        $this->db->where('idUser', $a['idUser']);
         $query=$this->db->get();
         return $query->result();
     }
