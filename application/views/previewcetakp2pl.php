@@ -32,7 +32,7 @@
 
 
 <h1>
-<p style="text-align: center">Laporan P2pl Bulan <?php echo $bulan ?> Tahun <?php echo $tahun?> </h1></p>
+<p style="text-align: center">Laporan P2P Bulan <?php echo $bulan ?> Tahun <?php echo $tahun?> </h1></p>
 <table>
 	<tr>
 		<th>Nama Laporan</th>

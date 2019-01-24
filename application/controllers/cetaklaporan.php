@@ -159,6 +159,61 @@ class Cetaklaporan extends CI_Controller {
 		unset($dompdf);
 	}
 
+	// =================================== CONTROLLER CETAK SEMUA=============================================
+
+ 	 public function editFieldCetakSemua()
+    {
+
+		$this->load->model('P2plModel');
+		$this->load->model('KesgaModel');
+		$this->load->model('YankesModel');
+		$data['kategoriP2pl']=$this->P2plModel->getFilterKategori();
+		$data['laporanP2pl']=$this->P2plModel->getFilterLaporan();
+		$data['kategoriYankes']=$this->YankesModel->getFilterKategori();
+		$data['laporanYankes']=$this->YankesModel->getFilterLaporan();
+		$data['kategoriKesga']=$this->KesgaModel->getFilterKategori();
+		$data['laporanKesga']=$this->KesgaModel->getFilterLaporan();
+		$data['bulan'] = $this->input->post('bulan');
+		$data['tahun']=$this->input->post('tahun');
+		        
+ 
+       $this->load->view('previewcetakSemua', $data);
+  }
+
+		public function cetakPdfSemua(){
+
+		$this->load->model('P2plModel');
+		$this->load->model('KesgaModel');
+		$this->load->model('YankesModel');
+
+		$data['kategoriP2pl']=$this->P2plModel->getFilterKategori();
+		$data['laporanP2pl']=$this->P2plModel->getFilterLaporan();
+		$data['kategoriYankes']=$this->YankesModel->getFilterKategori();
+		$data['laporanYankes']=$this->YankesModel->getFilterLaporan();
+		$data['kategoriKesga']=$this->KesgaModel->getFilterKategori();
+		$data['laporanKesga']=$this->KesgaModel->getFilterLaporan();
+		
+		$data['detailLaporan']=$this->CetakModel->view_row();
+ 
+		$data['bulan'] = $this->input->post('bulan');
+		$data['tahun']=$this->input->post('tahun');
+
+       $this->load->view('PrintSemua', $data);
+
+		$paper_size='A4'; //paper size
+		$orientation = 'landscape'; //tipe format kertas
+		$html = $this->output->get_output();
+
+		//$this->dompdf->set_paper($paper_size, $orientation); //convert to pdf
+		$dompdf = new DOMPDF();
+		$this->dompdf->load_html($html);
+		$this->dompdf->render();
+		$this->dompdf->stream("laporanBulananPuskesmas.pdf");
+		unset($html);
+		unset($dompdf);
+	}
+
+
 	
 
 	// public function getwaktulaporan(){

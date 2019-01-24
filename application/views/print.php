@@ -30,7 +30,7 @@
 <body>
 
 
-<p style="text-align: center"><h2><center>Laporan Kesga Bulan <?php echo $bulan ?> Tahun <?php echo $tahun?> </center></h2></p>
+<p style="text-align: center"><h2><center>Laporan Kesmas Bulan <?php echo $bulan ?> Tahun <?php echo $tahun?> </center></h2></p>
 
 
 <table>

@@ -15,7 +15,7 @@
      
 
             <div class="form-panel">
-              <h4 class="mb"><i class="fa fa-angle-right"></i> Laporan P2pl</h4>
+              <h4 class="mb"><i class="fa fa-angle-right"></i> Laporan P2P</h4>
              <?php echo form_open('LaporanP2pl/filter'); ?>
                 <div class="form-group">
                   <label class="col-sm-2 col-sm-2 control-label">Bulan</label>
@@ -67,7 +67,7 @@
                 <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
             <tr>
-              <th colspan="8" ><center>Absen Laporan P2pl Bulan <?php echo $bulan." "; echo $tahun?> </center> </th>
+              <th colspan="8" ><center>Absen Laporan P2P Bulan <?php echo $bulan." "; echo $tahun?> </center> </th>
             </tr>
                 <tr>
                     <th></th>

@@ -260,9 +260,9 @@
               <span>Absen Laporan</span>
               </a>
             <ul class="sub">
-              <li><a href="<?php echo site_url()?>/LaporanYankes">Laporan Yankes</a></li>
-              <li><a href="<?php echo site_url()?>/LaporanP2pl">Laporan P2PL</a></li>
-              <li><a href="<?php echo site_url()?>/LaporanKesga">Laporan Kesga</a></li>
+              <li><a href="<?php echo site_url()?>/LaporanYankes">Laporan PSDK</a></li>
+              <li><a href="<?php echo site_url()?>/LaporanP2pl">Laporan P2P</a></li>
+              <li><a href="<?php echo site_url()?>/LaporanKesga">Laporan Kesmas</a></li>
               
             </ul>
           </li>
@@ -272,9 +272,9 @@
               <span>Kelola Laporan</span>
               </a>
             <ul class="sub">
-              <li><a href="" data-toggle="modal" data-target="#modalYankes">Tambah Laporan Yankes</a></li>
-              <li><a href="" data-toggle="modal" data-target="#modalP2pl">Tambah Laporan P2PL</a></li>
-              <li><a href="" data-toggle="modal" data-target="#modalKesga">Tambah Laporan Kesga</a></li>
+              <li><a href="" data-toggle="modal" data-target="#modalYankes">Tambah Laporan PSDK</a></li>
+              <li><a href="" data-toggle="modal" data-target="#modalP2pl">Tambah Laporan P2P</a></li>
+              <li><a href="" data-toggle="modal" data-target="#modalKesga">Tambah Laporan Kesmas</a></li>
             </ul>
           </li>
           <li class="sub-menu">
@@ -283,10 +283,10 @@
               <span>Cetak</span>
               </a>
             <ul class="sub">
-              <li><a href="" data-toggle="modal" data-target="#modalcetakyankes">Cetak Laporan Yankes</a></li>
-              <li><a href="" data-toggle="modal" data-target="#modalcetakp2pl">Cetak Laporan P2PL</a></li>
-              <li><a href="" data-toggle="modal" data-target="#modalcetakKesga">Cetak Laporan Kesga</a></li>
-              <li><a href="#">Cetak Semua</a></li>
+              <li><a href="" data-toggle="modal" data-target="#modalcetakyankes">Cetak Laporan PSDK</a></li>
+              <li><a href="" data-toggle="modal" data-target="#modalcetakp2pl">Cetak Laporan P2P</a></li>
+              <li><a href="" data-toggle="modal" data-target="#modalcetakKesga">Cetak Laporan Kesmas</a></li>
+              <li><a href="" data-toggle="modal" data-target="#modalcetaksemua">Cetak Semua</a></li>
             </ul>
           </li>
         <!--   <li class="sub-menu">
@@ -552,6 +552,47 @@
                     ?>
             <option value="<?php echo $i?>" ><?php echo $i?></option>
                   <?php } ?>
+                
+                </select>
+                
+                </div>
+                <center><button type="submit" class="btn btn-primary">Preview Cetak</button></center>
+                <?php echo form_close();?>
+        </div>
+        </div>
+        </div>
+        </div>
+
+         <!-- ============================MODAL CETAK Semua======================================== -->
+
+        <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="modalcetaksemua" class="modal fade-in">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Cetak Laporan Semua Kategori</h4>
+                </div>
+     <?php echo form_open('cetaklaporan/editFieldCetakSemua'); ?>
+    <div class="modal-body">
+        <div class="form-group">
+                    <label for="">Bulan</label>
+                   
+                   <select class="form-control" name="bulan" id="bulan">
+                  <option value="" >--Pilih Bulan--</option>
+                  <?php 
+                  $daftarBulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
+                  foreach ($daftarBulan as $key) {?>
+                     <option value="<?php echo $key?>" ><?php echo $key?></option>
+
+                  <?php }?>
+                  </select>
+                </div>
+                <div class="form-group">
+                    <label for="">Tahun</label>
+                     <select class="form-control" name="tahun" id="tahun">
+                  <option value="">--Pilih Tahun--</option>
+                  <?php for($i=2015 ; $i<=2023;$i++){?>
+            <option value="<?php echo $i?>" ><?php echo $i?></option>
+                  <?php   }?>
                 
                 </select>
                 

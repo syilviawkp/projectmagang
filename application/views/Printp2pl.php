@@ -30,7 +30,7 @@
 <body>
 
 
-<p style="text-align: center"><h2><center>Laporan P2pl Bulan <?php echo $bulan ?> Tahun <?php echo $tahun?> </center></h2></p>
+<p style="text-align: center"><h2><center>Laporan P2P Bulan <?php echo $bulan ?> Tahun <?php echo $tahun?> </center></h2></p>
 
 
 <table>
