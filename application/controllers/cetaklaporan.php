@@ -70,7 +70,7 @@ class Cetaklaporan extends CI_Controller {
 		$dompdf = new DOMPDF();
 		$this->dompdf->load_html($html);
 		$this->dompdf->render();
-		$this->dompdf->stream("laporanYankes.pdf");
+		$this->dompdf->stream("laporanPSDK.pdf");
 		unset($html);
 		unset($dompdf);
 	}
@@ -113,7 +113,7 @@ class Cetaklaporan extends CI_Controller {
 		$dompdf = new DOMPDF();
 		$this->dompdf->load_html($html);
 		$this->dompdf->render();
-		$this->dompdf->stream("laporanP2pl.pdf");
+		$this->dompdf->stream("laporanP2P.pdf");
 		unset($html);
 		unset($dompdf);
 	}
@@ -154,7 +154,7 @@ class Cetaklaporan extends CI_Controller {
 		$dompdf = new DOMPDF();
 		$this->dompdf->load_html($html);
 		$this->dompdf->render();
-		$this->dompdf->stream("laporanKesga.pdf");
+		$this->dompdf->stream("laporanKESMAS.pdf");
 		unset($html);
 		unset($dompdf);
 	}

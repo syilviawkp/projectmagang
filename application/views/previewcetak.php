@@ -32,7 +32,7 @@
 
 
 <h1>
-<p style="text-align: center">Laporan Kesga Bulan <?php echo $bulan ?> Tahun <?php echo $tahun?> </h1></p>
+<p style="text-align: center">Laporan Kesmas Bulan <?php echo $bulan ?> Tahun <?php echo $tahun?> </h1></p>
 <table>
 	<tr>
 		<th>Nama Laporan</th>
@@ -41,7 +41,7 @@
     <th>Bumiaji</th>
 		<th>Junrejo</th>
 		<th>Sisir</th>
-		<th>Sudah Masuk</th>
+		<th>Tepat Waktu</th>
 		<th>Susulan</th>
 	</tr>
 	<?php foreach($kategori as $key){?>

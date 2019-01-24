@@ -20,6 +20,7 @@
 			padding: 3px;
 			vertical-align: top;
 		}
+
 		.foto3 {
     	width: 250px;
    		height: 250px;
@@ -41,7 +42,7 @@
 	    <th>Bumiaji</th>
 		<th>Junrejo</th>
 		<th>Sisir</th>
-		<th>Sudah Masuk</th>
+		<th>Tepat Waktu</th>
 		<th>Susulan</th>
 	</tr>
 	<?php foreach($kategori as $key){?>

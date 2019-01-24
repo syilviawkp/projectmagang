@@ -76,7 +76,7 @@
                    <?php foreach ($puskesmas as $key) {?>
                    <th><?php echo $key->namaPuskes?></th>
                    <?php } ?>
-                    <th>SDH MSK</th>
+                    <th>TEPAT WAKTU</th>
                     <th>SUSULAN</th>
                 </tr>
             </thead>

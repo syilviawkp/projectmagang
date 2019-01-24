@@ -11,7 +11,7 @@
           <div class="row mt">
        
             <div class="form-panel">
-              <h4 class="mb"><i class="fa fa-angle-right"></i> Laporan Kesga</h4>
+              <h4 class="mb"><i class="fa fa-angle-right"></i> Laporan Kesmas</h4>
              
                
 

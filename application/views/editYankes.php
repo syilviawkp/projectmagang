@@ -68,7 +68,7 @@
                 <tr>
                     <th></th>
                     <th><?php echo $puskesmas?></th>
-                    <th>SDH MSK</th>
+                    <th>TEPAT WAKTU</th>
                     <th>SUSULAN</th>
                    
                 </tr>

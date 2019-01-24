@@ -11,7 +11,7 @@
           <div class="row mt">
        
             <div class="form-panel">
-              <h4 class="mb"><i class="fa fa-angle-right"></i> Laporan P2PL</h4>
+              <h4 class="mb"><i class="fa fa-angle-right"></i> Laporan P2P</h4>
              
                
 

@@ -7,11 +7,11 @@
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>WEB LAPORAN PUSKESMAS</title>
+  <title>SILAPUS</title>
 
   <!-- Favicons -->
-  <link href="<?php echo base_url()?>/assets/img/logopemkot.png" rel="icon">
-  <link href="<?php echo base_url()?>/assets/img/logopemkot.png" rel="apple-touch-icon">
+  <link href="<?php echo base_url()?>/assets/img/logosilapus.png" rel="icon">
+  <link href="<?php echo base_url()?>/assets/img/logosilapus.png" rel="apple-touch-icon">
 
   <!-- Bootstrap core CSS -->
   <link href="<?php echo base_url()?>/assets/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -44,7 +44,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Min/Max Navigation"></div>
       </div>
       <!--logo start-->
-      <a href=<?php echo site_url('Welcome/');?> class="logo"><b>SI<span>LAPUS</span></b></a>
+      <a href=<?php echo site_url('Welcome/');?> class="logo"><b>DINAS KESEHATAN<span> BATU</span></b></a>
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
@@ -246,9 +246,10 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="<?php echo base_url()?>/assets/img/logopemkot.png" class="img-circle" width="80"></a></p>
-          <h5 class="centered">DINAS KESEHATAN</h5>
-           <h5 class="centered">KOTA BATU</h4>
+          <p class="centered"><img src="<?php echo base_url()?>/assets/img/logosilapus.png" class="img-rectangle" width="100"></a></p>
+           <p class="centered"><img src="<?php echo base_url()?>/assets/img/tulisansilapus.png" class="img-rectangle" width="90"></a></p>
+ <!-- 
+          <h5 class="centered">Sistem Laporan Puskesmas</h5> -->
           <li class="mt">
             <a class="active" href=<?php echo site_url('Welcome/');?>>
               <i class="fa fa-dashboard"></i>
@@ -361,6 +362,9 @@
         </div>
         </div>
 
+        <!-- ============================EDIT FORMAT LAPORAN P2PL====================================== -->
+
+
 
 <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="modalP2pl" class="modal fade-in">
         <div class="modal-dialog">
@@ -400,6 +404,9 @@
         </div>
         </div>
         </div>
+ <!-- ============================EDIT FORMAT LAPORAN YANKES====================================== -->
+
+
  <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="modalYankes" class="modal fade-in">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -444,7 +451,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Cetak Laporan Kesga</h4>
+                    <h4 class="modal-title">Cetak Laporan Kesmas</h4>
                 </div>
      <?php echo form_open('cetaklaporan/editFieldCetakKesga'); ?>
     <div class="modal-body">
@@ -486,7 +493,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Cetak Laporan P2PL</h4>
+                    <h4 class="modal-title">Cetak Laporan P2P</h4>
                 </div>
      <?php echo form_open('cetaklaporan/editFieldCetakp2pl'); ?>
     <div class="modal-body">
@@ -528,7 +535,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Cetak Laporan P2PL</h4>
+                    <h4 class="modal-title">Cetak Laporan PSDK</h4>
                 </div>
      <?php echo form_open('cetaklaporan/editFieldCetakyankes'); ?>
   <div class="modal-body">

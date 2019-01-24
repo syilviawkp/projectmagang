@@ -7,11 +7,11 @@
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>WEB LAPORAN PUSKESMAS</title>
+  <title>SILAPUS</title>
 
   <!-- Favicons -->
-  <link href="<?php echo base_url()?>/assets/img/logopemkot.png" rel="icon">
-  <link href="<?php echo base_url()?>/assets/img/logopemkot.png" rel="apple-touch-icon">
+  <link href="<?php echo base_url()?>/assets/img/logosilapus.png" rel="icon">
+  <link href="<?php echo base_url()?>/assets/img/logosilapus.png" rel="apple-touch-icon">
 
   <!-- Bootstrap core CSS -->
   <link href="<?php echo base_url()?>/assets/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -45,7 +45,7 @@
       </div>
       <!--logo start-->
 
-      <a href=<?php echo site_url('User/');?> class="logo"><b>SI<span>LAPUS</span></b></a>
+      <a href=<?php echo site_url('User/');?> class="logo"><b>DINAS KESEHATAN<span> BATU</span></b></a>
 
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
@@ -248,9 +248,10 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="<?php echo base_url()?>/assets/img/logopemkot.png" class="img-circle" width="80"></a></p>
-          <h5 class="centered">DINAS KESEHATAN </h5>
-           <h5 class="centered">KOTA BATU</h5>
+          <p class="centered"><img src="<?php echo base_url()?>/assets/img/logosilapus.png" class="img-rectangle" width="100"></a></p>
+          <p class="centered"><img src="<?php echo base_url()?>/assets/img/tulisansilapus.png" class="img-rectangle" width="90"></a></p>
+          <!-- <h5 class="centered">DINAS KESEHATAN </h5>
+           <h5 class="centered">KOTA BATU</h5> -->
           <li class="mt">
             <a class="active" href=<?php echo site_url('User/');?>>
               <i class="fa fa-dashboard"></i>
