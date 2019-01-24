@@ -44,7 +44,9 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Min/Max Navigation"></div>
       </div>
       <!--logo start-->
-      <a href=<?php echo site_url('Welcome/');?> class="logo"><b>SI<span>LAPUS</span></b></a>
+
+      <a href=<?php echo site_url('User/');?> class="logo"><b>SI<span>LAPUS</span></b></a>
+
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
@@ -261,9 +263,9 @@
               <span>Absen Laporan</span>
               </a>
             <ul class="sub">
-              <li><a href="<?php echo site_url()?>/User/LaporanYankesUser">Laporan Yankes</a></li>
-              <li><a href="<?php echo site_url()?>/User/LaporanP2plUser">Laporan P2PL</a></li>
-              <li><a href="<?php echo site_url()?>/User/LaporanKesgaUser">Laporan Kesga</a></li>
+              <li><a href="<?php echo site_url()?>/User/LaporanYankesUser">Laporan PSDK</a></li>
+              <li><a href="<?php echo site_url()?>/User/LaporanP2plUser">Laporan P2P</a></li>
+              <li><a href="<?php echo site_url()?>/User/LaporanKesgaUser">Laporan KESMAS</a></li>
               
             </ul>
           </li>
