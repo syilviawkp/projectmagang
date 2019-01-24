@@ -249,7 +249,7 @@
           <p class="centered"><a href="profile.html"><img src="<?php echo base_url()?>/assets/img/logopemkot.png" class="img-circle" width="80"></a></p>
           <h5 class="centered">DINAS KESEHATAN</h5>
           <li class="mt">
-            <a class="active" href=<?php echo site_url('Welcome/');?>>
+            <a href=<?php echo site_url('Welcome/');?>>
               <i class="fa fa-dashboard"></i>
               <span>Beranda</span>
               </a>
