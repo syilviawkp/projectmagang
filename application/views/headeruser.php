@@ -235,7 +235,7 @@
       </div>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" href=<?php echo site_url('login/logout');?>>Logout<span class="glyphicon glyphicon-off"></span></a></li>
+          <li><a class="logout" href=<?php echo site_url('login/logout');?>>Logout  <span class="glyphicon glyphicon-off"></span></a></li>
         </ul>
       </div>
     </header>
@@ -254,22 +254,23 @@
            <h5 class="centered">KOTA BATU</h5> -->
           <li class="mt">
             <a class="active" href=<?php echo site_url('User/');?>>
-              <i class="fa fa-dashboard"></i>
+              <i class="fa fa-home"></i>
               <span>Beranda</span>
               </a>
           </li>
           <li class="sub-menu">
             <a href="javascript:;">
-              <i class="fa fa-desktop"></i>
+              <i class="fa fa-list-ol"></i>
               <span>Absen Laporan</span>
               </a>
             <ul class="sub">
-              <li><a href="<?php echo site_url()?>/User/LaporanYankesUser">Laporan PSDK</a></li>
-              <li><a href="<?php echo site_url()?>/User/LaporanP2plUser">Laporan P2P</a></li>
-              <li><a href="<?php echo site_url()?>/User/LaporanKesgaUser">Laporan KESMAS</a></li>
+              <li><a href="<?php echo site_url()?>/User/LaporanYankesUser"><i class="fa fa-check-square-o"></i>Laporan PSDK</a></li>
+              <li><a href="<?php echo site_url()?>/User/LaporanP2plUser"><i class="fa fa-check-square-o"></i>Laporan P2P</a></li>
+              <li><a href="<?php echo site_url()?>/User/LaporanKesgaUser"><i class="fa fa-check-square-o"></i>Laporan KESMAS</a></li>
               
             </ul>
           </li>
+
          <!-- <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-cogs"></i>
@@ -303,18 +304,20 @@
 
           <li class="sub-menu">
             <a href="javascript:;">
-              <i class="fa fa-tasks"></i>
-              <span>Pengaturan</span>
+              <i class="fa fa-cogs"></i>
+              <span>Pengaturan </span>
               </a>
             <ul class="sub">
               
-              <li><a href="<?php echo site_url()?>/login/editprofil">Edit Profil</a></li>
+              <li><a href="<?php echo site_url()?>/login/editprofil"><i class="fa fa-user"></i>Kelola Profil</a></li>
               
               <!-- <li><a href="javascript:void(0);" onclick="showmodal('<?php echo $key->idUser ?>','<?php echo $key->username ?>','<?php echo $key->password ?>','<?php echo $key->nama ?>','<?php echo $key->noHp ?>')" data-toggle="modal" data-target="#myModalEdit">Edit Profil</a></p> -->
 
                 
             </ul>
           </li>
+
+
          
         </ul>
         <!-- sidebar menu end-->

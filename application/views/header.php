@@ -233,7 +233,7 @@
       </div>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" href=<?php echo site_url('login/logout');?>>Logout<span class="glyphicon glyphicon-off"></span></a></li>
+          <li><a class="logout" href=<?php echo site_url('login/logout');?>>Logout  <span class="glyphicon glyphicon-off"></span></a></li>
         </ul>
       </div>
     </header>
@@ -252,43 +252,43 @@
           <h5 class="centered">Sistem Laporan Puskesmas</h5> -->
           <li class="mt">
             <a class="active" href=<?php echo site_url('Welcome/');?>>
-              <i class="fa fa-dashboard"></i>
+              <i class="fa fa-home"></i>
               <span>Beranda</span>
               </a>
           </li>
           <li class="sub-menu">
             <a href="javascript:;">
-              <i class="fa fa-desktop"></i>
+              <i class="fa fa-list-ol"></i>
               <span>Absen Laporan</span>
               </a>
             <ul class="sub">
-              <li><a href="<?php echo site_url()?>/LaporanYankes">Laporan PSDK</a></li>
-              <li><a href="<?php echo site_url()?>/LaporanP2pl">Laporan P2P</a></li>
-              <li><a href="<?php echo site_url()?>/LaporanKesga">Laporan Kesmas</a></li>
+              <li><a href="<?php echo site_url()?>/LaporanYankes"><i class="fa fa-check-square-o"></i>Laporan PSDK</a></li>
+              <li><a href="<?php echo site_url()?>/LaporanP2pl"><i class="fa fa-check-square-o"></i>Laporan P2P</a></li>
+              <li><a href="<?php echo site_url()?>/LaporanKesga"><i class="fa fa-check-square-o"></i>Laporan Kesmas</a></li>
               
             </ul>
           </li>
          <li class="sub-menu">
             <a href="javascript:;">
-              <i class="fa fa-cogs"></i>
-              <span>Kelola Laporan</span>
+              <i class="fa fa-edit"></i>
+              <span>Kelola Format Laporan</span>
               </a>
             <ul class="sub">
-              <li><a href="" data-toggle="modal" data-target="#modalYankes">Tambah Laporan PSDK</a></li>
-              <li><a href="" data-toggle="modal" data-target="#modalP2pl">Tambah Laporan P2P</a></li>
-              <li><a href="" data-toggle="modal" data-target="#modalKesga">Tambah Laporan Kesmas</a></li>
+              <li><a href="" data-toggle="modal" data-target="#modalYankes"><i class="fa fa-pencil"></i>Kelola Laporan PSDK</a></li>
+              <li><a href="" data-toggle="modal" data-target="#modalP2pl"><i class="fa fa-pencil"></i>Kelola Laporan P2P</a></li>
+              <li><a href="" data-toggle="modal" data-target="#modalKesga"><i class="fa fa-pencil"></i>Kelola Laporan Kesmas</a></li>
             </ul>
           </li>
           <li class="sub-menu">
             <a href="javascript:;">
-              <i class="fa fa-book"></i>
+              <i class="fa fa-print"></i>
               <span>Cetak</span>
               </a>
             <ul class="sub">
-              <li><a href="" data-toggle="modal" data-target="#modalcetakyankes">Cetak Laporan PSDK</a></li>
-              <li><a href="" data-toggle="modal" data-target="#modalcetakp2pl">Cetak Laporan P2P</a></li>
-              <li><a href="" data-toggle="modal" data-target="#modalcetakKesga">Cetak Laporan Kesmas</a></li>
-              <li><a href="" data-toggle="modal" data-target="#modalcetaksemua">Cetak Semua</a></li>
+              <li><a href="" data-toggle="modal" data-target="#modalcetakyankes"><i class="fa fa-file-text-o"></i> Cetak Laporan PSDK</a></li>
+              <li><a href="" data-toggle="modal" data-target="#modalcetakp2pl"><i class="fa fa-file-text-o"></i>Cetak Laporan P2P</a></li>
+              <li><a href="" data-toggle="modal" data-target="#modalcetakKesga"><i class="fa fa-file-text-o"></i>Cetak Laporan Kesmas</a></li>
+              <li><a href="" data-toggle="modal" data-target="#modalcetaksemua"><i class="fa fa-clone"></i>Cetak Semua</a></li>
             </ul>
           </li>
         <!--   <li class="sub-menu">
@@ -304,13 +304,13 @@
 
           <li class="sub-menu">
             <a href="javascript:;">
-              <i class="fa fa-tasks"></i>
+              <i class="fa fa-cogs"></i>
               <span>Pengaturan</span>
               </a>
             <ul class="sub">
               
-              <li><a href="<?php echo site_url()?>/Login/data">Kelola User</a></li>
-              <li><a href="<?php echo site_url()?>/Puskesmas">Kelola Puskesmas</a></li>
+              <li><a href="<?php echo site_url()?>/Login/data"><i class="fa fa-address-card"></i>Kelola User</a></li>
+              <li><a href="<?php echo site_url()?>/Puskesmas"><i class="fa fa-medkit"></i>Kelola Puskesmas</a></li>
                 
             </ul>
           </li>
