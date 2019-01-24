@@ -36,7 +36,7 @@
   <div id="login-page">
     <div class="container" >
       <div class="form-login">
-        <h2 class="form-login-heading">Laman Login</h2>
+        <h2 class="form-login-heading"><img src="<?php echo base_url()?>/assets/img/silapus.png" class="img-rectangl" width="350"></h2>
         <div class="login-wrap">
         <?php echo form_open('login/cekLogin');?>
         <?php echo validation_errors(); ?>
@@ -64,6 +64,15 @@
               </a>
           </div> -->
         </div>
+        <font color="#000">
+        <a href="" data-toggle="modal" data-target="#info">
+        <center><span class="glyphicon glyphicon-info-sign"></a></center></span>
+        <center>Silapus Ver 1.0</center>
+        <center>Created by Tim IT Polinema</center>
+        <br>
+        </font>
+        <br>
+
         <!-- Modal -->
       <!--   <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
           <div class="modal-dialog">
@@ -98,6 +107,35 @@
       speed: 500
     });
   </script>
+
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="info" class="modal fade-in">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><center>INFORMASI PENGEMBANG</center></h4>
+                </div>
+    <center><h5>
+
+         <br>
+        
+
+            <p>Created by:</p>
+        <br>
+            <p>MAHASISWA IT POLINEMA</p>
+            <p>JAN 2019</p>
+            <p>timpolinema@gmail.com</p>
+
+         <br>
+         <br>
+
+         </h5>
+    </center>
+        </div>
+        </div>
+        </div>
+        </div>
+
 </body>
 
 </html>
