@@ -13,6 +13,7 @@ class Cetaklaporan extends CI_Controller {
 		$this->load->model('YankesModel');
 		$this->load->model('CetakModel');
 
+
 	}
 
 
@@ -42,6 +43,8 @@ class Cetaklaporan extends CI_Controller {
 		$this->load->model('YankesModel');
 		$data['kategori']=$this->YankesModel->getFilterKategori();
 		$data['laporan']=$this->YankesModel->getFilterLaporan();
+		$data['puskesaktif']=$this->YankesModel->getPuskesmasAktif();
+      	$data['puskesmas']= $this->YankesModel->getListPuskesmas();
 		$data['bulan'] = $this->input->post('bulan');
 		$data['tahun']=$this->input->post('tahun');
 		        
@@ -55,6 +58,8 @@ class Cetaklaporan extends CI_Controller {
 		$data['kategori']=$this->YankesModel->getFilterKategori();
 		$data['laporan']=$this->YankesModel->getFilterLaporan();
 		$data['detailLaporan']=$this->CetakModel->view_row();
+		$data['puskesaktif']=$this->YankesModel->getPuskesmasAktif();
+      	$data['puskesmas']= $this->YankesModel->getListPuskesmas();
  
 		$data['bulan'] = $this->input->post('bulan');
 		$data['tahun']=$this->input->post('tahun');
@@ -85,6 +90,8 @@ class Cetaklaporan extends CI_Controller {
 		$this->load->model('P2plModel');
 		$data['kategori']=$this->P2plModel->getFilterKategori();
 		$data['laporan']=$this->P2plModel->getFilterLaporan();
+		$data['puskesaktif']=$this->P2plModel->getPuskesmasAktif();
+      	$data['puskesmas']= $this->P2plModel->getListPuskesmas();
 		$data['bulan'] = $this->input->post('bulan');
 		$data['tahun']=$this->input->post('tahun');
 		        
@@ -97,7 +104,10 @@ class Cetaklaporan extends CI_Controller {
 		$this->load->model('P2plModel');
 		$data['kategori']=$this->P2plModel->getFilterKategori();
 		$data['laporan']=$this->P2plModel->getFilterLaporan();
+		$data['puskesaktif']=$this->P2plModel->getPuskesmasAktif();
+      	$data['puskesmas']= $this->P2plModel->getListPuskesmas();
 		$data['detailLaporan']=$this->CetakModel->view_row();
+		
  
 		$data['bulan'] = $this->input->post('bulan');
 		$data['tahun']=$this->input->post('tahun');
@@ -128,6 +138,8 @@ class Cetaklaporan extends CI_Controller {
 		$data['laporan']=$this->KesgaModel->getFilterLaporan();
 		$data['bulan'] = $this->input->post('bulan');
 		$data['tahun']=$this->input->post('tahun');
+		$data['puskesaktif']=$this->KesgaModel->getPuskesmasAktif();
+      	$data['puskesmas']= $this->KesgaModel->getListPuskesmas();
 		        
  
        $this->load->view('previewcetak', $data);
@@ -139,6 +151,8 @@ class Cetaklaporan extends CI_Controller {
 		$data['kategori']=$this->KesgaModel->getFilterKategori();
 		$data['laporan']=$this->KesgaModel->getFilterLaporan();
 		$data['detailLaporan']=$this->CetakModel->view_row();
+		$data['puskesaktif']=$this->KesgaModel->getPuskesmasAktif();
+      	$data['puskesmas']= $this->KesgaModel->getListPuskesmas();
  
 		$data['bulan'] = $this->input->post('bulan');
 		$data['tahun']=$this->input->post('tahun');
@@ -167,6 +181,14 @@ class Cetaklaporan extends CI_Controller {
 		$this->load->model('P2plModel');
 		$this->load->model('KesgaModel');
 		$this->load->model('YankesModel');
+
+		$data['puskesaktifKesga']=$this->KesgaModel->getPuskesmasAktif();
+      	$data['puskesmasKesga']= $this->KesgaModel->getListPuskesmas();
+      	$data['puskesaktifYankes']=$this->YankesModel->getPuskesmasAktif();
+      	$data['puskesmasYankes']= $this->YankesModel->getListPuskesmas();
+      	$data['puskesaktifP2pl']=$this->P2plModel->getPuskesmasAktif();
+      	$data['puskesmasP2pl']= $this->P2plModel->getListPuskesmas();
+
 		$data['kategoriP2pl']=$this->P2plModel->getFilterKategori();
 		$data['laporanP2pl']=$this->P2plModel->getFilterLaporan();
 		$data['kategoriYankes']=$this->YankesModel->getFilterKategori();
@@ -185,6 +207,13 @@ class Cetaklaporan extends CI_Controller {
 		$this->load->model('P2plModel');
 		$this->load->model('KesgaModel');
 		$this->load->model('YankesModel');
+
+		$data['puskesaktifKesga']=$this->KesgaModel->getPuskesmasAktif();
+      	$data['puskesmasKesga']= $this->KesgaModel->getListPuskesmas();
+      	$data['puskesaktifYankes']=$this->YankesModel->getPuskesmasAktif();
+      	$data['puskesmasYankes']= $this->YankesModel->getListPuskesmas();
+      	$data['puskesaktifP2pl']=$this->P2plModel->getPuskesmasAktif();
+      	$data['puskesmasP2pl']= $this->P2plModel->getListPuskesmas();
 
 		$data['kategoriP2pl']=$this->P2plModel->getFilterKategori();
 		$data['laporanP2pl']=$this->P2plModel->getFilterLaporan();

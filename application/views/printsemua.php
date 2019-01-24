@@ -33,190 +33,143 @@
 
 <br>
 <h2><center>Laporan PSDK</center></h2>
-<table>
-  <tr>
-    <th>Nama Laporan</th>
-    <th>Batu</th>
-    <th>Beji</th>
-    <th>Bumiaji</th>
-    <th>Junrejo</th>
-    <th>Sisir</th>
-    <th>Sudah Masuk</th>
-    <th>Susulan</th>
-  </tr>
-  <?php foreach($kategoriYankes as $key){?>
+<table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            
+                <tr>
+                    <th></th>
+                   <?php foreach ($puskesmasYankes as $key) {?>
+                   <th><?php echo $key->namaPuskes?></th>
+                   <?php } ?>
+                    <th>TEPAT WAKTU</th>
+                    <th>SUSULAN</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php foreach($kategoriYankes as $key){?>
               <tr>
-  
-                  <td colspan="8">
-                    <?php echo $key->namaKategori?></td>
+                  <td colspan="6"><?php echo $key->namaKategori?></td>
               </tr>
               <?php foreach ($laporanYankes as $data) {
                 if($key->namaKategori==$data->namaKategori){?>
               <tr>
                 <td><?php echo $data->namaField?></td>
-                <?php if($data->Batu == "SUDAH") {?>
 
-                <td align="center">V</td>
+                <?php foreach ($puskesmasYankes as $row) { 
+                      $puskes = $row->namaPuskes;
+                     if($data->$puskes =="SUDAH"){
+                  ?>
+                    <td><input type="checkbox" name="feeling" value="good" checked="" disabled readonly=""></td>
               <?php }else{?>
               <td style="background: yellow"></td>
-              <?php } ?>
+              <?php } } ?>
 
-              <?php if($data->Beji == "SUDAH") {?>
-                <td align="center">V</td>
-              <?php }else{?>
-              <td style="background: yellow"></td>
-              <?php } ?>
-
-              <?php if($data->Bumiaji == "SUDAH") {?>
-                <td align="center">V</td>
-              <?php }else{?>
-              <td style="background: yellow"></td>
-              <?php } ?>
-
-              <?php if($data->Junrejo == "SUDAH") {?>
-                <td align="center">V</td>
-              <?php }else{?>
-              <td style="background: yellow"></td>
-              <?php } ?>
-
-              <?php if($data->Sisir == "SUDAH") {?>
-                <td align="center">V</td>
-              <?php }else{?>
-              <td style="background: yellow"></td>
-              <?php } ?>
-              <td><?php echo $data->terima; ?></td>
-              <td><?php echo $data->susulan; ?></td>
-            
+              <td><?php echo $data->terima;?></td>
+              <td><?php echo $data->susulan;?></td>
               </tr>
               <?php }}} ?>
-</table>
 
+
+
+            </tbody>
+
+           
+        </table> 
 <br>
-
+<br>
+<br>
+<br>
+<br>
 
 <h2><center>Laporan P2P</center></h2>
 
-<table>
-  <tr>
-    <th>Nama Laporan</th>
-    <th>Batu</th>
-    <th>Beji</th>
-    <th>Bumiaji</th>
-    <th>Junrejo</th>
-    <th>Sisir</th>
-    <th>Sudah Masuk</th>
-    <th>Susulan</th>
-  </tr>
-  <?php foreach($kategoriP2pl as $key){?>
+<table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            
+                <tr>
+                    <th></th>
+                   <?php foreach ($puskesmasP2pl as $key) {?>
+                   <th><?php echo $key->namaPuskes?></th>
+                   <?php } ?>
+                    <th>TEPAT WAKTU</th>
+                    <th>SUSULAN</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php foreach($kategoriP2pl as $key){?>
               <tr>
-  
-                  <td colspan="8">
-                    <?php echo $key->namaKategori?></td>
+                  <td colspan="6"><?php echo $key->namaKategori?></td>
               </tr>
               <?php foreach ($laporanP2pl as $data) {
                 if($key->namaKategori==$data->namaKategori){?>
               <tr>
                 <td><?php echo $data->namaField?></td>
-                <?php if($data->Batu == "SUDAH") {?>
 
-               <td align="center">V</td>
+                <?php foreach ($puskesmasP2pl as $row) { 
+                      $puskes = $row->namaPuskes;
+                     if($data->$puskes =="SUDAH"){
+                  ?>
+                    <td><input type="checkbox" name="feeling" value="good" checked="" disabled readonly=""></td>
               <?php }else{?>
               <td style="background: yellow"></td>
-              <?php } ?>
+              <?php } } ?>
 
-              <?php if($data->Beji == "SUDAH") {?>
-                <td align="center">V</td>
-              <?php }else{?>
-              <td style="background: yellow"></td>
-              <?php } ?>
-
-              <?php if($data->Bumiaji == "SUDAH") {?>
-                <td align="center">V</td>
-              <?php }else{?>
-              <td style="background: yellow"></td>
-              <?php } ?>
-
-              <?php if($data->Junrejo == "SUDAH") {?>
-                <td align="center">V</td>
-              <?php }else{?>
-              <td style="background: yellow"></td>
-              <?php } ?>
-
-              <?php if($data->Sisir == "SUDAH") {?>
-               <td align="center">V</td>
-              <?php }else{?>
-              <td style="background: yellow"></td>
-              <?php } ?>
-              <td><?php echo $data->terima; ?></td>
-              <td><?php echo $data->susulan; ?></td>
-            
+              <td><?php echo $data->terima;?></td>
+              <td><?php echo $data->susulan;?></td>
               </tr>
               <?php }}} ?>
-</table>
 
+
+
+            </tbody>
+
+           
+        </table> 
 <br>
 
-
-<h2><center>Laporan Kesmas</center></h2><br>
-<br>
-<table>
-  <tr>
-    <th>Nama Laporan</th>
-    <th>Batu</th>
-    <th>Beji</th>
-    <th>Bumiaji</th>
-    <th>Junrejo</th>
-    <th>Sisir</th>
-    <th>Sudah Masuk</th>
-    <th>Susulan</th>
-  </tr>
-  <?php foreach($kategoriKesga as $key){?>
+<h2><center>Laporan Kesmas</center></h2>
+<table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            
+                <tr>
+                    <th></th>
+                   <?php foreach ($puskesmasKesga as $key) {?>
+                   <th><?php echo $key->namaPuskes?></th>
+                   <?php } ?>
+                    <th>TEPAT WAKTU</th>
+                    <th>SUSULAN</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php foreach($kategoriKesga as $key){?>
               <tr>
-  
-                  <td colspan="8">
-                    <?php echo $key->namaKategori?></td>
+                  <td colspan="6"><?php echo $key->namaKategori?></td>
               </tr>
               <?php foreach ($laporanKesga as $data) {
                 if($key->namaKategori==$data->namaKategori){?>
               <tr>
                 <td><?php echo $data->namaField?></td>
-                <?php if($data->Batu == "SUDAH") {?>
 
-                <td align="center">V</td>
+                <?php foreach ($puskesmasKesga as $row) { 
+                      $puskes = $row->namaPuskes;
+                     if($data->$puskes =="SUDAH"){
+                  ?>
+                    <td><input type="checkbox" name="feeling" value="good" checked="" disabled readonly=""></td>
               <?php }else{?>
               <td style="background: yellow"></td>
-              <?php } ?>
+              <?php } } ?>
 
-              <?php if($data->Beji == "SUDAH") {?>
-                <td align="center">V</td>
-              <?php }else{?>
-              <td style="background: yellow"></td>
-              <?php } ?>
-
-              <?php if($data->Bumiaji == "SUDAH") {?>
-                <td align="center">V</td>
-              <?php }else{?>
-              <td style="background: yellow"></td>
-              <?php } ?>
-
-              <?php if($data->Junrejo == "SUDAH") {?>
-                <td align="center">V</td>
-              <?php }else{?>
-              <td style="background: yellow"></td>
-              <?php } ?>
-
-              <?php if($data->Sisir == "SUDAH") {?>
-                <td align="center">V</td>
-              <?php }else{?>
-              <td style="background: yellow"></td>
-              <?php } ?>
-              <td><?php echo $data->terima; ?></td>
-              <td><?php echo $data->susulan; ?></td>
-            
+              <td><?php echo $data->terima;?></td>
+              <td><?php echo $data->susulan;?></td>
               </tr>
               <?php }}} ?>
-</table>
 
+
+
+            </tbody>
+
+           
+        </table> 
 
 </body>
 </html>
