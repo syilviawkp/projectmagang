@@ -129,7 +129,18 @@
     </footer> -->
     <!--footer end-->
   </section>
-  
+  <script type="text/javascript">
+    function makeDisabled(){
+      var x = document.getElementById('idPuskesmas')
+      x.disabled=true
+    }
+
+    function makeEnabled(){
+      var x = document.getElementById('idPuskesmas')
+      x.disabled=false
+    }
+
+  </script>
   <!-- js placed at the end of the document so the pages load faster -->
   <script src="<?php echo base_url()?>assets/lib/jquery/jquery.min.js"></script>
 
@@ -204,18 +215,7 @@
     }
   </script>
 
-<script type="text/javascript">
-    function makeDisabled(){
-      var x = document.getElementById('idPuskesmas')
-      x.disabled=true
-    }
 
-    function makeEnabled(){
-      var x = document.getElementById('idPuskesmas')
-      x.disabled=false
-    }
-
-  </script>
 
 
 </html>
