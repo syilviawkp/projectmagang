@@ -100,7 +100,7 @@
     <!--footer end-->
   </section>
 
-<body onload="makeDisabled()">
+<body>
   <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModalEdit" class="modal fade-in" >
         <div class="modal-dialog">
             <div class="modal-content" style="width: 800px; height:800px; margin-left: -100px;padding: 20px" >
@@ -139,8 +139,8 @@
                   <label for="">Jabatan</label>
                      <select class="form-control" name="jabatan" id="jabatan">
                   <!-- <option value="">Pilih jabatan</option> -->
-                  <option value="Staff" onclick="makeDisabled()" >Staff Dinkes </option>
-                  <option value="Kepala Puskesmas" onclick="makeEnabled()" >Kepala Puskesmas</option>
+                  <option value="Staff" >Staff Dinkes </option>
+                  <option value="Kepala Puskesmas"  >Kepala Puskesmas</option>
                   </select>
                 </div>
                 <!-- <div class="form-group">
@@ -153,10 +153,9 @@
                      <select class="form-control" name="idPuskesmas" id="idPuskesmas">
                                    
                      <option value="" >Pilih puskesmas:</option>
-                      <?php foreach ($puskesmas_object as $key){ ?>
-                                    
-                      <option value="<?php echo $key->idPuskesmas?>" ><?php echo $key->namaPuskes?></option>
-                      <?php }?>
+          
+                      <option value="" >---</option>
+            
                   </select>
                 </div>
                
@@ -267,18 +266,18 @@
     }
   </script>
 
-  <script type="text/javascript">
-    function makeDisabled(){
-      var x = document.getElementById('idPuskesmas')
-      x.disabled=true
-    }
+<script type="text/javascript">
 
-    function makeEnabled(){
-      var x = document.getElementById('idPuskesmas')
-      x.disabled=false
-    }
+    $("#jabatan").change(function () {
+        var val = $(this).val(); //get the value
+        $("#idPuskesmas").attr('disabled',false);
+        if (val == "Kepala puskesmas") { //if Hercules append only necessary options
+            $("#idPuskesmas").html('<?php foreach ($puskesmas_object as $key){ ?> <option value="<?php echo $key->idPuskesmas?>" ><?php echo $key->namaPuskes?></option><?php }?>');
+        } else{
+           $("#idPuskesmas").html("<option value=''>---</option>");
+        }
+});
 
   </script>
-
 
 </html>
