@@ -27,7 +27,7 @@
                     <!-- column -->
                     <div class="col-lg-12">
             
-          <body onload="makeDisabled()">
+          <body >
            <center><h1>Tambah User</h1> </center> 
 
                                 <div class="form_group">
@@ -53,8 +53,8 @@
                                     <label for="">Jabatan</label>
                                     <select class="form-control" name="jabatan" id="jabatan">
                                     <option value="" >Pilih jabatan:</option>
-                                    <option value="Staff" onclick="makeDisabled()" >Staff</option>
-                                    <option value="Kepala puskesmas" onclick="makeEnabled()" >Kepala puskesmas</option>
+                                    <option value="Staff"  >Staff</option>
+                                    <option value="Kepala puskesmas"  >Kepala puskesmas</option>
                                     </select>
                                     <br><br>
 
@@ -68,10 +68,10 @@
                                     <select class="form-control" name="idPuskesmas" id="idPuskesmas">
                                     <!--   <option value="">Pilih puskesmas</option> -->
                                     <option value="" >Pilih puskesmas:</option>
-                                     <?php foreach ($puskesmas_object as $key){ ?>
+                               
                                     
-                                    <option value="<?php echo $key->idPuskesmas?>" ><?php echo $key->namaPuskes?></option>
-                             <?php }?>
+                                    <option value="" >---</option>
+                         
                                     </select>
                                     <br><br>
 
@@ -202,18 +202,20 @@
       var to = $("#" + id).data("to");
       console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
     }
+     
   </script>
 
 <script type="text/javascript">
-    function makeDisabled(){
-      var x = document.getElementById('idPuskesmas')
-      x.disabled=true
-    }
 
-    function makeEnabled(){
-      var x = document.getElementById('idPuskesmas')
-      x.disabled=false
-    }
+    $("#jabatan").change(function () {
+        var val = $(this).val(); //get the value
+        $("#idPuskesmas").attr('disabled',false);
+        if (val == "Kepala puskesmas") { //if Hercules append only necessary options
+            $("#idPuskesmas").html('<?php foreach ($puskesmas_object as $key){ ?> <option value="<?php echo $key->idPuskesmas?>" ><?php echo $key->namaPuskes?></option><?php }?>');
+        } else{
+           $("#idPuskesmas").html("<option value=''></option>");
+        }
+});
 
   </script>
 
