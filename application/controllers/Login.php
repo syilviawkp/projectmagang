@@ -55,10 +55,13 @@ public function dashboard()
 			$data['username']=$session_data['username'];
 			$data['password']=$session_data['password'];
 			$data['level']=$session_data['level'];
-			$data['idPuskesmas']=$session_data['idPuskesmas'];
-			if($data['level']=='admin'){
+			
+			if($data['level']=='Admin'){
+				
 					redirect('login/dashboard','refresh');
 			}else{
+				$data['idPuskesmas']=$session_data['idPuskesmas'];
+			
 				redirect('User','refresh');
 			}
 		}
@@ -74,6 +77,10 @@ public function dashboard()
 
 		if($result){
 			$sess_array = array();
+			foreach ($result as $key) {
+				$level = $key->level;
+			} 
+			if($level == "User"){
 			foreach ($result as $row){
 				$sess_array = array(
 				'idUser'=>$row->idUser,
@@ -89,6 +96,22 @@ public function dashboard()
 				);
 				$this->session->set_userdata('logged_in',$sess_array);
 			}
+		}else{
+			foreach ($result as $row){
+			$sess_array = array(
+				'idUser'=>$row->idUser,
+				'username'=>$row->username,
+				'password'=>$row->password,
+				'nama'=>$row->nama,
+				'noHp'=>$row->noHp,
+				'level'=>$row->level,
+				'jabatan'=>$row->jabatan,
+				
+				);
+				$this->session->set_userdata('logged_in',$sess_array);
+		}
+	}
+
 			return true;
 		}else
 		{
@@ -128,7 +151,7 @@ public function dashboard()
 			{
 				$this->load->model('UserModel');
 				$this->UserModel->insertUser();
-						$this->session->set_flashdata('tambahUser','<div class="alert alert-danger" role="alert">SUKSES TAMBAH DATA <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+						$this->session->set_flashdata('tambahUser','<div class="alert alert-success" role="alert">SUKSES TAMBAH DATA <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 				//echo '<script>alert("Sukses mendaftar")</script>';
 				redirect('Login/data', 'refresh');
 			}

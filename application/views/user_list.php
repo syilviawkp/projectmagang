@@ -4,12 +4,11 @@
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
     <!--main content start-->
-    
-    <section id="main-content">
+   <section id="main-content">
+        <div class="col-lg-12">
       <section class="wrapper">
         <div class="row">
           <div class="row mt">
-          <div class="col-lg-12">
             <div class="form-panel">
               <h4 class="mb"><i class="fa fa-angle-right"></i> User</h4>
 
