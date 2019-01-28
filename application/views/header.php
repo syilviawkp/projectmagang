@@ -329,7 +329,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Edit Format Laporan</h4>
+                    <h4 class="modal-title"><center>Edit Format Laporan</center></h4>
                 </div>
      <?php echo form_open('LaporanKesga/editFieldLaporan'); ?>
     <div class="modal-body">
@@ -372,7 +372,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Edit Format Laporan</h4>
+                    <center><h4 class="modal-title">Edit Format Laporan</h4></center>
                 </div>
      <?php echo form_open('LaporanP2pl/editFieldLaporan'); ?>
     <div class="modal-body">
@@ -413,7 +413,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Edit Format Laporan</h4>
+                    <center><h4 class="modal-title"><center>Edit Format Laporan</h4></center>
                 </div>
      <?php echo form_open('LaporanYankes/editFieldLaporan'); ?>
     <div class="modal-body">
@@ -495,7 +495,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Cetak Laporan P2P</h4>
+                    <center><h4 class="modal-title">Cetak Laporan P2P</h4></center>
                 </div>
      <?php echo form_open('cetaklaporan/editFieldCetakp2pl'); ?>
     <div class="modal-body">
@@ -537,7 +537,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Cetak Laporan PSDK</h4>
+                    <center><h4 class="modal-title">Cetak Laporan PSDK</h4></center>
                 </div>
      <?php echo form_open('cetaklaporan/editFieldCetakyankes'); ?>
   <div class="modal-body">
@@ -579,7 +579,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Cetak Laporan Semua Kategori</h4>
+                    <center><h4 class="modal-title">Cetak Laporan Semua Kategori</h4></center>
                 </div>
      <?php echo form_open('cetaklaporan/editFieldCetakSemua'); ?>
     <div class="modal-body">
