@@ -166,7 +166,7 @@ public function dashboard()
 	{ 
 		$data['user_object']=$this->UserModel->getUserQueryObject();
 		$data['puskesmas_object']=$this->PuskesmasModel->getDataPuskesmas();
-		$this->load->view('headertabel');
+		$this->load->view('header');
 		 $this->load->view('user_list', $data);
 	}
 
@@ -181,7 +181,7 @@ public function dashboard()
 	public function Delete($idUser){
 		$this->UserModel->delete($idUser);
 		//echo '<script>alert("Sukses menghapus user")</script>';
-		$this->session->set_flashdata('hapusUser','<div class="alert alert-success" role="alert">SUKSES HAPUS DATA <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+		$this->session->set_flashdata('hapusUser','<div class="alert alert-danger" role="alert">SUKSES HAPUS DATA <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		redirect('Login/data', 'refresh');
 		/*$this->load->view('hapus_user_sukses');*/
 	}

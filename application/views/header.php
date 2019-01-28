@@ -17,6 +17,9 @@
   <link href="<?php echo base_url()?>/assets/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!--external css-->
   <link href="<?php echo base_url()?>/assets/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+   <link href="<?php echo base_url()?>/assets/lib/advanced-datatable/css/demo_page.css" rel="stylesheet" />
+  <link href="<?php echo base_url()?>/assets/lib/advanced-datatable/css/demo_table.css" rel="stylesheet" />
+  <link rel="stylesheet" href="<?php echo base_url()?>/assets/lib/advanced-datatable/css/DT_bootstrap.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/assets/css/zabuto_calendar.css">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/assets/lib/gritter/css/jquery.gritter.css" />
 

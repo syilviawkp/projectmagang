@@ -47,8 +47,8 @@ class Puskesmas extends CI_Controller {
 		public function Delete($idPuskesmas){
 		
 		$this->PuskesmasModel->delete($idPuskesmas);
-		echo '<script>alert("Sukses menghapus puskesmas")</script>';
-	
+		//echo '<script>alert("Sukses menghapus puskesmas")</script>';
+	$this->session->set_flashdata('hapusPuskesmas','<div class="alert alert-danger" role="alert">SUKSES HAPUS DATA <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		redirect('Puskesmas', 'refresh');
 		/*$this->load->view('hapus_user_sukses');*/
 	}
@@ -69,13 +69,15 @@ class Puskesmas extends CI_Controller {
 
 		if ($this->form_validation->run()==FALSE) 
 			{
-				echo '<script>alert("Gagal menambahkan")</script>';
+				//echo '<script>alert("Gagal menambahkan")</script>';
+				$this->session->set_flashdata('tambahPuskesmas','<div class="alert alert-danger" role="alert">GAGAL MENAMBAH DATA <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 				redirect('Puskesmas/data', 'refresh');
 		}else
 			{
 				$this->load->model('PuskesmasModel');
 				$this->PuskesmasModel->insertPuskesmas();
-				echo '<script>alert("Sukses mendaftar")</script>';
+				//echo '<script>alert("Sukses mendaftar")</script>';
+				$this->session->set_flashdata('tambahPuskesmas','<div class="alert alert-success" role="alert">SUKSES MENAMBAH DATA <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 				redirect('Puskesmas/data', 'refresh');
 			}
 	}
@@ -97,7 +99,8 @@ class Puskesmas extends CI_Controller {
 			// }else{
 			// 	$data['idUser']=$idUser;
 				$this->PuskesmasModel->UpdateById();
-				echo '<script>alert("Sukses mengedit")</script>';
+				//echo '<script>alert("Sukses mengedit")</script>';
+				$this->session->set_flashdata('editPuskesmas','<div class="alert alert-success" role="alert">SUKSES UPDATE DATA <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 			redirect('Puskesmas/data', 'refresh');		
 			// }
 
