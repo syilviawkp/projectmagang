@@ -53,18 +53,10 @@
                       <td><?php echo $key->level ?></td>
 
                        
-                         <td>
-                         <a href="javascript:void(0);" onclick="showmodal('<?php echo $key->idUser ?>','<?php echo $key->username ?>','<?php echo $key->password ?>','<?php echo $key->nama ?>','<?php echo $key->noHp ?>','<?php echo $key->jabatan?>','<?php echo $key->idPuskesmas ?>','<?php echo $key->level ?>')" data-toggle="modal" data-target="#myModalEdit">
-                         <button class="btn btn-primary" title="edit data user">
-                         <span class="glyphicon glyphicon-pencil"></span>
-                         </button>
-                         </a>
-                         </td>
-                         
-                         <td>
+                         <td><a href="javascript:void(0);" onclick="showmodal('<?php echo $key->idUser ?>','<?php echo $key->username ?>','<?php echo $key->password ?>','<?php echo $key->nama ?>','<?php echo $key->noHp ?>','<?php echo $key->jabatan?>','<?php echo $key->idPuskesmas ?>','<?php echo $key->level ?>')" data-toggle="modal" data-target="#myModalEdit"><button class="btn btn-primary" title="edit data user"><span class="glyphicon glyphicon-pencil"></span></button></a></p></td><td>
 
 
-                        <a href="<?php echo site_url()?>/Login/Delete/<?php echo $key->idUser ?>" onclick="return confirm('Are you sure to delete this data permanently?');"><p data-placement="top" title="Delete"><button class="btn btn-danger" data-title="Delete" data-toggle="modal" data-target="#delete" title="hapus user"><span class="glyphicon glyphicon-trash"></span></button></p></a></td>
+                        <a href="<?php echo site_url()?>/Login/Delete/<?php echo $key->idUser ?>" onclick="return confirm('Are you sure to delete this data permanently?');"><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger" data-title="Delete" data-toggle="modal" data-target="#delete" title="hapus user"><span class="glyphicon glyphicon-trash"></span></button></p></a></td>
                         </tr>
 
 
@@ -203,7 +195,32 @@
   <!--script for this page-->
   <script type="text/javascript">
     /* Formating function for row details */
-    
+    function fnFormatDetails(oTable, nTr) {
+      var aData = oTable.fnGetData(nTr);
+      var sOut = '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
+      sOut += '<tr><td>Rendering engine:</td><td>' + aData[1] + ' ' + aData[4] + '</td></tr>';
+      sOut += '<tr><td>Link to source:</td><td>Could provide a link here</td></tr>';
+      sOut += '<tr><td>Extra info:</td><td>And any further details here (images etc)</td></tr>';
+      sOut += '</table>';
+
+      return sOut;
+    }
+
+    $(document).ready(function() {
+      /*
+       * Insert a 'details' column to the table
+       */
+      var nCloneTh = document.createElement('th');
+      var nCloneTd = document.createElement('td');
+   
+
+      $('#hidden-table-info thead tr').each(function() {
+        this.insertBefore(nCloneTh, this.childNodes[0]);
+      });
+
+      $('#hidden-table-info tbody tr').each(function() {
+        this.insertBefore(nCloneTd.cloneNode(true), this.childNodes[0]);
+      });
 
       /*
        * Initialse DataTables, with no sorting on the 'details' column
@@ -223,6 +240,7 @@
        * rather it is done here
        */
     
+    });
   </script>
 </body>
   

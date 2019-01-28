@@ -166,7 +166,7 @@ public function dashboard()
 	{ 
 		$data['user_object']=$this->UserModel->getUserQueryObject();
 		$data['puskesmas_object']=$this->PuskesmasModel->getDataPuskesmas();
-		$this->load->view('header');
+		$this->load->view('headertabel');
 		 $this->load->view('user_list', $data);
 	}
 
