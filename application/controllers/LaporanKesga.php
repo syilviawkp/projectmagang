@@ -76,7 +76,8 @@ class LaporanKesga extends CI_Controller {
 	public function saveEditLaporan(){
 		$this->KesgaModel->editLap();
 		 $nama = $this->input->post('puskesmas');
-	
+	$bulan=$this->input->post('bulan');
+		$tahun=$this->input->post('tahun');
 		 $nomer =  $this->db->query('SELECT user.noHp FROM user join puskesmas on user.idPuskesmas=puskesmas.idPuskesmas where puskesmas.namaPuskes= "'.$nama.'"');
 
             foreach ($nomer->result() as $key ) {
@@ -85,12 +86,12 @@ class LaporanKesga extends CI_Controller {
 		$email_api = urlencode("sylviaputri0@gmail.com ");
 $passkey_api = urlencode("Hm123123");
 $no_hp_tujuan = urlencode($noHp);
-$isi_pesan = urlencode("Kepala Puskesmas $nama yang terhormat, Terimakasih telah mengirimkan laporan bulan Januari 2019");
+$isi_pesan = urlencode("Kepala Puskesmas $nama yang terhormat, Terimakasih telah mengirimkan laporan bulan ".$bulan." ".$tahun);
 
 $url = "https://reguler.medansms.co.id/sms_api.php?action=kirim_sms&email=".$email_api."&passkey=".$passkey_api."&no_tujuan=".$no_hp_tujuan."&pesan=".$isi_pesan;
 $result = file_get_contents($url);
 $data = explode("~~~", $result);
-die();
+
 		redirect('LaporanKesga','refresh');
 	}
 
