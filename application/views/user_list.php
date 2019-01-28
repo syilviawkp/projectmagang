@@ -21,9 +21,13 @@
                            <br><br>
                   </div>
                 </div>
+
                 <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
            <center><h1>Kelola User</h1> </center> 
+                        <?=$this->session->flashdata('editUser')?>
+                         <?=$this->session->flashdata('hapusUser')?>
+                         <?=$this->session->flashdata('tambahUser')?>
                 <tr>
                     <th>ID user</th>
                     <th>Username</th>
@@ -33,8 +37,8 @@
                     <th>Jabatan</th>
                     <th>Kode Puskesmas</th>
                     <th>Level user</th>
-                    <th>Edit</th>
-                    <th>Hapus</th>
+                    <th colspan="2">Aksi</th>
+                  
                     
                 </tr>
             </thead>
@@ -53,8 +57,9 @@
                       <td><?php echo $key->level ?></td>
 
                        
-                        <td><a href="javascript:void(0);" onclick="showmodal('<?php echo $key->idUser ?>','<?php echo $key->username ?>','<?php echo $key->password ?>','<?php echo $key->nama ?>','<?php echo $key->noHp ?>','<?php echo $key->jabatan?>','<?php echo $key->idPuskesmas ?>','<?php echo $key->level ?>')" data-toggle="modal" data-target="#myModalEdit"><button class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></button></a></p></td>
-                         <td><a href="<?php echo site_url()?>/Login/Delete/<?php echo $key->idUser ?>"><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td></a>
+                        <td><a href="javascript:void(0);" onclick="showmodal('<?php echo $key->idUser ?>','<?php echo $key->username ?>','<?php echo $key->password ?>','<?php echo $key->nama ?>','<?php echo $key->noHp ?>','<?php echo $key->jabatan?>','<?php echo $key->idPuskesmas ?>','<?php echo $key->level ?>')" data-toggle="modal" data-target="#myModalEdit"><button class="btn btn-primary" title="edit data user"><span class="glyphicon glyphicon-pencil"></span></button></a></p></td><td>
+
+                        <a href="<?php echo site_url()?>/Login/Delete/<?php echo $key->idUser ?>" onclick="return confirm('Are you sure to delete this data permanently?');"><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger" data-title="Delete" data-toggle="modal" data-target="#delete" title="hapus user"><span class="glyphicon glyphicon-trash"></span></button></p></td></a>
                         </tr>
 
 
@@ -108,7 +113,7 @@
                     <h4 class="modal-title">Edit User</h4>
                 </div>
                 <?php echo form_open_multipart('Login/update'); ?>
-                <?php echo validation_errors(); ?>
+                   
                 <br>
                  <div class="form-group">
                     <label for="">Id User</label>
@@ -140,7 +145,7 @@
                      <select class="form-control" name="jabatan" id="jabatan">
                   <!-- <option value="">Pilih jabatan</option> -->
                   <option value="Staff" >Staff Dinkes </option>
-                  <option value="Kepala Puskesmas"  >Kepala Puskesmas</option>
+                  <option value="Kepala puskesmas"  >Kepala Puskesmas</option>
                   </select>
                 </div>
                 <!-- <div class="form-group">
@@ -154,7 +159,7 @@
                                    
                      <option value="" >Pilih puskesmas:</option>
           
-                      <option value="" >---</option>
+                     <?php foreach ($puskesmas_object as $key){ ?> <option value="<?php echo $key->idPuskesmas?>" ><?php echo $key->namaPuskes?></option><?php }?>
             
                   </select>
                 </div>
@@ -202,9 +207,11 @@
         document.getElementById('password').value = password;
         document.getElementById('nama').value = nama;
         document.getElementById('noHp').value = noHp;
-        document.getElementById('jabatan').value = jabatan;
-        document.getElementById('idPuskesmas').value = idPuskesmas;
-        document.getElementById('level').value = level;
+        document.getElementById('jabatan').selected = jabatan;
+        document.getElementById('idPuskesmas').selected = idPuskesmas;
+        document.getElementById('level').selected = level;
+        $('#jabatan').find('option[value="' + jabatan + '"]').attr("selected", "selected");
+        $('#idPuskesmas').find('option[value="' + idPuskesmas + '"]').attr("selected", "selected");
     }
   </script>
   <script type="text/javascript">

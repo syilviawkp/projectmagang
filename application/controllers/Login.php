@@ -92,7 +92,8 @@ public function dashboard()
 			return true;
 		}else
 		{
-			$this->form_validation->set_message('cekDb',"Login Gagal Username dan Password tidak valid");
+			$this->session->set_flashdata('gglLogin','<div class="alert alert-danger" role="alert">LOGIN GAGAL <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+			//$this->form_validation->set_message('cekDb',"Login Gagal Username dan Password tidak valid");
 			return false;
 		}
 	}
@@ -120,13 +121,15 @@ public function dashboard()
 		if ($this->form_validation->run()==FALSE) 
 			{
 			
-				echo '<script>alert("Gagal menambahkan")</script>';
+				//echo '<script>alert("Gagal menambahkan")</script>';
+				$this->session->set_flashdata('tambahUser','<div class="alert alert-danger" role="alert">GAGAL TAMBAH DATA <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 				redirect('Login/data', 'refresh');
 		}else
 			{
 				$this->load->model('UserModel');
 				$this->UserModel->insertUser();
-				echo '<script>alert("Sukses mendaftar")</script>';
+						$this->session->set_flashdata('tambahUser','<div class="alert alert-danger" role="alert">SUKSES TAMBAH DATA <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+				//echo '<script>alert("Sukses mendaftar")</script>';
 				redirect('Login/data', 'refresh');
 			}
 	}
@@ -154,7 +157,8 @@ public function dashboard()
 
 	public function Delete($idUser){
 		$this->UserModel->delete($idUser);
-		echo '<script>alert("Sukses menghapus user")</script>';
+		//echo '<script>alert("Sukses menghapus user")</script>';
+		$this->session->set_flashdata('hapusUser','<div class="alert alert-success" role="alert">SUKSES HAPUS DATA <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		redirect('Login/data', 'refresh');
 		/*$this->load->view('hapus_user_sukses');*/
 	}
@@ -162,7 +166,8 @@ public function dashboard()
 	public function Update()
 	{
 				$this->UserModel->UpdateById();
-				echo '<script>alert("Sukses mengedit")</script>';
+				//echo '<script>alert("Sukses mengedit")</script>';
+				$this->session->set_flashdata('editUser','<div class="alert alert-success" role="alert">SUKSES EDIT DATA <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 			redirect('Login/data', 'refresh');		
 			// }
 	}

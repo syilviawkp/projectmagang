@@ -39,7 +39,8 @@
         <h2 class="form-login-heading"><img src="<?php echo base_url()?>/assets/img/silapus.png" class="img-rectangl" width="350"></h2>
         <div class="login-wrap">
         <?php echo form_open('login/cekLogin');?>
-        <?php echo validation_errors(); ?>
+       
+         <?=$this->session->flashdata('gglLogin')?>
           <input type="text" name="username" class="form-control" placeholder="Username" autofocus>
           <br>
           <input type="password" name="password"class="form-control" placeholder="Password">
