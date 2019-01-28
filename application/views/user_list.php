@@ -214,7 +214,7 @@
         $('#idPuskesmas').find('option[value="' + idPuskesmas + '"]').attr("selected", "selected");
     }
   </script>
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
     $(document).ready(function() {
       var unique_id = $.gritter.add({
         // (string | mandatory) the heading of the notification
@@ -233,7 +233,7 @@
 
       return false;
     });
-  </script>
+  </script> -->
   <script type="application/javascript">
     $(document).ready(function() {
       $("#date-popover").popover({

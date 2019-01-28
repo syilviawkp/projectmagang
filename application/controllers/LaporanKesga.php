@@ -76,10 +76,12 @@ class LaporanKesga extends CI_Controller {
 	public function saveEditLaporan(){
 		$this->KesgaModel->editLap();
 		 $nama = $this->input->post('puskesmas');
+	
 		 $nomer =  $this->db->query('SELECT user.noHp FROM user join puskesmas on user.idPuskesmas=puskesmas.idPuskesmas where puskesmas.namaPuskes= "'.$nama.'"');
-         foreach ($nomer->result() as $key) {
-            $nohp= $key->noHp;
-          }
+
+            foreach ($nomer->result() as $key ) {
+            $noHp = $key->noHp;}
+
 		$email_api = urlencode("sylviaputri0@gmail.com ");
 $passkey_api = urlencode("Hm123123");
 $no_hp_tujuan = urlencode($noHp);
@@ -88,6 +90,7 @@ $isi_pesan = urlencode("Kepala Puskesmas $nama yang terhormat, Terimakasih telah
 $url = "https://reguler.medansms.co.id/sms_api.php?action=kirim_sms&email=".$email_api."&passkey=".$passkey_api."&no_tujuan=".$no_hp_tujuan."&pesan=".$isi_pesan;
 $result = file_get_contents($url);
 $data = explode("~~~", $result);
+die();
 		redirect('LaporanKesga','refresh');
 	}
 
@@ -123,7 +126,7 @@ $this->KesgaModel->cekLaporanKosong();
      //    $this->db->insert('laporan', $object);
 
  
-     //   $kode =  $this->db->query('SELECT  kodeLaporan FROM laporan where bulan= "'. $bulan .'" and tahun='. $tahun);
+     //$kode =  $this->db->query('SELECT  kodeLaporan FROM laporan where bulan= "'. $bulan .'" and tahun='. $tahun);
      //    foreach ($kode->result() as $key) {
      //       $kodeLaporan= $key->kodeLaporan;
      //     }
