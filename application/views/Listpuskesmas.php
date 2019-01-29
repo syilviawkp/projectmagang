@@ -32,7 +32,7 @@
                     <th>Alamat Puskesmas</th>
                     <th>Status</th>
                     <th>Edit</th>
-                    <th>Hapus</th>
+                    <th>Nonaktifkan</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -45,24 +45,24 @@
                     <td><?php echo $data->status ?></td>
                 <?php if ($data->status == 'AKTIF'){?>
                      <td>
-                      <a href="javascript:void(0);" onclick="showmodal('<?php echo $data->idPuskesmas?>','<?php echo $data->namaPuskes?>','<?php echo $data->alamatPuskes ?>','<?php echo $data->status ?>')" data-toggle="modal" data-target="#myModalEdit">
+                      <a href="javascript:void(0);" onclick="showmodal('<?php echo $data->idPuskesmas?>','<?php echo $data->namaPuskes?>','<?php echo $data->alamatPuskes ?>')" data-toggle="modal" data-target="#myModalEdit">
                          <button class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></button>
                       </a>
                     </td>
 
                       <td>
-                      <a href="<?php echo site_url()?>/Puskesmas/Delete/<?php echo $data->idPuskesmas ?>"
-                      <button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+                      <a href="<?php echo site_url()?>/Puskesmas/Delete/<?php echo $data->idPuskesmas ?>" onclick="return confirm('Apakah Anda yakin menonaktifkan Puskesmas secara permanen?');">
+                      <button class="btn btn-danger"><span class="glyphicon glyphicon-remove-sign"></span></button>
                       </a>
                       <?php }else{?>
                       <td>
                     
-                         <button class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span></button>
+                         <button class="btn btn-warning"><span class="glyphicon glyphicon-off"></span></button>
                     </td>
 
                       <td>
                     
-                      <button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+                      <button class="btn btn-warning"><span class="glyphicon glyphicon-off"></span></button>
                       </td>
                       <?php }?>
            
@@ -107,13 +107,7 @@
                     <label for="">Alamat Puskesmas</label>
                     <input type="text" class="form-control" name="alamatPuskes" id="alamatPuskes" value="" >
                 </div>
-                <div class="form-group">
-                  <label for="">Status</label>
-                     <select class="form-control" name="status" id="status">
-                  <option value="AKTIF" >AKTIF</option>
-                  <option value="NONAKTIF" >NONAKTIF</option>
-                  </select>
-                </div>
+                
                  
                <div align="right" style="margin-bottom: 20px; margin-right: 30px">
           <button class="btn-info" type="submit">Update</button>
@@ -151,11 +145,11 @@
   <script type="text/javascript" src="<?php echo base_url()?>/assets/lib/advanced-datatable/js/DT_bootstrap.js"></script>
    
  <script type="text/javascript">
-    function showmodal(idPuskesmas,namaPuskes,alamatPuskes,status){
+    function showmodal(idPuskesmas,namaPuskes,alamatPuskes){
         document.getElementById('idPuskesmas').value = idPuskesmas;
         document.getElementById('namaPuskes').value = namaPuskes;
         document.getElementById('alamatPuskes').value = alamatPuskes;
-        document.getElementById('status').value = status;
+
     }
   </script>
   <!--script for this page-->

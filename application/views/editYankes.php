@@ -92,10 +92,58 @@
               <?php }else{?>
                 <td><input type="checkbox" name="<?php echo "$field2" ?>" value="SUDAH" ></td>
 
-              <?php } ?>
+              <?php }
+                $terima = $data->terima;
+                $susulan = $data->susulan;
+                $terima0 = explode("[", $terima);
+               if(empty($terima0[1])){
+                  $terima4="";
+                }else{
+                  foreach($terima0 as $terima2){
+                    if(!empty($terima2)){
+                      $terima3= explode(":", $terima2);
+                      
+                      if($terima3[0]==$puskesmas){
+                        $terima4=$terima3[1];
+                        $terima4=str_replace(']', '',  $terima4);
+                        break;
 
-                <td ><input type="text" name="<?php echo 'msk'."$field2" ?>" style="width: 200px"></td>
-                <td ><input type="text" name="<?php echo 'ssl'."$field2" ?>" style="width: 200px;"></td>
+                      }else{
+                      $terima4="";
+                    }
+                  }else{
+                    $terima4="";
+                  }
+                  }
+                }
+
+                $susulan0=explode("[", $susulan);
+                  if(empty($susulan0[1])){
+                  $susulan4="";
+                }else{
+                  foreach($susulan0 as $susulan2){
+                    if(!empty($susulan2)){
+                      $susulan3= explode(":", $susulan2);
+                      
+                      if($susulan3[0]==$puskesmas){
+                        $susulan4=$susulan3[1];
+                        $susulan4=str_replace(']', '',  $susulan4);
+                        break;
+                      }else{
+                      $susulan4="";
+                    }
+                  }else{
+                    $susulan4="";
+                  }
+                  }
+                }
+  
+
+               ?>
+
+                <td ><input type="text" name="<?php echo 'msk'."$field2" ?>" style="width: 200px" 
+                value="<?php echo $terima4?>"></td>
+                <td ><input type="text" name="<?php echo 'ssl'."$field2" ?>" style="width: 200px;" value="<?php echo $susulan4?>"></td>
               </tr>
         <?php }} } ?>
 

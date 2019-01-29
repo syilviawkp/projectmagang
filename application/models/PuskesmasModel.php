@@ -6,7 +6,7 @@ class PuskesmasModel extends CI_Model {
     public function __construct()
     {
         parent::__construct();
-        //Do your magic here
+        //Do your magic heres
     }
 
     public function getAllPuskesmas()
@@ -69,8 +69,7 @@ class PuskesmasModel extends CI_Model {
         $data = array(
             'idPuskesmas' => $this->input->post('idPuskesmas'),
             'namaPuskes' => $this->input->post('namaPuskes'),
-            'alamatPuskes' => $this->input->post('alamatPuskes'),
-            'status' => $this->input->post('status')
+            'alamatPuskes' => $this->input->post('alamatPuskes')
         );
 
         

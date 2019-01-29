@@ -84,28 +84,9 @@ class Puskesmas extends CI_Controller {
 
 	public function Update()
 	{
-			// $this->form_validation->set_rules('username', 'username', 'trim|required');
-			// $this->form_validation->set_rules('password', 'password', 'trim|required');
-			// $this->form_validation->set_rules('nama', 'nama', 'trim|required');
-			// $this->form_validation->set_rules('noHp', 'noHp', 'trim|required');
-			// $this->form_validation->set_rules('idPuskesmas', 'idPuskesmas', 'trim|required');
-			// $this->form_validation->set_rules('level', 'level', 'trim|required');
-			// $this->form_validation->set_rules('jabatan', 'jabatan', 'trim|required');
-			
-			
-
-			// if($this->form_validation->run()==FALSE){
-			// 	$this->load->view('editUser', $data);
-			// }else{
-			// 	$data['idUser']=$idUser;
 				$this->PuskesmasModel->UpdateById();
-				//echo '<script>alert("Sukses mengedit")</script>';
 				$this->session->set_flashdata('editPuskesmas','<div class="alert alert-success" role="alert">SUKSES UPDATE DATA <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-			redirect('Puskesmas/data', 'refresh');		
-			// }
-
-
-
+			redirect('Puskesmas/data', 'refresh');
 	}
 	
 }

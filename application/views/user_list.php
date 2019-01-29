@@ -139,7 +139,7 @@
                   <label for="">Puskesmas</label>
                      <select class="form-control" name="idPuskesmas" id="idPuskesmas">
                                    
-                     <option value="" >Pilih puskesmas:</option>
+                     <option value="0" >Pilih puskesmas:</option>
           
                      <?php foreach ($puskesmas_object as $key){ ?> <option value="<?php echo $key->idPuskesmas?>" ><?php echo $key->namaPuskes?></option><?php }?>
             
@@ -229,6 +229,23 @@
        */
     
   </script>
+  <script type="text/javascript">
+
+    $("#jabatan").change(function () {
+        var val = $(this).val(); //get the value
+        $("#idPuskesmas").attr('disabled',false);
+        if (val == "Kepala puskesmas") { //if Hercules append only necessary options
+            $("#idPuskesmas").html('<?php foreach ($puskesmas_object as $key){ ?> <option value="<?php echo $key->idPuskesmas?>" ><?php echo $key->namaPuskes?></option><?php }?>');
+                        $("#level").html('<option value="User">User</option>');
+        } else{
+          $("#level").html('<option value="Admin">Admin</option>');
+           $("#idPuskesmas").html("<option value=''></option>");
+
+        }
+});
+
+  </script>
+
 </body>
   
 

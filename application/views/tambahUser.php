@@ -78,8 +78,7 @@
                                     <label for="">Level</label>
                                     <select class="form-control" name="level" id="level">
                                     <option value="" >Pilih level:</option>
-                                    <option value="Admin" >Admin</option>
-                                    <option value="User" >User</option>
+                                   
                                     </select>
                                     <br><br>
 
@@ -213,8 +212,11 @@
         $("#idPuskesmas").attr('disabled',false);
         if (val == "Kepala puskesmas") { //if Hercules append only necessary options
             $("#idPuskesmas").html('<?php foreach ($puskesmas_object as $key){ ?> <option value="<?php echo $key->idPuskesmas?>" ><?php echo $key->namaPuskes?></option><?php }?>');
+                        $("#level").html('<option value="User">User</option>');
         } else{
+          $("#level").html('<option value="Admin">Admin</option>');
            $("#idPuskesmas").html("<option value=''></option>");
+
         }
 });
 
