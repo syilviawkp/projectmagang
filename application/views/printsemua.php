@@ -59,7 +59,7 @@
                       $puskes = $row->namaPuskes;
                      if($data->$puskes =="SUDAH"){
                   ?>
-                    <td><input type="checkbox" name="feeling" value="good" checked="" disabled readonly=""></td>
+                    <td><center>V</center><input type="checkbox" name="feeling" value="good" checked="" disabled readonly=""></td>
               <?php }else{?>
               <td style="background: yellow"></td>
               <?php } } ?>
@@ -109,7 +109,7 @@
                       $puskes = $row->namaPuskes;
                      if($data->$puskes =="SUDAH"){
                   ?>
-                    <td><input type="checkbox" name="feeling" value="good" checked="" disabled readonly=""></td>
+                    <td><center>V</center><input type="checkbox" name="feeling" value="good" checked="" disabled readonly=""></td>
               <?php }else{?>
               <td style="background: yellow"></td>
               <?php } } ?>
@@ -154,7 +154,7 @@
                       $puskes = $row->namaPuskes;
                      if($data->$puskes =="SUDAH"){
                   ?>
-                    <td><input type="checkbox" name="feeling" value="good" checked="" disabled readonly=""></td>
+                    <td><center>V</center><input type="checkbox" name="feeling" value="good" checked="" disabled readonly=""></td>
               <?php }else{?>
               <td style="background: yellow"></td>
               <?php } } ?>
