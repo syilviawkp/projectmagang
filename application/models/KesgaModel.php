@@ -376,5 +376,32 @@ if($bulan=="Januari"){
           }
 
   }
+ public function ceksms(){
+    $today = date('Y-m-d');
+    $this->db->where('tanggal', $today);
+    $query=$this->db->get('hitungsms');
+    if($query->num_rows()==0){
+      $data = array('tanggal' => $today, 'jumlahsms'=> "1");
+        $this->db->insert('hitungsms', $data);
+        echo '<script>alert("sisa sms yang Anda miliki sebanyak 9")</script>';
+    }else{
+      foreach ($query->result() as $key) {
+             $jumlahsms = $key->jumlahsms;
+           }
+           if($jumlahsms<10){
+            $jumlahsms2 = $jumlahsms+1;
+           $this->db->set('jumlahsms', $jumlahsms2);
+           $this->db->where('tanggal', $today);
+      
+          $this->db->update('hitungsms');
+
+          $jumlahsms3=9-$jumlahsms;
+           echo '<script>alert("sisa sms yang Anda miliki sebanyak '.$jumlahsms3.'")</script>'; 
+         }
+         else{
+           echo '<script>alert("Data anda telah tersimpan namun sisa sms yang Anda miliki telah habis, silahkan mencoba mengirim kembali di hari selanjutnya")</script>'; 
+         }
+    }
+  }
   
 }

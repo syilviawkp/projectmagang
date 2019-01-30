@@ -77,35 +77,41 @@ class LaporanYankes extends CI_Controller {
 	}
 
 	public function saveEditLaporan(){
+	
+		if($this->input->post('status')=="submit"){
 		$this->YankesModel->editLap();
-			 $nama = $this->input->post('puskesmas');
-	$bulan=$this->input->post('bulan');
+		$nama = $this->input->post('puskesmas');
+	    $bulan=$this->input->post('bulan');
 		$tahun=$this->input->post('tahun');
-// 		 $nomer =  $this->db->query('SELECT user.noHp FROM user join puskesmas on user.idPuskesmas=puskesmas.idPuskesmas where puskesmas.namaPuskes= "'.$nama.'"');
+		redirect('LaporanYankes','refresh');
+		
+		}else{
+		$this->YankesModel->ceksms();
+		$this->YankesModel->editLap();
+		$nama = $this->input->post('puskesmas');
+		$bulan=$this->input->post('bulan');
+		$tahun=$this->input->post('tahun');
 
-//             foreach ($nomer->result() as $key ) {
-//             $noHp = $key->noHp;}
+			 $nomer =  $this->db->query('SELECT user.noHp FROM user join puskesmas on user.idPuskesmas=puskesmas.idPuskesmas where puskesmas.namaPuskes= "'.$nama.'"');
 
-// 		$email_api = urlencode("sylviaputri0@gmail.com ");
-// $passkey_api = urlencode("Hm123123");
-// $no_hp_tujuan = urlencode($noHp);
-// $isi_pesan = urlencode("Kepala Puskesmas $nama yang terhormat, Terimakasih telah mengirimkan laporan bulan ".$bulan." ".$tahun);
+           foreach ($nomer->result() as $key ) {
+             $noHp = $key->noHp;}
 
-// $url = "https://reguler.medansms.co.id/sms_api.php?action=kirim_sms&email=".$email_api."&passkey=".$passkey_api."&no_tujuan=".$no_hp_tujuan."&pesan=".$isi_pesan;
-// $result = file_get_contents($url);
-// $data = explode("~~~", $result);
+
+		$email_api = urlencode("sylviaputri0@gmail.com ");
+ 		$passkey_api = urlencode("Hm123123");
+ 		$no_hp_tujuan = urlencode($noHp);
+ 		$isi_pesan = urlencode("Kepala Puskesmas $nama yang terhormat, Terimakasih telah mengirimkan laporan bulan ".$bulan." ".$tahun);
+
+ 		$url = "https://reguler.medansms.co.id/sms_api.php?action=kirim_sms&email=".$email_api."&passkey=".$passkey_api."&no_tujuan=".$no_hp_tujuan."&pesan=".$isi_pesan;
+ 		$result = file_get_contents($url);
+ 		$data = explode("~~~", $result);
 
 		redirect('LaporanYankes','refresh');
+		}
 	}
 
-	public function saveEditdanSMSLaporan(){
-	$this->YankesModel->editLapdanSMS();
-	$nama = $this->input->post('puskesmas');
-	$bulan=$this->input->post('bulan');
-	$tahun=$this->input->post('tahun');
-
-		redirect('LaporanYankes','refresh');
-	}
+	
 
 	 public function editFieldLaporan()
     {

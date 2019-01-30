@@ -51,10 +51,11 @@
                            <br><br>
                   </div>
                 </div>
+           
 
-              
- <?php echo form_open('LaporanYankes/saveEditLaporan');?>
- <?php echo form_open('LaporanYankes/saveEditdanSMSLaporan');?>
+
+
+   <?php echo form_open('LaporanYankes/saveEditLaporan');?> 
     <input type="text" name="puskesmas" value="<?php echo $puskesmas?>" hidden="">
     <input type="text" name="bulan" value="<?php echo $bulan?>" hidden="">
     <input type="text" name="tahun" value="<?php echo $tahun ?>" hidden="">
@@ -154,9 +155,11 @@
         </table>
         <br> <br>
         <p align="center">
-        <Button type="submit" class="btn btn-success">    Submit    </Button></p><br>
+        <input name="status" id="status" value="submit" hidden="">
+        <Button type="submit" class="btn btn-success" style="width:250px" id="btnsubmit" onclick="submit()">Submit &nbsp; <span class="glyphicon glyphicon-floppy-save" ></span></Button></p><br>
+        
         <p align="center">
-        <Button type="submit" class="btn btn-success">  Submit Dan Kirim SMS  </Button></p>
+        <Button type="submit" class="btn btn-warning" style="width:250px" id="btnsms" onclick="sms()">Submit Dan Kirim SMS &nbsp; <span class="glyphicon glyphicon-send"></span></Button></p>
         
         <?php echo form_close();?>
  
@@ -253,6 +256,15 @@
       var nav = $("#" + id).data("navigation");
       var to = $("#" + id).data("to");
       console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
+    }
+  </script>
+  <script type="text/javascript">
+    function submit(){
+      document.getElementById('status').value= "status";
+    }
+
+    function sms(){
+      document.getElementById('status').value= "sms";
     }
   </script>
 </body>
