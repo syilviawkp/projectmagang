@@ -153,9 +153,9 @@
         </table>
         <br> <br>
         <p align="center">
-        <Button type="submit" class="btn btn-success.btn-lg">    Submit    </Button></p><br>
-        <p align="center">
-        <Button type="submit" class="btn btn-success">  Submit Dan Kirim SMS  </Button></p>
+        <Button type="submit" class="btn btn-success">    Submit    </Button></p><br>
+        <!-- <p align="center">
+        <Button type="submit" class="btn btn-success">  Submit Dan Kirim SMS  </Button></p> -->
         <?php echo form_close();?>
         
             </div>
