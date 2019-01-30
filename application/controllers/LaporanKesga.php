@@ -111,7 +111,7 @@ $this->KesgaModel->cekLaporanKosong();
         $this->db->select('*');
         $this->db->from('detaillaporan');
         $this->db->join('laporan', 'laporan.kodeLaporan = detaillaporan.idLaporan');
-        $this->db->where('idLaporan', '(select kodeLaporan from laporan where bulan = "'. $bulan.'" and tahun = '.$tahun.')',false);
+        $this->db->where('idLaporan', '(select kodeLaporan from laporan where bulan = "'. $bulan.'" and tahun = '.$tahun.' and jenisLaporan="KESGA")',false);
         $query= $this->db->get();
           if($query->num_rows()>0){
                 foreach ($query->result() as $key) {
