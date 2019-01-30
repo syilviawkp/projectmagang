@@ -257,6 +257,7 @@ if($bulan=="Januari"){
         $msk = "msk".$field2;
         $ssln = "ssl".$field2;
         $susulan9=$susulan;
+        $terima9=$terima;
     
         $stt=false;
         if($this->input->post($msk) != ""){

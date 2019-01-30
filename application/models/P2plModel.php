@@ -258,21 +258,58 @@ if($bulan=="Januari"){
         $ssln = "ssl".$field2;
     
     
+         $susulan9=$susulan;
+        $terima9=$terima;
+    
+        $stt=false;
         if($this->input->post($msk) != ""){
-        $terima = $terima." $puskesmas: ".$this->input->post($msk);
-        //echo "$terima";
+
+
+          $terima0=explode("[", $terima);
+           if(empty($terima0[1])){
+                   $terima9 = "[$puskesmas:".$this->input->post($msk)."]";
+                }else{
+                  foreach($terima0 as $terima2){
+                      $terima3= explode(":", $terima2);
+                      if($terima3[0]==$puskesmas){
+                        $terima9=str_replace("[$puskesmas:".$terima3[1],"[$puskesmas:".$this->input->post($msk)."]" ,$terima);
+                        $stt=true;
+                      }
+                  }
+                  if($stt==false){
+                    $terima9=$terima."[$puskesmas:".$this->input->post($msk)."]";
+                  }
+                }
         
       }
+      $status=false;
         if($this->input->post($ssln) != ""){
-        $susulan = $susulan. " $puskesmas: ".$this->input->post($ssln);
+
+           $susulan0=explode("[", $susulan);
+           if(empty($susulan0[1])){
+                   $susulan9 = "[$puskesmas:".$this->input->post($ssln)."]";
+                }else{
+                  foreach($susulan0 as $susulan2){
+                      $susulan3= explode(":", $susulan2);
+                      if($susulan3[0]==$puskesmas){
+                        $susulan9=str_replace("[$puskesmas:".$susulan3[1],"[$puskesmas:".$this->input->post($ssln)."]" ,$susulan);
+                        $status=true;
+                      }
+                  }
+                  if($status==false){
+                    $susulan9=$susulan."[$puskesmas:".$this->input->post($ssln)."]";
+                  }
+                }
+                  
+       
         
       }
 
 
         $isi= $this->input->post($field2);
         $this->db->set($puskesmas, $isi);
-        $this->db->set('terima', $terima);
-        $this->db->set('susulan', $susulan);
+        $this->db->set('terima', $terima9);
+        $this->db->set('susulan', $susulan9);
         $this->db->where('namaField', $field );
         $this->db->where('idLaporan', $idLaporan);
         $this->db->update('detaillaporan');
