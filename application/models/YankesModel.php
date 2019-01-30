@@ -279,6 +279,22 @@ if($bulan=="Januari"){
                   }
                 }
         
+      }else{
+         $terima0=explode("[", $terima);
+           if(empty($terima0[1])){
+                   $terima9 = "";
+                }else{
+                  foreach($terima0 as $terima2){
+                      $terima3= explode(":", $terima2);
+                      if($terima3[0]==$puskesmas){
+                        $terima9=str_replace("[$puskesmas:".$terima3[1],"" ,$terima);
+                        $status=true;
+                      }
+                  }
+                  if($status==false){
+                    $terima9=$terima."[$puskesmas:".$this->input->post($ssln)."]";
+                  }
+                }
       }
       $status=false;
         if($this->input->post($ssln) != ""){
@@ -301,6 +317,22 @@ if($bulan=="Januari"){
                   
        
         
+      }else{
+         $susulan0=explode("[", $susulan);
+           if(empty($susulan0[1])){
+                   $susulan9 = "";
+                }else{
+                  foreach($susulan0 as $susulan2){
+                      $susulan3= explode(":", $susulan2);
+                      if($susulan3[0]==$puskesmas){
+                        $susulan9=str_replace("[$puskesmas:".$susulan3[1],"" ,$susulan);
+                        $status=true;
+                      }
+                  }
+                  if($status==false){
+                    $susulan9=$susulan."[$puskesmas:".$this->input->post($ssln)."]";
+                  }
+                }
       }
 
 
