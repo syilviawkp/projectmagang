@@ -30,6 +30,8 @@ class LaporanKesga extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->helper('form');
+		$data['bulan']= "Januari";
+        $data['tahun']= "2019";
 		$query = $this->db->query("select tahun,bulan from laporan where jenisLaporan= 'KESGA' order by kodeLaporan DESC LIMIT 1");
   foreach ($query->result() as $key) {
         $data['bulan']= $key->bulan;
