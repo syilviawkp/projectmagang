@@ -99,7 +99,7 @@ class LaporanYankes extends CI_Controller {
 	}
 
 	public function saveEditdanSMSLaporan(){
-	$this->YankesModel->editLap();
+	$this->YankesModel->editLapdanSMS();
 	$nama = $this->input->post('puskesmas');
 	$bulan=$this->input->post('bulan');
 	$tahun=$this->input->post('tahun');
