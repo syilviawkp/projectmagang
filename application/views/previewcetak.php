@@ -26,18 +26,40 @@
    		height: 250px;
 		}
 	</style>
+    <link href="<?php echo base_url()?>/assets/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
 
+<div class="row">
+  <div class="col-md-1">
+</div>
+   <div class="col-md-2">
+    <br>
+    <a href="<?php echo site_url('LaporanKesga');?>"><button type="submit" style = "width: 150px" class="btn btn-outline-success"><span class="glyphicon glyphicon-arrow-left"></span>Back</button></a>
+  </div>
 
-<h1>
-<p style="text-align: center">Laporan Kesmas Bulan <?php echo $bulan ?> Tahun <?php echo $tahun?> </h1></p>
+<div class="col-md-7"><h1>
+    <p style="text-align: center">Laporan Kesmas Bulan <?php echo $bulan ?> Tahun <?php echo $tahun?> </h1></p> 
+</div>
+
+<div class="col-md-2"><br>
+  <?php echo form_open('cetaklaporan/cetakPdf')?>
+    <input type="text" name="bulan" value="<?php echo $bulan?>" hidden="">
+    <input type="text" name="tahun" value="<?php echo $tahun?>" hidden="">
+    <button type="submit" class="btn btn-outline-success" style="width: 150px"><span class="glyphicon glyphicon-print"></span>Cetak PDF</button>
+  <?php echo form_close();?>
+</div>
+</div>
+
+<br><br>
+
+
 <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
             
                 <tr>
-                    <th></th>
+                    <th>Uraian</th>
                    <?php foreach ($puskesmas as $key) {?>
                    <th><?php echo $key->namaPuskes?></th>
                    <?php } ?>
@@ -76,12 +98,10 @@
            
         </table>
 
-<p style="text-align: center">
-<?php echo form_open('cetaklaporan/cetakPdf')?>
-<input type="text" name="bulan" value="<?php echo $bulan?>" hidden="">
-<input type="text" name="tahun" value="<?php echo $tahun?>" hidden="">
-  <center><button type="submit" class="btn btn-outline-success"><span class="glyphicon glyphicon-print"></span>Cetak PDF</button></center>
-  <?php echo form_close();?>
+
+
+
+   
 </body>
 </html>
 

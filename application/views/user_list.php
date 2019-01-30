@@ -117,10 +117,7 @@
                     <label for="">No HP</label>
                     <input type="text" id="noHp" class="form-control" name="noHp" value="" >
                 </div>
-               <!--  <div class="form-group">
-                    <label for="">Jabatan</label>
-                    <input type="text" id="jabatan" class="form-control" name="jabatan" value="">
-                </div> -->
+         
 
                 <div class="form-group">
                   <label for="">Jabatan</label>
@@ -130,28 +127,25 @@
                   <option value="Kepala puskesmas"  >Kepala Puskesmas</option>
                   </select>
                 </div>
-                <!-- <div class="form-group">
-                    <label for="">ID Puskesmas</label>
-                    <input type="text" id="idPuskesmas" class="form-control" name="idPuskesmas" value="">
-                </div> -->
 
                 <div class="form-group">
                   <label for="">Puskesmas</label>
-                     <select class="form-control" name="idPuskesmas" id="idPuskesmas">
-                                   
-                     <option value="0" >Pilih puskesmas:</option>
-          
-                     <?php foreach ($puskesmas_object as $key){ ?> <option value="<?php echo $key->idPuskesmas?>" ><?php echo $key->namaPuskes?></option><?php }?>
+                     <select class="form-control" name="idPuskesmas" id="idPuskesmas">             
+                     <option value="0">Pilih puskesmas:</option>
+                     <?php foreach ($puskesmas_object as $key){ ?> 
+                      <option value="<?php echo $key->idPuskesmas?>" ><?php echo $key->namaPuskes?></option>
+                    <?php }?>
             
                   </select>
                 </div>
                
                 <div class="form-group">
                     <label for="">Level</label>
-                    <select class="form-control" name="level" id="level">
-                    <option value="Admin">Admin</option>
-                    <option value="User">User</option>
-                    </select>
+                     <select class="form-control" name="level" id="level">
+             
+                  <option value="User">User</option>
+                  <option value="Admin">Admin</option>
+                  </select>
                 </div>
               
                  
@@ -193,16 +187,29 @@
 
    <script type="text/javascript">
     function showmodal(idUser,username,password,nama,noHp,jabatan,idPuskesmas,level){
+      $("#idPuskesmas").children().removeAttr("selected");
         document.getElementById('idUser').value = idUser;
         document.getElementById('username').value = username;
         document.getElementById('password').value = password;
         document.getElementById('nama').value = nama;
         document.getElementById('noHp').value = noHp;
-        document.getElementById('jabatan').selected = jabatan;
-        document.getElementById('idPuskesmas').selected = idPuskesmas;
-        document.getElementById('level').selected = level;
-        $('#jabatan').find('option[value="' + jabatan + '"]').attr("selected", "selected");
-        $('#idPuskesmas').find('option[value="' + idPuskesmas + '"]').attr("selected", "selected");
+      
+       if(level=="Admin"){
+           $("#level").html('<option value="Admin" selected="">Admin</option>');
+        }else if(level=="User"){
+           $("#level").html('<option value="User" selected="">User</option>');
+        }
+
+        if(jabatan=="Staff"){
+           $("#jabatan").html(' <option value="Staff" selected="">Staff Dinkes </option><option value="Kepala puskesmas"  >Kepala Puskesmas</option>');
+        }else if(jabatan=="Kepala puskesmas"){
+           $("#jabatan").html(' <option value="Staff" >Staff Dinkes </option><option value="Kepala puskesmas" selected="" >Kepala Puskesmas</option>');
+        }
+
+    
+             $('#idPuskesmas').find('option[value="'+idPuskesmas+'"]').attr("selected","selected");
+        
+       
     }
   </script>
   <!--script for this page-->
