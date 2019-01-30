@@ -98,6 +98,15 @@ class LaporanYankes extends CI_Controller {
 		redirect('LaporanYankes','refresh');
 	}
 
+	public function saveEditdanSMSLaporan(){
+	$this->YankesModel->editLap();
+	$nama = $this->input->post('puskesmas');
+	$bulan=$this->input->post('bulan');
+	$tahun=$this->input->post('tahun');
+
+		redirect('LaporanYankes','refresh');
+	}
+
 	 public function editFieldLaporan()
     {
 

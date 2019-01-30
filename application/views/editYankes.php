@@ -54,6 +54,7 @@
 
               
  <?php echo form_open('LaporanYankes/saveEditLaporan');?>
+ <?php echo form_open('LaporanYankes/saveEditdanSMSLaporan');?>
     <input type="text" name="puskesmas" value="<?php echo $puskesmas?>" hidden="">
     <input type="text" name="bulan" value="<?php echo $bulan?>" hidden="">
     <input type="text" name="tahun" value="<?php echo $tahun ?>" hidden="">
@@ -154,10 +155,11 @@
         <br> <br>
         <p align="center">
         <Button type="submit" class="btn btn-success">    Submit    </Button></p><br>
-        <!-- <p align="center">
-        <Button type="submit" class="btn btn-success">  Submit Dan Kirim SMS  </Button></p> -->
-        <?php echo form_close();?>
+        <p align="center">
+        <Button type="submit" class="btn btn-success">  Submit Dan Kirim SMS  </Button></p>
         
+        <?php echo form_close();?>
+ 
             </div>
           </div>
           <!-- col-lg-12-->
