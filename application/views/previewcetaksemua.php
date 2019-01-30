@@ -36,7 +36,7 @@
 </div>
    <div class="col-md-2">
     <br>
-    <a href="<?php echo site_url('Welcome');?>"><button type="submit" style = "width: 150px" class="btn btn-outline-success"><span class="glyphicon glyphicon-arrow-left"></span>Back</button></a>
+    <a href="<?php echo site_url('Login/dashboard');?>"><button type="submit" style = "width: 150px" class="btn btn-outline-success"><span class="glyphicon glyphicon-arrow-left"></span>Back</button></a>
   </div>
 
 <div class="col-md-7"><h1>

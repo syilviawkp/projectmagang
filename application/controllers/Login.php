@@ -9,13 +9,31 @@ class Login extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->load->model('UserModel');
 		$this->load->model('PuskesmasModel');
+		$this->load->model('BerandaModel');
 	}
 
 public function dashboard()
 	{
+		$data['jumlahuser']=$this->BerandaModel->jumlahuser();
+		$data['jumlahpuskesmas']=$this->BerandaModel->jumlahpuskesmas();
+		$data['jumlahsms']=$this->BerandaModel->jumlahsms();
+		
+		$data['puskesmas']=$this->BerandaModel->listPuskesmas();
+
+		$data['jumlahyankes']= $this->BerandaModel->jumlahYankes();
+		$data['lastYankes']=$this->BerandaModel->lastLaporanYankes();
+		$data['dataYankes']=$this->BerandaModel->ceksudahYankes();
+
+		$data['jumlahkesga']= $this->BerandaModel->jumlahKesga();
+		$data['lastKesga']=$this->BerandaModel->lastLaporanKesga();
+		$data['dataKesga']=$this->BerandaModel->ceksudahKesga();
+
+		$data['jumlahp2pl']= $this->BerandaModel->jumlahP2pl();
+		$data['lastP2pl']=$this->BerandaModel->lastLaporanP2pl();
+		$data['dataP2pl']=$this->BerandaModel->ceksudahP2pl();
 		$this->load->view('header');
 		// $this->load->view('headeruser');
-		$this->load->view('index');
+		$this->load->view('beranda',$data);
 	}
 	/**
 	 * Index Page for this controller.

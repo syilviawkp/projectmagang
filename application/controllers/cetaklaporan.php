@@ -22,13 +22,7 @@ class Cetaklaporan extends CI_Controller {
 		
 		$this->load->helper('url');
 		$this->load->helper('form');
-		// $query = $this->db->query("select tahun,bulan from laporan where jenisLaporan= 'KESGA' order by kodeLaporan DESC LIMIT 1");
-  // 	foreach ($query->result() as $key) {
-  //       $data['bulan']= $key->bulan;
-  //       $data['tahun']= $key->tahun;
-  //     }
-		// $data['kategori']= $this->KesgaModel->getLastKategori();
-		// $data['laporan']= $this->KesgaModel->getLastLaporan();
+
 
 		$data['detailLaporan']=$this->CetakModel->view_row();
 		$this->load->view('header');
@@ -244,15 +238,6 @@ class Cetaklaporan extends CI_Controller {
 
 
 	
-
-	// public function getwaktulaporan(){
-
-	// 	$this->load->model('KesgaModel');
-	// 	$data['kategori']=$this->KesgaModel->getFilterKategori();
-	// 	$data['laporan']=$this->KesgaModel->getFilterLaporan();
-	// 	// $data['detailLaporan']=$this->CetakModel->view_row();
- // }
-
 
 
 

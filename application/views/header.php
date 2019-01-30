@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="<?php echo base_url()?>/assets/lib/advanced-datatable/css/DT_bootstrap.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/assets/css/zabuto_calendar.css">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/assets/lib/gritter/css/jquery.gritter.css" />
-
+<script src="<?php echo base_url()?>assets/lib/chart-master/Chart.js"></script>
 
 
   <!-- Custom styles for this template -->
@@ -257,7 +257,7 @@
           <h5 class="centered">Sistem Laporan Puskesmas</h5> -->
           <li class="mt">
 
-            <a class="active" href=<?php echo site_url('Welcome/');?>>
+            <a class="active" href=<?php echo site_url('Login/dashboard');?>>
               <i class="fa fa-home"></i>
 
               <span>Beranda</span>
