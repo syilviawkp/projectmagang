@@ -59,7 +59,7 @@
             <thead>
             
                 <tr>
-                    <th>Uraian</th>
+                    <th></th>
                    <?php foreach ($puskesmas as $key) {?>
                    <th><?php echo $key->namaPuskes?></th>
                    <?php } ?>
