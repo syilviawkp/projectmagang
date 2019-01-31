@@ -15,7 +15,7 @@
      
 
             <div class="form-panel">
-              <h4 class="mb"><i class="fa fa-angle-right"></i> Laporan Yankes <?php echo  $this->session->userdata('logged_in')['namaPuskes'];?></h4>
+              <h4 class="mb"><i class="fa fa-angle-right"></i> Laporan PSDK <?php echo  $this->session->userdata('logged_in')['namaPuskes'];?></h4>
              <?php echo form_open('User/filterYankes'); ?>
                 <div class="form-group">
                   <label class="col-sm-2 col-sm-2 control-label">Bulan</label>

@@ -15,7 +15,7 @@
      
 
             <div class="form-panel">
-              <h4 class="mb"><i class="fa fa-angle-right"></i> Laporan Kesga <?php echo  $this->session->userdata('logged_in')['namaPuskes'];?></h4>
+              <h4 class="mb"><i class="fa fa-angle-right"></i> Laporan Kesmas <?php echo  $this->session->userdata('logged_in')['namaPuskes'];?></h4>
              <?php echo form_open('User/filterKesga'); ?>
                 <div class="form-group">
                   <label class="col-sm-2 col-sm-2 control-label">Bulan</label>
@@ -134,7 +134,7 @@
   <!--script for this page-->
   <script src="<?php echo base_url()?>assets/lib/sparkline-chart.js"></script>
   <script src="<?php echo base_url()?>assets/lib/zabuto_calendar.js"></script>
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
     $(document).ready(function() {
       var unique_id = $.gritter.add({
         // (string | mandatory) the heading of the notification
@@ -153,7 +153,7 @@
 
       return false;
     });
-  </script>
+  </script> -->
   <script type="application/javascript">
     $(document).ready(function() {
       $("#date-popover").popover({
