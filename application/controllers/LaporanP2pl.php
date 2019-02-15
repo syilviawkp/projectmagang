@@ -5,6 +5,7 @@ class LaporanP2pl extends CI_Controller {
 
 	public function __construct()
 	{
+	    ob_start();
 		parent::__construct();
 		$this->load->model('PuskesmasModel');
 		$this->load->model('P2plModel');
@@ -98,7 +99,8 @@ class LaporanP2pl extends CI_Controller {
 	$email_api = urlencode("sylviaputri0@gmail.com ");
 	$passkey_api = urlencode("Hm123123");
 	$no_hp_tujuan = urlencode($noHp);
-	$isi_pesan = urlencode("Kepala Puskesmas $nama yang terhormat, Terimakasih telah mengirimkan laporan bulan ".$bulan." ".$tahun);
+$isi_pesan = urlencode("Kepala Puskesmas $nama,Terimakasih telah mengirim laporan bln ".$bulan." ".$tahun." klik bit.ly/2CSITK6 untuk lengkapnya *Dinkes");
+
 
 	$url = "https://reguler.medansms.co.id/sms_api.php?action=kirim_sms&email=".$email_api."&passkey=".$passkey_api."&no_tujuan=".$no_hp_tujuan."&pesan=".$isi_pesan;
 	$result = file_get_contents($url);

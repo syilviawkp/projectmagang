@@ -4,9 +4,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Cetaklaporan extends CI_Controller {
 
 	public function __construct(){
+	    ob_start();
 		parent::__construct();
 		$this->load->model('CetakModel');
-		$this->load->library('dompdf_gen');
+		$this->load->library('Dompdf_gen');
 		$this->load->helper('file');
 		$this->load->model('KesgaModel');
 		$this->load->model('P2plModel');
@@ -28,8 +29,6 @@ class Cetaklaporan extends CI_Controller {
 		$this->load->view('header');
 		$this->load->view('previewcetak', $data);
 	}
-
-	// =================================== CONTROLLER CETAK YANKES=============================================
 
 	public function editFieldCetakyankes()
     {
@@ -57,17 +56,14 @@ class Cetaklaporan extends CI_Controller {
  
 		$data['bulan'] = $this->input->post('bulan');
 		$data['tahun']=$this->input->post('tahun');
-
-       $this->load->view('Printyankes', $data);
-
-
 		$paper_size='A4'; //paper size
 		$orientation = 'landscape'; //tipe format kertas
-		$html = $this->output->get_output();
+	    $html = $this->load->view('Printyankes.html',$data,true);
 
-		//$this->dompdf->set_paper($paper_size, $orientation); //convert to pdf
+	
 		$dompdf = new DOMPDF();
-		$this->dompdf->load_html($html);
+
+	    $this->dompdf->load_html($html);
 		$this->dompdf->render();
 		$this->dompdf->stream("laporanPSDK.pdf");
 		unset($html);
@@ -90,7 +86,7 @@ class Cetaklaporan extends CI_Controller {
 		$data['tahun']=$this->input->post('tahun');
 		        
  
-       $this->load->view('previewcetakP2pl', $data);
+       $this->load->view('previewcetakp2pl', $data);
   }
 
 		public function cetakPdfP2pl(){
@@ -106,12 +102,11 @@ class Cetaklaporan extends CI_Controller {
 		$data['bulan'] = $this->input->post('bulan');
 		$data['tahun']=$this->input->post('tahun');
 
-       $this->load->view('Printp2pl', $data);
-
+ 
 
 		$paper_size='A4'; //paper size
 		$orientation = 'landscape'; //tipe format kertas
-		$html = $this->output->get_output();
+		$html = $this->load->view('Printp2pl.html',$data,true);
 
 		//$this->dompdf->set_paper($paper_size, $orientation); //convert to pdf
 		$dompdf = new DOMPDF();
@@ -150,14 +145,12 @@ class Cetaklaporan extends CI_Controller {
  
 		$data['bulan'] = $this->input->post('bulan');
 		$data['tahun']=$this->input->post('tahun');
-
-       $this->load->view('print', $data);
+ 
 
 
 		$paper_size='A4'; //paper size
 		$orientation = 'landscape'; //tipe format kertas
-		$html = $this->output->get_output();
-
+	$html = $this->load->view('print.html',$data,true);
 		//$this->dompdf->set_paper($paper_size, $orientation); //convert to pdf
 		$dompdf = new DOMPDF();
 		$this->dompdf->load_html($html);
@@ -193,7 +186,7 @@ class Cetaklaporan extends CI_Controller {
 		$data['tahun']=$this->input->post('tahun');
 		        
  
-       $this->load->view('previewcetakSemua', $data);
+       $this->load->view('previewcetaksemua', $data);
   }
 
 		public function cetakPdfSemua(){
@@ -221,11 +214,11 @@ class Cetaklaporan extends CI_Controller {
 		$data['bulan'] = $this->input->post('bulan');
 		$data['tahun']=$this->input->post('tahun');
 
-       $this->load->view('PrintSemua', $data);
+    
 
 		$paper_size='A4'; //paper size
 		$orientation = 'landscape'; //tipe format kertas
-		$html = $this->output->get_output();
+		$html = $this->load->view('printsemua.html',$data,true);
 
 		//$this->dompdf->set_paper($paper_size, $orientation); //convert to pdf
 		$dompdf = new DOMPDF();

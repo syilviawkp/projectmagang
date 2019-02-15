@@ -46,7 +46,7 @@ class PuskesmasModel extends CI_Model {
     $object = array(
         'namaPuskes'=>$this->input->post('namaPuskes'),
         'alamatPuskes'=>$this->input->post('alamatPuskes'),
-        'status'=>$this->input->post('status'),
+        'status'=>"AKTIF",
         'tgl_aktif' =>$today
      ); 
         $this->db->insert('puskesmas',$object); 

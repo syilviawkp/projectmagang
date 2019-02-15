@@ -42,20 +42,15 @@
                                     <br><br>
 
 
-                                    <label for="">Status</label>
+                                    <!-- <label for="">Status</label>
                                     <select class="form-control" name="status" id="status">
-                                    <option value="" >Pilih status puskesmas:</option>
+                      
                                     <option value="AKTIF" >Aktif</option>
                                     <option value="NONAKTIF" >Non-Aktif</option>
-                                    </select>
+                                    </select> -->
                                     <br><br>
 
-<!-- 
-                                    <label for="">Kode Puskesmas</label>
-                                    <input type="text" name="idPuskesmas" class="form-control" id="idPuskesmas" placeholder="isi kode puskesmas">
-                                    
 
-                                    <div class="form-group"> -->
             
 
 

@@ -36,7 +36,7 @@ class BerandaModel extends CI_Model {
       			foreach ($query->result() as $key) {
              $jumlahsms = $key->jumlahsms;
            		}
-           		$jumlah= 10- $jumlahsms;
+           		$jumlah= 10-$jumlahsms;
     		}
     		return $jumlah;
 	}

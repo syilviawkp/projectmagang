@@ -21,7 +21,7 @@
                   <label class="col-sm-2 col-sm-2 control-label">Bulan</label>
                   <div class="col-sm-10">
                      <select class="form-control" name="bulan" id="bulan">
-                  <option value="" >--Pilih Bulan--</option>
+                 
                   <?php 
                   $daftarBulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
                   foreach ($daftarBulan as $key) {
@@ -41,8 +41,8 @@
                   <label class="col-sm-2 col-sm-2 control-label">Tahun</label>
                   <div class="col-sm-10">
                    <select class="form-control" name="tahun" id="tahun">
-                  <option value="">--Pilih Tahun--</option>
-                  <?php for($i=2015 ; $i<=2023;$i++){
+                 
+                  <?php for($i=2019 ; $i<=2029;$i++){
                     if($i==$tahun){?>
                   
                   <option value="<?php echo $i?>" selected=""><?php echo $i?></option>
@@ -140,7 +140,7 @@
                     <label for="">Bulan</label>
                    
                   <select class="form-control" name="bulan" id="bulan2">
-                  <option value="" >--Pilih Bulan--</option>
+                
                   <?php 
                   $daftarBulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
                   foreach ($daftarBulan as $key) {
@@ -156,8 +156,8 @@
                 <div class="form-group">
                     <label for="">Tahun</label>
                      <select class="form-control" name="tahun" id="tahun2">
-                  <option value="">--Pilih Tahun--</option>
-                  <?php for($i=2015 ; $i<=2023;$i++){
+                
+                  <?php for($i=2019 ; $i<=2029;$i++){
                     if($i==$tahun){?>
                   
                   <option value="<?php echo $i?>" selected=""><?php echo $i?></option>

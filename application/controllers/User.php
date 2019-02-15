@@ -15,7 +15,7 @@ class User extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('headeruser');
-		$this->load->view('indexUser');
+		$this->load->view('IndexUser');
 	}
 
 
@@ -24,6 +24,8 @@ class User extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->helper('form');
+		 $data['bulan']= "Januari";
+        $data['tahun']= 2019;
 		$query = $this->db->query("select tahun,bulan from laporan where jenisLaporan= 'KESGA' order by kodeLaporan DESC LIMIT 1");
   foreach ($query->result() as $key) {
         $data['bulan']= $key->bulan;
@@ -43,6 +45,8 @@ class User extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->helper('form');
+		 $data['bulan']= "Januari";
+        $data['tahun']= 2019;
 		$query = $this->db->query("select tahun,bulan from laporan where jenisLaporan= 'P2PL' order by kodeLaporan DESC LIMIT 1");
   foreach ($query->result() as $key) {
         $data['bulan']= $key->bulan;
@@ -61,6 +65,8 @@ class User extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->helper('form');
+		 $data['bulan']= "Januari";
+        $data['tahun']= 2019;
 		$query = $this->db->query("select tahun,bulan from laporan where jenisLaporan= 'YANKES' order by kodeLaporan DESC LIMIT 1");
   foreach ($query->result() as $key) {
         $data['bulan']= $key->bulan;

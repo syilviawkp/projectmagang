@@ -42,7 +42,7 @@
                   <div class="col-sm-10">
                    <select class="form-control" name="tahun" id="tahun">
                   <option value="">--Pilih Tahun--</option>
-                  <?php for($i=2015 ; $i<=2023;$i++){
+                  <?php for($i=2019 ; $i<=2029;$i++){
                     if($i==$tahun){?>
                   
                   <option value="<?php echo $i?>" selected=""><?php echo $i?></option>
@@ -65,7 +65,7 @@
                 <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
             <tr>
-              <th colspan="8" ><center>Absen Laporan YANKES Bulan <?php echo $bulan." "; echo $tahun?> </center> </th>
+              <th colspan="8" ><center>Absen Laporan PSDK Bulan <?php echo $bulan." "; echo $tahun?> </center> </th>
             </tr>
                 <tr>
                     <th></th>

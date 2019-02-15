@@ -6,6 +6,7 @@ class Login extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		ob_start();
 		$this->load->library('form_validation');
 		$this->load->model('UserModel');
 		$this->load->model('PuskesmasModel');
@@ -149,12 +150,12 @@ public function dashboard()
 		{
 			$this->load->helper('url', 'form');
 			$this->load->library('form_validation');
-			// $this->load->model('UserModel');
+		
 			$this->form_validation->set_rules('username', 'username', 'trim|required');
 			$this->form_validation->set_rules('password', 'password', 'trim|required');
 			$this->form_validation->set_rules('nama', 'nama', 'trim|required');
 			$this->form_validation->set_rules('noHp', 'noHp', 'trim|required');
-			// $this->form_validation->set_rules('idPuskesmas', 'idPuskesmas', 'trim|required');
+			
 			$this->form_validation->set_rules('level', 'level', 'trim|required');
 			$this->form_validation->set_rules('jabatan', 'jabatan', 'trim|required');
 			
@@ -163,15 +164,20 @@ public function dashboard()
 			{
 			
 				//echo '<script>alert("Gagal menambahkan")</script>';
-				$this->session->set_flashdata('tambahUser','<div class="alert alert-danger" role="alert">GAGAL TAMBAH DATA <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+				$this->session->set_flashdata('tambahUser','<div class="alert alert-danger" role="alert"><b>GAGAL TAMBAH DATA</b> Pastikan seluruh data terisi<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 				redirect('Login/data', 'refresh');
 		}else
 			{
+				if(!is_numeric($this->input->post('noHp'))){
+					$this->session->set_flashdata('tambahUser','<div class="alert alert-danger" role="alert"><b>GAGAL TAMBAH DATA</b> Pastikan nomor hp harus berupa angka<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+				redirect('Login/data', 'refresh');
+				}else{
 				$this->load->model('UserModel');
 				$this->UserModel->insertUser();
 						$this->session->set_flashdata('tambahUser','<div class="alert alert-success" role="alert">SUKSES TAMBAH DATA <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 				//echo '<script>alert("Sukses mendaftar")</script>';
 				redirect('Login/data', 'refresh');
+			}
 			}
 	}
 
@@ -206,17 +212,42 @@ public function dashboard()
 
 	public function Update()
 	{
+		$this->load->helper('url', 'form');
+			$this->load->library('form_validation');
+		
+			$this->form_validation->set_rules('username', 'username', 'trim|required');
+			$this->form_validation->set_rules('password', 'password', 'trim|required');
+			$this->form_validation->set_rules('nama', 'nama', 'trim|required');
+			$this->form_validation->set_rules('noHp', 'noHp', 'trim|required');
+			
+			$this->form_validation->set_rules('level', 'level', 'trim|required');
+			$this->form_validation->set_rules('jabatan', 'jabatan', 'trim|required');
+			
+
+		if ($this->form_validation->run()==FALSE) 
+			{
+			
+				//echo '<script>alert("Gagal menambahkan")</script>';
+				$this->session->set_flashdata('editUser','<div class="alert alert-danger" role="alert"><b>GAGAL EDIT DATA</b> Pastikan seluruh data terisi<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+				redirect('Login/data', 'refresh');
+		}else
+			{
+				if(!is_numeric($this->input->post('noHp'))){
+					$this->session->set_flashdata('editUser','<div class="alert alert-danger" role="alert"><b>GAGAL EDIT DATA</b> Pastikan nomor hp harus berupa angka<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+				redirect('Login/data', 'refresh');
+				}else{
 				$this->UserModel->UpdateById();
-				//echo '<script>alert("Sukses mengedit")</script>';
+			
 				$this->session->set_flashdata('editUser','<div class="alert alert-success" role="alert">SUKSES EDIT DATA <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 			redirect('Login/data', 'refresh');		
-			// }
+			}
+		}
 	}
 
 	public function editprofil()
 	{
 		$data['user']=$this->UserModel->getCurrentUser();
-		$this->load->view('edituser', $data);
+		$this->load->view('editUser', $data);
 	}
 
 	public function updateprofil()
@@ -228,7 +259,7 @@ public function dashboard()
 			$data['user']=$this->UserModel->getCurrentUser();
 
 			if($this->form_validation->run()==FALSE){
-				$this->load->view('edituser', $data);
+				$this->load->view('editUser', $data);
 
 			}else{
 				$this->UserModel->EditById();

@@ -42,7 +42,7 @@
                   <div class="col-sm-10">
                    <select class="form-control" name="tahun" id="tahun">
                   <option value="">--Pilih Tahun--</option>
-                  <?php for($i=2015 ; $i<=2023;$i++){
+                  <?php for($i=2019 ; $i<=2029;$i++){
                     if($i==$tahun){?>
                   
                   <option value="<?php echo $i?>" selected=""><?php echo $i?></option>
@@ -65,7 +65,7 @@
                 <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
             <tr>
-              <th colspan="8" ><center>Absen Laporan P2PL Bulan <?php echo $bulan." "; echo $tahun?> </center> </th>
+              <th colspan="8" ><center>Absen Laporan P2P Bulan <?php echo $bulan." "; echo $tahun?> </center> </th>
             </tr>
                 <tr>
                     <th></th>
@@ -134,26 +134,7 @@
   <!--script for this page-->
   <script src="<?php echo base_url()?>assets/lib/sparkline-chart.js"></script>
   <script src="<?php echo base_url()?>assets/lib/zabuto_calendar.js"></script>
-  <!-- <script type="text/javascript">
-    $(document).ready(function() {
-      var unique_id = $.gritter.add({
-        // (string | mandatory) the heading of the notification
-        title: 'Welcome to Dashio!',
-        // (string | mandatory) the text inside the notification
-        text: 'Hover me to enable the Close Button. You can hide the left sidebar clicking on the button next to the logo.',
-        // (string | optional) the image to display on the left
-        image: "<?php echo base_url()?>assets/img/ui-sam.jpg",
-        // (bool | optional) if you want it to fade out on its own or just sit there
-        sticky: false,
-        // (int | optional) the time you want it to be alive for before fading out
-        time: 8000,
-        // (string | optional) the class name you want to apply to that specific message
-        class_name: 'my-sticky-class'
-      });
-
-      return false;
-    });
-  </script> -->
+  
   <script type="application/javascript">
     $(document).ready(function() {
       $("#date-popover").popover({

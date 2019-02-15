@@ -7,6 +7,7 @@ class YankesModel extends CI_Model {
     public function __construct()
     {
         parent::__construct();
+        ob_start();
         $this->load->database();
     }
 
@@ -49,6 +50,9 @@ class YankesModel extends CI_Model {
    
 
     public function addLaporan(){
+    if(empty($this->input->post('namaField'))){
+
+    }else{
       $bulan = $this->session->userdata('editFormat')['bulan'];
         $tahun = $this->session->userdata('editFormat')['tahun'];
         $this->db->select('*');
@@ -73,6 +77,7 @@ class YankesModel extends CI_Model {
 
         $data2 = array('idKategori' => $idKategori, 'namaField' => $this->input->post('namaField'));
         $this->db->insert('formatfield', $data2);
+      }
     }
 
     public function update($id, $idField){

@@ -342,7 +342,7 @@
                     <label for="">Bulan</label>
                    
                   <select class="form-control" name="bulan" id="bulan">
-                  <option value="" >--Pilih Bulan--</option>
+                 
                   <?php 
                   $daftarBulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
                   foreach ($daftarBulan as $key) {?>
@@ -354,8 +354,8 @@
                 <div class="form-group">
                     <label for="">Tahun</label>
                      <select class="form-control" name="tahun" id="tahun">
-                  <option value="">--Pilih Tahun--</option>
-                  <?php for($i=2015 ; $i<=2023;$i++){?>
+                 
+                  <?php for($i=2019 ; $i<=2029;$i++){?>
             <option value="<?php echo $i?>" ><?php echo $i?></option>
                   <?php   }?>
                 
@@ -385,7 +385,7 @@
                     <label for="">Bulan</label>
                    
                   <select class="form-control" name="bulan" id="bulan">
-                  <option value="" >--Pilih Bulan--</option>
+             
                   <?php 
                   $daftarBulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
                   foreach ($daftarBulan as $key) {?>
@@ -397,8 +397,8 @@
                 <div class="form-group">
                     <label for="">Tahun</label>
                      <select class="form-control" name="tahun" id="tahun">
-                  <option value="">--Pilih Tahun--</option>
-                  <?php for($i=2015 ; $i<=2023;$i++){?>
+                 
+                  <?php for($i=2019 ; $i<=2029;$i++){?>
             <option value="<?php echo $i?>" ><?php echo $i?></option>
                   <?php   }?>
                 
@@ -426,7 +426,7 @@
                     <label for="">Bulan</label>
                    
                   <select class="form-control" name="bulan" id="bulan">
-                  <option value="" >--Pilih Bulan--</option>
+                  
                   <?php 
                   $daftarBulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
                   foreach ($daftarBulan as $key) {?>
@@ -438,8 +438,8 @@
                 <div class="form-group">
                     <label for="">Tahun</label>
                      <select class="form-control" name="tahun" id="tahun">
-                  <option value="">--Pilih Tahun--</option>
-                  <?php for($i=2015 ; $i<=2023;$i++){?>
+                  
+                  <?php for($i=2019 ; $i<=2029;$i++){?>
             <option value="<?php echo $i?>" ><?php echo $i?></option>
                   <?php   }?>
                 
@@ -460,13 +460,13 @@
                 <div class="modal-header">
                     <h4 class="modal-title">Cetak Laporan Kesmas</h4>
                 </div>
-     <?php echo form_open('cetaklaporan/editFieldCetakKesga'); ?>
+     <?php echo form_open('Cetaklaporan/editFieldCetakKesga'); ?>
     <div class="modal-body">
         <div class="form-group">
                     <label for="">Bulan</label>
                    
                  <select class="form-control" name="bulan" id="bulan">
-                  <option value="" >--Pilih Bulan--</option>
+                  
                   <?php 
                   $daftarBulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
                   foreach ($daftarBulan as $key) {?>
@@ -478,8 +478,8 @@
                 <div class="form-group">
                     <label for="">Tahun</label>
                      <select class="form-control" name="tahun" id="tahun">
-                  <option value="">--Pilih Tahun--</option>
-                  <?php for($i=2015 ; $i<=2023;$i++){?>
+                  
+                  <?php for($i=2019 ; $i<=2029;$i++){?>
             <option value="<?php echo $i?>" ><?php echo $i?></option>
                   <?php   }?>
                 
@@ -502,13 +502,13 @@
                 <div class="modal-header">
                     <center><h4 class="modal-title">Cetak Laporan P2P</h4></center>
                 </div>
-     <?php echo form_open('cetaklaporan/editFieldCetakp2pl'); ?>
+     <?php echo form_open('Cetaklaporan/editFieldCetakp2pl'); ?>
     <div class="modal-body">
         <div class="form-group">
                     <label for="">Bulan</label>
                    
                    <select class="form-control" name="bulan" id="bulan">
-                  <option value="" >--Pilih Bulan--</option>
+                 
                   <?php 
                   $daftarBulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
                   foreach ($daftarBulan as $key) {?>
@@ -520,8 +520,8 @@
                 <div class="form-group">
                     <label for="">Tahun</label>
                      <select class="form-control" name="tahun" id="tahun">
-                  <option value="">--Pilih Tahun--</option>
-                  <?php for($i=2015 ; $i<=2023;$i++){?>
+                  
+                  <?php for($i=2019 ; $i<=2029;$i++){?>
             <option value="<?php echo $i?>" ><?php echo $i?></option>
                   <?php   }?>
                 
@@ -544,13 +544,13 @@
                 <div class="modal-header">
                     <center><h4 class="modal-title">Cetak Laporan PSDK</h4></center>
                 </div>
-     <?php echo form_open('cetaklaporan/editFieldCetakyankes'); ?>
+     <?php echo form_open('Cetaklaporan/editFieldCetakyankes'); ?>
   <div class="modal-body">
         <div class="form-group">
                     <label for="">Bulan</label>
                    
                   <select class="form-control" name="bulan" id="bulan">
-                  <option value="" >--Pilih Bulan--</option>
+                
                   <?php 
                   $daftarBulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
                   foreach ($daftarBulan as $key) {?>
@@ -562,8 +562,8 @@
                 <div class="form-group">
                     <label for="">Tahun</label>
                      <select class="form-control" name="tahun" id="tahun">
-                  <option value="">--Pilih Tahun--</option>
-                  <?php for($i=2015 ; $i<=2023;$i++){
+                  
+                  <?php for($i=2019 ; $i<=2029;$i++){
                     ?>
             <option value="<?php echo $i?>" ><?php echo $i?></option>
                   <?php } ?>
@@ -586,13 +586,13 @@
                 <div class="modal-header">
                     <center><h4 class="modal-title">Cetak Laporan Semua Kategori</h4></center>
                 </div>
-     <?php echo form_open('cetaklaporan/editFieldCetakSemua'); ?>
+     <?php echo form_open('Cetaklaporan/editFieldCetakSemua'); ?>
     <div class="modal-body">
         <div class="form-group">
                     <label for="">Bulan</label>
                    
                    <select class="form-control" name="bulan" id="bulan">
-                  <option value="" >--Pilih Bulan--</option>
+                  
                   <?php 
                   $daftarBulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober", "Desember");
                   foreach ($daftarBulan as $key) {?>
@@ -604,8 +604,8 @@
                 <div class="form-group">
                     <label for="">Tahun</label>
                      <select class="form-control" name="tahun" id="tahun">
-                  <option value="">--Pilih Tahun--</option>
-                  <?php for($i=2015 ; $i<=2023;$i++){?>
+                  
+                  <?php for($i=2019 ; $i<=2029;$i++){?>
             <option value="<?php echo $i?>" ><?php echo $i?></option>
                   <?php   }?>
                 

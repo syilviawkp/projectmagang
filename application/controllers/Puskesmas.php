@@ -64,7 +64,7 @@ class Puskesmas extends CI_Controller {
 			// $this->load->model('UserModel');
 			$this->form_validation->set_rules('namaPuskes', 'namaPuskes', 'trim|required');
 			$this->form_validation->set_rules('alamatPuskes', 'alamatPuskes', 'trim|required');
-			$this->form_validation->set_rules('status', 'status', 'trim|required');
+			//$this->form_validation->set_rules('status', 'status', 'trim|required');
 
 
 		if ($this->form_validation->run()==FALSE) 
@@ -84,9 +84,24 @@ class Puskesmas extends CI_Controller {
 
 	public function Update()
 	{
+		$this->load->helper('url', 'form');
+			$this->load->library('form_validation');
+			$this->form_validation->set_rules('namaPuskes', 'namaPuskes', 'trim|required');
+			$this->form_validation->set_rules('alamatPuskes', 'alamatPuskes', 'trim|required');
+			//$this->form_validation->set_rules('status', 'status', 'trim|required');
+
+
+		if ($this->form_validation->run()==FALSE) 
+			{
+				
+				$this->session->set_flashdata('editPuskesmas','<div class="alert alert-danger" role="alert">GAGAL UPDATE DATA <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+				redirect('Puskesmas/data', 'refresh');
+		}else
+			{
 				$this->PuskesmasModel->UpdateById();
 				$this->session->set_flashdata('editPuskesmas','<div class="alert alert-success" role="alert">SUKSES UPDATE DATA <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 			redirect('Puskesmas/data', 'refresh');
 	}
+}
 	
 }
